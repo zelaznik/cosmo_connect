@@ -1,5 +1,29 @@
 class User < ActiveRecord::Base
   belongs_to :gender
+
+  has_many :photos
+  has_many :matches
+
+  has_one :details, class_name: "DetailsOfUser"
+  has_one :ethnicity, through: :details, source: :ethnicity
+  has_one :body_type, through: :details, source: :body_type
+  has_one :religion, through: :details, source: :religion
+  has_one :relationship_status, through: :details, source: :relationship_status
+
+  has_many(
+    :secret_admirers,
+    through: :matches,
+    foreign_key: :receiver_id,
+    source: :sender
+  )
+
+  has_many(
+    :crushes,
+    through: :matches,
+    foreign_key: :sender_id,
+    source: :receiver
+  )
+
   has_many :desired_genders
   has_many :genders_sought, through: :desired_genders, source: :gender
   has_many :users_of_desirable_gender, through: :desired_genders, source: :user
@@ -13,5 +37,7 @@ class User < ActiveRecord::Base
 
   has_many :sent_messages, class_name: "Message", foreign_key: :sender_id
   has_many :received_messages, class_name: "Message", foreign_key: :receiver_id
+
+  has_many :responses
 
 end
