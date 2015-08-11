@@ -8,4 +8,10 @@ class User < ActiveRecord::Base
   has_many :visited_profiles, through: :visits, source: :profile
   has_many :visitors, through: :visits, source: :visitor
 
+  has_many :user_interest_links
+  has_many :interests, through: :user_interest_links, source: :interest
+
+  has_many :sent_messages, class_name: "Message", foreign_key: :sender_id
+  has_many :received_messages, class_name: "Message", foreign_key: :receiver_id
+
 end
