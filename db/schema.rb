@@ -164,6 +164,7 @@ ActiveRecord::Schema.define(version: 20150811172719) do
   create_table "users", force: :cascade do |t|
     t.string   "username",        null: false
     t.string   "password_digest", null: false
+    t.string   "session_token",   null: false
     t.datetime "birthdate",       null: false
     t.integer  "gender_id",       null: false
     t.integer  "min_age",         null: false
@@ -174,6 +175,7 @@ ActiveRecord::Schema.define(version: 20150811172719) do
     t.datetime "updated_at",      null: false
   end
 
+  add_index "users", ["session_token"], name: "index_users_on_session_token", unique: true, using: :btree
   add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
 
   create_table "visits", force: :cascade do |t|
