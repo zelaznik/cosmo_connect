@@ -4,7 +4,6 @@ window.Cosmo = {
   Views: {},
   Routers: {},
   initialize: function () {
-    //This function has been commented out.  It's not source of Rails Error
     var router = new Cosmo.Routers.Router({
       $rootEl: $('#content'),
     });
@@ -20,6 +19,6 @@ window.Cosmo = {
 
 };
 
-// $(document).ready(function() {
-//   Cosmo.initialize();
-// });
+$(document).ready(function() {
+  Cosmo.initialize();
+});

@@ -1,4 +1,4 @@
-Cosmo.Views.HavShow = Backbone.View.extend({
+Cosmo.Views.NavShow = Backbone.View.extend({
   template: JST['nav'],
 
   initialize: function (options) {
