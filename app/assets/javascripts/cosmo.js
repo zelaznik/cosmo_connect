@@ -4,17 +4,20 @@ window.Cosmo = {
   Views: {},
   Routers: {},
   initialize: function () {
-    new Cosmo.Routers.Router({
-      $rootEl: $('#content'),
-      $navBar: this.navBar()
-    });
-    Backbone.history.start();
-  },
 
-  navBar: function() {
-    if (this._navBar)
-    var view = 3;
+    var router = new Cosmo.Routers.Router({
+      $rootEl: $('#content'),
+    });
+
+    var nav = new Cosmo.Views.NavShow({
+      router: router
+    });
+
+    $('#navbar').html(nav.render().$el);
+
+    Backbone.history.start();
   }
+
 };
 
 $(document).ready(function() {
