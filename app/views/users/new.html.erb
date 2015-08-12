@@ -17,14 +17,12 @@
     <input type="date" name="user[birthdate]">
   </label></p>
 
-  <p><label>
-    Gender
-    <select name = "user[gender_id]">
-      <% @genders.each do |gender| %>
-        <option value="<%= gender.id %>"><%= gender.name %></option>
-      <% end %>
-    </select>
-  </label></p>
+  <%= render 'shared/dropdown',
+    title: 'Gender',
+    collection: @genders,
+    fieldname: 'name',
+    name: 'user[gender_id]'
+  %>
 
   <input type="submit" value="Sign In">
 
