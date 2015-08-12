@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   def new
     @user = User.new
     @genders = Gender.all
+    @ethnicities = Ethnicity.all
   end
 
   def create
