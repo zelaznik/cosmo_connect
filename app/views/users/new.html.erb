@@ -24,12 +24,33 @@
     name: 'user[gender_id]'
   %>
 
-  <!-- <%= render 'shared/dropdown',
+  <%= render 'shared/dropdown',
     title: 'Ethnicity',
     collection: @ethnicities,
-    fieldname: 'name',
-    name: 'user[gender_id]'
-  %> -->
+    fieldname: 'description',
+    name: 'user[ethnicity_id]'
+  %>
+
+  <%= render 'shared/dropdown',
+    title: 'Body Type',
+    collection: @body_types,
+    fieldname: 'description',
+    name: 'user[body_type_id]'
+  %>
+
+  <%= render 'shared/dropdown',
+    title: 'Religion',
+    collection: @religions,
+    fieldname: 'title',
+    name: 'user[religion_id]'
+  %>
+
+  <%= render 'shared/dropdown',
+    title: 'Relationship Status',
+    collection: @relationship_statuses,
+    fieldname: 'description',
+    name: 'user[relationship_status_id]'
+  %>
 
   <input type="submit" value="Sign In">
 

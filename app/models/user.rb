@@ -25,8 +25,6 @@ class User < ActiveRecord::Base
 
   def reset_token!
     self.session_token = new_token
-    self.save!
-    self.session_token
   end
 
   private
