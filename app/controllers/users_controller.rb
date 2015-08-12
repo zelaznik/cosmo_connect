@@ -51,6 +51,8 @@ class UsersController < ApplicationController
     @body_types = BodyType.all
     @ethnicities = Ethnicity.all
     @relationship_statuses = RelationshipStatus.all
+
+    @response_categories = ResponseCategory.all
   end
 
 end
