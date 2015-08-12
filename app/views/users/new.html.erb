@@ -1,6 +1,31 @@
-<%= render 'shared/user',
-  header: 'Sign Up',
-  user: @user,
-  url: users_url,
-  submit: 'Sign Up'
-%>
+<h1>Sign Up</h1>
+
+<form action="<%= users_url %>" method="post">
+  <%= auth_token %>
+  <p><label>
+    Username
+    <input type="text" name="user[username]" value="<%= @user.username %>">
+  </label></p>
+
+  <p><label>
+    Password
+    <input type="password" name="user[password]" value="">
+  </label></p>
+
+  <p><label>
+    Date of Birth:
+    <input type="date" name="user[birthdate]">
+  </label></p>
+
+  <p><label>
+    Gender
+    <select name = "user[gender_id]">
+      <% @genders.each do |gender| %>
+        <option value="<%= gender.id %>"><%= gender.name %></option>
+      <% end %>
+    </select>
+  </label></p>
+
+  <input type="submit" value="Sign In">
+
+</form>

@@ -1,6 +1,16 @@
-<%= render 'shared/user',
-  header: 'Sign In',
-  user: @user,
-  url: session_url,
-  submit: 'Sign In'
-  %>
+<h1>Sign In</h1>
+
+<form action="<%= session_url %>" method="post">
+  <%= auth_token %>
+  <p><label>
+    Username
+    <input type="text" name="user[username]" value="<%= @user.username %>">
+  </label></p>
+
+  <p><label>
+    Password
+    <input type="password" name="user[password]" value="">
+  </label></p>
+
+  <input type="submit" value="Sign In">
+</form>

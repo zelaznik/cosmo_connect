@@ -162,17 +162,18 @@ ActiveRecord::Schema.define(version: 20150811172719) do
   add_index "user_interest_links", ["user_id"], name: "index_user_interest_links_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
-    t.string   "username",        null: false
-    t.string   "password_digest", null: false
-    t.string   "session_token",   null: false
-    t.datetime "birthdate",       null: false
-    t.integer  "gender_id",       null: false
-    t.integer  "min_age",         null: false
-    t.integer  "max_age",         null: false
-    t.integer  "max_radius",      null: false
-    t.datetime "last_login",      null: false
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.string   "username",                     null: false
+    t.string   "password_digest",              null: false
+    t.string   "session_token",                null: false
+    t.datetime "birthdate",                    null: false
+    t.integer  "gender_id",                    null: false
+    t.integer  "min_age",         default: 18, null: false
+    t.integer  "max_age",         default: 92, null: false
+    t.integer  "max_radius",      default: 50, null: false
+    t.datetime "last_login"
+    t.datetime "last_logout"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
   end
 
   add_index "users", ["session_token"], name: "index_users_on_session_token", unique: true, using: :btree

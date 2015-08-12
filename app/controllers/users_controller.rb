@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   def new
     @user = User.new
+    @genders = Gender.all
   end
 
   def create
@@ -16,6 +17,6 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:username, :password)
+    params.require(:user).permit(:username,:password,:birthdate,:gender_id)
   end
 end
