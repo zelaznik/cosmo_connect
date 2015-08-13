@@ -7,6 +7,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     @details = DetailsOfUser.new(details_params)
+    @details.user = @user
     #@responses = Response.new(response_params)
 
     messages = []
@@ -18,7 +19,6 @@ class UsersController < ApplicationController
     if messages.empty?
       ActiveRecord::Base.transaction do
         @user.save!
-        @details.user_id = @user.id
         @details.save!
       end
 
@@ -26,6 +26,7 @@ class UsersController < ApplicationController
       redirect_to root_url
 
     else
+      fetch_dropdown_items
       flash.now[:errors] = messages
       render :new, status: 422
 
@@ -50,25 +51,20 @@ class UsersController < ApplicationController
     debugger
     reponse_categories.map do |c|
       r = Response.new({
-        user_id: current_user.id,
+        user: current_user,
         category_id: c.id,
         body: response_hash[c.id]
       })
-      debugger
     end
   end
 
-  def response_categories
-    @response_categories ||= ResponseCategory.all
-  end
-
   def fetch_dropdown_items
-    @genders = Gender.all
-    @religions = Religion.all
-    @body_types = BodyType.all
-    @ethnicities = Ethnicity.all
-    @relationship_statuses = RelationshipStatus.all
-    @response_categories = ResponseCategory.all
+    @genders ||= Gender.all
+    @religions ||= Religion.all
+    @body_types ||= BodyType.all
+    @ethnicities ||= Ethnicity.all
+    @relationship_statuses ||= RelationshipStatus.all
+    @response_categories ||= ResponseCategory.all
   end
 
 end

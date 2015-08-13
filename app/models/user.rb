@@ -1,6 +1,12 @@
 class User < ActiveRecord::Base
 
   ####################################
+  #    USER REQUIRED DETAILS         #
+  ####################################
+
+  validates :birthdate, :gender, presence: true
+
+  ####################################
   #    USER AUTHENTICATION PATTERN   #
   ####################################
 
