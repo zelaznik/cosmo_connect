@@ -18,12 +18,10 @@ Cosmo.Routers.Router = Backbone.Router.extend({
   },
 
   destroySession: function() {
-    alert("Hello, world!");
     $.ajax({
       type: 'DELETE',
       url: '/session',
       success: function () {
-        alert("Success!");
         window.location.replace('/session/new');
       }.bind(this)
     });
