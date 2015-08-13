@@ -1,12 +1,11 @@
-window.Cosmo = {
+var Cosmo = window.Cosmo = {
   Models: {},
   Collections: {},
   Views: {},
   Routers: {},
   initialize: function () {
-    alert("Cosmo, go!");
     var router = new Cosmo.Routers.Router({
-      $rootEl: $('#content'),
+      $rootEl: $('#content')
     });
 
     var nav = new Cosmo.Views.NavShow({

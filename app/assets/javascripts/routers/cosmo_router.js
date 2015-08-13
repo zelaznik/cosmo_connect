@@ -1,4 +1,6 @@
-window.Cosmo.Routers.Router = Backbone.Router.extend({
+var Cosmo = window.Cosmo;  //Stops Atom from fussing at me.
+
+Cosmo.Routers.Router = Backbone.Router.extend({
   initialize: function(options) {
     this.$rootEl = options.$rootEl;
   },
@@ -16,7 +18,15 @@ window.Cosmo.Routers.Router = Backbone.Router.extend({
   },
 
   destroySession: function() {
-    $.ajax({type: 'DELETE', url: '/session'});
+    alert("Hello, world!");
+    $.ajax({
+      type: 'DELETE',
+      url: '/session',
+      success: function () {
+        alert("Success!");
+        window.location.replace('/session/new');
+      }.bind(this)
+    });
   },
 
   _swapView: function (view) {
