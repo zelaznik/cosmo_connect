@@ -9,27 +9,26 @@ class UsersController < ApplicationController
     @details = DetailsOfUser.new(details_params)
     #@responses = Response.new(response_params)
 
-    msgs = []
-    err_raised = false
-    if @user.save
-      @details.user_id = @user.id
-      if not @details.save
-        err_raised = true
-        msgs += @details.errors.full_messages
-      end
-    else
-      err_raised = true
-      msgs += @user.errors.full_messages
+    messages = []
+    [@user, @details].each do |tbl|
+      tbl.valid?
+      messages.concat(tbl.errors.full_messages)
     end
 
-    if not err_raised
-      sign_in(@user)
+    if messages.empty?
+      ActiveRecord::Base.transaction do
+        @user.save!
+        @details.user_id = @user.id
+        @details.save!
+      end
+
+      sign_in @user
       redirect_to root_url
+
     else
-      fetch_dropdown_items
-      flash.now[:errors] = @user.errors.full_messages
-      flash.now[:errors] += @details.errors.full_messages
-      render :new
+      flash.now[:errors] = messages
+      render :new, status: 422
+
     end
 
   end
@@ -44,6 +43,10 @@ class UsersController < ApplicationController
   def details_params
     params.require(:user).permit(:ethnicity_id,
     :body_type_id, :relationship_status_id, :religion_id)
+  end
+
+  def responses
+    response_hash = params.require(:response)
   end
 
   def fetch_dropdown_items
