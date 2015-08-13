@@ -49,10 +49,9 @@ class User < ActiveRecord::Base
   public
   belongs_to :gender
 
-  has_many :photos
-  has_many :matches
+  has_many :photos, dependent: :destroy
 
-  has_one :details, class_name: "DetailsOfUser"
+  has_one :details, class_name: "DetailsOfUser", dependent: :destroy
   has_one :ethnicity, through: :details, source: :ethnicity
   has_one :body_type, through: :details, source: :body_type
   has_one :religion, through: :details, source: :religion
@@ -72,20 +71,20 @@ class User < ActiveRecord::Base
     source: :receiver
   )
 
-  has_many :desired_genders
+  has_many :desired_genders, dependent: :destroy
   has_many :genders_sought, through: :desired_genders, source: :gender
   has_many :users_of_desirable_gender, through: :desired_genders, source: :user
 
-  has_many :visits, foreign_key: :visitor_id
+  has_many :visits, foreign_key: :visitor_id, dependent: :destroy
   has_many :visited_profiles, through: :visits, source: :profile
   has_many :visitors, through: :visits, source: :visitor
 
-  has_many :user_interest_links
+  has_many :user_interest_links, dependent: :destroy
   has_many :interests, through: :user_interest_links, source: :interest
 
   has_many :sent_messages, class_name: "Message", foreign_key: :sender_id
   has_many :received_messages, class_name: "Message", foreign_key: :receiver_id
 
-  has_many :responses
+  has_many :responses, dependent: :destroy
 
 end
