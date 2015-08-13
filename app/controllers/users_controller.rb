@@ -7,6 +7,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     @details = DetailsOfUser.new(details_params)
+    @responses = Response.new(response_params)
 
     msgs = []
     err_raised = false

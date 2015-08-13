@@ -4,6 +4,7 @@ window.Cosmo = {
   Views: {},
   Routers: {},
   initialize: function () {
+    alert("Cosmo, go!");
     var router = new Cosmo.Routers.Router({
       $rootEl: $('#content'),
     });

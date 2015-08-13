@@ -52,12 +52,11 @@
     name: 'user[relationship_status_id]'
   %>
 
-  <label>
-    <%= "My Self Summary" %>
-    <textarea rows="4" cols="50" name="<%= 'comment' %>">
-    <%= 'Enter text here...'%></textarea>
-  </label>
+  <% @response_categories.each do |category| %>
+    <%= render 'shared/essay', category: category, user: @user %>
+  <% end %>
 
-  <input type="submit" value="Sign In">
+  <br>
+  <input type="submit" value="Sign Up">
 
 </form>
