@@ -45,8 +45,21 @@ class UsersController < ApplicationController
     :body_type_id, :relationship_status_id, :religion_id)
   end
 
-  def responses
+  def essay_responses
     response_hash = params.require(:response)
+    debugger
+    reponse_categories.map do |c|
+      r = Response.new({
+        user_id: current_user.id,
+        category_id: c.id,
+        body: response_hash[c.id]
+      })
+      debugger
+    end
+  end
+
+  def response_categories
+    @response_categories ||= ResponseCategory.all
   end
 
   def fetch_dropdown_items
@@ -55,7 +68,6 @@ class UsersController < ApplicationController
     @body_types = BodyType.all
     @ethnicities = Ethnicity.all
     @relationship_statuses = RelationshipStatus.all
-
     @response_categories = ResponseCategory.all
   end
 
