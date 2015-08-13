@@ -16,7 +16,7 @@ class UsersController < ApplicationController
     @responses = response_categories.map do |c|
       Response.new({
         user: @user,
-        body: response_params[c.id],
+        body: response_params[c.id.to_s],
         response_category_id: c.id
       })
     end
