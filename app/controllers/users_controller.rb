@@ -5,21 +5,39 @@ class UsersController < ApplicationController
   end
 
   def create
+    # User information is spread across various tables.
+    # So we have the @user, @details, and @responses models.
+
     @user = User.new(user_params)
+
     @details = DetailsOfUser.new(details_params)
     @details.user = @user
-    #@responses = Response.new(response_params)
 
+    @responses = response_categories.map do |c|
+      Response.new({
+        user: @user,
+        body: response_params[c.id],
+        response_category_id: c.id
+      })
+    end
+
+    # Check that all the models are valid before
+    # committing to the database.  The DB has validations
+    # but those are our last line of defense.
     messages = []
-    [@user, @details].each do |tbl|
-      tbl.valid?
-      messages.concat(tbl.errors.full_messages)
+    models = [@user, @details] + @responses
+    models.each do |model|
+      model.valid?
+      messages.concat(model.errors.full_messages)
     end
 
     if messages.empty?
       ActiveRecord::Base.transaction do
         @user.save!
         @details.save!
+        @responses.each do |response|
+          response.save!
+        end
       end
 
       sign_in @user
@@ -46,16 +64,8 @@ class UsersController < ApplicationController
     :body_type_id, :relationship_status_id, :religion_id)
   end
 
-  def essay_responses
-    response_hash = params.require(:response)
-    debugger
-    reponse_categories.map do |c|
-      r = Response.new({
-        user: current_user,
-        category_id: c.id,
-        body: response_hash[c.id]
-      })
-    end
+  def response_params
+    @response_params ||= params.require(:response)
   end
 
   def fetch_dropdown_items
@@ -64,6 +74,10 @@ class UsersController < ApplicationController
     @body_types ||= BodyType.all
     @ethnicities ||= Ethnicity.all
     @relationship_statuses ||= RelationshipStatus.all
+    response_categories
+  end
+
+  def response_categories
     @response_categories ||= ResponseCategory.all
   end
 
