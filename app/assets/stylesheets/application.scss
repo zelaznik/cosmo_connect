@@ -14,3 +14,15 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+.user-profile {
+  width: 90%;
+  height: 100px;
+  border-radius: 5px;
+  background-color: yellow;
+  margin: 0 auto;
+}
+
+.thumbnail {
+  border-radius: 20px;
+}

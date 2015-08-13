@@ -13,7 +13,6 @@ var Cosmo = window.Cosmo = {
     });
 
     $('#navbar').html(nav.render().$el);
-
     Backbone.history.start();
   }
 
