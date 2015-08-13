@@ -9,8 +9,8 @@ class SessionsController < ApplicationController
       params[:user][:password]
     )
     if @user
-      sign_in(@user)
-      redirect_to tweets_url
+      sign_in @user
+      redirect_to root_url
     else
       @user = User.new
       flash.now[:errors] = ['Invalid username or password.']

@@ -1,5 +1,5 @@
 Cosmo.Views.NavShow = Backbone.View.extend({
-  template: JST['nav'],
+  template: JST['logged_in'],
 
   initialize: function (options) {
     this.router = options.router;
