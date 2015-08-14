@@ -5,8 +5,10 @@ Cosmo.Models.User = Backbone.Model.extend({
 
   parse: function (r) {
     if (!r.responses) {
-      this.responses().set(response.latest_entries);
+      this.responses().set(r.responses);
+      delete r.responses;
     }
+    return r;
   },
 
   responses: function () {
