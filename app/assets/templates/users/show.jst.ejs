@@ -10,8 +10,12 @@
       </div> <!-- End Thumbnail -->
 
       <div class="col-xs-6">
-        <h3 valign="center"><%= user.escape('username') %></h3>
-        <h3 valign="center"><%= user.escape('gender') + ', ' + user.escape('age') %></h3>
+        <h3 valign="center">
+          <%= 'Username: ' + user.escape('username') %>
+        </h3>
+        <h3 valign="center">
+          <%= 'Sex: ' + user.escape('gender') + ', Age: ' + user.escape('age') %>
+        </h3>
       </div>
 
     </div> <!-- End Profile First Row -->

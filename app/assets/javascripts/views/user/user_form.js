@@ -7,7 +7,6 @@ Cosmo.Views.UserForm = Backbone.View.extend({
   },
 
   render: function () {
-    alert("UserForm#render");
     var content = this.template({
       user: this.model
     });
