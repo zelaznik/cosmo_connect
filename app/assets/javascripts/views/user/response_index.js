@@ -3,8 +3,6 @@ var Cosmo = window.Cosmo;
 Cosmo.Views.ResponseIndex = Backbone.CompositeView.extend({
   template: JST['essays/index'],
 
-  className: 'response-index-item',
-
   initialize: function () {
     this.listenTo(this.collection, 'add', this.addSubView);
     this.listenTo(this.collection, 'remove', this.removeResponse.bind(this));
@@ -20,7 +18,7 @@ Cosmo.Views.ResponseIndex = Backbone.CompositeView.extend({
     var responseIndexItem = new Cosmo.Views.ResponseIndexItem({
       model: response
     });
-    this.addSubview('.response-index', responseIndexItem);
+    this.addSubview('.response-index-wrapper', responseIndexItem);
   },
 
   render: function() {
