@@ -11,8 +11,13 @@ Cosmo.Routers.Router = Backbone.Router.extend({
   },
 
   you: function() {
-    var view = new Cosmo.Views.UserForm({
+    var currentUser = new Cosmo.Models.User({
+      id: Cosmo.CURRENT_USER_ID
+    });
 
+    currentUser.fetch();
+    var view = new Cosmo.Views.UserForm({
+      model: currentUser
     });
     this._swapView(view);
   },
