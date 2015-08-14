@@ -93,12 +93,12 @@ class User < ActiveRecord::Base
 
   def responses_with_blanks
     #Put existing responses into a hash
-    as_hash = Hash[responses.collect { |r| [r.response_category_id, r] } ]
+    h = Hash[responses.collect { |r| [r.response_category_id, r] } ]
     ResponseCategory.all.each do |c|
-      as_hash[c.id] ||= Response.new(response_category_id: c.id, user_id: id)
+      h[c.id] ||= Response.new(response_category: c, user: self)
     end
 
-    as_hash.values.sort {|v| v.response_category_id}
+    h.values.sort {|v| v.response_category_id}
   end
 
   ####################################

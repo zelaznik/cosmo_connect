@@ -10,7 +10,7 @@ json.details do
 end
 
 json.responses do
-  json.array! @user.responses do |r|
+  json.array! @user.responses_with_blanks do |r|
     json.response_category_id r.response_category_id
     json.title r.response_category.title
     json.body r.body

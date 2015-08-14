@@ -8,7 +8,7 @@ Cosmo.Collections.Responses = Backbone.Collection.extend({
   model: Cosmo.Models.Response,
 
   comparator: function (response) {
-    response.get('response_category_id');
+    return response.get('response_category_id');
   },
 
   getOrFetch: function (id) {

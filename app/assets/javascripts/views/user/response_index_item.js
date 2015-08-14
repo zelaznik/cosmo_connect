@@ -1,7 +1,7 @@
 var Cosmo = window.Cosmo;
 
 Cosmo.Views.ResponseIndexItem = Backbone.View.extend({
-  template: JST['essays/show'],
+  template: JST['essays/index_item'],
 
   className: 'response-index-item',
 
