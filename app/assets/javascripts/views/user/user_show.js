@@ -7,7 +7,6 @@ Cosmo.Views.UserShow = Backbone.CompositeView.extend({
   initialize: function() {
     this.listenTo(this.model, 'sync', this.render);
     this.listenTo(this.model.responses(), 'sync', this.render);
-
     var responseIndexView = new Cosmo.Views.ResponseIndex({
       collection: this.model.responses()
     });
@@ -24,6 +23,5 @@ Cosmo.Views.UserShow = Backbone.CompositeView.extend({
 
     return this;
   }
-
 
 });

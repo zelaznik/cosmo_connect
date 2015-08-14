@@ -15,11 +15,14 @@ Cosmo.Routers.Router = Backbone.Router.extend({
       id: Cosmo.CURRENT_USER_ID
     });
 
-    currentUser.fetch();
-    var view = new Cosmo.Views.UserShow({
-      model: currentUser
+    currentUser.fetch({
+      success: function () {
+        var view = new Cosmo.Views.UserShow({
+          model: currentUser
+        });
+        this._swapView(view);
+      }.bind(this)
     });
-    this._swapView(view);
   },
 
   destroySession: function() {
