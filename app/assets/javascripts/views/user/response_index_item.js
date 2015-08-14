@@ -1,18 +1,16 @@
 var Cosmo = window.Cosmo;
 
-Cosmo.Views.UserForm = Backbone.View.extend({
-  template: JST['users/show'],
-  initialize: function() {
+Cosmo.Views.ResponseIndexItem = Backbone.View.extend({
+  template: JST['essays/show'],
+  initialize: function () {
     this.listenTo(this.model, 'sync', this.render);
   },
 
   render: function () {
-    var content = this.template({
-      user: this.model
+    var content = template({
+      essay: this.model
     });
     this.$el.html(content);
-
     return this;
   }
-
 });

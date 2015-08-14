@@ -15,6 +15,7 @@
 //= require bootstrap-sprockets
 //= require underscore
 //= require backbone
+//= require_tree ./utils
 //= require cosmo
 //= require_tree ../templates
 //= require_tree ./models

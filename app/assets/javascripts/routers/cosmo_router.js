@@ -16,7 +16,7 @@ Cosmo.Routers.Router = Backbone.Router.extend({
     });
 
     currentUser.fetch();
-    var view = new Cosmo.Views.UserForm({
+    var view = new Cosmo.Views.UserShow({
       model: currentUser
     });
     this._swapView(view);
