@@ -22,11 +22,7 @@ Cosmo.Views.ResponseIndex = Backbone.CompositeView.extend({
   },
 
   render: function() {
-    var content = this.template({
-
-    });
-    this.$el.html(content);
-
+    this.$el.html(this.template());
     return this;
   },
 
