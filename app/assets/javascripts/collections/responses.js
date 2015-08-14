@@ -20,6 +20,7 @@ Cosmo.Collections.Responses = Backbone.Collection.extend({
           this.add(item);
         }
       });
+
     } else {
       item.fetch();
     }

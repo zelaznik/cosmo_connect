@@ -1,7 +1,5 @@
 class User < ActiveRecord::Base
 
-
-
   ####################################
   #    USER REQUIRED DETAILS         #
   ####################################
