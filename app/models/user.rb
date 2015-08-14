@@ -91,29 +91,14 @@ class User < ActiveRecord::Base
   # Returns the responses regardless of whether
   # a user has filled in all the answers
 
-  private
-  def responses_as_hash
-    as_hash = {}
-    responses.each do |r|
-      as_hash[r.response_category_id] = r
-    end
-
-    as_hash
-  end
-
-  public
   def responses_with_blanks
     #Put existing responses into a hash
-    as_hash = responses_as_hash
-    ResponseCategory.each do |c|
-      as_hash[c.id] ||= Response.new(
-        response_category_id: c.id,
-        user_id:
-      )
+    as_hash = Hash[responses.collect { |r| [r.response_category_id, r] } ]
+    ResponseCategory.all.each do |c|
+      as_hash[c.id] ||= Response.new(response_category_id: c.id, user_id: id)
     end
-    Response.joins('LEFT JOIN responses ON
-    responses.response_category_id = response_categories.id')
-    .where(user_id: id)
+
+    as_hash.values.sort {|v| v.response_category_id}
   end
 
   ####################################
