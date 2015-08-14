@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
 
+
+
   ####################################
   #    USER REQUIRED DETAILS         #
   ####################################
@@ -86,5 +88,15 @@ class User < ActiveRecord::Base
   has_many :received_messages, class_name: "Message", foreign_key: :receiver_id
 
   has_many :responses, dependent: :destroy
+
+  ####################################
+  #    On The Fly Calculations       #
+  ####################################
+
+  def age
+    # Source http://stackoverflow.com/questions/819263/get-persons-age-in-ruby
+    now = Time.now.utc.to_date
+    now.year - birthdate.year - (birthdate.to_date.change(:year => now.year) > now ? 1 : 0)
+  end
 
 end
