@@ -2,7 +2,13 @@ json.extract! @user, :id, :username, :age
 json.gender @user.gender.name
 
 json.details do
-  json.ethnicity @user.ethnicity.description
+  arr = []
+  arr << [1, 'ethnicity', @user.ethnicity.description]
+  arr << [2, 'religion', @user.religion.title]
+  arr << [3, 'height', @user.details.height]
+  arr << [4, 'body_type', @user.body_type.description]
+  arr << [5, '']
+
   json.religion @user.religion.title
   json.height @user.details.height
   json.body_type @user.body_type.description

@@ -97,7 +97,6 @@ class User < ActiveRecord::Base
     ResponseCategory.all.each do |c|
       h[c.id] ||= Response.new(response_category: c, user: self)
     end
-
     h.values.sort {|v| v.response_category_id}
   end
 
