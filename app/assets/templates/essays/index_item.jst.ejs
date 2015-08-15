@@ -1,4 +1,14 @@
 <div class='list-group-item'>
-<p><b><%= essay.escape('title') %></b></p>
-<p>    <%= essay.escape('body') || '(none)' %></p>
+  <div class="row">
+    <b><center><%= essay.escape('title') %></center></b>
+  </div>
+  <div class="row">
+    <div class="col-xs-10">
+      <%= essay.escape('body') || '(none)' %>
+    </div>
+    <div class="col-xs-2" valign="bottom">
+      <button class="btn btn-xs btn-danger pull-right">edit</button>
+    </div>
+  </div>
+
 </div>
