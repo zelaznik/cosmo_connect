@@ -13,7 +13,11 @@
 		<div class="row">
 			<input
 					type='text'
-					name=<%='response[' + response.escape('response_question_id')+'][body]' %>>
+					name=<%='response[' +
+					response.escape('response_question_id')
+					+'][body]' %>
+					value="<%= response.escape('body') %>"
+			>
 		</div>
 		<div class="row">
 			<input type='submit', class='btn btn-primary' value='Submit'>
