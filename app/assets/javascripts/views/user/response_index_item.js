@@ -5,6 +5,17 @@ Cosmo.Views.ResponseIndexItem = Backbone.View.extend({
 
   className: 'response-index-item',
 
+  events: {
+    'click .essay-edit': 'editEssay'
+  },
+
+  editEssay: function () {
+    var modal = new Cosmo.Views.ResponseIndexItemForm({
+      model: this.model
+    });
+    $('#content').append(modal.render().$el);
+  },
+
   initialize: function () {
     this.listenTo(this.model, 'sync', this.render);
   },
