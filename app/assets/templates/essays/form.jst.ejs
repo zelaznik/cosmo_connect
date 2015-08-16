@@ -2,9 +2,14 @@
 
 <div class='m-content'>
 	<form>
+		<input
+				type='hidden'
+				name='response[response_category_id]'
+				value="<%= response.escape('response_category_id') %>"
+		>
 		<div class="row">
 			<div class="col-xs-1">
-				<button name=”button” style="border: 0px">&times;</button>
+				<button name=”button”>&times;</button>
 			</div>
 			<div class="col-xs-11">
 				<p><b><%= response.escape('title') %></b></p>
@@ -13,9 +18,7 @@
 		<div class="row">
 			<input
 					type='text'
-					name=<%='response[' +
-					response.escape('response_question_id')
-					+'][body]' %>
+					name='response[body]'
 					value="<%= response.escape('body') %>"
 			>
 		</div>

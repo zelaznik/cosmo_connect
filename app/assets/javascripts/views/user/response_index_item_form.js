@@ -1,6 +1,6 @@
 window.Cosmo.Views.ResponseIndexItemForm = Backbone.View.extend({
   template: JST['essays/form'],
-  model: Cosmo.Models.Response,
+  //model: Cosmo.Models.Response,
 
   events: {
     'keyup': 'handleKey',
@@ -34,8 +34,7 @@ window.Cosmo.Views.ResponseIndexItemForm = Backbone.View.extend({
   editEssay: function (event) {
     event.preventDefault();
     var obj = $(event.currentTarget).serializeJSON();
-    var formData = obj.ResponseIndexItem;
-    this.model.save(formData, {
+    this.model.save(obj.response, {
       success: function (responseIndexItem) {
         this.collection.add(responseIndexItem);
         this.remove();
