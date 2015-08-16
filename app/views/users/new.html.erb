@@ -1,64 +1,8 @@
-<%= raise NotImplementedError %>
+<%= render 'shared/navbar' %>
 
-<h1>Sign Up</h1>
-
-<form action="<%= users_url %>" method="post">
-  <%= auth_token %>
-  <p><label>
-    Username
-    <input type="text" name="user[username]" value="<%= @user.username %>">
-  </label></p>
-
-  <p><label>
-    Password
-    <input type="password" name="user[password]" value="">
-  </label></p>
-
-  <p><label>
-    Date of Birth:
-    <input type="date" name="user[birthdate]">
-  </label></p>
-
-  <%= render 'shared/dropdown',
-    title: 'Gender',
-    collection: @genders,
-    fieldname: 'name',
-    name: 'user[gender_id]'
-  %>
-
-  <%= render 'shared/dropdown',
-    title: 'Ethnicity',
-    collection: @ethnicities,
-    fieldname: 'description',
-    name: 'user[ethnicity_id]'
-  %>
-
-  <%= render 'shared/dropdown',
-    title: 'Body Type',
-    collection: @body_types,
-    fieldname: 'description',
-    name: 'user[body_type_id]'
-  %>
-
-  <%= render 'shared/dropdown',
-    title: 'Religion',
-    collection: @religions,
-    fieldname: 'title',
-    name: 'user[religion_id]'
-  %>
-
-  <%= render 'shared/dropdown',
-    title: 'Relationship Status',
-    collection: @relationship_statuses,
-    fieldname: 'description',
-    name: 'user[relationship_status_id]'
-  %>
-
-  <% @response_categories.each do |category| %>
-    <%= render 'shared/essay', category: category, user: @user %>
-  <% end %>
-
-  <br>
-  <input type="submit" value="Sign Up">
-
-</form>
+<%= render 'shared/user',
+  header: 'Sign Up',
+  url: users_url,
+  user: @user,
+  submit: 'Sign Up'
+%>
