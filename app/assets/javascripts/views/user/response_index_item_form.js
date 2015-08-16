@@ -30,13 +30,14 @@ window.Cosmo.Views.ResponseIndexItemForm = Backbone.View.extend({
 
   editEssay: function (event) {
     event.preventDefault();
-    var obj = $(event.currentTarget).serializeJSON();
-    var formData = obj.ResponseIndexItem;
-    this.model.save(formData, {
-      success: function (responseIndexItem) {
-        this.collection.add(responseIndexItem);
-        this.remove();
-      }.bind(this)
-    });
+    this.remove();
+    //var obj = $(event.currentTarget).serializeJSON();
+    //var formData = obj.ResponseIndexItem;
+    // this.model.save(formData, {
+    //   success: function (responseIndexItem) {
+    //     this.collection.add(responseIndexItem);
+    //     this.remove();
+    //   }.bind(this)
+    // });
   }
 });
