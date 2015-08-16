@@ -25,7 +25,9 @@ window.Cosmo.Views.ResponseIndexItemForm = Backbone.View.extend({
   },
 
   render: function () {
-    this.$el.html(this.template({}));
+    this.$el.html(this.template({
+      response: this.model
+    }));
     return this;
   },
 
