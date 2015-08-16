@@ -1,18 +1,21 @@
+def getter(obj, methodname)
+  obj ? obj.send(methodname) : nil
+end
+
 json.extract! @user, :id, :username, :age
-json.gender @user.gender.name
+json.gender getter(@user.gender, 'name')
 
 json.details do
   arr = []
-  arr << [1, 'ethnicity', @user.ethnicity.description]
-  arr << [2, 'religion', @user.religion.title]
-  arr << [3, 'height', @user.details.height]
-  arr << [4, 'body_type', @user.body_type.description]
-  arr << [5, '']
+  arr << [1, 'ethnicity', getter(@user.ethnicity, 'description')]
+  arr << [2, 'religion', getter(@user.religion, 'title')]
+  arr << [3, 'height', getter(@user.details, 'height')]
+  arr << [4, 'body_type', getter(@user.body_type, 'description')]
 
-  json.religion @user.religion.title
-  json.height @user.details.height
-  json.body_type @user.body_type.description
-  json.relationship_status @user.relationship_status.description
+  json.religion getter(@user.religion, 'title')
+  json.height getter(@user.details, 'height')
+  json.body_type getter(@user.body_type, 'description')
+  json.relationship_status getter(@user.relationship_status, 'description')
 end
 
 json.responses do

@@ -100,6 +100,7 @@ class User < ActiveRecord::Base
 
   def age
     # Source http://stackoverflow.com/questions/819263/get-persons-age-in-ruby
+    return nil if birthdate.nil?
     now = Time.now.utc.to_date
     now.year - birthdate.year - (birthdate.to_date.change(:year => now.year) > now ? 1 : 0)
   end
