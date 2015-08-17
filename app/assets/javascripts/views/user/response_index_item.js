@@ -9,6 +9,10 @@ Cosmo.Views.ResponseIndexItem = Backbone.View.extend({
     'click .essay-edit': 'editEssay'
   },
 
+  initialize: function () {
+    this.listenTo(this.model, 'sync', this.render);
+  },
+
   editEssay: function () {
     var modal = new Cosmo.Views.ResponseIndexItemForm({
       collection: this.collection,
@@ -17,11 +21,8 @@ Cosmo.Views.ResponseIndexItem = Backbone.View.extend({
     $('#content').append(modal.render().$el);
   },
 
-  initialize: function () {
-    this.listenTo(this.model, 'sync', this.render);
-  },
-
   render: function () {
+    debugger
     var content = this.template({
       essay: this.model
     });

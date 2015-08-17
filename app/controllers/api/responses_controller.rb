@@ -4,7 +4,7 @@ class Api::ResponsesController < ApplicationController
     @response = Response.new(response_params)
     @response.user = current_user
     if @response.save
-      render json: {}
+      render json: @response
     else
       render json: @response.errors.full_messages
     end
@@ -13,7 +13,7 @@ class Api::ResponsesController < ApplicationController
   def update
     @response = Response.find(params[:id])
     if @response.update(response_params)
-      render json: {}
+      render json: @response
     else
       render json: @response.errors.full_messages
     end
