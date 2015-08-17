@@ -6,7 +6,7 @@ Cosmo.Views.ResponseIndex = Backbone.CompositeView.extend({
   initialize: function () {
     this.listenTo(this.collection, 'add', this.addResponseSubview);
     this.listenTo(this.collection, 'remove', this.removeResponse.bind(this));
-    this.listenTo(this.collection, 'sync add remove', this.render);
+    this.listenTo(this.collection, 'sync', this.render);
 
     this.collection.each(function(response) {
       this.addResponseSubview(response);
