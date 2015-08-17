@@ -11,6 +11,7 @@ Cosmo.Views.ResponseIndexItem = Backbone.View.extend({
 
   editEssay: function () {
     var modal = new Cosmo.Views.ResponseIndexItemForm({
+      collection: this.collection,
       model: this.model
     });
     $('#content').append(modal.render().$el);

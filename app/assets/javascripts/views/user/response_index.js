@@ -16,6 +16,7 @@ Cosmo.Views.ResponseIndex = Backbone.CompositeView.extend({
 
   addResponseSubview: function (response) {
     var responseIndexItem = new Cosmo.Views.ResponseIndexItem({
+      collection: this.collection,
       model: response
     });
     this.addSubview('.response-index-wrapper', responseIndexItem);
