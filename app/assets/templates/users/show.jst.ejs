@@ -4,8 +4,8 @@
         <a href="#" class="thumbnail">
           <img
             width=100px height=100px
-            src="https://pbs.twimg.com/profile_images/514184325860827136/2hIxF0Hn.jpeg"
-            alt="Lumbergh.  He's my boss.  My disgusting, PIG OF A BOSS!"
+            src="<%= 'images/tmp/' + user.escape('id') + '.jpg' %>"
+            alt="<%= 'Profile pic for user: ' + user.escape('username') %>'"
           ></a>
       </div> <!-- End Thumbnail -->
 

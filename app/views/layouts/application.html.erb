@@ -4,8 +4,16 @@
     <title>Cosmo</title>
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
-    <script src="http://widget.cloudinary.com/global/all.js"></script>
     <%= csrf_meta_tags %>
+
+    <script src="http://widget.cloudinary.com/global/all.js"></script>
+    <script type="text/javascript" charset="utf-8">
+      window.CLOUDINARY_OPTIONS = {
+        cloud_name: "<%=ENV['CLOUD_NAME']%>",
+        upload_preset: "<%= ENV['UPLOAD_PRESET'] %>"
+      };
+    </script>
+
   </head>
 
   <body>
