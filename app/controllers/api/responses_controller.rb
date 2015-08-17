@@ -1,6 +1,6 @@
 class Api::ResponsesController < ApplicationController
 
-  def new
+  def create
     @response = Response.new(response_params)
     @response.user = current_user
     if @response.save
