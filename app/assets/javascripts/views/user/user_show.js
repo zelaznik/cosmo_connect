@@ -8,7 +8,8 @@ Cosmo.Views.UserShow = Backbone.CompositeView.extend({
     this.listenTo(this.model, 'sync', this.render);
     this.listenTo(this.model.responses(), 'sync', this.render);
     var responseIndexView = new Cosmo.Views.ResponseIndex({
-      collection: this.model.responses()
+      collection: this.model.responses(),
+      model: this.model
     });
 
     this.addSubview('.response-index', responseIndexView);

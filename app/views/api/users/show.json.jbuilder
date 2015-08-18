@@ -6,12 +6,6 @@ json.extract! @user, :id, :username, :age
 json.gender getter(@user.gender, 'name')
 
 json.details do
-  # arr = []
-  # arr << [1, 'ethnicity', getter(@user.ethnicity, 'description')]
-  # arr << [2, 'religion', getter(@user.religion, 'title')]
-  # arr << [3, 'height', getter(@user.details, 'height')]
-  # arr << [4, 'body_type', getter(@user.body_type, 'description')]
-
   json.religion getter(@user.religion, 'title')
   json.height getter(@user.details, 'height')
   json.body_type getter(@user.body_type, 'description')

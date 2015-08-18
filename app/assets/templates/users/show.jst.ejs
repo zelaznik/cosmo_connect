@@ -1,15 +1,15 @@
 <div class="container user-profile">
     <div class="row">
-      <div class="col-xs-3 col-md-2">
+      <div class="col-md-2">
         <a href="#" class="thumbnail">
           <img
             width=100px height=100px
-            src="<%= 'images/tmp/' + user.escape('id') + '.jpg' %>"
+            src="<%= '/images/tmp/' + user.escape('id') + '.jpg' %>"
             alt="<%= 'Profile pic for user: ' + user.escape('username') %>'"
           ></a>
       </div> <!-- End Thumbnail -->
 
-      <div class="col-xs-6">
+      <div class="col-xs-10">
         <h3 valign="center">
           <%= 'Username: ' + user.escape('username') %>
         </h3>
@@ -21,9 +21,9 @@
     </div> <!-- End Profile First Row -->
 
     <div class="row">
-      <div class="response-index col-xs-6 col-md-4">
+      <div class="response-index col-md-7">
       </div>
-      <div class="col-xs-6 col-md-4">
+      <div class="col-md-5">
         <h2>Attributes</h2>
       </div>
     </div> <!-- End Profile Second Row (Essays and Attributes) -->

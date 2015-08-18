@@ -9,7 +9,8 @@ window.Cosmo.Views.ResponseIndexItemForm = Backbone.View.extend({
     'click .m-background': 'removeBtn'
   },
 
-  initialize: function () {
+  initialize: function (options) {
+    this.isCurrentUser = options.isCurrentUser;
     $(document).on('keyup', this.handleKey.bind(this));
   },
 
@@ -26,6 +27,7 @@ window.Cosmo.Views.ResponseIndexItemForm = Backbone.View.extend({
 
   render: function () {
     this.$el.html(this.template({
+      isCurrentUser: this.isCurrentUser,
       response: this.model
     }));
     return this;

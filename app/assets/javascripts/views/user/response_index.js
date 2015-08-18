@@ -8,6 +8,8 @@ Cosmo.Views.ResponseIndex = Backbone.CompositeView.extend({
     this.listenTo(this.collection, 'remove', this.removeResponse.bind(this));
     this.listenTo(this.collection, 'sync', this.render);
 
+    //We only add the edit button if the response points to the current user.
+    this.isCurrentUser = ((Cosmo.CURRENT_USER_ID*1) === this.model.id);
     this.collection.each(function(response) {
       this.addResponseSubview(response);
     }.bind(this));
@@ -15,6 +17,7 @@ Cosmo.Views.ResponseIndex = Backbone.CompositeView.extend({
 
   addResponseSubview: function (response) {
     var responseIndexItem = new Cosmo.Views.ResponseIndexItem({
+      isCurrentUser: this.isCurrentUser,
       collection: this.collection,
       model: response
     });

@@ -7,18 +7,19 @@ Cosmo.Routers.Router = Backbone.Router.extend({
 
   routes: {
     '': 'you',
-    'sign_out': 'destroySession'
+    'sign_out': 'destroySession',
+    'users/:id': 'userShow'
   },
 
   you: function() {
-    var currentUser = new Cosmo.Models.User({
-      id: Cosmo.CURRENT_USER_ID
-    });
+    this.userShow(Cosmo.CURRENT_USER_ID);
+  },
 
-    currentUser.fetch();
-
+  userShow: function(id) {
+    var user = new Cosmo.Models.User({id: id});
+    user.fetch();
     var view = new Cosmo.Views.UserShow({
-      model: currentUser
+      model: user
     });
     this._swapView(view);
   },
