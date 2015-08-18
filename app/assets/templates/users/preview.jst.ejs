@@ -1,0 +1,23 @@
+<div class="container user-profile">
+    <div class="row">
+      <div class="col-md-2">
+        <a href="<%= '#users/' + user.escape('id') %>" class="thumbnail">
+          <img
+            width=100px height=100px
+            src="<%= '/images/tmp/' + user.escape('id') + '.jpg' %>"
+            alt="<%= 'Profile pic for user: ' + user.escape('username') %>'"
+          ></a>
+          <!-- <button class="upload-photo">Upload Photo</button> -->
+      </div> <!-- End Thumbnail -->
+
+      <div class="col-xs-10">
+        <h3 valign="center">
+          <%= 'Username: ' + user.escape('username') %>
+        </h3>
+        <h3 valign="center">
+          <%= 'Sex: ' + user.escape('gender') + ', Age: ' + user.escape('age') %>
+        </h3>
+      </div>
+
+    </div> <!-- End Profile First Row -->
+</div>
