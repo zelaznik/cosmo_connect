@@ -7,6 +7,23 @@ Cosmo.Collections.Photos = Backbone.Collection.extend({
 
   initialize: function(options) {
     this.user = options.user;
+  },
+
+  getOrFetch: function (id) {
+    var item = this.get(id);
+    if (!item) {
+      item = new this.model({id: id});
+      item.fetch({
+        success: function() {
+          this.add(item);
+        }
+      });
+
+    } else {
+      item.fetch();
+    }
+
+    return item;
   }
 
 });

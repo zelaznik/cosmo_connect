@@ -27,6 +27,11 @@ Cosmo.Routers.Router = Backbone.Router.extend({
 
   userIndex: function () {
     var users = new Cosmo.Collections.Users();
+    users.fetch();
+    var usersView = new Cosmo.Views.UserIndex({
+      collection: users
+    });
+    this._swapView(usersView);
   },
 
   destroySession: function() {
