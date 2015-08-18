@@ -26,8 +26,7 @@ Cosmo.Routers.Router = Backbone.Router.extend({
   },
 
   userIndex: function () {
-    alert("Not Implemented");
-    var users = Cosmo.Collections.Users();
+    var users = new Cosmo.Collections.Users();
   },
 
   destroySession: function() {

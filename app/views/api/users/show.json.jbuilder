@@ -5,6 +5,10 @@ end
 json.extract! @user, :id, :username, :age
 json.gender getter(@user.gender, 'name')
 
+json.photos do
+  json.array! @user.photos
+end
+
 json.details do
   json.religion getter(@user.religion, 'title')
   json.height getter(@user.details, 'height')

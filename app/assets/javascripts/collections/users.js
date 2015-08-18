@@ -1,6 +1,9 @@
 window.Cosmo.Collections.Users = Backbone.Collection.extend({
-  url: 'api/uesrs',
+  url: 'api/users',
   model: Cosmo.Models.User,
+
+  parse: function (r) {
+  },
 
   getOrFetch: function(id) {
     var item = this.get(id);
