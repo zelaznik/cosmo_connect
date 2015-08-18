@@ -8,6 +8,7 @@ Cosmo.Routers.Router = Backbone.Router.extend({
   routes: {
     '': 'you',
     'sign_out': 'destroySession',
+    'users/index': 'userIndex',
     'users/:id': 'userShow'
   },
 
@@ -22,6 +23,11 @@ Cosmo.Routers.Router = Backbone.Router.extend({
       model: user
     });
     this._swapView(view);
+  },
+
+  userIndex: function () {
+    alert("Not Implemented");
+    var users = Cosmo.Collections.Users();
   },
 
   destroySession: function() {

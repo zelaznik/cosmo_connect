@@ -12,7 +12,6 @@ Cosmo.Views.ResponseIndexItem = Backbone.View.extend({
   initialize: function (options) {
     this.isCurrentUser = options.isCurrentUser;
     this.listenTo(this.model, 'sync', this.render);
-    debugger;
   },
 
   editEssay: function () {
@@ -27,7 +26,6 @@ Cosmo.Views.ResponseIndexItem = Backbone.View.extend({
   },
 
   render: function () {
-    debugger;
     var content = this.template({
       isCurrentUser: this.isCurrentUser,
       essay: this.model
