@@ -1,7 +1,7 @@
 <div class="container user-profile">
     <div class="row">
       <div class="col-md-2">
-        <a href="#" class="thumbnail">
+        <a href="<%= '#users/' + user.escape('id') %>" class="thumbnail">
           <img
             width=100px height=100px
             src="<%= '/images/tmp/' + user.escape('id') + '.jpg' %>"
