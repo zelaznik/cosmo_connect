@@ -52,17 +52,18 @@ class User < ActiveRecord::Base
   has_one :religion, through: :details, source: :religion
   has_one :relationship_status, through: :details, source: :relationship_status
 
+  has_many :crush_matches, class_name: "Match", foreign_key: :sender_id
+  has_many :admirer_matches, class_name: "Match", foreign_key: :receiver_id
+
   has_many(
     :secret_admirers,
-    through: :matches,
-    foreign_key: :receiver_id,
+    through: :admirer_matches,
     source: :sender
   )
 
   has_many(
     :crushes,
-    through: :matches,
-    foreign_key: :sender_id,
+    through: :crush_matches,
     source: :receiver
   )
 
@@ -104,6 +105,10 @@ class User < ActiveRecord::Base
     return nil if birthdate.nil?
     now = Time.now.utc.to_date
     now.year - birthdate.year - (birthdate.to_date.change(:year => now.year) > now ? 1 : 0)
+  end
+
+  def is_liked
+    !!crushes.find(current_user.id)
   end
 
 end
