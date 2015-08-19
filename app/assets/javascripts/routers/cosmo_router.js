@@ -18,15 +18,23 @@ Cosmo.Routers.Router = Backbone.Router.extend({
   },
 
   crushesIndex: function() {
-    alert("Crushes");
+    this._likesIndex(new Cosmo.Collections.Crushes());
   },
 
   admirersIndex: function() {
-    alert("Secret Admirers");
+    this._likesIndex(new Cosmo.Collections.SecretAdmirers());
   },
 
   soulmatesIndex: function () {
-    alert("Soulmates");
+    this._likesIndex(new Cosmo.Collections.Soulmates());
+  },
+
+  _likesIndex: function(users) {
+    users.fetch();
+    var view = new Cosmo.Views.UserIndex({
+      collection: users
+    });
+    this._swapView(view);
   },
 
   you: function() {
