@@ -8,8 +8,25 @@ Cosmo.Routers.Router = Backbone.Router.extend({
   routes: {
     '': 'you',
     'sign_out': 'destroySession',
+
     'users/index': 'userIndex',
-    'users/:id': 'userShow'
+    'users/:id': 'userShow',
+
+    'likes/crushes': 'crushesIndex',
+    'likes/secret_admirers': 'admirersIndex',
+    'likes/soulmates': 'soulmatesIndex'
+  },
+
+  crushesIndex: function() {
+    alert("Crushes");
+  },
+
+  admirersIndex: function() {
+    alert("Secret Admirers");
+  },
+
+  soulmatesIndex: function () {
+    alert("Soulmates");
   },
 
   you: function() {
