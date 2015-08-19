@@ -107,14 +107,13 @@ class User < ActiveRecord::Base
     now.year - birthdate.year - (birthdate.to_date.change(:year => now.year) > now ? 1 : 0)
   end
 
-  def crush_hash
-    # Returns a memoized hash of current crushes.
-    # For avoiding N+1 queries in User/Index JSON builder.
-    @crush_hash ||= Hash[crushes.collect { |crush| [crush.id, crush] } ]
-  end
-
   def has_crush_on(other_user)
     !!crush_hash[other_user.id]
+  end
+
+  private
+  def crush_hash
+    @crush_hash ||= Hash[crushes.collect { |crush| [crush.id, crush] } ]
   end
 
 end

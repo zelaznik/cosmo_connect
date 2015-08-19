@@ -10,7 +10,6 @@ window.Cosmo.Views.ResponseIndexItemForm = Backbone.View.extend({
   },
 
   initialize: function (options) {
-    this.isCurrentUser = options.isCurrentUser;
     $(document).on('keyup', this.handleKey.bind(this));
   },
 

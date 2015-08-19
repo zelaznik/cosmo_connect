@@ -3,6 +3,10 @@ var Cosmo = window.Cosmo;
 Cosmo.Models.User = Backbone.Model.extend({
   urlRoot: '/api/users',
 
+  initialize: function () {
+    this.isCurrentUser = ((+Cosmo.CURRENT_USER_ID) === (+this.id));
+  },
+
   parse: function(r) {
     if (r.responses) {
       this.responses().set(r.responses);

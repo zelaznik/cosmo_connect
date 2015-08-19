@@ -15,7 +15,7 @@
           <%= 'Username: ' + user.escape('username') %>
         </h3>
         <h3 valign="center">
-          <%= user.escape('gender') + (user.get('age') ? ', ' + user.escape('age') : '') %>
+          <%= user.escape('gender') + ' &middot; ' + (user.get('age') ? user.escape('age') : '(age unknown)') %>
         </h3>
       </div>
 

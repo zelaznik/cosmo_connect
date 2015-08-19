@@ -9,6 +9,10 @@ json.photos do
   json.array! @user.photos
 end
 
+if current_user
+  json.is_liked current_user.has_crush_on(@user)
+end
+
 json.details do
   json.religion getter(@user.religion, 'title')
   json.height getter(@user.details, 'height')

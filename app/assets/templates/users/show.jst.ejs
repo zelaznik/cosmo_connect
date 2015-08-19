@@ -7,17 +7,27 @@
             src="<%= '/images/tmp/' + user.escape('id') + '.jpg' %>"
             alt="<%= 'Profile pic for user: ' + user.escape('username') %>'"
           ></a>
-          <!-- <button class="upload-photo">Upload Photo</button> -->
       </div> <!-- End Thumbnail -->
 
-      <div class="col-xs-10">
-        <h3 valign="center">
-          <%= 'Username: ' + user.escape('username') %>
+      <div class="col-md-10">
+        <% if (!user.isCurrentUser) { %>
+          <div class="container">
+            <% if (user.get('is_liked')) { %>
+              <button class="toggle">Unlike</button>
+            <% } else { %>
+              <button class="toggle">Like</button>
+            <% } %>
+          </div>
+        <% } %>
+        <div class="row">
+          <h3 valign="left">
+            <%= 'Username: ' + user.escape('username') %>
+          </h3>
+        </div>
+        <h3 valign="left">
+          <%= user.escape('gender') + ' &middot; ' + (user.get('age') ? user.escape('age') : '(age unknown)') %>
         </h3>
-        <h3 valign="center">
-          <%= user.escape('gender') + (user.get('age') ? ', ' + user.escape('age') : '') %>
-        </h3>
-      </div>
+      </div> <!-- End User Details -->
 
     </div> <!-- End Profile First Row -->
 

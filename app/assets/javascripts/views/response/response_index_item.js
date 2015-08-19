@@ -10,25 +10,26 @@ Cosmo.Views.ResponseIndexItem = Backbone.View.extend({
   },
 
   initialize: function (options) {
-    this.isCurrentUser = options.isCurrentUser;
+    this.user = options.user;
     this.listenTo(this.model, 'sync', this.render);
   },
 
   editEssay: function () {
-    if (!this.isCurrentUser) {
+    if (!this.user.isCurrentUser) {
       throw "Cannot edit the responses of another user.";
     }
     var modal = new Cosmo.Views.ResponseIndexItemForm({
       collection: this.collection,
-      model: this.model
+      model: this.model,
+      user: this.user
     });
     $('#content').append(modal.render().$el);
   },
 
   render: function () {
     var content = this.template({
-      isCurrentUser: this.isCurrentUser,
-      essay: this.model
+      essay: this.model,
+      user: this.user
     });
     this.$el.html(content);
     return this;

@@ -7,7 +7,7 @@
       <%= essay.escape('body') || '(none)' %>
     </div>
 
-    <% if (isCurrentUser) { %>
+    <% if (user.isCurrentUser) { %>
       <%= '<div class="col-xs-2" valign="bottom">' %>
         <%= '<button class="essay-edit btn btn-xs btn-danger pull-right">edit</button>' %>
       <%= '</div>' %>
