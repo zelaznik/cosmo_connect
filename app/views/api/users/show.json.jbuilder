@@ -10,9 +10,9 @@ json.photos do
 end
 
 if current_user && (current_user != @user)
-  @like = @user.admirer_matches.find_by_receiver_id(@user.id)
-  if @like
-    json.like @like.id
+  Match.where(sender: current_user, receiver: @user).each do |like|
+    json.like like.id
+    break
   end
 end
 
