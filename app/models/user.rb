@@ -96,6 +96,24 @@ class User < ActiveRecord::Base
     h.values.sort {|v| v.response_category_id}
   end
 
+  def soulmates
+    # Finds users whom you have liked who also like you back.
+    self.class.find_by_sql([<<-SQL, self.id])
+    SELECT
+      soulmate.*
+    FROM
+      users u
+    INNER JOIN
+      matches m_send ON u.id = m_send.sender_id
+    INNER JOIN
+      matches m_recv ON m_send.receiver_id = m_recv.sender_id AND m_recv.receiver_id = u.id
+    INNER JOIN
+      users soulmate ON m_send.receiver_id = soulmate.id
+    WHERE
+      u.id = ?
+    SQL
+  end
+
   ####################################
   #    On The Fly Calculations       #
   ####################################
