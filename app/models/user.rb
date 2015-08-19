@@ -100,15 +100,16 @@ class User < ActiveRecord::Base
     # Finds users whom you have liked who also like you back.
     self.class.find_by_sql([<<-SQL, self.id])
     SELECT
-      soulmate.*
+      soulmates.*
     FROM
       users u
     INNER JOIN
       matches m_send ON u.id = m_send.sender_id
     INNER JOIN
-      matches m_recv ON m_send.receiver_id = m_recv.sender_id AND m_recv.receiver_id = u.id
+      matches m_recv ON m_send.receiver_id = m_recv.sender_id
+      AND m_recv.receiver_id = u.id
     INNER JOIN
-      users soulmate ON m_send.receiver_id = soulmate.id
+      users soulmates ON m_send.receiver_id = soulmates.id
     WHERE
       u.id = ?
     SQL

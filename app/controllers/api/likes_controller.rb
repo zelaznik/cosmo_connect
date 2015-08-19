@@ -1,4 +1,20 @@
 class Api::LikesController < ApplicationController
+
+  def show
+    #This is actually a hijacked index view.
+    m = params[:id].downcase
+    case m
+      when 'crushes'
+        @users = current_user.crushes
+      when 'secret_admirers'
+        @users = current_user.secret_admirers
+      when 'soulmates'
+        @users = current_user.soulmates
+      else
+        render json: ["Unsupported method: '#{m}'"], status: 422
+    end
+  end
+
   def create
     @like = Match.new(like_params)
     @like.sender = current_user
