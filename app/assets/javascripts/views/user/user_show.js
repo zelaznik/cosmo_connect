@@ -25,10 +25,10 @@ Cosmo.Views.UserShow = Backbone.CompositeView.extend({
       throw "Cannot like one's own photo.";
     }
 
-    if (this.model.get('is_liked')) {
-      this.unlikeUser();
-    } else {
+    if (this.model.like().isNew()) {
       this.likeUser();
+    } else {
+      this.unlikeUser();
     }
   },
 
@@ -43,8 +43,12 @@ Cosmo.Views.UserShow = Backbone.CompositeView.extend({
   },
 
   unlikeUser: function() {
-    this.model.like().destroy();
-    this.model.like().clear();
+    this.model.like().destroy({
+      success: function() {
+        this.model.like().clear();
+        this.render();
+      }.bind(this)
+    });
   },
 
   upload: function(e) {
