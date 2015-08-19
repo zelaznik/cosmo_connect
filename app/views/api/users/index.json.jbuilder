@@ -3,6 +3,10 @@ def getter(obj, methodname)
 end
 
 json.array! @users do |user|
+  next if user == current_user
   json.extract! user, :id, :username, :age
   json.gender getter(user.gender, 'name')
+  if signed_in?
+    json.is_liked current_user.has_crush_on(user)
+  end
 end
