@@ -23,7 +23,19 @@ Cosmo.Models.User = Backbone.Model.extend({
       delete r.photos;
     }
 
+    if (r.like) {
+      this.like().set({id: r.like});
+      delete r.like;
+    }
+
     return r;
+  },
+
+  like: function () {
+    if (!this._like) {
+      this._like = new Cosmo.Models.Like();
+    }
+    return this._like;
   },
 
   responses: function () {

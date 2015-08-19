@@ -9,8 +9,11 @@ json.photos do
   json.array! @user.photos
 end
 
-if current_user
-  json.is_liked current_user.has_crush_on(@user)
+if current_user && (current_user != @user)
+  @like = @user.admirer_matches.find_by_receiver_id(@user.id)
+  if @like
+    json.like @like.id
+  end
 end
 
 json.details do

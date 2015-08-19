@@ -12,10 +12,10 @@
       <div class="col-md-10">
         <% if (!user.isCurrentUser) { %>
           <div class="container">
-            <% if (user.get('is_liked')) { %>
-              <button class="toggle">Unlike</button>
-            <% } else { %>
+            <% if (user.like().isNew()) { %>
               <button class="toggle">Like</button>
+            <% } else { %>
+              <button class="toggle">Unlike</button>
             <% } %>
           </div>
         <% } %>

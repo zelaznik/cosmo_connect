@@ -6,7 +6,7 @@ Cosmo.Views.UserShow = Backbone.CompositeView.extend({
 
   events: {
     "click .upload-photo": "upload",
-    "click .toggle": "switchLike"
+    "click .toggle": "toggleLike"
   },
 
   initialize: function() {
@@ -20,9 +20,31 @@ Cosmo.Views.UserShow = Backbone.CompositeView.extend({
     this.addSubview('.response-index', responseIndexView);
   },
 
-  switchLike: function(e) {
-    e.preventDefault();
-    alert("Hello, world!");
+  toggleLike: function(event) {
+    if (this.model.isCurrentUser) {
+      throw "Cannot like one's own photo.";
+    }
+
+    if (this.model.get('is_liked')) {
+      this.unlikeUser();
+    } else {
+      this.likeUser();
+    }
+  },
+
+  likeUser: function() {
+    var attrs = {
+      receiver_id: this.model.id,
+      sender_id: Cosmo.CURRENT_USER_ID
+    };
+    this.model.like().save(attrs, {
+      success: this.render.bind(this)
+    });
+  },
+
+  unlikeUser: function() {
+    this.model.like().destroy();
+    this.model.like().clear();
   },
 
   upload: function(e) {

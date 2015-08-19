@@ -10,13 +10,17 @@ class Api::LikesController < ApplicationController
   end
 
   def destroy
-    @like = Match.find(params[:id])
-    @like.destroy
-    render json: @like
+    @like = Match.find_by(params[:id])
+    if @like.sender == current_user
+      @like.destroy
+      render json: @like
+    else
+      render json: ['Cannot modify the likes of another user'], status: 422
+    end
   end
 
   private
   def like_params
-    params.require(:like).permit(:user_id)
+    params.require(:like).permit(:sender_id, :receiver_id)
   end
 end

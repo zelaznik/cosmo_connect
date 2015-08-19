@@ -111,9 +111,17 @@ class User < ActiveRecord::Base
     !!crush_hash[other_user.id]
   end
 
+  def get_like_object(other_user)
+    crush_match_hash[other_user.id] || false
+  end
+
   private
   def crush_hash
     @crush_hash ||= Hash[crushes.collect { |crush| [crush.id, crush] } ]
+  end
+
+  def crush_match_hash
+    @crush_match_hash ||= Hash[crush_matches.collect { |m| [m.receiver_id, m] } ]
   end
 
 end

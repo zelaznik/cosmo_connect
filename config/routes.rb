@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     resources :users, except: [:new] do
       resources :photos
     end
-    resources :like, only: [:create, :destroy]
+    resources :likes, only: [:create, :destroy]
     resources :responses, only: [:create, :update]
   end
 
