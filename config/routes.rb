@@ -8,6 +8,8 @@ Rails.application.routes.draw do
     resources :users, except: [:new] do
       resources :photos
     end
+    resources :crushes, only: [:index]
+    resources :secret_admirers, only: [:index]
     resources :likes, only: [:create, :destroy]
     resources :responses, only: [:create, :update]
   end
