@@ -1,6 +1,7 @@
 def getter(obj, methodname)
   obj ? obj.send(methodname) : nil
 end
+
 is_current_user = (@user == current_user)
 
 json.extract! @user, :id, :username
@@ -9,7 +10,7 @@ if not is_current_user
   json.age @user.age
   json.gender getter(@user.gender, 'name')
 else
-  json.birthdate @user.birthdate.strftime("%Y-%d-%m")
+  json.birthdate (@user.birthdate.nil? ? nil : @user.birthdate.strftime("%Y-%m-%d"))
   json.gender_id @user.gender_id
   json.genders do
     json.array! Gender.all do |gender|
@@ -36,8 +37,18 @@ json.details do
   json.relationship_status getter(@user.relationship_status, 'description')
 end
 
+# Please don't judge me.  This is a stupid patch to keep the browser
+# from displaying unanswered questions more than once on a page.
+# unanswered responses have id == null, which means that backbone
+# doesn't realize that an equivalent model has already been inserted.
+if @include_blank_responses
+  responses = @user.responses_with_blanks
+else
+  responses = @user.responses
+end
+
 json.responses do
-  json.array! @user.responses_with_blanks do |r|
+  json.array! responses do |r|
     json.id r.id
     json.response_category_id r.response_category_id
     json.title r.response_category.title

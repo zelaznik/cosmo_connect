@@ -1,14 +1,15 @@
 class Api::UsersController < ApplicationController
   before_action :ensure_current_user, only: [:update]
 
-  def show
+  def show(include_blank_responses = false)
+    @include_blank_responses = include_blank_responses
     @user = User.find(params[:id])
   end
 
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
-      render json: @user
+      render :show, include_responses: true
     else
       render json: @user.errors.full_messages, status: 422
     end

@@ -27,15 +27,16 @@ Cosmo.Views.UserShow = Backbone.CompositeView.extend({
   },
 
   updateBirthdate: function(event) {
-    this._updateAttribute(event, 'birthdate');
+    var $target = $(event.currentTarget);
+    var attrs = {birthdate: $target.val()};
+    this.model.save(attrs, {});
   },
 
   _updateAttribute: function (event, key) {
-    event.preventDefault();
-    debugger;
     var $target = $(event.currentTarget);
-    this.model.set({key: +$target.val()});
-    this.model.save({}, {});
+    var attrs = {};
+    attrs[key] = +$target.val();
+    this.model.save(attrs, {});
   },
 
   toggleLike: function(event) {

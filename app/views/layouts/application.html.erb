@@ -17,12 +17,17 @@
   </head>
 
   <body>
+      <!-- <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+      <span class="sr-only">Error:</span>
+      Enter a valid email address -->
     <% if flash[:errors] %>
+    <div class="alert alert-danger" role="alert">
       <ul>
       <% flash[:errors].each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
+    </div>
     <% end %>
 
     <%= yield %>

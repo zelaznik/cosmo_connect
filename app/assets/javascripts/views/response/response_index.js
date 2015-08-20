@@ -9,9 +9,7 @@ Cosmo.Views.ResponseIndex = Backbone.CompositeView.extend({
     this.listenTo(this.collection, 'sync', this.render);
 
     //We only add the edit button if the response points to the current user.
-    this.collection.each(function(response) {
-      this.addResponseSubview(response);
-    }.bind(this));
+    this.collection.each(this.addResponseSubview.bind(this));
   },
 
   addResponseSubview: function (response) {
