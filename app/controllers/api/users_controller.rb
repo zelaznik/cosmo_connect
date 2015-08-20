@@ -24,7 +24,7 @@ class Api::UsersController < ApplicationController
   end
 
   def ensure_current_user
-    if params[:id] != current_user.id
+    if params[:id].to_i != current_user.id
       raise "Cannot modify attributes of another user."
     end
   end

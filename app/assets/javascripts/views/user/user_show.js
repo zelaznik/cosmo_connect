@@ -24,7 +24,8 @@ Cosmo.Views.UserShow = Backbone.CompositeView.extend({
   updateGender: function (event) {
     event.preventDefault();
     var $target = $(event.currentTarget);
-    debugger;
+    this.model.set({gender_id: +$target.val()});
+    this.model.save({}, {});
   },
 
   toggleLike: function(event) {
