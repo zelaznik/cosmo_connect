@@ -9,7 +9,7 @@ if not is_current_user
   json.age @user.age
   json.gender getter(@user.gender, 'name')
 else
-  json.birthdate @user.birthdate.strftime("%Y-%m-%d")
+  json.birthdate @user.birthdate.strftime("%Y-%d-%m")
   json.gender_id @user.gender_id
   json.genders do
     json.array! Gender.all do |gender|

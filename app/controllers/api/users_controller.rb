@@ -20,7 +20,7 @@ class Api::UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:gender_id)
+    params.require(:user).permit(:gender_id, :birthdate)
   end
 
   def ensure_current_user

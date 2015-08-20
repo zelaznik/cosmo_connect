@@ -7,7 +7,8 @@ Cosmo.Views.UserShow = Backbone.CompositeView.extend({
   events: {
     "click .upload-photo": "upload",
     "click .toggle": "toggleLike",
-    "change #gender": "updateGender"
+    "change #gender": "updateGender",
+    "change #birthdate": "updateBirthdate"
   },
 
   initialize: function() {
@@ -21,10 +22,19 @@ Cosmo.Views.UserShow = Backbone.CompositeView.extend({
     this.addSubview('.response-index', responseIndexView);
   },
 
-  updateGender: function (event) {
+  updateGender: function(event) {
+    this._updateAttribute(event, 'gender_id');
+  },
+
+  updateBirthdate: function(event) {
+    this._updateAttribute(event, 'birthdate');
+  },
+
+  _updateAttribute: function (event, key) {
     event.preventDefault();
+    debugger;
     var $target = $(event.currentTarget);
-    this.model.set({gender_id: +$target.val()});
+    this.model.set({key: +$target.val()});
     this.model.save({}, {});
   },
 
