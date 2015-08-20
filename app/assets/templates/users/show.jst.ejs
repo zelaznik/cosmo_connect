@@ -45,7 +45,13 @@
             <% } else { %>
               <%= user.escape('gender') %>
             <% } %>
-            <%= ' &middot; ' + (user.get('age') ? user.escape('age') : '(age unknown)') %>
+
+            &middot;
+
+            <input
+              id="birthdate" type="date"
+              value="<%= user.escape('birthdate')%>">
+
           </h3>
         <% } else { %>
           <h3 valign="left">

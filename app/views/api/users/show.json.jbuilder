@@ -1,13 +1,15 @@
 def getter(obj, methodname)
   obj ? obj.send(methodname) : nil
 end
-
-json.extract! @user, :id, :username, :age
-json.gender getter(@user.gender, 'name')
-
 is_current_user = (@user == current_user)
 
-if is_current_user
+json.extract! @user, :id, :username
+
+if not is_current_user
+  json.age @user.age
+  json.gender getter(@user.gender, 'name')
+else
+  json.birthdate @user.birthdate.strftime("%Y-%m-%d")
   json.gender_id @user.gender_id
   json.genders do
     json.array! Gender.all do |gender|
