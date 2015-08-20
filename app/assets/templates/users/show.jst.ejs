@@ -24,9 +24,25 @@
             <%= 'Username: ' + user.escape('username') %>
           </h3>
         </div>
-        <h3 valign="left">
-          <%= user.escape('gender') + ' &middot; ' + (user.get('age') ? user.escape('age') : '(age unknown)') %>
-        </h3>
+        <% if (user.isCurrentUser) { %>
+          <h3 valign="left">
+            <form action="action_page.php">
+              <input list="browsers">
+                <select id="gender">
+                  <option value="1">man</option>
+                  <option value="2">woman</option>
+                  <option value="3">other gender</option>
+                </select>
+              </input>
+            </form>
+            <%= ' &middot; ' + (user.get('age') ? user.escape('age') : '(age unknown)') %>
+          </h3>
+        <% } else { %>
+          <h3 valign="left">
+            <%= user.escape('gender') + ' &middot; ' + (user.get('age') ? user.escape('age') : '(age unknown)') %>
+          </h3>
+        <% } %>
+
       </div> <!-- End User Details -->
 
     </div> <!-- End Profile First Row -->
