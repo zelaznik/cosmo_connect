@@ -41,10 +41,10 @@ end
 # from displaying unanswered questions more than once on a page.
 # unanswered responses have id == null, which means that backbone
 # doesn't realize that an equivalent model has already been inserted.
-if @exclude_blank_responses
-  responses = @user.responses
-else
+if @include_blank_responses
   responses = @user.responses_with_blanks
+else
+  responses = @user.responses
 end
 
 json.responses do
