@@ -5,6 +5,17 @@ end
 json.extract! @user, :id, :username, :age
 json.gender getter(@user.gender, 'name')
 
+is_current_user = (@user == current_user)
+
+if is_current_user
+  json.gender_id @user.gender_id
+  json.genders do
+    json.array! Gender.all do |gender|
+      json.extract! gender, :id, :name
+    end
+  end
+end
+
 json.photos do
   json.array! @user.photos
 end
