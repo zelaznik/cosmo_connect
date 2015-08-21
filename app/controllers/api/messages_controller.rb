@@ -23,4 +23,15 @@ class Api::MessagesController < ApplicationController
     end
   end
 
+  def index
+    other_user = User.find(params[:user_id])
+    @messages = current_user.emails_with(other_user)
+    render :show
+  end
+
+  private
+  def message_params
+    params.require(:message).permit(:receiver_id, :body)
+  end
+
 end

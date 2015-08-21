@@ -96,6 +96,20 @@ class User < ActiveRecord::Base
     h.values.sort {|v| v.response_category_id}
   end
 
+  def emails_with(other_user)
+    Message.find_by_sql([<<-SQL, self_id: self.id, other_id: other_user.id])
+    SELECT
+      m.*
+    FROM
+      messages m
+    WHERE
+      (m.sender_id = :self_id AND m.receiver_id = :other_id)
+      OR (m.sender_id = :other_id AND m.receiver_id = :self_id)
+    ORDER BY
+      m.created_at
+    SQL
+  end
+
   def soulmates
     # Finds users whom you have liked who also like you back.
     self.class.find_by_sql([<<-SQL, self.id])
