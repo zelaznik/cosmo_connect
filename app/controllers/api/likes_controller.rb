@@ -1,4 +1,4 @@
-class Api::LikesController < ApplicationController
+class Api::LikesController < Api::BaseController
 
   def show
     #This is actually a hijacked index view.

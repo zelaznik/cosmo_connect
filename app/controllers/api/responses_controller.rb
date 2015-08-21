@@ -1,4 +1,4 @@
-class Api::ResponsesController < ApplicationController
+class Api::ResponsesController < Api::BaseController
 
   def create
     @response = Response.new(response_params)

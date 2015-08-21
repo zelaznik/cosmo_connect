@@ -1,4 +1,4 @@
-class Api::PhotosController < ApplicationController
+class Api::PhotosController < Api::BaseController
   def index
     render json: User.find(params[:user_id]).photos
   end

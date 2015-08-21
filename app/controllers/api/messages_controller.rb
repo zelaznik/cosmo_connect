@@ -1,4 +1,4 @@
-class Api::MessagesController < ApplicationController
+class Api::MessagesController < Api::BaseController
   def create
     @message = Message.new(message_params)
     @message.sender = current_user

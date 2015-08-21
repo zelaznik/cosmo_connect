@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     resources :likes, only: [:create, :destroy, :show]
     resources :responses, only: [:create, :update]
     resources :messages, only: [:create, :show]
+    resources :visits, only: [:create, :show]
   end
 
 end
