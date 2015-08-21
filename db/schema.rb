@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150819005213) do
+ActiveRecord::Schema.define(version: 20150821174918) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -188,7 +188,7 @@ ActiveRecord::Schema.define(version: 20150819005213) do
   end
 
   add_index "visits", ["profile_id"], name: "index_visits_on_profile_id", using: :btree
-  add_index "visits", ["visitor_id", "profile_id"], name: "index_visits_on_visitor_id_and_profile_id", unique: true, using: :btree
+  add_index "visits", ["visitor_id", "profile_id"], name: "index_visits_on_visitor_id_and_profile_id", using: :btree
   add_index "visits", ["visitor_id"], name: "index_visits_on_visitor_id", using: :btree
 
   add_foreign_key "desired_genders", "genders"
