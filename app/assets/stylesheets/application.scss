@@ -15,7 +15,6 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-
 .navbar {
   background-color: #00F; /* fallback color, place your own */
 
@@ -48,7 +47,7 @@
 
 .m-background {
   background: rgba(92, 88, 88, 0.6);
-  position: absolute;
+  position: fixed;
   top: 0;
   bottom: 0;
   left: 0;

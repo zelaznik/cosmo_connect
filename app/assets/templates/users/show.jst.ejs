@@ -12,13 +12,20 @@
       <div class="col-md-10">
         <% if (!user.isCurrentUser) { %>
           <div class="container">
-            <% if (user.like().isNew()) { %>
-              <button class="toggle">Like</button>
-            <% } else { %>
-              <button class="toggle">Unlike</button>
-            <% } %>
+            <div class="row">
+              <div class="col-md-6">
+              <% if (user.like().isNew()) { %>
+                <button class="toggle">Like</button>
+              <% } else { %>
+                <button class="toggle">Unlike</button>
+              <% } %>
+              <div class="col-md-6">
+                <button>Send Message</button>
+              </div>
+            </div>
           </div>
         <% } %>
+
         <div class="row">
           <h3 valign="left">
             <%= 'Username: ' + user.escape('username') %>

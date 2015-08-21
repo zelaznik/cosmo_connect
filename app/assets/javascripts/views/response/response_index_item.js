@@ -15,9 +15,6 @@ Cosmo.Views.ResponseIndexItem = Backbone.View.extend({
   },
 
   editEssay: function () {
-    if (!this.user.isCurrentUser) {
-      throw "Cannot edit the responses of another user.";
-    }
     var modal = new Cosmo.Views.ResponseIndexItemForm({
       collection: this.collection,
       model: this.model,

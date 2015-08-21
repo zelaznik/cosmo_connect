@@ -8,7 +8,8 @@ Cosmo.Views.UserShow = Backbone.CompositeView.extend({
     "click .upload-photo": "upload",
     "click .toggle": "toggleLike",
     "change #gender": "updateGender",
-    "change #birthdate": "updateBirthdate"
+    "change #birthdate": "updateBirthdate",
+    "click .send-message": 'sendMessage'
   },
 
   initialize: function() {
@@ -20,6 +21,10 @@ Cosmo.Views.UserShow = Backbone.CompositeView.extend({
     });
 
     this.addSubview('.response-index', responseIndexView);
+  },
+
+  sendMessage: function () {
+
   },
 
   updateGender: function(event) {
