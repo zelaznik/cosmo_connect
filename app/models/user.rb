@@ -71,9 +71,11 @@ class User < ActiveRecord::Base
   has_many :genders_sought, through: :desired_genders, source: :gender
   has_many :users_of_desirable_gender, through: :desired_genders, source: :user
 
-  has_many :visits, foreign_key: :visitor_id, dependent: :destroy
-  has_many :visited_profiles, through: :visits, source: :profile
-  has_many :visitors, through: :visits, source: :visitor
+  has_many :visit_history, class_name: "Visit", foreign_key: :visitor_id
+  has_many :visited_profiles, through: :visit_history, source: :profile
+
+  has_many :received_visits, class_name: "Visit", foreign_key: :profile_id
+  has_many :visitors, through: :received_visits, source: :visitor
 
   has_many :user_interest_links, dependent: :destroy
   has_many :interests, through: :user_interest_links, source: :interest
