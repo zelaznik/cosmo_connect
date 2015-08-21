@@ -3,10 +3,7 @@ class Api::UsersController < Api::BaseController
 
   def show
     @user = User.find(params[:id])
-    # Save that the visit took place before rendering
-    if @user!= current_user
-      Visit.new(visitor: current_user, profile: @user).save
-    end
+    log_visit(@user) unless @user == current_user
   end
 
   def update
@@ -32,6 +29,15 @@ class Api::UsersController < Api::BaseController
     if params[:id].to_i != current_user.id
       raise "Cannot modify attributes of another user."
     end
+  end
+
+  def log_visit(other_user)
+    # Either enters a new visit record into the database,
+    # or updates an existing record to reflect the most recent visit.
+    h = {visitor: current_user, profile: other_user}
+    @visit = Visit.where(h).first || Visit.new
+    @visit.update(h)
+    @visit.save!
   end
 
 end
