@@ -83,20 +83,7 @@ class User < ActiveRecord::Base
   has_many :sent_messages, class_name: "Message", foreign_key: :sender_id
   has_many :received_messages, class_name: "Message", foreign_key: :receiver_id
 
-  # Only created for casade deleting
   has_many :responses, dependent: :destroy
-
-  # Returns the responses regardless of whether
-  # a user has filled in all the answers
-
-  def responses_with_blanks
-    #Put existing responses into a hash
-    h = Hash[responses.collect { |r| [r.response_category_id, r] } ]
-    ResponseCategory.all.each do |c|
-      h[c.id] ||= Response.new(response_category: c, user: self)
-    end
-    h.values.sort {|v| v.response_category_id}
-  end
 
   def emails_with(other_user)
     Message.find_by_sql([<<-SQL, self_id: self.id, other_id: other_user.id])

@@ -37,18 +37,8 @@ json.details do
   json.relationship_status getter(@user.relationship_status, 'description')
 end
 
-# Please don't judge me.  This is a stupid patch to keep the browser
-# from displaying unanswered questions more than once on a page.
-# unanswered responses have id == null, which means that backbone
-# doesn't realize that an equivalent model has already been inserted.
-if @exclude_blank_responses
-  responses = @user.responses
-else
-  responses = @user.responses_with_blanks
-end
-
 json.responses do
-  json.array! responses do |r|
+  json.array! @user.responses.includes(:response_category) do |r|
     json.id r.id
     json.response_category_id r.response_category_id
     json.title r.response_category.title

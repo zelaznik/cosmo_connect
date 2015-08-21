@@ -25,6 +25,25 @@ COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
 
 SET search_path = public, pg_catalog;
 
+--
+-- Name: _trg_aft_ins_users(); Type: FUNCTION; Schema: public; Owner: zMac
+--
+
+CREATE FUNCTION _trg_aft_ins_users() RETURNS trigger
+    LANGUAGE plpgsql
+    AS $$
+      BEGIN
+        INSERT INTO responses (
+        response_category_id, user_id, created_at, updated_at)
+        SELECT id, NEW.id, NEW.updated_at, NEW.updated_at
+        FROM response_categories;
+        RETURN NULL;
+      END
+    $$;
+
+
+ALTER FUNCTION public._trg_aft_ins_users() OWNER TO "zMac";
+
 SET default_tablespace = '';
 
 SET default_with_oids = false;
@@ -604,7 +623,8 @@ CREATE TABLE visits (
     visitor_id integer NOT NULL,
     profile_id integer NOT NULL,
     created_at timestamp without time zone NOT NULL,
-    updated_at timestamp without time zone NOT NULL
+    updated_at timestamp without time zone NOT NULL,
+    CONSTRAINT check_visits_visitor_neq_profile CHECK ((visitor_id <> profile_id))
 );
 
 
@@ -796,6 +816,8 @@ COPY details_of_users (id, user_id, last_online, ethnicity_id, height, body_type
 7	14	\N	\N	\N	\N	\N	\N	\N	\N	\N	2015-08-18 05:54:50.962866	2015-08-18 05:54:50.962866
 8	15	\N	\N	\N	\N	\N	\N	\N	\N	\N	2015-08-19 02:01:25.223789	2015-08-19 02:01:25.223789
 9	16	\N	\N	\N	\N	\N	\N	\N	\N	\N	2015-08-20 00:13:18.959154	2015-08-20 00:13:18.959154
+10	17	\N	\N	\N	\N	\N	\N	\N	\N	\N	2015-08-21 22:29:30.273172	2015-08-21 22:29:30.273172
+11	19	\N	\N	\N	\N	\N	\N	\N	\N	\N	2015-08-21 22:51:11.626985	2015-08-21 22:51:11.626985
 \.
 
 
@@ -803,7 +825,7 @@ COPY details_of_users (id, user_id, last_online, ethnicity_id, height, body_type
 -- Name: details_of_users_id_seq; Type: SEQUENCE SET; Schema: public; Owner: zMac
 --
 
-SELECT pg_catalog.setval('details_of_users_id_seq', 9, true);
+SELECT pg_catalog.setval('details_of_users_id_seq', 11, true);
 
 
 --
@@ -871,7 +893,6 @@ SELECT pg_catalog.setval('interests_id_seq', 1, false);
 COPY matches (id, sender_id, receiver_id, created_at, updated_at) FROM stdin;
 12	1	15	2015-08-19 06:58:20.589132	2015-08-19 06:58:20.589132
 13	1	7	2015-08-19 06:58:27.785383	2015-08-19 06:58:27.785383
-19	4	7	2015-08-19 18:04:41.183583	2015-08-19 18:04:41.183583
 20	4	15	2015-08-19 18:04:47.838578	2015-08-19 18:04:47.838578
 21	7	4	2015-08-19 18:04:58.878505	2015-08-19 18:04:58.878505
 23	7	15	2015-08-19 20:35:30.574869	2015-08-19 20:35:30.574869
@@ -880,7 +901,8 @@ COPY matches (id, sender_id, receiver_id, created_at, updated_at) FROM stdin;
 30	15	14	2015-08-20 04:02:33.569729	2015-08-20 04:02:33.569729
 32	16	15	2015-08-20 04:48:42.267146	2015-08-20 04:48:42.267146
 36	14	7	2015-08-21 01:33:03.619022	2015-08-21 01:33:03.619022
-38	14	15	2015-08-21 07:17:42.832484	2015-08-21 07:17:42.832484
+39	4	7	2015-08-21 17:20:47.031999	2015-08-21 17:20:47.031999
+40	14	15	2015-08-21 21:40:44.219006	2015-08-21 21:40:44.219006
 \.
 
 
@@ -888,7 +910,7 @@ COPY matches (id, sender_id, receiver_id, created_at, updated_at) FROM stdin;
 -- Name: matches_id_seq; Type: SEQUENCE SET; Schema: public; Owner: zMac
 --
 
-SELECT pg_catalog.setval('matches_id_seq', 38, true);
+SELECT pg_catalog.setval('matches_id_seq', 41, true);
 
 
 --
@@ -1043,6 +1065,16 @@ COPY responses (id, response_category_id, user_id, body, created_at, updated_at)
 48	2	4	weafasdfasdf	2015-08-20 20:51:55.17787	2015-08-20 20:51:55.17787
 49	8	14		2015-08-21 05:22:10.380868	2015-08-21 05:22:10.380868
 41	5	14	Elaine, Newman, Tom's Restaurant	2015-08-18 21:31:45.386885	2015-08-21 05:30:53.556268
+50	1	17	I'm a conductor.  Like Leonard Bernstein, or do you not think I'm good enough to put myself in such esteemed ranks.	2015-08-21 22:29:58.86927	2015-08-21 22:29:58.86927
+51	3	17	Conducting.	2015-08-21 22:30:05.865165	2015-08-21 22:30:05.865165
+53	1	19	\N	2015-08-21 22:51:11.618895	2015-08-21 22:51:11.618895
+54	2	19	\N	2015-08-21 22:51:11.618895	2015-08-21 22:51:11.618895
+55	4	19	\N	2015-08-21 22:51:11.618895	2015-08-21 22:51:11.618895
+56	5	19	\N	2015-08-21 22:51:11.618895	2015-08-21 22:51:11.618895
+57	6	19	\N	2015-08-21 22:51:11.618895	2015-08-21 22:51:11.618895
+58	7	19	\N	2015-08-21 22:51:11.618895	2015-08-21 22:51:11.618895
+59	8	19	\N	2015-08-21 22:51:11.618895	2015-08-21 22:51:11.618895
+60	3	19	\N	2015-08-21 22:51:11.618895	2015-08-21 22:51:11.618895
 \.
 
 
@@ -1050,7 +1082,7 @@ COPY responses (id, response_category_id, user_id, body, created_at, updated_at)
 -- Name: responses_id_seq; Type: SEQUENCE SET; Schema: public; Owner: zMac
 --
 
-SELECT pg_catalog.setval('responses_id_seq', 49, true);
+SELECT pg_catalog.setval('responses_id_seq', 60, true);
 
 
 --
@@ -1078,6 +1110,10 @@ COPY schema_migrations (version) FROM stdin;
 20150816055846
 20150818012611
 20150819005213
+20150821174918
+20150821180648
+20150821205508
+20150821224429
 \.
 
 
@@ -1101,14 +1137,16 @@ SELECT pg_catalog.setval('user_interest_links_id_seq', 1, false);
 --
 
 COPY users (id, username, password_digest, session_token, birthdate, gender_id, min_age, max_age, max_radius, last_login, last_logout, created_at, updated_at) FROM stdin;
-14	seinfeld	$2a$10$WO0BighJXm2znlGFT0XxWuC/RYPtvVFfOHN.7o5.aeFb9StkJUwxe	tytk1h8P4P50FQkFWFshiw	0006-09-20 00:00:00	1	\N	\N	\N	\N	\N	2015-08-18 05:54:50.957263	2015-08-21 16:07:10.685486
+7	chloe	$2a$10$hcBR4JDKLUvLfZhrq9MU4u4iHE6geGHEsJHIVOgn6FdKpMmvCZGee	MKUcMfBUKTReslMzxEcE0g	2010-12-01 00:00:00	4	18	92	50	\N	\N	2015-08-13 19:09:27.02488	2015-08-21 17:57:32.770488
+6	robert	$2a$10$HbJeVTqbIhlQZ5sYRSmBB.T81AENlKFWsXru0ZLHZA8Brh.HMLsRO	18h87nU6-vEupQHXdOOe5A	1959-01-01 00:00:00	1	18	92	50	\N	\N	2015-08-13 19:06:48.15266	2015-08-21 19:00:18.924764
+4	michael	$2a$10$L5KCtJ632ssljfS/qTaFBOtcIVowGo6aSb1XwCobV3yvjYepJNWwy	qy8x2ZaA3YfV13GgmYW__g	2014-08-20 00:00:00	1	18	92	50	\N	\N	2015-08-13 18:26:24.546648	2015-08-21 19:10:25.986663
 12	sparticus	$2a$10$LRnclwqRXbDPkp.e1vaHBeyX8wOENzhro5IETV/FC53KMICZkH3Zq	3a_kSfDQQXoXB11jC5sPSA	1990-01-01 00:00:00	1	\N	\N	\N	\N	\N	2015-08-16 06:11:48.548833	2015-08-18 06:53:26.478577
-15	elaine	$2a$10$C1iMvXxqnYvXZJ2NVwEVmeDsFizZa0CaGjQrimCZ4uNdfDNEQ./Pm	dTGKxFrAjMhPUjpDp7FHCw	1961-01-13 00:00:00	2	\N	\N	\N	\N	\N	2015-08-19 02:01:25.216819	2015-08-20 22:05:52.141961
-6	robert	$2a$10$HbJeVTqbIhlQZ5sYRSmBB.T81AENlKFWsXru0ZLHZA8Brh.HMLsRO	ilIvlSLrXf8Ue6-HlHnVOw	1959-01-01 00:00:00	1	18	92	50	\N	\N	2015-08-13 19:06:48.15266	2015-08-17 16:51:33.461609
-7	chloe	$2a$10$hcBR4JDKLUvLfZhrq9MU4u4iHE6geGHEsJHIVOgn6FdKpMmvCZGee	sbnZn6Xts3gBRIQoDuM6TA	2010-12-01 00:00:00	4	18	92	50	\N	\N	2015-08-13 19:09:27.02488	2015-08-21 07:44:03.702282
+1	zelaznik	$2a$10$GxKq.J.9qWJ2tlLU7P6UEerTRa01rIef7GLb9WaXb3FOePHzF/acC	32xA9Jur3MJ1ROo6XDjudw	0004-03-06 00:00:00	1	18	92	50	\N	\N	2015-08-12 04:19:06.209106	2015-08-21 22:10:36.156322
+15	elaine	$2a$10$C1iMvXxqnYvXZJ2NVwEVmeDsFizZa0CaGjQrimCZ4uNdfDNEQ./Pm	Aupjw-BDS7l_BoMrI1jmSQ	1961-01-13 00:00:00	2	\N	\N	\N	\N	\N	2015-08-19 02:01:25.216819	2015-08-21 22:29:15.202328
+17	maestro	$2a$10$w3mtYswiHawuqX67CheSvO7XZk7b1zAd0z2j0S5URTBXr0Xa/poBO	3H3WXfd754OOIQHh_MJ_6w	\N	1	\N	\N	\N	\N	\N	2015-08-21 22:29:30.26859	2015-08-21 22:29:33.242938
+19	mulva	$2a$10$s6ci8s7FD8qocIrmLutsbuW81nx0x0AqzHNAKIwwR1LWwjXtkvHym	ssZBjCmAbYM1DE0V_4vjBw	\N	\N	\N	\N	\N	\N	\N	2015-08-21 22:51:11.618895	2015-08-21 22:51:11.632082
+14	seinfeld	$2a$10$WO0BighJXm2znlGFT0XxWuC/RYPtvVFfOHN.7o5.aeFb9StkJUwxe	oCzqmLUblgMottYibZgqxQ	0006-09-20 00:00:00	1	\N	\N	\N	\N	\N	2015-08-18 05:54:50.957263	2015-08-21 22:52:42.746693
 16	soup_nazi	$2a$10$MRxNj4rwkW0aW8mE5BCn.uAlkdI/dd0sQEqVaDGlYGGP/W/yvFIv6	pIS79u1zgDQa4z8_IH_p2A	1956-09-01 00:00:00	1	\N	\N	\N	\N	\N	2015-08-20 00:13:18.952628	2015-08-21 08:13:22.979445
-1	zelaznik	$2a$10$GxKq.J.9qWJ2tlLU7P6UEerTRa01rIef7GLb9WaXb3FOePHzF/acC	RjJe9vu2GgI3ocMLhhSRhw	0004-03-06 00:00:00	1	18	92	50	\N	\N	2015-08-12 04:19:06.209106	2015-08-21 08:37:04.006111
-4	michael	$2a$10$L5KCtJ632ssljfS/qTaFBOtcIVowGo6aSb1XwCobV3yvjYepJNWwy	u1d2mebjeKj8v4RJrc8_pQ	2014-08-20 00:00:00	1	18	92	50	\N	\N	2015-08-13 18:26:24.546648	2015-08-21 08:37:46.072025
 \.
 
 
@@ -1116,7 +1154,7 @@ COPY users (id, username, password_digest, session_token, birthdate, gender_id, 
 -- Name: users_id_seq; Type: SEQUENCE SET; Schema: public; Owner: zMac
 --
 
-SELECT pg_catalog.setval('users_id_seq', 16, true);
+SELECT pg_catalog.setval('users_id_seq', 19, true);
 
 
 --
@@ -1124,6 +1162,12 @@ SELECT pg_catalog.setval('users_id_seq', 16, true);
 --
 
 COPY visits (id, visitor_id, profile_id, created_at, updated_at) FROM stdin;
+21	14	1	2015-08-21 21:00:14.322911	2015-08-21 21:00:14.322911
+22	14	6	2015-08-21 21:01:49.472968	2015-08-21 21:01:49.472968
+23	14	4	2015-08-21 21:01:53.195409	2015-08-21 21:01:53.195409
+24	14	7	2015-08-21 21:02:14.787251	2015-08-21 21:02:14.787251
+25	14	15	2015-08-21 21:40:41.156517	2015-08-21 21:40:41.156517
+26	1	14	2015-08-21 22:10:41.319663	2015-08-21 22:10:41.319663
 \.
 
 
@@ -1131,7 +1175,7 @@ COPY visits (id, visitor_id, profile_id, created_at, updated_at) FROM stdin;
 -- Name: visits_id_seq; Type: SEQUENCE SET; Schema: public; Owner: zMac
 --
 
-SELECT pg_catalog.setval('visits_id_seq', 1, false);
+SELECT pg_catalog.setval('visits_id_seq', 26, true);
 
 
 --
@@ -1505,6 +1549,13 @@ CREATE UNIQUE INDEX index_visits_on_visitor_id_and_profile_id ON visits USING bt
 --
 
 CREATE UNIQUE INDEX unique_schema_migrations ON schema_migrations USING btree (version);
+
+
+--
+-- Name: trg_aft_ins_users; Type: TRIGGER; Schema: public; Owner: zMac
+--
+
+CREATE TRIGGER trg_aft_ins_users AFTER INSERT ON users FOR EACH ROW EXECUTE PROCEDURE _trg_aft_ins_users();
 
 
 --
