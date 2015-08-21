@@ -12,14 +12,13 @@ class Api::MessagesController < ApplicationController
   def show
     # This is a hack way to return indexes of messages
     # based on different search criteria
-    m = params[:id].downcase
-    case m
+    case params[:id].to_s.downcase
       when 'sent'
         @messages = current_user.sent_messages
       when 'received'
         @messages = current_user.received_messages
       else
-        render json: ["Unsupported method: '#{m}'"], status: 422
+        render json: Message.find(params[:id])
     end
   end
 
