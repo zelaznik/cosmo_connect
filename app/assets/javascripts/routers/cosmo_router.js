@@ -14,23 +14,33 @@ Cosmo.Routers.Router = Backbone.Router.extend({
 
     'likes/crushes': 'crushesIndex',
     'likes/secret_admirers': 'admirersIndex',
-    'likes/soulmates': 'soulmatesIndex'
+    'likes/soulmates': 'soulmatesIndex',
 
+    'visits/sent': 'sentVisitsIndex',
+    'visits/received': 'receivedVisitsIndex'
   },
 
   crushesIndex: function() {
-    this._likesIndex(new Cosmo.Collections.Crushes());
+    this._usersIndex(new Cosmo.Collections.Crushes());
   },
 
   admirersIndex: function() {
-    this._likesIndex(new Cosmo.Collections.SecretAdmirers());
+    this._usersIndex(new Cosmo.Collections.SecretAdmirers());
   },
 
   soulmatesIndex: function () {
-    this._likesIndex(new Cosmo.Collections.Soulmates());
+    this._usersIndex(new Cosmo.Collections.Soulmates());
   },
 
-  _likesIndex: function(users) {
+  sentVisitsIndex: function() {
+    this._usersIndex(new Cosmo.Collections.SentVisits());
+  },
+
+  receivedVisitsIndex: function () {
+    this._usersIndex(new Cosmo.Collections.ReceivedVisits());
+  },
+
+  _usersIndex: function(users) {
     users.fetch();
     var view = new Cosmo.Views.UserIndex({
       collection: users

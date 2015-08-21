@@ -74,13 +74,6 @@ class User < ActiveRecord::Base
   has_many :visit_history, class_name: "Visit", foreign_key: :visitor_id
   has_many :visited_profiles, through: :visit_history, source: :profile
 
-  def most_recent_visits
-    Visit
-      .select("visitor_id, profile_id, MAX(visits.created_at)")
-      .includes(:profile).where(visitor_id: self.id)
-      .group("profile_id, visitor_id")
-  end
-
   has_many :received_visits, class_name: "Visit", foreign_key: :profile_id
   has_many :visitors, through: :received_visits, source: :visitor
 

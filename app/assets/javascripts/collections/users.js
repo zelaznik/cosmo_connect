@@ -19,3 +19,13 @@ Cosmo.Collections.Soulmates = Backbone.Collection.extend({
   url: 'api/likes/soulmates',
   model: Cosmo.Models.User
 });
+
+Cosmo.Collections.ReceivedVisits = Backbone.Collection.extend({
+  url: 'api/visits/received',
+  model: Cosmo.Models.User
+});
+
+Cosmo.Collections.SentVisits = Backbone.Collection.extend({
+  url: 'api/visits/sent',
+  model: Cosmo.Models.User
+});

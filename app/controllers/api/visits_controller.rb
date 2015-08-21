@@ -3,10 +3,10 @@ class Api::VisitsController < Api::BaseController
     #This is actually a hijacked index view.
     m = params[:id].downcase
     case m
-      when 'browsing_history'
-        @users = current_user.crushes
-      when 'your_visitors'
-        @users = current_user.secret_admirers
+    when 'sent'
+        @users = current_user.visited_profiles
+      when 'received'
+        @users = current_user.visitors
       else
         render json: ["Unsupported method: '#{m}'"], status: 422
     end
