@@ -1,7 +1,7 @@
 window.Cosmo.Views.ResponseIndexItemForm = Backbone.ModalView.extend({
   template: JST['essays/form'],
 
-  editEssay: function (event) {
+  submit: function (event) {
     event.preventDefault();
     var obj = $(event.currentTarget).serializeJSON();
     this.model.save(obj.response, {
@@ -10,5 +10,14 @@ window.Cosmo.Views.ResponseIndexItemForm = Backbone.ModalView.extend({
         this.remove();
       }.bind(this)
     });
+  },
+
+  render: function () {
+    this.$el.html(this.template({
+      isCurrentUser: this.isCurrentUser,
+      response: this.model
+    }));
+    return this;
   }
+
 });

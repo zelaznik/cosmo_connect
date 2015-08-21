@@ -4,23 +4,18 @@
 	<form>
 		<input
 				type='hidden'
-				name='response[response_category_id]'
-				value="<%= response.escape('response_category_id') %>"
+				name='message[receiver_id]'
+				value="<%= other_user.escape('id') %>"
 		>
 		<div class="row">
 			<div class="col-xs-1">
 				<button name=”button”>&times;</button>
 			</div>
 			<div class="col-xs-11">
-				<p><b><%= response.escape('title') %></b></p>
 			</div>
 		</div>
 		<div class="row">
-			<input
-					type='text'
-					name='response[body]'
-					value="<%= response.escape('body') %>"
-			>
+			<input type='text' name='message[body]' value="">
 		</div>
 		<div class="row">
 			<input type='submit', class='btn btn-primary' value='Submit'>

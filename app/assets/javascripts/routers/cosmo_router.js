@@ -15,6 +15,7 @@ Cosmo.Routers.Router = Backbone.Router.extend({
     'likes/crushes': 'crushesIndex',
     'likes/secret_admirers': 'admirersIndex',
     'likes/soulmates': 'soulmatesIndex'
+
   },
 
   crushesIndex: function() {

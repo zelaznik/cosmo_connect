@@ -9,7 +9,7 @@ Cosmo.Views.UserShow = Backbone.CompositeView.extend({
     "click .toggle": "toggleLike",
     "change #gender": "updateGender",
     "change #birthdate": "updateBirthdate",
-    "click .send-message": 'sendMessage'
+    "click #send-message": 'sendMessage'
   },
 
   initialize: function() {
@@ -23,8 +23,12 @@ Cosmo.Views.UserShow = Backbone.CompositeView.extend({
     this.addSubview('.response-index', responseIndexView);
   },
 
-  sendMessage: function () {
-
+  sendMessage: function (event) {
+    event.preventDefault();
+    var modal = new Cosmo.Views.NewMessageForm({
+      other_user: this.model
+    });
+    $('#content').append(modal.render().$el);
   },
 
   updateGender: function(event) {
@@ -45,10 +49,6 @@ Cosmo.Views.UserShow = Backbone.CompositeView.extend({
   },
 
   toggleLike: function(event) {
-    if (this.model.isCurrentUser) {
-      throw "Cannot like one's own photo.";
-    }
-
     if (this.model.like().isNew()) {
       this.likeUser();
     } else {
