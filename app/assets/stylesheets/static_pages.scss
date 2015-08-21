@@ -1,3 +1,16 @@
 // Place all the styles related to the StaticPages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.response-index-item-title {
+  font-family: 'Open Sans',sans-serif;
+  font-weight: normal;
+  color: #5e6573;
+  font-size: 15px;
+  line-height: 22px;
+  display: inline-block;
+  margin: -8px -8px 0;
+  padding-top: 8px;
+  padding-left: 8px;
+  padding-right: 8px;
+}

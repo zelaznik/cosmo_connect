@@ -38,7 +38,6 @@
 
 .user-profile {
   width: 90%;
-  height: 100px;
   border-radius: 5px;
   margin: 0 auto;
 }
@@ -71,4 +70,21 @@
 .form-signin {
   margin: 0 auto;
   width: 300px;
+}
+
+.response-index-item {
+  padding-bottom: 20px;
+}
+
+.response-index-item-title {
+  font-family: 'Open Sans',sans-serif;
+  font-weight: normal;
+  color: #5e6573;
+  font-size: 18px;
+  line-height: 22px;
+  display: inline-block;
+  margin: -8px -8px 0;
+  padding-top: 8px;
+  padding-left: 8px;
+  padding-right: 8px;
 }
