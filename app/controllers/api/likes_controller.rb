@@ -5,11 +5,11 @@ class Api::LikesController < Api::BaseController
     m = params[:id].downcase
     case m
       when 'crushes'
-        @users = current_user.crushes
+        @users = current_user.crushes.includes(:gender)
       when 'secret_admirers'
-        @users = current_user.secret_admirers
+        @users = current_user.secret_admirers.includes(:gender)
       when 'soulmates'
-        @users = current_user.soulmates
+        @users = current_user.soulmates.includes(:gender)
       else
         render json: ["Unsupported method: '#{m}'"], status: 422
     end
