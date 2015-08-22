@@ -9,8 +9,18 @@ json.extract! @user, :id, :username
 if not is_current_user
   json.age @user.age
   json.gender getter(@user.gender, 'name')
+
 else
-  json.birthdate (@user.birthdate.nil? ? nil : @user.birthdate.strftime("%Y-%m-%d"))
+  if @user.birthdate.nil?
+    json.birthdate nil
+  else
+    json.birthdate do
+      json.year @user.birthdate.year
+      json.month @user.birthdate.month
+      json.day @user.birthdate.day
+    end
+  end
+
   json.gender_id @user.gender_id
   json.genders do
     json.array! Gender.all do |gender|

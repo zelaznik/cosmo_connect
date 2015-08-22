@@ -55,10 +55,11 @@
 
             &middot;
 
-            <input
-              id="birthdate" type="date"
-              value="<%= user.escape('birthdate')%>">
-
+            <div id="birthdate">
+              <input name="birthdate[year]" value=2012>
+              <input name="birthdate[year]" value=12>
+              <input name="birthdate[year]" value=1>
+            </div>
           </h3>
         <% } else { %>
           <h3 valign="left">
