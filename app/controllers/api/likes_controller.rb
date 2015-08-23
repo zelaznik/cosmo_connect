@@ -2,14 +2,15 @@ class Api::LikesController < Api::BaseController
 
   def show
     #This is actually a hijacked index view.
+    @gender_name = Hash[Gender.all.collect {|g| [g.id, g.name]}]
     m = params[:id].downcase
     case m
       when 'crushes'
-        @users = current_user.crushes.includes(:gender)
+        @users = current_user.crushes
       when 'secret_admirers'
-        @users = current_user.secret_admirers.includes(:gender)
+        @users = current_user.secret_admirers
       when 'soulmates'
-        @users = current_user.soulmates.includes(:gender)
+        @users = current_user.soulmates
       else
         render json: ["Unsupported method: '#{m}'"], status: 422
     end
