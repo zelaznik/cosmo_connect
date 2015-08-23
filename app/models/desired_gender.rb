@@ -1,4 +1,4 @@
 class DesiredGender < ActiveRecord::Base
-  has_many :users
-  has_many :genders
+  belongs_to :user
+  belongs_to :gender
 end
