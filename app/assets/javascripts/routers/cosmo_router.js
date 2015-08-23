@@ -11,7 +11,7 @@ Cosmo.Routers.Router = Backbone.Router.extend({
     '': 'you',
     'sign_out': 'destroySession',
 
-    'users/index': 'userIndex',
+    'users/index': 'searchResults',
     'users/:id': 'userShow',
 
     'likes/crushes': 'crushesIndex',
@@ -50,14 +50,10 @@ Cosmo.Routers.Router = Backbone.Router.extend({
     this._usersIndex(new Cosmo.Collections.ReceivedVisits());
   },
 
-  _usersIndex: function(users) {
-    users.fetch();
-    var view = new Cosmo.Views.UserIndex({
-      collection: users,
-      title: users.title
-    });
-    this._swapView(view);
+  searchResults: function () {
+    this._usersIndex(new Cosmo.Collections.UserSearch());
   },
+
 
   sentMessagesIndex: function () {
     alert("Sent Messages Not Implemented");
@@ -71,14 +67,6 @@ Cosmo.Routers.Router = Backbone.Router.extend({
     alert("Chat History Not Implemented");
   },
 
-  _messagesIndex: function(messages) {
-    messages.fetch();
-    var view = new Cosmo.Views.MessagesIndex({
-      collection: messages,
-      title: messages.title
-    });
-    this._swapView(view);
-  },
 
   you: function() {
     this.userShow(Cosmo.CURRENT_USER_ID);
@@ -93,13 +81,22 @@ Cosmo.Routers.Router = Backbone.Router.extend({
     this._swapView(view);
   },
 
-  userIndex: function () {
-    var users = new Cosmo.Collections.UserSearch();
+  _usersIndex: function(users) {
     users.fetch();
-    var usersView = new Cosmo.Views.UserIndex({
-      collection: users
+    var view = new Cosmo.Views.UserIndex({
+      collection: users,
+      title: users.title
     });
-    this._swapView(usersView);
+    this._swapView(view);
+  },
+
+  _messagesIndex: function(messages) {
+    messages.fetch();
+    var view = new Cosmo.Views.MessagesIndex({
+      collection: messages,
+      title: messages.title
+    });
+    this._swapView(view);
   },
 
   destroySession: function() {

@@ -19,6 +19,18 @@
   font-size: 12px;
 }
 
+body {
+  font-family: 'Open Sans',sans-serif;
+}
+
+.user-preview-name {
+  font-size: 20px;
+}
+
+.user-preview-bullets {
+  font-size: 10px;
+}
+
 .navbar {
   background-color: #00F; /* fallback color, place your own */
 
@@ -80,7 +92,7 @@
 }
 
 .response-index-item-title {
-  font-family: 'Open Sans',sans-serif;
+  // font-family: 'Open Sans',sans-serif;
   font-weight: normal;
   color: #5e6573;
   font-size: 18px;

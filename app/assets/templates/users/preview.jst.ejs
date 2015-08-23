@@ -1,23 +1,35 @@
-<div class="container user-profile">
-    <div class="row">
-      <div class="col-md-2">
-        <a href="<%= '#users/' + user.escape('id') %>" class="thumbnail">
-          <img
-            width=100px height=100px
-            src="<%= '/images/tmp/' + user.escape('id') + '.jpg' %>"
-            alt="<%= 'Profile pic for user: ' + user.escape('username') %>'"
-          ></a>
-          <!-- <button class="upload-photo">Upload Photo</button> -->
-      </div> <!-- End Thumbnail -->
+<div class="container user-preview">
+  <div class="row">
+    <div class="col-md-8 col-xs-10">
+      <div class="well panel panel-default">
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-xs-12 col-sm-4 text-center">
+              <a href="<%= '#users/' + user.escape('id') %>">
+              <img
+                src="<%= '/images/tmp/' + user.escape('id') + '.jpg' %>"
+                alt="<%= 'Profile pic for user: ' + user.escape('username') %>'"
+                class="center-block img-circle img-thumbnail img-responsive"
+                style="height:150px;width:150px;">
+              </a>
+            </div>
 
-      <div class="col-xs-10">
-        <h3 valign="center">
-          <%= 'Username: ' + user.escape('username') %>
-        </h3>
-        <h3 valign="center">
-          <%= user.escape('gender') + ' &middot; ' + (user.get('age') ? user.escape('age') : '(age unknown)') %>
-        </h3>
+            <!--/col-->
+            <div class="col-xs-12 col-sm-8">
+              <h2><%= user.escape('username') %></h2>
+              <p><strong>Gender: </strong><%= user.escape('gender') %></p>
+              <p><strong>Age: </strong><%= user.escape('age') %></p>
+            </div>
+
+          </div>
+          <!--/row-->
+        </div>
+        <!--/panel-body-->
       </div>
-
-    </div> <!-- End Profile First Row -->
+      <!--/panel-->
+    </div>
+    <!--/col-->
+  </div>
+  <!--/row-->
 </div>
+<!--/container-->
