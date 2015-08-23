@@ -32,9 +32,9 @@
           </h3>
         </div>
         <% if (user.isCurrentUser) { %>
-          <h3 valign="left">
+          <h3>
             <% if (user.get('genders')) { %>
-              <select id="gender">
+              <select id="gender" action="">
                 <% if (user.get('gender_id')) { %>
                   <option disabled="true">Select Gender</option>
                 <% } else { %>
@@ -55,12 +55,14 @@
 
             &middot;
 
-            <div id="birthdate">
-              <input name="birthdate[year]" value=2012>
-              <input name="birthdate[year]" value=12>
-              <input name="birthdate[year]" value=1>
-            </div>
+            <form id="birthdate">
+              Year: <input type="number" name="year" value="<%= user.birthdate().year %>">
+              Month: <input type="number" name="month" value="<%= user.birthdate().month %>">
+              Day: <input type="number" name="day" value="<%= user.birthdate().day %>">
+              <input type="submit" value="Update Birthdate">
+            </form>
           </h3>
+
         <% } else { %>
           <h3 valign="left">
             <%= user.escape('gender') + ' &middot; ' + (user.get('age') ? user.escape('age') : '(age unknown)') %>

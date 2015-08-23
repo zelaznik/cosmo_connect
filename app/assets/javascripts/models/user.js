@@ -63,6 +63,10 @@ Cosmo.Models.User = Backbone.Model.extend({
 
   headshot: function() {
     return this.photos()[0];
+  },
+
+  birthdate: function() {
+    return this.get('birthdate') || {'year': null, 'month': null, 'day': null};
   }
 
 });

@@ -8,7 +8,7 @@ Cosmo.Views.UserShow = Backbone.CompositeView.extend({
     "click .upload-photo": "upload",
     "click .toggle": "toggleLike",
     "change #gender": "updateGender",
-    "change #birthdate": "updateBirthdate",
+    "submit #birthdate": "updateBirthdate",
     "click #send-message": 'sendMessage'
   },
 
@@ -36,8 +36,10 @@ Cosmo.Views.UserShow = Backbone.CompositeView.extend({
   },
 
   updateBirthdate: function(event) {
+    event.preventDefault();
     var $target = $(event.currentTarget);
-    var attrs = {birthdate: $target.val()};
+    var d = $target.serializeJSON();
+    var attrs = {birthdate: {year: d.year, month: d.month, day: d.day}};
     this.model.save(attrs, {});
   },
 

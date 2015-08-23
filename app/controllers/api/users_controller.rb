@@ -22,7 +22,10 @@ class Api::UsersController < Api::BaseController
 
   private
   def user_params
-    params.require(:user).permit(:gender_id, :birthdate)
+    dct = params.require(:user).permit(:gender_id, :birthdate)
+    bday = params[:birthdate]
+    dct[:birthdate] = Date.new(bday[:year].to_i, bday[:month].to_i, bday[:day].to_i)
+    return dct
   end
 
   def ensure_current_user

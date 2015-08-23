@@ -1,0 +1,18 @@
+options = {
+  default_message: 'Select Gender',
+
+}
+
+<% if (!default_selection) { %>
+  <option disabled="true"><%= default_message %></option>
+<% } else { %>
+  <option disabled="true" selected=true>Select Gender</option>
+<% } %>
+<% user.get('genders').forEach(function(gender) { %>
+  <option
+    value="<%= gender.id %>"
+    <% if (user.get('gender_id') === gender.id) { %>
+      <%= "selected=true" %>
+    <% } %>>
+  <%= gender.name %></option>
+<% }) %>

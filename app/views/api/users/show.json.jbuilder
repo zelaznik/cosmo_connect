@@ -11,14 +11,10 @@ if not is_current_user
   json.gender getter(@user.gender, 'name')
 
 else
-  if @user.birthdate.nil?
-    json.birthdate nil
-  else
-    json.birthdate do
-      json.year @user.birthdate.year
-      json.month @user.birthdate.month
-      json.day @user.birthdate.day
-    end
+  json.birthdate do
+    json.year getter(@user.birthdate, 'year')
+    json.month getter(@user.birthdate, 'month')
+    json.day getter(@user.birthdate, 'day')
   end
 
   json.gender_id @user.gender_id
