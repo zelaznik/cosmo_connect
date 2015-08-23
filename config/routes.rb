@@ -9,10 +9,12 @@ Rails.application.routes.draw do
       resources :photos, only: [:index, :show]
       resources :messages, only: [:index]
     end
+
+    resources :desired_genders, only: [:create, :destroy, :show]
     resources :likes, only: [:create, :destroy, :show]
     resources :responses, only: [:create, :update]
     resources :messages, only: [:create, :show]
     resources :visits, only: [:show]
-  end
+  end # End API Namespace
 
 end
