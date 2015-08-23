@@ -6,6 +6,8 @@ Cosmo.Routers.Router = Backbone.Router.extend({
   },
 
   routes: {
+    'about': 'aboutUs',
+
     '': 'you',
     'sign_out': 'destroySession',
 
@@ -17,7 +19,15 @@ Cosmo.Routers.Router = Backbone.Router.extend({
     'likes/soulmates': 'soulmatesIndex',
 
     'visits/sent': 'sentVisitsIndex',
-    'visits/received': 'receivedVisitsIndex'
+    'visits/received': 'receivedVisitsIndex',
+
+    'messages/sent': 'sentMessagesIndex',
+    'messages/received': 'receivedMessagesIndex',
+    'messages/chats': 'chatsIndex'
+  },
+
+  aboutUs: function () {
+    alert("'About us' page not implemented.");
   },
 
   crushesIndex: function() {
@@ -43,7 +53,29 @@ Cosmo.Routers.Router = Backbone.Router.extend({
   _usersIndex: function(users) {
     users.fetch();
     var view = new Cosmo.Views.UserIndex({
-      collection: users
+      collection: users,
+      title: users.title
+    });
+    this._swapView(view);
+  },
+
+  sentMessagesIndex: function () {
+    alert("Sent Messages Not Implemented");
+  },
+
+  receivedMessagesIndex: function () {
+    alert("Received Messages Not Implemented");
+  },
+
+  chatsIndex: function () {
+    alert("Chat History Not Implemented");
+  },
+
+  _messagesIndex: function(messages) {
+    messages.fetch();
+    var view = new Cosmo.Views.MessagesIndex({
+      collection: messages,
+      title: messages.title
     });
     this._swapView(view);
   },
@@ -62,7 +94,7 @@ Cosmo.Routers.Router = Backbone.Router.extend({
   },
 
   userIndex: function () {
-    var users = new Cosmo.Collections.Users();
+    var users = new Cosmo.Collections.UserSearch();
     users.fetch();
     var usersView = new Cosmo.Views.UserIndex({
       collection: users
