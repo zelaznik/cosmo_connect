@@ -10,6 +10,11 @@ if not is_current_user
   json.age @user.age
   json.gender getter(@user.gender, 'name')
 
+  json.interested_in do
+    preferences = @user.desired_genders.includes(:gender)
+    json.array! preferences.map {|pref| pref.gender.name.pluralize}
+  end
+
 else
   json.birthdate do
     json.year getter(@user.birthdate, 'year')
@@ -18,9 +23,13 @@ else
   end
 
   json.gender_id @user.gender_id
+
   json.genders do
     json.array! Gender.all do |gender|
-      json.extract! gender, :id, :name
+      json.id gender.id
+      json.name gender.name
+      json.singular gender.name
+      json.plural gender.name.pluralize
     end
   end
 end

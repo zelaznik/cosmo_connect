@@ -46,10 +46,16 @@
                     <% if (user.get('gender_id') === gender.id) { %>
                       <%= "selected=true" %>
                     <% } %>>
-                  <%= gender.name %></option>
+                  <%= gender.singular %></option>
                 <% }) %>
               </select>
-            <% } else { %>
+
+              <form id="desired-genders" action="">
+                <input type="checkbox" name="gender_id" value="1">Men<br>
+                <input type="checkbox" name="gender_id" value="2">Women<br>
+              </form>
+
+            <% } else { %> <!-- If not current user -->
               <%= user.escape('gender') %>
             <% } %>
 

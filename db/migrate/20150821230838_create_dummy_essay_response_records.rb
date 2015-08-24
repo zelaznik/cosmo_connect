@@ -3,7 +3,7 @@ class CreateDummyEssayResponseRecords < ActiveRecord::Migration
   # whenever a new User is created.  This fills in the dummy records
   # for all of the users who had already been created.
 
-  def change
+  def up
     execute <<-SQL
       INSERT INTO responses (
         user_id,
@@ -39,5 +39,8 @@ class CreateDummyEssayResponseRecords < ActiveRecord::Migration
         r.id IS NULL
       ;
     SQL
+  end
+
+  def down
   end
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150821230838) do
+ActiveRecord::Schema.define(version: 20150824051350) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,8 +27,9 @@ ActiveRecord::Schema.define(version: 20150821230838) do
   create_table "desired_genders", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "gender_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.boolean  "interested", default: false, null: false
   end
 
   add_index "desired_genders", ["gender_id"], name: "index_desired_genders_on_gender_id", using: :btree
