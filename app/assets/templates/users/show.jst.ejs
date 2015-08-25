@@ -13,15 +13,16 @@
         <% if (!user.isCurrentUser) { %>
           <div class="container">
             <div class="row">
-              <div class="col-md-6">
               <% if (user.like().isNew()) { %>
-                <button class="toggle">Like</button>
+                <!-- <a href="#" class="" role="button">Button</a> -->
+                <button class=" btn btn-primary toggle"><%= 'Like  '%></button>
               <% } else { %>
-                <button class="toggle">Unlike</button>
+                <button class=" btn btn-success toggle"><%= 'Unlike'%></button>
               <% } %>
-              <div class="col-md-6">
-                <button id='send-message'>Send Message</button>
-              </div>
+            </div>
+            <div class="row"><br></div>
+            <div class="row">
+              <button class="btn btn-info" id='send-message'>Message</button>
             </div>
           </div>
         <% } %>

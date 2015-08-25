@@ -8,7 +8,7 @@ Cosmo.Views.UserIndex = Backbone.CompositeView.extend({
     this.listenTo(this.collection, 'sync', this.render);
 
     this.collection.each(function(user) {
-      this.addUsersubview(user);
+      this.addUserSubview(user);
     }.bind(this));
   },
 

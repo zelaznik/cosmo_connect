@@ -56,11 +56,11 @@ Cosmo.Routers.Router = Backbone.Router.extend({
 
 
   sentMessagesIndex: function () {
-    alert("Sent Messages Not Implemented");
+    this._messagesIndex(new Cosmo.Collections.SentMessages());
   },
 
   receivedMessagesIndex: function () {
-    alert("Received Messages Not Implemented");
+    this._messagesIndex(new Cosmo.Collections.ReceivedMessages());
   },
 
   chatsIndex: function () {
@@ -84,17 +84,15 @@ Cosmo.Routers.Router = Backbone.Router.extend({
   _usersIndex: function(users) {
     users.fetch();
     var view = new Cosmo.Views.UserIndex({
-      collection: users,
-      title: users.title
+      collection: users
     });
     this._swapView(view);
   },
 
   _messagesIndex: function(messages) {
     messages.fetch();
-    var view = new Cosmo.Views.MessagesIndex({
-      collection: messages,
-      title: messages.title
+    var view = new Cosmo.Views.MessageIndex({
+      collection: messages
     });
     this._swapView(view);
   },

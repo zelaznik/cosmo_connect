@@ -1,22 +1,24 @@
 var Cosmo = window.Cosmo;
 
 Cosmo.Collections.Messages = Backbone.Collection.extend({
-  initialize: function (options) {
-    this.user = options.user;
-  },
-
   model: Cosmo.Models.Message,
 
-  comparator: function (response) {
-    return response.get('created_at');
+  comparator: function (message) {
+    return message.get('created_at');
   }
 
 });
 
 Cosmo.Collections.SentMessages = Cosmo.Collections.Messages.extend({
-  url: 'api/messages/sent'
+  url: 'api/messages/sent',
+  model: Cosmo.Models.Message,
+  title: 'Messages',
+  description: 'sent'
 });
 
 Cosmo.Collections.ReceivedMessages = Cosmo.Collections.Messages.extend({
-  url: 'api/messages/received'
+  url: 'api/messages/received',
+  model: Cosmo.Models.Message,
+  title: 'Messages',
+  description: 'received'
 });
