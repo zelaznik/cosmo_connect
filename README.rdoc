@@ -1,28 +1,19 @@
-== README
+# Cosmo-Connect
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+#### www.cosmo-connect.com
 
-Things you may want to cover:
+Cosmo-Connect is a dating website, aimed at busy, shallow city-dwellers.  You may recognize the characters from Seinfeld, and so its called 'The Dating Site About Nothing.'
 
-* Ruby version
+## Implementation Details:
+  - Ruby On Rails
+  - PostgreSQL
+  - Backbone.JS
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+## Key Featuress
+  - Users select their own gender, age, as well as the genders and ages they're interested in.
+  - Users will match only with genders in which they're compatible.
+    - i.e. straight men will match with straight and bi women.
+    - i.e. gay men will match with gay and bi men.
+    - etc
+  - Users can like each other's profiles, and the likes will be visible to the other user.
+  - Users can message any user they choose.  Unfortunately no way to block a user.
