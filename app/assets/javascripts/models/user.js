@@ -28,6 +28,11 @@ Cosmo.Models.User = Backbone.Model.extend({
       delete r.like;
     }
 
+    if (r.desired_genders) {
+      this.desiredGenders().set(r.desired_genders);
+      delete r.desired_genders;
+    }
+
     return r;
   },
 
@@ -36,6 +41,14 @@ Cosmo.Models.User = Backbone.Model.extend({
       this._like = new Cosmo.Models.Like();
     }
     return this._like;
+  },
+
+  desiredGenders: function () {
+    // Returns a user's gender preferences
+    if (!this._desires) {
+      this._desires = new Cosmo.Collections.DesiredGenders({}, {user: this});
+    }
+    return this._desires;
   },
 
   responses: function () {

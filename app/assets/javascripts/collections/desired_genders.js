@@ -7,8 +7,8 @@ Cosmo.Collections.DesiredGenders = Backbone.Collection.extend({
 
   model: Cosmo.Models.DesiredGender,
 
-  comparator: function (response) {
-    return response.get('gender_id');
+  comparator: function (gender) {
+    return gender.get('gender_id');
   }
 
 });

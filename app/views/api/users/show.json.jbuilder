@@ -10,8 +10,8 @@ if not is_current_user
   json.age @user.age
   json.gender getter(@user.gender, 'name')
 
-  json.interested_in do
-    preferences = @user.desired_genders.includes(:gender)
+  json.desired_genders do
+    preferences = @user.desired_genders.includes(:gender).where(interested: true)
     json.array! preferences.map {|pref| pref.gender.name.pluralize}
   end
 
@@ -24,12 +24,12 @@ else
 
   json.gender_id @user.gender_id
 
-  json.genders do
-    json.array! Gender.all do |gender|
-      json.id gender.id
-      json.name gender.name
-      json.singular gender.name
-      json.plural gender.name.pluralize
+  json.desired_genders do
+    json.array! @user.desired_genders.includes(:gender) do |desire|
+      json.extract! desire, :id, :gender_id, :interested
+      json.name desire.gender.name
+      json.singular desire.gender.name
+      json.plural desire.gender.name.pluralize
     end
   end
 end

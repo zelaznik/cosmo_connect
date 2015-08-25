@@ -2,7 +2,7 @@ def getter(obj, methodname)
   obj ? obj.send(methodname) : nil
 end
 
-json.array! @users do |user|
+json.array! @users.includes(:gender) do |user|
   next if user == current_user
   json.extract! user, :id, :username, :age
   json.gender getter(user.gender, 'name')
