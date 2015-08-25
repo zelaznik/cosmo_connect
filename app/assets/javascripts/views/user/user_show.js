@@ -38,8 +38,6 @@ Cosmo.Views.UserShow = Backbone.CompositeView.extend({
 
   updateGenderPreferences: function(event) {
     var $target = $(event.currentTarget);
-    debugger;
-
   },
 
   updateBirthdate: function(event) {

@@ -27,7 +27,6 @@ Cosmo.Routers.Router = Backbone.Router.extend({
   },
 
   aboutUs: function () {
-    debugger;
     this._swapView(new Cosmo.Views.AboutShow());
   },
 
