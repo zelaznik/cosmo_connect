@@ -2,7 +2,9 @@ class MakeAllCurrentUsersHetersexual < ActiveRecord::Migration
   def up
     execute "UPDATE desired_genders SET interested = False;"
 
-    [[1,2],[2,1]].each do |x, y|
+    # Make dogs interested in other dogs
+    # Make men interested in women and vice versa.
+    [[1,2],[2,1],[4,4]].each do |x, y|
       execute "
       UPDATE
         desired_genders

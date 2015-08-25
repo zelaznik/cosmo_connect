@@ -27,7 +27,8 @@ Cosmo.Routers.Router = Backbone.Router.extend({
   },
 
   aboutUs: function () {
-    alert("'About us' page not implemented.");
+    debugger;
+    this._swapView(new Cosmo.Views.AboutShow());
   },
 
   crushesIndex: function() {
