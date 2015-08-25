@@ -24,7 +24,8 @@ Cosmo.Views.MessageIndex = Backbone.CompositeView.extend({
 
   addMessageSubview: function(message) {
     var messageIndexItem = new Cosmo.Views.MessageIndexItem({
-      collection: this.collection
+      collection: this.collection,
+      model: message
     });
     this.addSubview('#message-index-results', messageIndexItem);
   },

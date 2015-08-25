@@ -1,0 +1,25 @@
+<div class="container user-preview">
+  <div class="row">
+    <div class="col-md-8 col-xs-10">
+      <div class="well panel panel-default">
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-md-4 text-center">
+              <a href="<%= '#users/' + message.escape('other_user_id') %>">
+              <img
+                src="<%= '/images/tmp/' + message.escape('other_user_id') + '.jpg' %>"
+                class="center-block img-circle img-thumbnail img-responsive"
+                style="height:75px;width:75px;">
+              </a>
+            </div>
+            <div class="col-md-8">
+              <p><%= message.escape('other_username') %></p>
+              <p><%= message.escape('body') %></p>
+            </div>
+
+          </div> <!--/row-->
+        </div> <!--/panel-body-->
+      </div> <!--/panel-->
+    </div> <!--/col-->
+  </div> <!--/row-->
+</div> <!--/container-->
