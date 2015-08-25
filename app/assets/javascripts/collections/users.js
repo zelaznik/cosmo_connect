@@ -3,41 +3,46 @@ var Cosmo = window.Cosmo;
 Cosmo.Collections.Users = Backbone.Collection.extend({
   url: 'api/users',
   model: Cosmo.Models.User,
-  title: 'Generic User Collection. Please Override With Specific Subclass'
 });
 
 Cosmo.Collections.UserSearch = Backbone.Collection.extend({
   url: 'api/users',
   model: Cosmo.Models.User,
-  title: 'Users Who Met Your Search Criteria'
+  title: 'Search Results',
+  description: 'Users Who Met Your Search Criteria'
 });
 
 Cosmo.Collections.Crushes = Backbone.Collection.extend({
   url: 'api/likes/crushes',
   model: Cosmo.Models.User,
-  title: 'People Whom You Like'
+  title: 'Likes',
+  description: 'Crushes: i.e. people whom you like.'
 });
 
 Cosmo.Collections.SecretAdmirers = Backbone.Collection.extend({
   url: 'api/likes/secret_admirers',
   model: Cosmo.Models.User,
-  title: 'People Who Like You'
+  title: 'Likes',
+  description: 'Admirers: i.e. people who like you.'
 });
 
 Cosmo.Collections.Soulmates = Backbone.Collection.extend({
   url: 'api/likes/soulmates',
   model: Cosmo.Models.User,
-  title: 'All Of These People Lke You Back!'
+  title: 'Likes',
+  description: 'Soulmates: who knows why they like you back, but they do.'
 });
 
 Cosmo.Collections.ReceivedVisits = Backbone.Collection.extend({
   url: 'api/visits/received',
   model: Cosmo.Models.User,
-  title: 'People Who Have Visited You'
+  title: 'Visits',
+  description: 'Received: people who have visited you.'
 });
 
 Cosmo.Collections.SentVisits = Backbone.Collection.extend({
   url: 'api/visits/sent',
   model: Cosmo.Models.User,
-  title: 'People Whom You Have Visited'
+  title: 'Visits',
+  description: 'Sent: people whom you have visited.'
 });

@@ -3,8 +3,6 @@ var Cosmo = window.Cosmo;
 Cosmo.Views.UserIndex = Backbone.CompositeView.extend({
   template: JST['users/index'],
   initialize: function (options) {
-    this.title = options.title;
-
     this.listenTo(this.collection, 'add', this.addUserSubview);
     this.listenTo(this.collection, 'remove', this.removeResponse);
     this.listenTo(this.collection, 'sync', this.render);
@@ -20,12 +18,13 @@ Cosmo.Views.UserIndex = Backbone.CompositeView.extend({
       collection: this.collection,
       model: user
     });
-    this.addSubview('.user-index-wrapper', userIndexItem);
+    this.addSubview('#user-index-results', userIndexItem);
   },
 
   render: function () {
     this.$el.html(this.template({
-      title: this.title
+      title: this.collection.title,
+      description: this.collection.description
     }));
     this.attachSubviews();
     return this;
