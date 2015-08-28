@@ -1,8 +1,10 @@
-<%= render 'shared/navbar' %>
+<div class="login">
+  <%= render 'shared/navbar' %>
 
-<%= render 'shared/user',
-  header: 'Sign In',
-  url: session_url,
-  user: @user,
-  submit: 'Sign In'
-%>
+  <%= render 'shared/user',
+    header: 'Sign In',
+    url: session_url,
+    user: @user,
+    submit: 'Sign In'
+  %>
+</div>
