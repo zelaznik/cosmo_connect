@@ -52,6 +52,11 @@ body {
   font-size: 10px;
 }
 
+/*
+zconn08@gmail.com
+irene.foelschow@gmail.com
+*/
+
 $blueUp : #3746BF;
 $blueDn : #252F7F;
 
@@ -66,11 +71,31 @@ $blueDn : #252F7F;
   background-image: -o-linear-gradient(top, $blueUp, $blueDn);
   background-image: linear-gradient(top, $blueUp, $blueDn);
   background-repeat: repeat-x;
-
   border-radius: 0;
+
+  color: red;
 
   /* IE8-9 gradient filter */
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0031E5', endColorstr='#002BCC', GradientType=0);
+}
+
+$navDefault: #cccccc;
+$navHover: #ffffff;
+
+.navbar-default .navbar-nav > li > a {
+  color: $navDefault;
+}
+
+.navbar-default .navbar-nav > li > a:hover {
+  color: $navHover;
+}
+
+.navbar-default a.navbar-brand {
+  color: $navDefault;
+}
+
+.navbar-default a.navbar-brand:hover {
+  color: $navHover;
 }
 
 .form-signin-heading {
