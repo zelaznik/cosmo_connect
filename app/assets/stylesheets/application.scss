@@ -52,11 +52,6 @@ body {
   font-size: 10px;
 }
 
-/*
-zconn08@gmail.com
-irene.foelschow@gmail.com
-*/
-
 $blueUp : #3746BF;
 $blueDn : #252F7F;
 
@@ -98,6 +93,10 @@ $navHover: #ffffff;
   color: $navHover;
 }
 
+.navbar .hover {
+  background-color: #F00;
+}
+
 .form-signin-heading {
   color: white;
 }
@@ -106,9 +105,10 @@ $navHover: #ffffff;
   color: white;
 }
 
-.navbar .hover {
-  background-color: #F00;
+.form-signin .signin-textbox {
+  color: black;
 }
+
 
 .user-profile {
   width: 90%;
