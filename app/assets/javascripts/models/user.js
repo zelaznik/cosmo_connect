@@ -49,14 +49,11 @@ Cosmo.Models.User = Backbone.Model.extend({
   },
 
   preferences: function () {
-    if (!this._preferences) {
-      var repr = [];
-      this.desiredGenders().models.forEach(function(desire) {
-        if (desire.interested) {repr.push(desire.plural);}
-      });
-      this._preferences = repr.join(', ');
+    if (this._preferences) {
+      return this._preferences.join(' ');
+    } else {
+      return 'N/A';
     }
-    return this._preferences;
   },
 
   desiredGenders: function () {
