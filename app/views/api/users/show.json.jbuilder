@@ -18,13 +18,22 @@ if is_current_user
 
 end
 
+desires = @user.desired_genders.includes(:gender)
+
 json.desired_genders do
-  json.array! @user.desired_genders.includes(:gender) do |desire|
+  json.array! desires do |desire|
     json.extract! desire, :id, :gender_id, :interested
     json.name desire.gender.name
     json.singular desire.gender.name
     json.plural desire.gender.name.pluralize
   end
+end
+
+json.interested_in do
+  names = desires.where(interested: true).map do |desire|
+    desire.gender.name.pluralize
+  end
+  json.array! names
 end
 
 json.photos do
