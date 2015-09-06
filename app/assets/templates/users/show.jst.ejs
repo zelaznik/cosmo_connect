@@ -1,15 +1,6 @@
 <div class="container user-profile">
-    <div class="user-show"></div>
+    <div class="user-preview"></div>
     <div class="row">
-      <div class="col-md-2">
-        <a href="<%= '#users/' + user.escape('id') %>" class="_thumbnail">
-          <img
-            width=100px height=100px
-            src="<%= '/images/tmp/' + user.escape('id') + '.jpg' %>"
-            alt="<%= 'Profile pic for user: ' + user.escape('username') %>'"
-          ></a>
-      </div> <!-- End Thumbnail -->
-
       <div class="col-md-10">
         <% if (!user.isCurrentUser) { %>
           <div class="container">

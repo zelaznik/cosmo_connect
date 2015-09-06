@@ -1,6 +1,7 @@
 var Cosmo = window.Cosmo;
 
 Cosmo.Views.UserShow = Backbone.CompositeView.extend({
+  template_preview: JST['users/preview'],
   template: JST['users/show'],
   model: Cosmo.Models.User,
 
@@ -97,10 +98,18 @@ Cosmo.Views.UserShow = Backbone.CompositeView.extend({
   },
 
   render: function () {
+    //Attach the essay questions and other attributes
     var content = this.template({
       user: this.model
     });
     this.$el.html(content);
+
+    //Attach the user preview template
+    var preview = this.template_preview({
+      user: this.model
+    });
+    this.$('.user-preview').html(preview);
+
     this.attachSubviews();
 
     return this;
