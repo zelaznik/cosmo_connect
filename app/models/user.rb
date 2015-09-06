@@ -70,24 +70,23 @@ class User < ActiveRecord::Base
   # has_many :soulmates, through: :crush_matches, source: :mutual_users
 
   def soulmates
-    self.class.find_by_sql(<<-SQL)
-    SELECT
-      them.*
-
-    FROM
-      users you
-    INNER JOIN
-      matches m0 ON m0.sender_id = you.id
-    INNER JOIN
-      matches m1 ON m1.sender_id = m0.receiver_id
-      AND m1.receiver_id = #{self.id}
-    INNER JOIN
-      users them ON m1.sender_id = them.id
-
-    WHERE
-      you.id = #{self.id}
-
-    SQL
+    # Use a subquery to get the unique ids of the soulmates
+    # Then put it into a plain old ActiveRecord associaton
+    self.class.where("id in (
+      SELECT
+        them.id
+      FROM
+        users you
+      INNER JOIN
+        matches m0 ON m0.sender_id = you.id
+      INNER JOIN
+        matches m1 ON m1.sender_id = m0.receiver_id
+        AND m1.receiver_id = #{self.id}
+      INNER JOIN
+        users them ON m1.sender_id = them.id
+      WHERE
+        you.id = #{self.id}
+    )")
   end
 
   has_many :desired_genders, dependent: :destroy
