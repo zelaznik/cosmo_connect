@@ -6,4 +6,5 @@ Cosmo.Models.Photo = Backbone.Model.extend({
   initialize: function(options) {
     this.user = options.user;
   }
+
 });

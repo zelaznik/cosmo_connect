@@ -19,11 +19,6 @@
   font-size: 12px;
 }
 
-.navbar {
-  border: None;
-}
-
-
 body {
   font-family: 'Open Sans',sans-serif;
   height: 100%;
@@ -52,6 +47,16 @@ body {
   font-size: 10px;
 }
 
+.user-profile {
+  width: 90%;
+  border-radius: 5px;
+  margin: 0 auto;
+}
+
+/***********************************
+    NAVIGATION BAR STYLING
+************************************/
+
 $blueUp : #3746BF;
 $blueDn : #252F7F;
 
@@ -67,7 +72,7 @@ $blueDn : #252F7F;
   background-image: linear-gradient(top, $blueUp, $blueDn);
   background-repeat: repeat-x;
   border-radius: 0;
-
+  border: None;
   color: red;
 
   /* IE8-9 gradient filter */
@@ -97,6 +102,10 @@ $navHover: #ffffff;
   background-color: #F00;
 }
 
+/***********************************
+    SIGNIN PAGE STYLING
+************************************/
+
 .form-signin-heading {
   color: white;
 }
@@ -107,13 +116,6 @@ $navHover: #ffffff;
 
 .form-signin .signin-textbox {
   color: black;
-}
-
-
-.user-profile {
-  width: 90%;
-  border-radius: 5px;
-  margin: 0 auto;
 }
 
 .thumbnail {
