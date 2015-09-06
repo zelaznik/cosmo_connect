@@ -8,8 +8,6 @@ json.array! @users.includes(:gender).includes(desired_genders: :gender) do |user
   json.gender getter(user.gender, 'name')
   json.is_liked current_user.has_crush_on(user)
 
-  #desires = user.desired_genders.includes(:gender).order(:gender_id)
-
   json.interested_in do
     names = []
     user.desired_genders.each do |desire|
