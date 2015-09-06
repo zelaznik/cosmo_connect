@@ -4,13 +4,10 @@ end
 
 is_current_user = (@user == current_user)
 
-json.extract! @user, :id, :username
+json.extract! @user, :id, :username, :age
+json.gender getter(@user.gender, 'name')
 
-if not is_current_user
-  json.age @user.age
-  json.gender getter(@user.gender, 'name')
-
-else
+if is_current_user
   json.birthdate do
     json.year getter(@user.birthdate, 'year')
     json.month getter(@user.birthdate, 'month')

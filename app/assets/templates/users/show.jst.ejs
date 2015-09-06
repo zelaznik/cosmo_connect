@@ -19,11 +19,6 @@
           </div>
         <% } %>
 
-        <div class="row">
-          <h3 valign="left">
-            <%= user.escape('username') %>
-          </h3>
-        </div>
         <% if (user.isCurrentUser) { %>
           <h3>
             <% if (user.get('genders')) { %>
@@ -62,10 +57,6 @@
             </form>
           </h3>
 
-        <% } else { %>
-          <h3 valign="left">
-            <%= user.escape('gender') + ' &middot; ' + (user.get('age') ? user.escape('age') : '(age unknown)') %>
-          </h3>
         <% } %>
 
       </div> <!-- End User Details -->
