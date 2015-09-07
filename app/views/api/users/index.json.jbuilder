@@ -22,5 +22,4 @@ json.array! @users.includes(:gender).includes(desired_genders: :gender) do |user
     end
     json.array! names
   end
-
 end

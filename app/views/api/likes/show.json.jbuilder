@@ -1,7 +1,13 @@
+likes = {}
+Match.where(sender: current_user).each do |like|
+  likes[like.receiver_id] = like
+end
+
 json.array! @users.includes(:gender).includes(desired_genders: :gender) do |user|
   json.extract! user, :id, :username
   json.age user.age || 'age unspecified'
   json.gender @gender_name[user.gender_id] || 'gender unspecified'
+  (json.like likes[user.id].id) if likes[user.id]
 
   json.interested_in do
     names = []
