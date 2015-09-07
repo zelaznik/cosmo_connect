@@ -16,7 +16,13 @@
 @import "bootstrap";
 
 #birthdate {
-  font-size: 12px;
+  font-size: 16px;
+  text-emphasis: bold;
+}
+
+#birthdate input {
+  text-align: center;
+  width: 75px;
 }
 
 body {

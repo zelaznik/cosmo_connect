@@ -90,9 +90,7 @@ Cosmo.Views.UserShow = Backbone.CompositeView.extend({
       var data = result[0];
       photo.set({url: data.url, thumb_url: data.thumbnail_url});
       photo.save({}, {
-        success: function() {
-          this.render();
-        }.bind(this)
+        success: this.render.bind(this)
       });
     });
   },

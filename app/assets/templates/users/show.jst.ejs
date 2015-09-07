@@ -39,18 +39,14 @@
       <div class="response-index col-md-6">
       </div>
       <div class="col-md-6">
-        <h2>Attributes</h2>
+        <center><h2>Attributes</h2></center>
         <% if (user.isCurrentUser) { %>
           <% var d = user.birthdate(); %>
-          <div class="input-group date" id="birthdate">
-              <input type="text" value="<%= [d.month, d.day, d.year].join('-') %>">
-              <div class="input-group-addon"><span class="glyphicon glyphicon-th" aria-hidden="true"></span></div>
-          </div>
           <form id="birthdate">
+            <button class="btn btn-primary" type="submit">Update Birthdate</button>
             Year: <input type="number" name="year" value="<%= d.year %>">
             Month: <input type="number" name="month" value="<%= d.month %>">
-            Day: <input type="number" name="day" value="<%= d.day %>">
-            <input type="submit" value="Update Birthdate">
+            Day: <input type="number" name="day" value="<%= d.day %>"/>
           </form>
         <% } %>
       </div>
