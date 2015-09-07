@@ -24,6 +24,7 @@ body {
 
 .login {
   background-image: url('/images/nyc.jpg');
+  background-size:100%;
   position: absolute;
   height: 100%;
   width: 100%;
@@ -126,6 +127,8 @@ $navHover: #ffffff;
 }
 
 .form-signin {
+  margin: 0 auto;
+  width: 300px;
   color: white;
 }
 
@@ -136,6 +139,10 @@ $navHover: #ffffff;
 .thumbnail {
   border-radius: 20px;
 }
+
+/***********************************
+  MODAL STYLING FOR ESSAY RESPONSES
+************************************/
 
 .m-background {
   background: rgba(92, 88, 88, 0.6);
@@ -156,11 +163,6 @@ $navHover: #ffffff;
   padding: 1pc;
   border: 1px solid;
   border-radius: 5px;
-}
-
-.form-signin {
-  margin: 0 auto;
-  width: 300px;
 }
 
 .response-index-item {
