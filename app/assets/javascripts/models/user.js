@@ -50,7 +50,7 @@ Cosmo.Models.User = Backbone.Model.extend({
 
   preferences: function () {
     if (this._preferences) {
-      return this._preferences.join(' ');
+      return this._preferences.join(', ');
     } else {
       return 'N/A';
     }
