@@ -2,23 +2,6 @@
     <div class="user-preview"></div>
     <div class="row">
       <div class="col-md-10">
-        <% if (!user.isCurrentUser) { %>
-          <div class="container">
-            <div class="row">
-              <% if (user.like().isNew()) { %>
-                <!-- <a href="#" class="" role="button">Button</a> -->
-                <button class=" btn btn-primary toggle"><%= 'Like  '%></button>
-              <% } else { %>
-                <button class=" btn btn-success toggle"><%= 'Unlike'%></button>
-              <% } %>
-            </div>
-            <div class="row"><br></div>
-            <div class="row">
-              <button class="btn btn-info" id='send-message'>Message</button>
-            </div>
-          </div>
-        <% } %>
-
         <% if (user.isCurrentUser) { %>
           <h3>
             <% if (user.get('genders')) { %>
@@ -42,19 +25,8 @@
                 <input type="checkbox" name="gender_id" value="1">Men<br>
                 <input type="checkbox" name="gender_id" value="2">Women<br>
               </form>
-
-            <% } else { %> <!-- If not current user -->
-              <%= user.escape('gender') %>
             <% } %>
 
-            &middot;
-
-            <form id="birthdate">
-              Year: <input type="number" name="year" value="<%= user.birthdate().year %>">
-              Month: <input type="number" name="month" value="<%= user.birthdate().month %>">
-              Day: <input type="number" name="day" value="<%= user.birthdate().day %>">
-              <input type="submit" value="Update Birthdate">
-            </form>
           </h3>
 
         <% } %>
@@ -64,10 +36,18 @@
     </div> <!-- End Profile First Row -->
 
     <div class="row">
-      <div class="response-index col-md-8">
+      <div class="response-index col-md-6">
       </div>
-      <div class="col-md-4">
+      <div class="col-md-6">
         <h2>Attributes</h2>
+        <% if (user.isCurrentUser) { %>
+          <form id="birthdate">
+            Year: <input type="number" name="year" value="<%= user.birthdate().year %>">
+            Month: <input type="number" name="month" value="<%= user.birthdate().month %>">
+            Day: <input type="number" name="day" value="<%= user.birthdate().day %>">
+            <input type="submit" value="Update Birthdate">
+          </form>
+        <% } %>
       </div>
     </div> <!-- End Profile Second Row (Essays and Attributes) -->
 

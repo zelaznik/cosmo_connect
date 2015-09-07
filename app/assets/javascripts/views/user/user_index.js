@@ -2,6 +2,11 @@ var Cosmo = window.Cosmo;
 
 Cosmo.Views.UserIndex = Backbone.CompositeView.extend({
   template: JST['users/index'],
+
+  events: {
+    "click .toggle": "toggleLike",
+  },
+
   initialize: function (options) {
     this.listenTo(this.collection, 'add', this.addUserSubview);
     this.listenTo(this.collection, 'remove', this.removeResponse);
@@ -10,6 +15,35 @@ Cosmo.Views.UserIndex = Backbone.CompositeView.extend({
     this.collection.each(function(user) {
       this.addUserSubview(user);
     }.bind(this));
+  },
+
+  toggleLike: function(event) {
+    var id = +event.currentTarget.name;
+    var otherUser = this.collection.get(id);
+    if (otherUser.like().isNew()) {
+      this.likeUser(otherUser);
+    } else {
+      this.unlikeUser(otherUser);
+    }
+  },
+
+  likeUser: function(otherUser) {
+    var attrs = {
+      receiver_id: otherUser.id,
+      sender_id: Cosmo.CURRENT_USER_ID
+    };
+    otherUser.like().save(attrs, {
+      success: otherUser.render
+    });
+  },
+
+  unlikeUser: function(otherUser) {
+    otherUser.like().destroy({
+      success: function() {
+        otherUser.like().clear();
+        otherUser.render();
+      }
+    });
   },
 
   addUserSubview: function (user) {

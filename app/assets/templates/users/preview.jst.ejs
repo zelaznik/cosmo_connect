@@ -16,12 +16,21 @@
 
             <!--/col-->
             <div class="col-xs-12 col-sm-8">
-              <h2><%= user.escape('username') %></h2>
+              <h2>
+                <%= user.escape('username') %>
+              </h2>
               <p>
                 <strong>Gender: </strong><%= user.escape('gender') %>
                 <strong>Age: </strong><%= user.escape('age') %>
               </p>
               <p><strong>Interested In: </strong><%= user.preferences() %></p>
+              <% if (!user.isCurrentUser) { %>
+                <% if (user.like().isNew()) { %>
+                  <button class=" btn btn-primary toggle" name="<%= user.id %>"><%= 'Like  '%></button>
+                <% } else { %>
+                  <button class=" btn btn-success toggle" name="<%= user.id %>"><%= 'Unlike'%></button>
+                <% } %>
+              <% } %>
             </div>
 
           </div>
