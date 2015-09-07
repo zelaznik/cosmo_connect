@@ -15,16 +15,6 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-#birthdate {
-  font-size: 16px;
-  text-emphasis: bold;
-}
-
-#birthdate input {
-  text-align: center;
-  width: 75px;
-}
-
 body {
   font-family: 'Open Sans',sans-serif;
   height: 100%;
@@ -40,6 +30,10 @@ body {
   z-index: 1;
   top: 0;
 }
+
+/***********************************
+    USER INFORMATION
+************************************/
 
 .user-preview {
   align-content: center;
@@ -57,6 +51,21 @@ body {
   width: 90%;
   border-radius: 5px;
   margin: 0 auto;
+}
+
+
+#birthdate {
+  font-size: 16px;
+  text-emphasis: bold;
+}
+
+#birthdate input {
+  text-align: center;
+  width: 75px;
+}
+
+.user-attributes button {
+  width: 200px;
 }
 
 /***********************************

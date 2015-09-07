@@ -16,6 +16,14 @@ if is_current_user
 
   json.gender_id @user.gender_id
 
+  json.genders do
+    json.array! Gender.all do |gender|
+      json.id gender.id
+      json.singular gender.name
+      json.selected (@user.gender_id == gender.id)
+    end
+  end
+
 end
 
 desires = @user.desired_genders.includes(:gender)

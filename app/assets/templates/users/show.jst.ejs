@@ -36,18 +36,25 @@
     </div> <!-- End Profile First Row -->
 
     <div class="row">
-      <div class="response-index col-md-6">
-      </div>
-      <div class="col-md-6">
+      <div class="response-index col-md-6"></div>
+      <div class="col-md-6 user-attributes">
         <center><h2>Attributes</h2></center>
         <% if (user.isCurrentUser) { %>
-          <% var d = user.birthdate(); %>
-          <form id="birthdate">
-            <button class="btn btn-primary" type="submit">Update Birthdate</button>
-            Year: <input type="number" name="year" value="<%= d.year %>">
-            Month: <input type="number" name="month" value="<%= d.month %>">
-            Day: <input type="number" name="day" value="<%= d.day %>"/>
-          </form>
+          <div class="row">
+            <form id="birthdate">
+              <button class="btn btn-primary" type="submit">Update Birthdate</button>
+              Year: <input type="number" name="year" value="<%= user.birthdate().year %>">
+              Month: <input type="number" name="month" value="<%= user.birthdate().month %>">
+              Day: <input type="number" name="day" value="<%= user.birthdate().day %>">
+            </form>
+          </div>
+          <br>
+          <div class="row">
+            <form id="gender">
+              <button class="btn btn-primary" type="submit">Update Gender</button>
+            </form>
+          </div>
+
         <% } %>
       </div>
     </div> <!-- End Profile Second Row (Essays and Attributes) -->
