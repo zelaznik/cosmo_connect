@@ -5,13 +5,17 @@
         <div class="panel-body">
           <div class="row">
             <div class="col-xs-12 col-sm-4 text-center">
-              <a href="<%= '#users/' + user.escape('id') %>">
+              <% if (useLink) { %>
+                <a href="<%= '#users/' + user.escape('id') %>">
+              <% } %>
               <img
                 src="<%= '/images/tmp/' + user.escape('id') + '.jpg' %>"
                 alt="<%= 'Profile pic for user: ' + user.escape('username') %>'"
                 class="center-block img-circle img-thumbnail img-responsive"
                 style="height:150px;width:150px;">
-              </a>
+              <% if (useLink) { %>
+                </a>
+              <% } %>
             </div>
 
             <!--/col-->

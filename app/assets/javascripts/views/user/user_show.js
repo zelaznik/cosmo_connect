@@ -106,6 +106,7 @@ Cosmo.Views.UserShow = Backbone.CompositeView.extend({
 
     //Attach the user preview template
     var preview = this.template_preview({
+      useLink: false,
       user: this.model
     });
     this.$('.user-preview').html(preview);
