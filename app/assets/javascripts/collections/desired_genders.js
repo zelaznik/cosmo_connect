@@ -1,14 +1,14 @@
 var Cosmo = window.Cosmo;
 
 Cosmo.Collections.DesiredGenders = Backbone.Collection.extend({
-  initialize: function (options) {
+  model: Cosmo.Models.DesiredGender,
+
+  initialize: function(options) {
     this.user = options.user;
   },
 
-  model: Cosmo.Models.DesiredGender,
-
-  comparator: function (gender) {
-    return gender.get('gender_id');
+  comparator: function (desire) {
+    return desire.get('gender_id');
   }
 
 });

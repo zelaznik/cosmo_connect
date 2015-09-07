@@ -11,7 +11,7 @@ Rails.application.routes.draw do
       resources :messages, only: [:index]
     end
 
-    resources :desired_genders, only: [:create, :destroy, :show]
+    resources :desired_genders, only: [:show, :update]
     resources :likes, only: [:create, :destroy, :show]
     resources :responses, only: [:create, :update]
     resources :messages, only: [:create, :show]

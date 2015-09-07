@@ -17,12 +17,19 @@ Cosmo.Views.UserShow = Backbone.CompositeView.extend({
   initialize: function() {
     this.listenTo(this.model, 'sync', this.render);
     this.listenTo(this.model.responses(), 'sync', this.render);
+    this.listenTo(this.model.desiredGenders(), 'sync', this.render);
+
     var responseIndexView = new Cosmo.Views.ResponseIndex({
       collection: this.model.responses(),
       model: this.model
     });
-
     this.addSubview('.response-index', responseIndexView);
+
+    var desiredGenderIndexView = new Cosmo.Views.DesiredGendersIndex({
+      collection: this.model.desiredGenders(),
+      model: this.model
+    });
+    this.addSubview('.desired-genders-index', desiredGenderIndexView);
   },
 
   sendMessage: function (event) {
