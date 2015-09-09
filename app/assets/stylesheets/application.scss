@@ -86,6 +86,7 @@ $userSubBorder: 5px;
   background-color: $userSubColor;
   height: $userSubHeight;
   padding: 0px 40px;
+  border-radius: 10px;
 }
 
 .user-attributes button {
@@ -194,6 +195,7 @@ $navHover: #ffffff;
 .response-index {
   background-color: $userSubColor;
   height: $userSubHeight;
+  border-radius: 10px;
 }
 
 .response-index-item {
