@@ -1,29 +1,22 @@
 <div class="m-background"></div>
 
-<div class='m-content'>
-	<form>
-		<input
-				type='hidden'
-				name='response[response_category_id]'
-				value="<%= response.escape('response_category_id') %>"
-		>
-		<div class="row">
-			<div class="col-xs-1">
-				<button name=”button”>&times;</button>
-			</div>
-			<div class="col-xs-11">
-				<p><b><%= response.escape('title') %></b></p>
-			</div>
-		</div>
-		<div class="row">
-			<input
-					type='text'
-					name='response[body]'
-					value="<%= response.escape('body') %>"
-			>
-		</div>
-		<div class="row">
-			<input type='submit', class='btn btn-primary' value='Submit'>
-		</div>
-	</form>
+<div class="m-content">
+	<div class="modal">
+		<div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+          <h4 class="modal-title">Modal title</h4>
+        </div>
+        <div class="modal-body">
+          Content for the dialog / modal goes here.
+        </div>
+        <div class="modal-footer">
+          <a href="#" data-dismiss="modal" class="btn">Close</a>
+          <a href="#" class="btn btn-primary">Save changes</a>
+        </div> <!-- End modal-footer -->
+
+      </div> <!-- End modal-content -->
+    </div> <!-- End modal-dialog -->
+	</div> <!-- End modal -->
 </div>

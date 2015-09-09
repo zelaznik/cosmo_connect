@@ -32,9 +32,21 @@ body {
   top: 0;
 }
 
+.static-page-root {
+  background-image: url('/images/nyc_faded.jpg');
+  background-size: cover;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+  top: 0;
+}
+
 /***********************************
     USER INFORMATION
 ************************************/
+
+$userColor: #f1f1f1;
 
 .user-preview {
   align-content: center;
@@ -48,12 +60,15 @@ body {
   font-size: 10px;
 }
 
+.user-preview .row {
+  display: flex; /* equal height of the children */
+}
+
 .user-profile {
   width: 90%;
   border-radius: 5px;
   margin: 0 auto;
 }
-
 
 #birthdate {
   font-size: 16px;
@@ -63,6 +78,12 @@ body {
 #birthdate input {
   text-align: center;
   width: 75px;
+}
+
+.user-attributes {
+  background-color: $userColor;
+  padding: 0px 40px;
+  height: 100%;
 }
 
 .user-attributes button {
@@ -163,6 +184,14 @@ $navHover: #ffffff;
   padding: 1pc;
   border: 1px solid;
   border-radius: 5px;
+  width: 400px;
+  height: 200px;
+  max-height: 800px;
+}
+
+.response-index {
+  background-color: $userColor;
+  height: 100%;
 }
 
 .response-index-item {
@@ -170,7 +199,6 @@ $navHover: #ffffff;
 }
 
 .response-index-item-title {
-  // font-family: 'Open Sans',sans-serif;
   font-weight: normal;
   color: #5e6573;
   font-size: 18px;

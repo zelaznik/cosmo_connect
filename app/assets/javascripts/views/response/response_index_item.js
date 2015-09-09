@@ -20,7 +20,8 @@ Cosmo.Views.ResponseIndexItem = Backbone.View.extend({
       model: this.model,
       user: this.user
     });
-    $('#content').append(modal.render().$el);
+    $('#myModal').modal({show:true});
+    //$('#content').append(modal.render().$el);
   },
 
   render: function () {
