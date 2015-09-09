@@ -46,7 +46,9 @@ body {
     USER INFORMATION
 ************************************/
 
-$userColor: #f1f1f1;
+$userSubColor: #f1f1f1;
+$userSubHeight: 600px;
+$userSubBorder: 5px;
 
 .user-preview {
   align-content: center;
@@ -81,9 +83,9 @@ $userColor: #f1f1f1;
 }
 
 .user-attributes {
-  background-color: $userColor;
+  background-color: $userSubColor;
+  height: $userSubHeight;
   padding: 0px 40px;
-  height: 100%;
 }
 
 .user-attributes button {
@@ -190,8 +192,8 @@ $navHover: #ffffff;
 }
 
 .response-index {
-  background-color: $userColor;
-  height: 100%;
+  background-color: $userSubColor;
+  height: $userSubHeight;
 }
 
 .response-index-item {
