@@ -15,6 +15,10 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+.panel-body {
+  //background-color: yellow;
+}
+
 body {
   font-family: 'Open Sans',sans-serif;
   height: 100%;

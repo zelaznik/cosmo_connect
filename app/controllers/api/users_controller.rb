@@ -24,7 +24,11 @@ class Api::UsersController < Api::BaseController
   def user_params
     dct = params.require(:user).permit(:gender_id, :birthdate)
     bday = params[:birthdate]
-    dct[:birthdate] = Date.new(bday[:year].to_i, bday[:month].to_i, bday[:day].to_i)
+    begin
+      dct[:birthdate] = Date.new(bday[:year].to_i, bday[:month].to_i, bday[:day].to_i)
+    rescue ArgumentError
+      #pass
+    end
     return dct
   end
 
