@@ -4,7 +4,10 @@ Cosmo.Views.DesiredGendersIndex = Backbone.CompositeView.extend({
   template: JST['desired_genders/index'],
 
   initialize: function(options) {
+    this.listenTo(this.collection, 'add', this.addDesireSubview);
+    this.listenTo(this.collection, 'remove', this.removeDesire.bind(this));
     this.listenTo(this.collection, 'sync', this.render);
+
     this.collection.each(function(desire) {
       this.addDesireSubview(desire);
     }.bind(this));
@@ -12,8 +15,6 @@ Cosmo.Views.DesiredGendersIndex = Backbone.CompositeView.extend({
 
   render: function () {
     this.$el.html(this.template({
-      //title: this.collection.title,
-      //description: this.collection.description
     }));
     this.attachSubviews();
     return this;
@@ -25,6 +26,11 @@ Cosmo.Views.DesiredGendersIndex = Backbone.CompositeView.extend({
       model: desire
     });
     this.addSubview('.desired-gender-index-wrapper', desireIndexItem);
+  },
+
+  removeDesire: function(desire) {
+    this.removeModelSubview('.desired-gender-index', desire);
   }
+
 
 });
