@@ -11,7 +11,7 @@
 
               <% img_src = user.get('photo') || '/images/blank_photo.jpg'; %>
 
-              <% if (user.isCurrentUser) { %>
+              <% if (user.isCurrentUser && ! user.get('photo')) { %>
                 <div class="upload-photo">
               <% } else { %>
                 <div>
