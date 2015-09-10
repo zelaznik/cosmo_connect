@@ -9,6 +9,8 @@
                 <a href="<%= '#users/' + user.escape('id') %>">
               <% } %>
 
+              <% img_src = user.get('photo') || '/images/blank_photo.jpg'; %>
+
               <% if (user.isCurrentUser) { %>
                 <div class="upload-photo">
               <% } else { %>
@@ -16,7 +18,7 @@
               <% } %>
 
               <img
-                src = "/images/blank_photo.jpg"
+                src = "<%= img_src %>"
                 alt="<%= 'Profile pic for user: ' + user.escape('username') %>'"
                 class="center-block img-circle img-thumbnail img-responsive"
                 style="height:150px;width:150px;">

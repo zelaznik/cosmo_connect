@@ -18,11 +18,6 @@ Cosmo.Models.User = Backbone.Model.extend({
       delete r.details;
     }
 
-    if (r.photos) {
-      this.photos().set(r.photos);
-      delete r.photos;
-    }
-
     if (r.like) {
       this.like().set({id: r.like});
       delete r.like;
@@ -77,18 +72,6 @@ Cosmo.Models.User = Backbone.Model.extend({
     }
 
     return this._details;
-  },
-
-  photos: function () {
-    if (!this._photos) {
-      this._photos = new Cosmo.Collections.Photos([], {user: this});
-    }
-
-    return this._photos;
-  },
-
-  headshot: function() {
-    return this.photos()[0];
   },
 
   birthdate: function() {

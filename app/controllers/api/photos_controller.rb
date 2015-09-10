@@ -7,7 +7,7 @@ class Api::PhotosController < Api::BaseController
     @photo = Photo.new(photo_params)
     @photo.user = current_user
     if @photo.save
-      render json: photo
+      render json: @photo
     else
       render json: {message: 'failure'}, status: 422
     end
