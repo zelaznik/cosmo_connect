@@ -34,7 +34,6 @@ Cosmo.Models.User = Backbone.Model.extend({
     }
 
     if (r.desired_genders) {
-      this.desiredGenders().reset();
       this.desiredGenders().set(r.desired_genders);
       delete r.desired_genders;
     }
