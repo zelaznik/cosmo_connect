@@ -34,6 +34,7 @@ Cosmo.Models.User = Backbone.Model.extend({
     }
 
     if (r.desired_genders) {
+      this.desiredGenders().reset();
       this.desiredGenders().set(r.desired_genders);
       delete r.desired_genders;
     }
@@ -59,7 +60,7 @@ Cosmo.Models.User = Backbone.Model.extend({
   desiredGenders: function () {
     // Returns a user's gender preferences
     if (!this._desires) {
-      this._desires = new Cosmo.Collections.DesiredGenders({}, {user: this});
+      this._desires = new Cosmo.Collections.DesiredGenders([], {user: this});
     }
     return this._desires;
   },

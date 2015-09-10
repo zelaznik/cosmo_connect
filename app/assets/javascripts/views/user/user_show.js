@@ -25,8 +25,6 @@ Cosmo.Views.UserShow = Backbone.CompositeView.extend({
     });
     this.addSubview('.response-index', responseIndexView);
 
-    debugger;
-
     var desiredGenderIndexView = new Cosmo.Views.DesiredGendersIndex({
       collection: this.model.desiredGenders(),
       model: this.model

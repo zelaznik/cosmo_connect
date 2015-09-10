@@ -1,1 +1,9 @@
-<p>Desired Gender Index Item</p>
+<% if (desire.get('interested')) { %>
+  <button class="btn btn-success">
+    <%= desire.escape('plural') %>
+  </button><br>
+<% } else { %>
+  <button class="btn btn-primary">
+    <%= desire.escape('plural') %>
+  </button><br>
+<% } %>

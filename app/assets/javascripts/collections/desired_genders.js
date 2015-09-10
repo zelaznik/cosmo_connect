@@ -3,7 +3,7 @@ var Cosmo = window.Cosmo;
 Cosmo.Collections.DesiredGenders = Backbone.Collection.extend({
   model: Cosmo.Models.DesiredGender,
 
-  initialize: function(options) {
+  initialize: function (options) {
     this.user = options.user;
   },
 
