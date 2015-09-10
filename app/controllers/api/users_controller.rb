@@ -17,7 +17,7 @@ class Api::UsersController < Api::BaseController
   end
 
   def index
-    @users = User.all
+    @users = current_user.matches_by_orientation
   end
 
   private

@@ -72,7 +72,7 @@ class User < ActiveRecord::Base
   def soulmates
     # Use a subquery to get the unique ids of the soulmates
     # Then put it into a plain old ActiveRecord associaton
-    self.class.where("id in (
+    self.class.where("id IN (
       SELECT
         them.id
       FROM
@@ -86,6 +86,29 @@ class User < ActiveRecord::Base
         users them ON m1.sender_id = them.id
       WHERE
         you.id = #{self.id}
+    )")
+  end
+
+  def matches_by_orientation
+    self.class.where("id IN (
+      SELECT
+        them.id
+
+      FROM
+        users me
+      INNER JOIN
+        desired_genders my_desires ON my_desires.user_id = me.id
+      INNER JOIN
+        users them ON my_desires.gender_id = them.gender_id
+      INNER JOIN
+        desired_genders their_desires
+        ON their_desires.user_id = them.id
+        AND their_desires.gender_id = me.gender_id
+
+      WHERE
+        me.id = #{self.id}
+        AND my_desires.interested
+        AND their_desires.interested
     )")
   end
 
