@@ -869,20 +869,13 @@ COPY desired_genders (id, user_id, gender_id, created_at, updated_at, interested
 2	17	1	2015-08-21 22:29:30.26859	2015-08-21 22:29:30.26859	f
 3	6	1	2015-08-13 19:06:48.15266	2015-08-13 19:06:48.15266	f
 4	12	1	2015-08-16 06:11:48.548833	2015-08-16 06:11:48.548833	f
-51	22	2	2015-09-07 05:32:36.568962	2015-09-07 05:32:36.568962	f
 52	22	3	2015-09-07 05:32:36.568962	2015-09-07 05:32:36.568962	f
 8	4	1	2015-08-13 18:26:24.546648	2015-08-13 18:26:24.546648	f
 9	7	1	2015-08-13 19:09:27.02488	2015-08-13 19:09:27.02488	f
 53	22	4	2015-09-07 05:32:36.568962	2015-09-07 05:32:36.568962	f
 12	16	1	2015-08-20 00:13:18.952628	2015-08-20 00:13:18.952628	f
-54	23	1	2015-09-09 09:29:07.476717	2015-09-09 09:29:07.476717	f
-55	23	2	2015-09-09 09:29:07.476717	2015-09-09 09:29:07.476717	f
-56	23	3	2015-09-09 09:29:07.476717	2015-09-09 09:29:07.476717	f
 16	20	2	2015-08-23 05:44:27.176509	2015-08-23 05:44:27.176509	f
-57	23	4	2015-09-09 09:29:07.476717	2015-09-09 09:29:07.476717	f
 20	7	2	2015-08-13 19:09:27.02488	2015-08-13 19:09:27.02488	f
-58	24	1	2015-09-09 09:52:32.140723	2015-09-09 09:52:32.140723	f
-59	24	2	2015-09-09 09:52:32.140723	2015-09-09 09:52:32.140723	f
 24	17	3	2015-08-21 22:29:30.26859	2015-08-21 22:29:30.26859	f
 25	6	3	2015-08-13 19:06:48.15266	2015-08-13 19:06:48.15266	f
 26	12	3	2015-08-16 06:11:48.548833	2015-08-16 06:11:48.548833	f
@@ -896,36 +889,43 @@ COPY desired_genders (id, user_id, gender_id, created_at, updated_at, interested
 36	6	4	2015-08-13 19:06:48.15266	2015-08-13 19:06:48.15266	f
 37	12	4	2015-08-16 06:11:48.548833	2015-08-16 06:11:48.548833	f
 38	20	4	2015-08-23 05:44:27.176509	2015-08-23 05:44:27.176509	f
+43	14	4	2015-08-18 05:54:50.957263	2015-09-10 05:15:53.105797	f
 40	1	4	2015-08-12 04:19:06.209106	2015-08-12 04:19:06.209106	f
 41	4	4	2015-08-13 18:26:24.546648	2015-08-13 18:26:24.546648	f
-43	14	4	2015-08-18 05:54:50.957263	2015-08-18 05:54:50.957263	f
+21	14	2	2015-08-18 05:54:50.957263	2015-09-10 05:15:53.496203	t
 44	19	4	2015-08-21 22:51:11.618895	2015-08-21 22:51:11.618895	f
 45	16	4	2015-08-20 00:13:18.952628	2015-08-20 00:13:18.952628	f
 46	21	1	2015-08-24 17:19:03.627613	2015-08-24 17:19:03.627613	f
 48	21	3	2015-08-24 17:19:03.627613	2015-08-24 17:19:03.627613	f
 49	21	4	2015-08-24 17:19:03.627613	2015-08-24 17:19:03.627613	f
 7	1	1	2015-08-12 04:19:06.209106	2015-08-12 04:19:06.209106	f
-60	24	3	2015-09-09 09:52:32.140723	2015-09-09 09:52:32.140723	f
 5	20	1	2015-08-23 05:44:27.176509	2015-08-23 05:44:27.176509	t
+10	14	1	2015-08-18 05:54:50.957263	2015-09-10 05:17:50.526645	f
 11	19	1	2015-08-21 22:51:11.618895	2015-08-21 22:51:11.618895	t
 13	17	2	2015-08-21 22:29:30.26859	2015-08-21 22:29:30.26859	t
 14	6	2	2015-08-13 19:06:48.15266	2015-08-13 19:06:48.15266	t
 15	12	2	2015-08-16 06:11:48.548833	2015-08-16 06:11:48.548833	t
 19	4	2	2015-08-13 18:26:24.546648	2015-08-13 18:26:24.546648	t
+18	1	2	2015-08-12 04:19:06.209106	2015-09-10 05:18:57.180152	t
 23	16	2	2015-08-20 00:13:18.952628	2015-08-20 00:13:18.952628	t
-18	1	2	2015-08-12 04:19:06.209106	2015-08-12 04:19:06.209106	t
 61	24	4	2015-09-09 09:52:32.140723	2015-09-09 09:52:32.140723	f
-62	25	1	2015-09-09 15:14:36.157421	2015-09-09 15:14:36.157421	f
 63	25	2	2015-09-09 15:14:36.157421	2015-09-09 15:14:36.157421	f
 64	25	3	2015-09-09 15:14:36.157421	2015-09-09 15:14:36.157421	f
 65	25	4	2015-09-09 15:14:36.157421	2015-09-09 15:14:36.157421	f
-39	15	4	2015-08-19 02:01:25.216819	2015-09-10 04:25:33.895995	f
+39	15	4	2015-08-19 02:01:25.216819	2015-09-10 05:45:51.952333	f
+17	15	2	2015-08-19 02:01:25.216819	2015-09-10 05:45:52.342828	f
+6	15	1	2015-08-19 02:01:25.216819	2015-09-10 05:45:53.495128	t
 28	15	3	2015-08-19 02:01:25.216819	2015-09-10 04:25:34.474121	f
-6	15	1	2015-08-19 02:01:25.216819	2015-09-10 04:26:04.265385	t
-17	15	2	2015-08-19 02:01:25.216819	2015-09-10 04:26:05.130592	t
-10	14	1	2015-08-18 05:54:50.957263	2015-09-10 04:29:43.205968	t
+55	23	2	2015-09-09 09:29:07.476717	2015-09-10 06:20:27.074805	t
+57	23	4	2015-09-09 09:29:07.476717	2015-09-10 06:20:45.313175	f
+56	23	3	2015-09-09 09:29:07.476717	2015-09-10 06:20:45.633101	f
+54	23	1	2015-09-09 09:29:07.476717	2015-09-10 07:43:52.706192	f
+51	22	2	2015-09-07 05:32:36.568962	2015-09-10 18:24:31.197941	t
+62	25	1	2015-09-09 15:14:36.157421	2015-09-10 18:29:31.296734	t
+60	24	3	2015-09-09 09:52:32.140723	2015-09-10 18:29:39.222837	f
 32	14	3	2015-08-18 05:54:50.957263	2015-09-10 04:18:40.649664	f
-21	14	2	2015-08-18 05:54:50.957263	2015-09-10 04:19:43.150637	f
+59	24	2	2015-09-09 09:52:32.140723	2015-09-10 18:39:14.218426	t
+58	24	1	2015-09-09 09:52:32.140723	2015-09-10 18:39:32.022426	t
 \.
 
 
@@ -1030,7 +1030,6 @@ SELECT pg_catalog.setval('interests_id_seq', 1, false);
 --
 
 COPY matches (id, sender_id, receiver_id, created_at, updated_at) FROM stdin;
-203	14	19	2015-09-07 04:31:24.134412	2015-09-07 04:31:24.134412
 152	1	7	2015-09-07 01:03:10.392828	2015-09-07 01:03:10.392828
 12	1	15	2015-08-19 06:58:20.589132	2015-08-19 06:58:20.589132
 20	4	15	2015-08-19 18:04:47.838578	2015-08-19 18:04:47.838578
@@ -1052,7 +1051,7 @@ COPY matches (id, sender_id, receiver_id, created_at, updated_at) FROM stdin;
 -- Name: matches_id_seq; Type: SEQUENCE SET; Schema: public; Owner: zMac
 --
 
-SELECT pg_catalog.setval('matches_id_seq', 273, true);
+SELECT pg_catalog.setval('matches_id_seq', 276, true);
 
 
 --
@@ -1064,7 +1063,6 @@ COPY messages (id, sender_id, receiver_id, body, created_at, updated_at) FROM st
 3	15	14	Why? What happens if you don’t order right?	2015-08-21 06:26:28.378487	2015-08-21 06:26:28.378487
 4	14	15	He yells and you don’t get your soup.	2015-08-21 06:28:17.100806	2015-08-21 06:28:17.100806
 5	16	15	No soup for you!	2015-08-21 08:35:09.786377	2015-08-21 08:35:09.786377
-6	16	15	No soup for you!	2015-08-21 08:35:12.307527	2015-08-21 08:35:12.307527
 7	1	4	How are things going?  Are you taking that job in Maine?	2015-08-21 08:37:36.733731	2015-08-21 08:37:36.733731
 8	4	1	Not sure yet.	2015-08-21 08:37:58.151827	2015-08-21 08:37:58.151827
 \.
@@ -1082,8 +1080,22 @@ SELECT pg_catalog.setval('messages_id_seq', 8, true);
 --
 
 COPY photos (id, user_id, description, created_at, updated_at, url, thumb_url) FROM stdin;
-1	7	\N	2015-08-18 01:32:06.388793	2015-08-18 01:32:06.388793	http://www.google.com	http://www.npr.org
-2	7	\N	2015-08-18 01:32:42.25678	2015-08-18 01:32:42.25678	http://www.60minutes.com	http://www.thisamericanlife.org
+6	15	\N	2015-09-10 08:53:14.038657	2015-09-10 08:53:14.038657	http://res.cloudinary.com/cosmo-connect/image/upload/v1441875158/ijdqdeitrwden31phjvy.png	http://res.cloudinary.com/cosmo-connect/image/upload/c_limit,h_60,w_90/v1441875158/ijdqdeitrwden31phjvy.png
+7	14	\N	2015-09-10 08:57:10.996043	2015-09-10 08:57:10.996043	http://res.cloudinary.com/cosmo-connect/image/upload/v1441875430/qvf8kxsuy2nzkktzdygp.jpg	http://res.cloudinary.com/cosmo-connect/image/upload/c_limit,h_60,w_90/v1441875430/qvf8kxsuy2nzkktzdygp.jpg
+8	19	\N	2015-09-10 08:58:10.814484	2015-09-10 08:58:10.814484	http://res.cloudinary.com/cosmo-connect/image/upload/v1441875490/hxzok2qusrxnmxfaybch.jpg	http://res.cloudinary.com/cosmo-connect/image/upload/c_limit,h_60,w_90/v1441875490/hxzok2qusrxnmxfaybch.jpg
+9	1	\N	2015-09-10 09:01:20.049761	2015-09-10 09:01:20.049761	http://res.cloudinary.com/cosmo-connect/image/upload/v1441875679/pp09jj6vri2bgjvsmdau.jpg	http://res.cloudinary.com/cosmo-connect/image/upload/c_limit,h_60,w_90/v1441875679/pp09jj6vri2bgjvsmdau.jpg
+10	4	\N	2015-09-10 18:14:12.023916	2015-09-10 18:14:12.023916	http://res.cloudinary.com/cosmo-connect/image/upload/v1441908851/ctzjva6uarnvsnxlz0yy.jpg	http://res.cloudinary.com/cosmo-connect/image/upload/c_limit,h_60,w_90/v1441908851/ctzjva6uarnvsnxlz0yy.jpg
+11	6	\N	2015-09-10 18:14:42.548106	2015-09-10 18:14:42.548106	http://res.cloudinary.com/cosmo-connect/image/upload/v1441908881/ylicj1mdota2j5vaofkp.jpg	http://res.cloudinary.com/cosmo-connect/image/upload/c_limit,h_60,w_90/v1441908881/ylicj1mdota2j5vaofkp.jpg
+12	7	\N	2015-09-10 18:15:07.589469	2015-09-10 18:15:07.589469	http://res.cloudinary.com/cosmo-connect/image/upload/v1441908906/ve5mc8e7gx6suwe1qono.jpg	http://res.cloudinary.com/cosmo-connect/image/upload/c_limit,h_60,w_90/v1441908906/ve5mc8e7gx6suwe1qono.jpg
+13	12	\N	2015-09-10 18:15:44.310996	2015-09-10 18:15:44.310996	http://res.cloudinary.com/cosmo-connect/image/upload/v1441908943/eqdm1pwit2xracrrotrh.jpg	http://res.cloudinary.com/cosmo-connect/image/upload/c_limit,h_60,w_90/v1441908943/eqdm1pwit2xracrrotrh.jpg
+14	16	\N	2015-09-10 18:16:30.117464	2015-09-10 18:16:30.117464	http://res.cloudinary.com/cosmo-connect/image/upload/v1441908989/uegryjkqltdewqlbc9xn.jpg	http://res.cloudinary.com/cosmo-connect/image/upload/c_limit,h_60,w_90/v1441908989/uegryjkqltdewqlbc9xn.jpg
+15	17	\N	2015-09-10 18:16:50.047808	2015-09-10 18:16:50.047808	http://res.cloudinary.com/cosmo-connect/image/upload/v1441909009/bau7me3fwcjnnikbovoe.jpg	http://res.cloudinary.com/cosmo-connect/image/upload/c_limit,h_60,w_90/v1441909009/bau7me3fwcjnnikbovoe.jpg
+16	20	\N	2015-09-10 18:18:15.249588	2015-09-10 18:18:15.249588	http://res.cloudinary.com/cosmo-connect/image/upload/v1441909094/xmow5e420jy7g2tins3k.jpg	http://res.cloudinary.com/cosmo-connect/image/upload/c_limit,h_60,w_90/v1441909094/xmow5e420jy7g2tins3k.jpg
+17	21	\N	2015-09-10 18:20:52.355563	2015-09-10 18:20:52.355563	http://res.cloudinary.com/cosmo-connect/image/upload/v1441909251/agod0rl2qd2vexfyapnw.jpg	http://res.cloudinary.com/cosmo-connect/image/upload/c_limit,h_60,w_90/v1441909251/agod0rl2qd2vexfyapnw.jpg
+18	22	\N	2015-09-10 18:24:21.178933	2015-09-10 18:24:21.178933	http://res.cloudinary.com/cosmo-connect/image/upload/v1441909460/gtrzqaaqkpnz3bzyajec.png	http://res.cloudinary.com/cosmo-connect/image/upload/c_limit,h_60,w_90/v1441909460/gtrzqaaqkpnz3bzyajec.png
+19	23	\N	2015-09-10 18:32:07.888153	2015-09-10 18:32:07.888153	http://res.cloudinary.com/cosmo-connect/image/upload/v1441909927/ely1kpc5uh3uen0tpou0.jpg	http://res.cloudinary.com/cosmo-connect/image/upload/c_limit,h_60,w_90/v1441909927/ely1kpc5uh3uen0tpou0.jpg
+20	24	\N	2015-09-10 18:38:05.421622	2015-09-10 18:38:05.421622	http://res.cloudinary.com/cosmo-connect/image/upload/v1441910285/zoajsmlftsemigq06slp.jpg	http://res.cloudinary.com/cosmo-connect/image/upload/c_limit,h_60,w_90/v1441910285/zoajsmlftsemigq06slp.jpg
+21	25	\N	2015-09-10 18:40:41.85308	2015-09-10 18:40:41.85308	http://res.cloudinary.com/cosmo-connect/image/upload/v1441910441/x6ovjayiazgsxo9amdno.jpg	http://res.cloudinary.com/cosmo-connect/image/upload/c_limit,h_60,w_90/v1441910441/x6ovjayiazgsxo9amdno.jpg
 \.
 
 
@@ -1091,7 +1103,7 @@ COPY photos (id, user_id, description, created_at, updated_at, url, thumb_url) F
 -- Name: photos_id_seq; Type: SEQUENCE SET; Schema: public; Owner: zMac
 --
 
-SELECT pg_catalog.setval('photos_id_seq', 2, true);
+SELECT pg_catalog.setval('photos_id_seq', 21, true);
 
 
 --
@@ -1211,13 +1223,11 @@ COPY responses (id, response_category_id, user_id, body, created_at, updated_at)
 41	5	14	Elaine, Newman, Tom's Restaurant	2015-08-18 21:31:45.386885	2015-08-21 05:30:53.556268
 50	1	17	I'm a conductor.  Like Leonard Bernstein, or do you not think I'm good enough to put myself in such esteemed ranks.	2015-08-21 22:29:58.86927	2015-08-21 22:29:58.86927
 51	3	17	Conducting.	2015-08-21 22:30:05.865165	2015-08-21 22:30:05.865165
-53	1	19	\N	2015-08-21 22:51:11.618895	2015-08-21 22:51:11.618895
 54	2	19	\N	2015-08-21 22:51:11.618895	2015-08-21 22:51:11.618895
 55	4	19	\N	2015-08-21 22:51:11.618895	2015-08-21 22:51:11.618895
 56	5	19	\N	2015-08-21 22:51:11.618895	2015-08-21 22:51:11.618895
 57	6	19	\N	2015-08-21 22:51:11.618895	2015-08-21 22:51:11.618895
 58	7	19	\N	2015-08-21 22:51:11.618895	2015-08-21 22:51:11.618895
-59	8	19	\N	2015-08-21 22:51:11.618895	2015-08-21 22:51:11.618895
 60	3	19	\N	2015-08-21 22:51:11.618895	2015-08-21 22:51:11.618895
 61	1	12	\N	2015-08-18 06:53:26.478577	2015-08-18 06:53:26.478577
 62	2	12	\N	2015-08-18 06:53:26.478577	2015-08-18 06:53:26.478577
@@ -1254,7 +1264,6 @@ COPY responses (id, response_category_id, user_id, body, created_at, updated_at)
 96	8	20	\N	2015-08-23 05:44:27.176509	2015-08-23 05:44:27.176509
 97	3	20	\N	2015-08-23 05:44:27.176509	2015-08-23 05:44:27.176509
 90	1	20	they're real, and they're spectacular	2015-08-23 05:44:27.176509	2015-08-23 19:09:18.093132
-98	1	21	\N	2015-08-24 17:19:03.627613	2015-08-24 17:19:03.627613
 99	2	21	\N	2015-08-24 17:19:03.627613	2015-08-24 17:19:03.627613
 100	4	21	\N	2015-08-24 17:19:03.627613	2015-08-24 17:19:03.627613
 101	5	21	\N	2015-08-24 17:19:03.627613	2015-08-24 17:19:03.627613
@@ -1277,6 +1286,7 @@ COPY responses (id, response_category_id, user_id, body, created_at, updated_at)
 119	7	23	\N	2015-09-09 09:29:07.476717	2015-09-09 09:29:07.476717
 120	8	23	\N	2015-09-09 09:29:07.476717	2015-09-09 09:29:07.476717
 121	3	23	\N	2015-09-09 09:29:07.476717	2015-09-09 09:29:07.476717
+59	8	19	You're better with names than Jerry Seinfeld.	2015-08-21 22:51:11.618895	2015-09-10 18:17:28.694727
 114	1	23	I used to own the Yankees.	2015-09-09 09:29:07.476717	2015-09-09 09:29:51.589759
 122	1	24	\N	2015-09-09 09:52:32.140723	2015-09-09 09:52:32.140723
 123	2	24	\N	2015-09-09 09:52:32.140723	2015-09-09 09:52:32.140723
@@ -1294,6 +1304,8 @@ COPY responses (id, response_category_id, user_id, body, created_at, updated_at)
 135	7	25	\N	2015-09-09 15:14:36.157421	2015-09-09 15:14:36.157421
 136	8	25	\N	2015-09-09 15:14:36.157421	2015-09-09 15:14:36.157421
 137	3	25	\N	2015-09-09 15:14:36.157421	2015-09-09 15:14:36.157421
+53	1	19	My name rhymes with a female body part.	2015-08-21 22:51:11.618895	2015-09-10 18:17:17.233523
+98	1	21	My name is George.  I'm unemployed, and I live with my parents.	2015-08-24 17:19:03.627613	2015-09-10 18:21:50.619812
 \.
 
 
@@ -1339,6 +1351,7 @@ COPY schema_migrations (version) FROM stdin;
 20150824051350
 20150825021835
 20150910013604
+20150910073815
 \.
 
 
@@ -1362,22 +1375,22 @@ SELECT pg_catalog.setval('user_interest_links_id_seq', 1, false);
 --
 
 COPY users (id, username, password_digest, session_token, birthdate, gender_id, min_age, max_age, max_radius, last_login, last_logout, created_at, updated_at) FROM stdin;
-4	michael	$2a$10$L5KCtJ632ssljfS/qTaFBOtcIVowGo6aSb1XwCobV3yvjYepJNWwy	os7uDdj0Y3WArxVuxtiN3A	1985-07-14 00:00:00	1	18	92	50	\N	\N	2015-08-13 18:26:24.546648	2015-08-29 20:14:30.459029
-17	maestro	$2a$10$w3mtYswiHawuqX67CheSvO7XZk7b1zAd0z2j0S5URTBXr0Xa/poBO	ONnGK5AZTdnKkJfj9a1gOw	1946-03-11 00:00:00	1	\N	\N	\N	\N	\N	2015-08-21 22:29:30.26859	2015-08-23 06:08:51.115571
-24	susan	$2a$10$ZBEv1C1jduNz5M7/RKA/HOcc.opkJB1cAiFz3Joa8iBSkTCuFM2iK	5gVPMylHLm9VMxkfYWHTSQ	1966-03-03 00:00:00	2	\N	\N	\N	\N	\N	2015-09-09 09:52:32.140723	2015-09-09 14:46:25.38769
-6	robert	$2a$10$HbJeVTqbIhlQZ5sYRSmBB.T81AENlKFWsXru0ZLHZA8Brh.HMLsRO	18h87nU6-vEupQHXdOOe5A	1959-01-01 00:00:00	1	18	92	50	\N	\N	2015-08-13 19:06:48.15266	2015-08-21 19:00:18.924764
-12	sparticus	$2a$10$LRnclwqRXbDPkp.e1vaHBeyX8wOENzhro5IETV/FC53KMICZkH3Zq	3a_kSfDQQXoXB11jC5sPSA	1990-01-01 00:00:00	1	\N	\N	\N	\N	\N	2015-08-16 06:11:48.548833	2015-08-18 06:53:26.478577
-20	sindra	$2a$10$A9e69J3nD2gyrpOQOeUpC.aMurVoOVyXwvpBxEuDzKUQOIpvun2qa	C8pHqu1pdFQ7HzbDM6ljqw	1964-12-08 00:00:00	2	\N	\N	\N	\N	\N	2015-08-23 05:44:27.176509	2015-08-23 19:09:09.634319
-25	marissa_tomei	$2a$10$LnoUupujW/4Qrko6wSIDku75K6/020hiLoKfctfDHKfr/wRXiv89K	_o4WrspivbjwN6fjjVcL7w	\N	\N	\N	\N	\N	\N	\N	2015-09-09 15:14:36.157421	2015-09-09 15:14:36.166622
-16	soup_nazi	$2a$10$MRxNj4rwkW0aW8mE5BCn.uAlkdI/dd0sQEqVaDGlYGGP/W/yvFIv6	IaOP5swsiHQWSo1k5u658g	1956-09-01 00:00:00	1	\N	\N	\N	\N	\N	2015-08-20 00:13:18.952628	2015-09-09 19:49:47.348512
-21	george	$2a$10$O70wgZF4MGoK/S867hsw9.7xAytIo/mN/XjReQu8jG1.sRMX91v1W	I6-LIYsDjuTr79u5spb_eA	1978-06-01 00:00:00	1	\N	\N	\N	\N	\N	2015-08-24 17:19:03.627613	2015-09-07 05:31:28.07403
-1	zelaznik	$2a$10$GxKq.J.9qWJ2tlLU7P6UEerTRa01rIef7GLb9WaXb3FOePHzF/acC	QE9SuUx3yERcpuNHdW2GrA	1984-02-06 00:00:00	1	18	92	50	\N	\N	2015-08-12 04:19:06.209106	2015-09-10 02:02:52.890833
-22	poppy	$2a$10$VYxmKfsD8nufKVJddWjIE.BHH/KbWx64iquNqEdUdFhACl5PADu0G	xYFOP1F_QXXn0-7iSNe2Pw	1950-01-01 00:00:00	1	\N	\N	\N	\N	\N	2015-09-07 05:32:36.568962	2015-09-07 05:33:20.217538
-19	mulva	$2a$10$s6ci8s7FD8qocIrmLutsbuW81nx0x0AqzHNAKIwwR1LWwjXtkvHym	TgtSGWuIKe1RHSmeTVYgEg	1985-07-14 00:00:00	2	\N	\N	\N	\N	\N	2015-08-21 22:51:11.618895	2015-08-23 05:42:54.521203
-7	chloe	$2a$10$hcBR4JDKLUvLfZhrq9MU4u4iHE6geGHEsJHIVOgn6FdKpMmvCZGee	1xgrQ-owbKyo1jDp2BNY_g	2010-12-01 00:00:00	4	18	92	50	\N	\N	2015-08-13 19:09:27.02488	2015-09-10 03:12:19.192269
-23	steinbrenner	$2a$10$jRxoclUSpcVCHkHn58QSUu.306xxrGhUrB1wdznvp7qa673xMzx0u	-wlELVY7LGhW59ykbxf-og	1930-07-04 00:00:00	1	\N	\N	\N	\N	\N	2015-09-09 09:29:07.476717	2015-09-10 03:12:27.941426
-15	elaine	$2a$10$C1iMvXxqnYvXZJ2NVwEVmeDsFizZa0CaGjQrimCZ4uNdfDNEQ./Pm	kvtn0kvPmb2A7m_VLDGqUw	1961-01-13 00:00:00	2	\N	\N	\N	\N	\N	2015-08-19 02:01:25.216819	2015-09-10 04:21:40.30867
-14	seinfeld	$2a$10$WO0BighJXm2znlGFT0XxWuC/RYPtvVFfOHN.7o5.aeFb9StkJUwxe	Rws8ZXtBw0hGv0rD4Mba-w	1952-12-01 00:00:00	1	\N	\N	\N	\N	\N	2015-08-18 05:54:50.957263	2015-09-10 04:29:35.417577
+7	chloe	$2a$10$hcBR4JDKLUvLfZhrq9MU4u4iHE6geGHEsJHIVOgn6FdKpMmvCZGee	QofGD1UMQLf_O_vFPRtOYg	2010-12-01 00:00:00	4	18	92	50	\N	\N	2015-08-13 19:09:27.02488	2015-09-10 18:41:25.603266
+1	zelaznik	$2a$10$GxKq.J.9qWJ2tlLU7P6UEerTRa01rIef7GLb9WaXb3FOePHzF/acC	4ZLFQuQl0-AyzmAAYVaI8w	1984-02-06 00:00:00	1	18	92	50	\N	\N	2015-08-12 04:19:06.209106	2015-09-10 18:13:46.503987
+4	michael	$2a$10$L5KCtJ632ssljfS/qTaFBOtcIVowGo6aSb1XwCobV3yvjYepJNWwy	lnMrC2Q_euCBgpBXHn7Gxg	1985-07-14 00:00:00	1	18	92	50	\N	\N	2015-08-13 18:26:24.546648	2015-09-10 18:13:58.741144
+6	robert	$2a$10$HbJeVTqbIhlQZ5sYRSmBB.T81AENlKFWsXru0ZLHZA8Brh.HMLsRO	mJyaN0Oy5XiSOjvRSOkeiA	1959-01-01 00:00:00	1	18	92	50	\N	\N	2015-08-13 19:06:48.15266	2015-09-10 18:14:33.861709
+12	sparticus	$2a$10$LRnclwqRXbDPkp.e1vaHBeyX8wOENzhro5IETV/FC53KMICZkH3Zq	cqRPcrbmKTIhGnJ1HHa70w	1990-01-01 00:00:00	1	\N	\N	\N	\N	\N	2015-08-16 06:11:48.548833	2015-09-10 18:15:35.728284
+14	seinfeld	$2a$10$WO0BighJXm2znlGFT0XxWuC/RYPtvVFfOHN.7o5.aeFb9StkJUwxe	eZ_-qtl77dgLC1LRV4C09A	1952-12-01 00:00:00	1	\N	\N	\N	\N	\N	2015-08-18 05:54:50.957263	2015-09-10 18:15:58.201583
+15	elaine	$2a$10$C1iMvXxqnYvXZJ2NVwEVmeDsFizZa0CaGjQrimCZ4uNdfDNEQ./Pm	MsdeaRx40ZNnR2I-ElsTaQ	1961-01-13 00:00:00	2	\N	\N	\N	\N	\N	2015-08-19 02:01:25.216819	2015-09-10 18:16:05.924189
+16	soup_nazi	$2a$10$MRxNj4rwkW0aW8mE5BCn.uAlkdI/dd0sQEqVaDGlYGGP/W/yvFIv6	95sQxtFjmtlaSspNX_-6lg	1956-09-01 00:00:00	1	\N	\N	\N	\N	\N	2015-08-20 00:13:18.952628	2015-09-10 18:16:17.144287
+17	maestro	$2a$10$w3mtYswiHawuqX67CheSvO7XZk7b1zAd0z2j0S5URTBXr0Xa/poBO	deb5Po6yUF_fuk_2UkVuhQ	1946-03-11 00:00:00	1	\N	\N	\N	\N	\N	2015-08-21 22:29:30.26859	2015-09-10 18:16:43.691981
+19	mulva	$2a$10$s6ci8s7FD8qocIrmLutsbuW81nx0x0AqzHNAKIwwR1LWwjXtkvHym	TO_zcvvCpfHY-I5DZfmVrA	1985-07-14 00:00:00	2	\N	\N	\N	\N	\N	2015-08-21 22:51:11.618895	2015-09-10 18:17:03.558998
+20	sindra	$2a$10$A9e69J3nD2gyrpOQOeUpC.aMurVoOVyXwvpBxEuDzKUQOIpvun2qa	n815a4Vv2wlh4_6aPWK65Q	1964-12-08 00:00:00	2	\N	\N	\N	\N	\N	2015-08-23 05:44:27.176509	2015-09-10 18:17:41.099867
+21	george	$2a$10$O70wgZF4MGoK/S867hsw9.7xAytIo/mN/XjReQu8jG1.sRMX91v1W	uH8xQ2FdMRrbdCdmRE4SzA	1955-09-23 00:00:00	1	\N	\N	\N	\N	\N	2015-08-24 17:19:03.627613	2015-09-10 18:21:27.691025
+22	poppy	$2a$10$VYxmKfsD8nufKVJddWjIE.BHH/KbWx64iquNqEdUdFhACl5PADu0G	9AnT67cay8uhN-gtWR2XWg	1950-01-01 00:00:00	1	\N	\N	\N	\N	\N	2015-09-07 05:32:36.568962	2015-09-10 18:24:08.354236
+23	steinbrenner	$2a$10$jRxoclUSpcVCHkHn58QSUu.306xxrGhUrB1wdznvp7qa673xMzx0u	WKLj0BGLFQZwjTNANw8I2Q	1930-07-04 00:00:00	1	\N	\N	\N	\N	\N	2015-09-09 09:29:07.476717	2015-09-10 18:31:59.220097
+24	susan	$2a$10$ZBEv1C1jduNz5M7/RKA/HOcc.opkJB1cAiFz3Joa8iBSkTCuFM2iK	0BKaMob8Uo8hvIWB3LqsPg	1966-03-03 00:00:00	2	\N	\N	\N	\N	\N	2015-09-09 09:52:32.140723	2015-09-10 18:36:30.659651
+25	marissa_tomei	$2a$10$LnoUupujW/4Qrko6wSIDku75K6/020hiLoKfctfDHKfr/wRXiv89K	KF0hhcg4p_isubaczTJLyA	\N	2	\N	\N	\N	\N	\N	2015-09-09 15:14:36.157421	2015-09-10 18:39:45.737726
 \.
 
 
@@ -1430,6 +1443,15 @@ COPY visits (id, visitor_id, profile_id, created_at, updated_at) FROM stdin;
 55	16	24	2015-09-09 19:52:30.191405	2015-09-09 19:52:30.191405
 56	15	14	2015-09-10 03:42:01.601311	2015-09-10 03:42:01.601311
 57	15	4	2015-09-10 03:48:49.520099	2015-09-10 03:48:49.520099
+58	15	7	2015-09-10 05:44:12.748511	2015-09-10 05:44:12.748511
+59	23	19	2015-09-10 07:22:02.66469	2015-09-10 07:22:02.66469
+60	15	23	2015-09-10 08:09:24.211803	2015-09-10 08:09:24.211803
+61	15	6	2015-09-10 08:27:18.41184	2015-09-10 08:27:18.41184
+62	19	6	2015-09-10 08:58:25.204181	2015-09-10 08:58:25.204181
+63	19	14	2015-09-10 08:58:34.279065	2015-09-10 08:58:34.279065
+64	1	15	2015-09-10 09:08:57.987414	2015-09-10 09:08:57.987414
+65	1	20	2015-09-10 09:09:12.356821	2015-09-10 09:09:12.356821
+66	25	23	2015-09-10 18:40:54.160922	2015-09-10 18:40:54.160922
 \.
 
 
@@ -1437,7 +1459,7 @@ COPY visits (id, visitor_id, profile_id, created_at, updated_at) FROM stdin;
 -- Name: visits_id_seq; Type: SEQUENCE SET; Schema: public; Owner: zMac
 --
 
-SELECT pg_catalog.setval('visits_id_seq', 57, true);
+SELECT pg_catalog.setval('visits_id_seq', 66, true);
 
 
 --
@@ -1720,7 +1742,7 @@ CREATE INDEX index_messages_on_sender_id_and_receiver_id ON messages USING btree
 -- Name: index_photos_on_user_id; Type: INDEX; Schema: public; Owner: zMac; Tablespace: 
 --
 
-CREATE INDEX index_photos_on_user_id ON photos USING btree (user_id);
+CREATE UNIQUE INDEX index_photos_on_user_id ON photos USING btree (user_id);
 
 
 --
