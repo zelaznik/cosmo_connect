@@ -72,7 +72,7 @@ class User < ActiveRecord::Base
   def soulmates
     # Use a subquery to get the unique ids of the soulmates
     # Then put it into a plain old ActiveRecord associaton
-    self.class.where("id IN (
+    User.where("id IN (
       SELECT
         them.id
       FROM
@@ -90,7 +90,7 @@ class User < ActiveRecord::Base
   end
 
   def matches_by_orientation
-    self.class.where("id IN (
+    User.where("id IN (
       SELECT
         them.id
 

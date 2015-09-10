@@ -8,11 +8,13 @@
               <% if (useLink) { %>
                 <a href="<%= '#users/' + user.escape('id') %>">
               <% } %>
+              <div class="upload-photo">
               <img
                 src="<%= '/images/tmp/' + user.escape('id') + '.jpg' %>"
                 alt="<%= 'Profile pic for user: ' + user.escape('username') %>'"
                 class="center-block img-circle img-thumbnail img-responsive"
                 style="height:150px;width:150px;">
+              </div>
               <% if (useLink) { %>
                 </a>
               <% } %>

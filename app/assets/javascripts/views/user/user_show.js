@@ -91,14 +91,21 @@ Cosmo.Views.UserShow = Backbone.CompositeView.extend({
   },
 
   upload: function(e) {
-    var photo = this.model.photo();
+    var photo = new Cosmo.Models.Photo({
+      user: this.model
+    });
+    photo.set({
+      user_id: Cosmo.CURRENT_USER_ID
+    });
     e.preventDefault();
     cloudinary.openUploadWidget(CLOUDINARY_OPTIONS, function(error, result) {
       var data = result[0];
       photo.set({url: data.url, thumb_url: data.thumbnail_url});
       photo.save({}, {
-        success: this.render.bind(this)
-      });
+        success: function() {
+          debugger;
+          this.render();
+      }.bind(this)});
     });
   },
 
