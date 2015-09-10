@@ -8,6 +8,7 @@ json.array! @users.includes(:gender).includes(desired_genders: :gender) do |user
   json.age user.age || 'age unspecified'
   json.gender @gender_name[user.gender_id] || 'gender unspecified'
   (json.like likes[user.id].id) if likes[user.id]
+  json.photo getter(user.photos.first, 'url')
 
   json.interested_in do
     names = []

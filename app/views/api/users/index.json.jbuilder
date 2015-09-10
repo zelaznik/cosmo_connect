@@ -13,6 +13,7 @@ json.array! @users.includes(:gender).includes(desired_genders: :gender) do |user
   json.gender getter(user.gender, 'name')
   json.is_liked current_user.has_crush_on(user)
   (json.like likes[user.id].id) if likes[user.id]
+  json.photo getter(user.photos.first, 'url')
 
   json.interested_in do
     names = []

@@ -44,7 +44,7 @@ json.interested_in do
   json.array! names
 end
 
-json.photo getter(@user.photos.first, 'thumb_url')
+json.photo getter(@user.photos.first, 'url')
 
 if current_user && (current_user != @user)
   Match.where(sender: current_user, receiver: @user).each do |like|
