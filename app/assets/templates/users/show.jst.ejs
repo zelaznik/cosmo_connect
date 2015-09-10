@@ -24,12 +24,10 @@
             </div>
             <br>
 
-            <div class="desired-genders-index"></div>
-
             <div class="row">
               <h3><form id="gender">
                 <!-- <button class="btn btn-primary" type="submit">Update Gender</button> -->
-                Update Gender:
+                Select Gender:
                 <% if (user.get('genders')) { %>
                   <select id="gender" action="">
                     <% if (user.get('gender_id')) { %>
@@ -48,21 +46,10 @@
                   </select>
                 <% } %>
               </h3></form>
-
-              <h3>Update Gender Prefernces<br>
-                <% user.desiredGenders().each(function(desire) { %>
-                  <% if (desire.get('interested')) { %>
-                    <button class="btn btn-success">
-                      <%= desire.escape('plural') %>
-                    </button><br>
-                  <% } else { %>
-                    <button class="btn btn-primary">
-                      <%= desire.escape('plural') %>
-                    </button><br>
-                  <% } %>
-                <% }) %>
-              </h3>
             </div>
+
+            <div class="desired-genders-index"></div>
+
           <% } %>
         </div>
       </div>

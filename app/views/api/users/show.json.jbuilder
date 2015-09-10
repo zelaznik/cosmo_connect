@@ -26,7 +26,7 @@ if is_current_user
 
 end
 
-desires = @user.desired_genders.includes(:gender)
+desires = @user.desired_genders.includes(:gender).order(:gender_id)
 
 json.desired_genders do
   json.array! desires do |desire|
@@ -62,8 +62,10 @@ json.details do
   json.relationship_status getter(@user.relationship_status, 'description')
 end
 
+responses = @user.responses.includes(:response_category).order(:response_category_id)
+
 json.responses do
-  json.array! @user.responses.includes(:response_category) do |r|
+  json.array! responses do |r|
     json.id r.id
     json.response_category_id r.response_category_id
     json.title r.response_category.title
