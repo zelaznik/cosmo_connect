@@ -15,10 +15,6 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-.panel-body {
-  //background-color: yellow;
-}
-
 body {
   font-family: 'Open Sans',sans-serif;
   height: 100%;
@@ -27,15 +23,15 @@ body {
   background-color: #dddddd;
 }
 
-.login {
-  background-image: url('/images/nyc.jpg');
-  background-size: cover;
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  z-index: 1;
-  top: 0;
-}
+// .login {
+//   background-image: url('/images/nyc.jpg');
+//   background-size: cover;
+//   position: absolute;
+//   height: 100%;
+//   width: 100%;
+//   z-index: 1;
+//   top: 0;
+// }
 
 .static-page-root {
   background-image: url('/images/nyc_faded.jpg');
@@ -158,28 +154,28 @@ $navHover: #ffffff;
   background-color: #F00;
 }
 
-/***********************************
-    SIGNIN PAGE STYLING
-************************************/
-
-.form-signin-heading {
-  color: white;
-  padding-top: 75px;
-}
-
-.form-signin {
-  margin: 0 auto;
-  width: 300px;
-  color: white;
-}
-
-.form-signin .signin-textbox {
-  color: black;
-}
-
-.thumbnail {
-  border-radius: 20px;
-}
+// /***********************************
+//     SIGNIN PAGE STYLING
+// ************************************/
+//
+// .form-signin-heading {
+//   color: white;
+//   padding-top: 75px;
+// }
+//
+// .form-signin {
+//   margin: 0 auto;
+//   width: 300px;
+//   color: white;
+// }
+//
+// .form-signin .signin-textbox {
+//   color: black;
+// }
+//
+// .thumbnail {
+//   border-radius: 20px;
+// }
 
 /***********************************
   MODAL STYLING FOR ESSAY RESPONSES
