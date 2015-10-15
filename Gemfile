@@ -35,7 +35,7 @@ gem 'bcrypt', '~> 3.1.7'
 # gem 'capistrano-rails', group: :development
 
 gem 'bootstrap-sass', '~> 3.3.5'
-
+gem 'bootstrap-glyphicons'
 gem 'font-awesome-rails', '~> 4.4.0.0'
 
 group :development, :test do
