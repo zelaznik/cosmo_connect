@@ -116,7 +116,14 @@ $userSubBorder: 5px;
 $blueUp : #3746BF;
 $blueDn : #252F7F;
 
-.navbar {
+.navbar,
+.navbar .navbar-nav > .active > a,
+.navbar .navbar-nav > .active > a:hover,
+.navbar .navbar-nav > .active > a:focus,
+.navbar .navbar-nav > .open > a,
+.navbar .navbar-nav > .open > a:hover,
+.navbar .navbar-nav > .open > a:focus
+ {
   background-color: #00F; /* fallback color, place your own */
 
   /* Gradients for modern browsers, replace as you see fit */
@@ -129,7 +136,7 @@ $blueDn : #252F7F;
   background-repeat: repeat-x;
   border-radius: 0;
   border: None;
-  color: red;
+  color: white;
 
   /* IE8-9 gradient filter */
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0031E5', endColorstr='#002BCC', GradientType=0);
@@ -229,4 +236,10 @@ $navHover: #ffffff;
   padding-top: 8px;
   padding-left: 8px;
   padding-right: 8px;
+}
+
+.essay-form-submit {
+  position: right;
+  bottom: 25px;
+  right: 25px;
 }
