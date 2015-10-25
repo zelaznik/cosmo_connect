@@ -10,6 +10,11 @@ Backbone.ModalView = Backbone.View.extend({
     $(document).on('keyup', this.handleKey.bind(this));
   },
 
+  remove: function() {
+    $(document).off('keyup', this.handleKey.bind(this));
+    Backbone.View.prototype.remove.call(this);
+  },
+
   submit: function(event) {
     throw "The function 'submit' needs to be overridden in a ModalView subclass.";
   },
