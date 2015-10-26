@@ -869,6 +869,8 @@ COPY desired_genders (id, user_id, gender_id, created_at, updated_at, interested
 4	12	1	2015-08-16 06:11:48.548833	2015-08-16 06:11:48.548833	f
 52	22	3	2015-09-07 05:32:36.568962	2015-09-07 05:32:36.568962	f
 8	4	1	2015-08-13 18:26:24.546648	2015-08-13 18:26:24.546648	f
+77	29	2	2015-10-26 10:34:30.81212	2015-10-26 10:34:30.81212	f
+78	29	3	2015-10-26 10:34:30.81212	2015-10-26 10:34:30.81212	f
 12	16	1	2015-08-20 00:13:18.952628	2015-08-20 00:13:18.952628	f
 16	20	2	2015-08-23 05:44:27.176509	2015-08-23 05:44:27.176509	f
 66	26	1	2015-09-10 21:00:14.622993	2015-09-10 21:00:14.622993	f
@@ -878,25 +880,28 @@ COPY desired_genders (id, user_id, gender_id, created_at, updated_at, interested
 27	20	3	2015-08-23 05:44:27.176509	2015-08-23 05:44:27.176509	f
 29	1	3	2015-08-12 04:19:06.209106	2015-08-12 04:19:06.209106	f
 30	4	3	2015-08-13 18:26:24.546648	2015-08-13 18:26:24.546648	f
+76	29	1	2015-10-26 10:34:30.81212	2015-10-26 10:35:32.14104	t
 68	26	3	2015-09-10 21:00:14.622993	2015-09-10 21:00:14.622993	f
 33	19	3	2015-08-21 22:51:11.618895	2015-08-21 22:51:11.618895	f
 34	16	3	2015-08-20 00:13:18.952628	2015-08-20 00:13:18.952628	f
+79	30	1	2015-10-26 10:50:13.274341	2015-10-26 10:50:13.274341	f
+81	30	3	2015-10-26 10:50:13.274341	2015-10-26 10:50:13.274341	f
+80	30	2	2015-10-26 10:50:13.274341	2015-10-26 10:51:29.241927	t
+82	31	1	2015-10-26 10:55:20.045129	2015-10-26 10:55:20.045129	f
+84	31	3	2015-10-26 10:55:20.045129	2015-10-26 10:55:20.045129	f
+83	31	2	2015-10-26 10:55:20.045129	2015-10-26 10:56:06.753812	t
 46	21	1	2015-08-24 17:19:03.627613	2015-08-24 17:19:03.627613	f
 67	26	2	2015-09-10 21:00:14.622993	2015-09-10 21:01:15.535887	t
 48	21	3	2015-08-24 17:19:03.627613	2015-08-24 17:19:03.627613	f
-7	1	1	2015-08-12 04:19:06.209106	2015-08-12 04:19:06.209106	f
 5	20	1	2015-08-23 05:44:27.176509	2015-08-23 05:44:27.176509	t
 11	19	1	2015-08-21 22:51:11.618895	2015-08-21 22:51:11.618895	t
 13	17	2	2015-08-21 22:29:30.26859	2015-08-21 22:29:30.26859	t
 14	6	2	2015-08-13 19:06:48.15266	2015-08-13 19:06:48.15266	t
 15	12	2	2015-08-16 06:11:48.548833	2015-08-16 06:11:48.548833	t
 19	4	2	2015-08-13 18:26:24.546648	2015-08-13 18:26:24.546648	t
-18	1	2	2015-08-12 04:19:06.209106	2015-09-10 05:18:57.180152	t
 23	16	2	2015-08-20 00:13:18.952628	2015-08-20 00:13:18.952628	t
-10	14	1	2015-08-18 05:54:50.957263	2015-09-10 21:19:39.694564	t
 63	25	2	2015-09-09 15:14:36.157421	2015-09-09 15:14:36.157421	f
 64	25	3	2015-09-09 15:14:36.157421	2015-09-09 15:14:36.157421	f
-21	14	2	2015-08-18 05:54:50.957263	2015-09-10 22:48:33.100791	f
 17	15	2	2015-08-19 02:01:25.216819	2015-09-10 05:45:52.342828	f
 6	15	1	2015-08-19 02:01:25.216819	2015-09-10 05:45:53.495128	t
 28	15	3	2015-08-19 02:01:25.216819	2015-09-10 04:25:34.474121	f
@@ -905,10 +910,20 @@ COPY desired_genders (id, user_id, gender_id, created_at, updated_at, interested
 54	23	1	2015-09-09 09:29:07.476717	2015-09-10 07:43:52.706192	f
 51	22	2	2015-09-07 05:32:36.568962	2015-09-10 18:24:31.197941	t
 62	25	1	2015-09-09 15:14:36.157421	2015-09-10 18:29:31.296734	t
+7	1	1	2015-08-12 04:19:06.209106	2015-10-21 05:07:29.351427	f
+18	1	2	2015-08-12 04:19:06.209106	2015-10-24 21:24:08.737604	t
 60	24	3	2015-09-09 09:52:32.140723	2015-09-10 18:29:39.222837	f
+21	14	2	2015-08-18 05:54:50.957263	2015-10-26 05:04:46.048996	t
 32	14	3	2015-08-18 05:54:50.957263	2015-09-10 04:18:40.649664	f
 59	24	2	2015-09-09 09:52:32.140723	2015-09-10 18:39:14.218426	t
+10	14	1	2015-08-18 05:54:50.957263	2015-10-26 06:23:18.05604	f
 58	24	1	2015-09-09 09:52:32.140723	2015-09-10 18:39:32.022426	t
+72	27	3	2015-10-26 10:10:49.734297	2015-10-26 10:10:49.734297	f
+71	27	2	2015-10-26 10:10:49.734297	2015-10-26 10:12:49.90991	f
+70	27	1	2015-10-26 10:10:49.734297	2015-10-26 10:12:50.201665	t
+74	28	2	2015-10-26 10:22:11.021718	2015-10-26 10:22:11.021718	f
+75	28	3	2015-10-26 10:22:11.021718	2015-10-26 10:22:11.021718	f
+73	28	1	2015-10-26 10:22:11.021718	2015-10-26 10:22:25.711044	t
 \.
 
 
@@ -916,7 +931,7 @@ COPY desired_genders (id, user_id, gender_id, created_at, updated_at, interested
 -- Name: desired_genders_id_seq; Type: SEQUENCE SET; Schema: public; Owner: zMac
 --
 
-SELECT pg_catalog.setval('desired_genders_id_seq', 69, true);
+SELECT pg_catalog.setval('desired_genders_id_seq', 84, true);
 
 
 --
@@ -940,6 +955,11 @@ COPY details_of_users (id, user_id, last_online, ethnicity_id, height, body_type
 16	24	\N	\N	\N	\N	\N	\N	\N	\N	\N	2015-09-09 09:52:32.170735	2015-09-09 09:52:32.170735
 17	25	\N	\N	\N	\N	\N	\N	\N	\N	\N	2015-09-09 15:14:36.163025	2015-09-09 15:14:36.163025
 18	26	\N	\N	\N	\N	\N	\N	\N	\N	\N	2015-09-10 21:00:14.677597	2015-09-10 21:00:14.677597
+19	27	\N	\N	\N	\N	\N	\N	\N	\N	\N	2015-10-26 10:10:49.784208	2015-10-26 10:10:49.784208
+20	28	\N	\N	\N	\N	\N	\N	\N	\N	\N	2015-10-26 10:22:11.037495	2015-10-26 10:22:11.037495
+21	29	\N	\N	\N	\N	\N	\N	\N	\N	\N	2015-10-26 10:34:30.856963	2015-10-26 10:34:30.856963
+22	30	\N	\N	\N	\N	\N	\N	\N	\N	\N	2015-10-26 10:50:13.315402	2015-10-26 10:50:13.315402
+23	31	\N	\N	\N	\N	\N	\N	\N	\N	\N	2015-10-26 10:55:20.101623	2015-10-26 10:55:20.101623
 \.
 
 
@@ -947,7 +967,7 @@ COPY details_of_users (id, user_id, last_online, ethnicity_id, height, body_type
 -- Name: details_of_users_id_seq; Type: SEQUENCE SET; Schema: public; Owner: zMac
 --
 
-SELECT pg_catalog.setval('details_of_users_id_seq', 18, true);
+SELECT pg_catalog.setval('details_of_users_id_seq', 23, true);
 
 
 --
@@ -1016,8 +1036,13 @@ COPY matches (id, sender_id, receiver_id, created_at, updated_at) FROM stdin;
 278	25	17	2015-09-10 18:46:05.018135	2015-09-10 18:46:05.018135
 279	21	25	2015-09-10 18:46:35.183739	2015-09-10 18:46:35.183739
 12	1	15	2015-08-19 06:58:20.589132	2015-08-19 06:58:20.589132
+291	1	19	2015-10-26 00:34:52.074719	2015-10-26 00:34:52.074719
 20	4	15	2015-08-19 18:04:47.838578	2015-08-19 18:04:47.838578
-217	14	15	2015-09-07 07:33:28.920691	2015-09-07 07:33:28.920691
+293	14	15	2015-10-26 08:59:12.31539	2015-10-26 08:59:12.31539
+294	27	14	2015-10-26 10:13:35.353988	2015-10-26 10:13:35.353988
+295	27	1	2015-10-26 10:13:36.376068	2015-10-26 10:13:36.376068
+296	30	15	2015-10-26 10:51:49.185902	2015-10-26 10:51:49.185902
+297	15	30	2015-10-26 10:52:14.327591	2015-10-26 10:52:14.327591
 29	15	12	2015-08-20 04:02:28.839034	2015-08-20 04:02:28.839034
 30	15	14	2015-08-20 04:02:33.569729	2015-08-20 04:02:33.569729
 32	16	15	2015-08-20 04:48:42.267146	2015-08-20 04:48:42.267146
@@ -1029,7 +1054,7 @@ COPY matches (id, sender_id, receiver_id, created_at, updated_at) FROM stdin;
 -- Name: matches_id_seq; Type: SEQUENCE SET; Schema: public; Owner: zMac
 --
 
-SELECT pg_catalog.setval('matches_id_seq', 284, true);
+SELECT pg_catalog.setval('matches_id_seq', 297, true);
 
 
 --
@@ -1043,6 +1068,32 @@ COPY messages (id, sender_id, receiver_id, body, created_at, updated_at) FROM st
 5	16	15	No soup for you!	2015-08-21 08:35:09.786377	2015-08-21 08:35:09.786377
 7	1	4	How are things going?  Are you taking that job in Maine?	2015-08-21 08:37:36.733731	2015-08-21 08:37:36.733731
 8	4	1	Not sure yet.	2015-08-21 08:37:58.151827	2015-08-21 08:37:58.151827
+9	14	15	asdsaadsf	2015-10-26 09:08:20.842056	2015-10-26 09:08:20.842056
+10	14	15	asdsaadsf	2015-10-26 09:10:10.188388	2015-10-26 09:10:10.188388
+11	14	15	This is a test	2015-10-26 09:10:20.152735	2015-10-26 09:10:20.152735
+12	14	19	So your name rhymes with a female body part?	2015-10-26 09:11:13.731405	2015-10-26 09:11:13.731405
+14	19	14	Nice to meet you.	2015-10-26 10:02:38.470516	2015-10-26 10:02:38.470516
+15	27	14	So, it must've been ninety-five degrees that night, and everyone's just standing around the pool with little drinks in their hands. I was wearing my old jeans and T-shirt. And I don't know, I was just in one of those moods - so I said to myself, "Marlene, just do it," and I jumped in. And as I'm getting out, I feel all these eyes on me, and I look up and everyone is just staring at me.	2015-10-26 10:14:39.861303	2015-10-26 10:14:39.861303
+16	14	27	So what'd you do?	2015-10-26 10:15:03.602553	2015-10-26 10:15:03.602553
+17	27	14	Well, nothing. It's not skin off my hide if people like to look. I just didn't see what the big attraction was.	2015-10-26 10:15:45.421433	2015-10-26 10:15:45.421433
+18	14	27	Well, I have a general idea what it was. I could take a guess.	2015-10-26 10:16:07.107451	2015-10-26 10:16:07.107451
+19	27	14	Hey, you know, Jerry, just because George and I don't see each other anymore, it doesn't mean we shouldn't stay friends.	2015-10-26 10:16:46.517324	2015-10-26 10:16:46.517324
+20	14	27	No.	2015-10-26 10:17:10.29398	2015-10-26 10:17:10.29398
+21	27	14	Good enough. I'm really glad we got that settled.	2015-10-26 10:17:30.071613	2015-10-26 10:17:30.071613
+22	14	28	Come on, try it. Let me hear you try a Scottish accent.	2015-10-26 10:24:30.927458	2015-10-26 10:24:30.927458
+23	28	14	That's Irish.	2015-10-26 10:24:55.823301	2015-10-26 10:24:55.823301
+24	14	28	Irish, Scottish, what's the difference, lassie?	2015-10-26 10:26:17.61445	2015-10-26 10:26:17.61445
+25	14	29	So Sherry, what do you remember about that day at the library?	2015-10-26 10:38:39.184343	2015-10-26 10:38:39.184343
+26	29	14	I remember it like it was yesterday. It was a Friday afternoon. I wore a purple dress.	2015-10-26 10:39:21.882567	2015-10-26 10:39:21.882567
+28	14	29	Purple? Ya' sure it wasn't orange?	2015-10-26 10:41:30.555918	2015-10-26 10:41:30.555918
+29	29	14	Positive. And I was chewin' Dentyne. I always chewed dentyne. Remember Jerry? Dentyne?	2015-10-26 10:42:02.542736	2015-10-26 10:42:02.542736
+30	14	29	No Black Jack?	2015-10-26 10:42:27.217433	2015-10-26 10:42:27.217433
+31	29	14	Licorice gum? Never! We were reading passages to each other from that Henry Miller book,	2015-10-26 10:43:00.641241	2015-10-26 10:43:00.641241
+32	14	29	Tropic of Cancer.	2015-10-26 10:43:19.519644	2015-10-26 10:43:19.519644
+33	29	14	No, Tropic of Capricorn	2015-10-26 10:44:47.252304	2015-10-26 10:44:47.252304
+34	14	29	Tropic of Capricorn?	2015-10-26 10:45:38.41206	2015-10-26 10:45:38.41206
+35	29	14	Rememba? What holds the world togetha' ... "As I have learned from bitter experience is sexual intercourse ."	2015-10-26 10:46:14.329874	2015-10-26 10:46:14.329874
+36	14	29	Wait a second. Wait a second. You're right. I had both of them.	2015-10-26 10:47:05.624965	2015-10-26 10:47:05.624965
 \.
 
 
@@ -1050,7 +1101,7 @@ COPY messages (id, sender_id, receiver_id, body, created_at, updated_at) FROM st
 -- Name: messages_id_seq; Type: SEQUENCE SET; Schema: public; Owner: zMac
 --
 
-SELECT pg_catalog.setval('messages_id_seq', 8, true);
+SELECT pg_catalog.setval('messages_id_seq', 36, true);
 
 
 --
@@ -1074,6 +1125,11 @@ COPY photos (id, user_id, description, created_at, updated_at, url, thumb_url) F
 20	24	\N	2015-09-10 18:38:05.421622	2015-09-10 18:38:05.421622	http://res.cloudinary.com/cosmo-connect/image/upload/v1441910285/zoajsmlftsemigq06slp.jpg	http://res.cloudinary.com/cosmo-connect/image/upload/c_limit,h_60,w_90/v1441910285/zoajsmlftsemigq06slp.jpg
 21	25	\N	2015-09-10 18:40:41.85308	2015-09-10 18:40:41.85308	http://res.cloudinary.com/cosmo-connect/image/upload/v1441910441/x6ovjayiazgsxo9amdno.jpg	http://res.cloudinary.com/cosmo-connect/image/upload/c_limit,h_60,w_90/v1441910441/x6ovjayiazgsxo9amdno.jpg
 22	26	\N	2015-09-10 21:00:56.042709	2015-09-10 21:00:56.042709	http://res.cloudinary.com/cosmo-connect/image/upload/v1441918856/hpa08asjd7msvpln02lt.jpg	http://res.cloudinary.com/cosmo-connect/image/upload/c_limit,h_60,w_90/v1441918856/hpa08asjd7msvpln02lt.jpg
+23	27	\N	2015-10-26 10:11:35.230039	2015-10-26 10:11:35.230039	http://res.cloudinary.com/cosmo-connect/image/upload/v1445854295/pzsw50xkkn805g90iyuo.jpg	http://res.cloudinary.com/cosmo-connect/image/upload/c_limit,h_60,w_90/v1445854295/pzsw50xkkn805g90iyuo.jpg
+24	28	\N	2015-10-26 10:23:24.44765	2015-10-26 10:23:24.44765	http://res.cloudinary.com/cosmo-connect/image/upload/v1445855004/q4gipeeihtw8v36f2mwj.jpg	http://res.cloudinary.com/cosmo-connect/image/upload/c_limit,h_60,w_90/v1445855004/q4gipeeihtw8v36f2mwj.jpg
+25	29	\N	2015-10-26 10:34:46.730176	2015-10-26 10:34:46.730176	http://res.cloudinary.com/cosmo-connect/image/upload/v1445855686/uig2ikem4rvjmytxxrzq.jpg	http://res.cloudinary.com/cosmo-connect/image/upload/c_limit,h_60,w_90/v1445855686/uig2ikem4rvjmytxxrzq.jpg
+26	30	\N	2015-10-26 10:50:24.48591	2015-10-26 10:50:24.48591	http://res.cloudinary.com/cosmo-connect/image/upload/v1445856624/pocftjkowz0bclxg0j5i.jpg	http://res.cloudinary.com/cosmo-connect/image/upload/c_limit,h_60,w_90/v1445856624/pocftjkowz0bclxg0j5i.jpg
+27	31	\N	2015-10-26 10:55:52.055267	2015-10-26 10:55:52.055267	http://res.cloudinary.com/cosmo-connect/image/upload/v1445856951/ykptrasu39iiw0knxvmh.jpg	http://res.cloudinary.com/cosmo-connect/image/upload/c_limit,h_60,w_90/v1445856951/ykptrasu39iiw0knxvmh.jpg
 \.
 
 
@@ -1081,7 +1137,7 @@ COPY photos (id, user_id, description, created_at, updated_at, url, thumb_url) F
 -- Name: photos_id_seq; Type: SEQUENCE SET; Schema: public; Owner: zMac
 --
 
-SELECT pg_catalog.setval('photos_id_seq', 22, true);
+SELECT pg_catalog.setval('photos_id_seq', 27, true);
 
 
 --
@@ -1166,17 +1222,12 @@ COPY responses (id, response_category_id, user_id, body, created_at, updated_at)
 37	3	14	Mugging old ladies for their marble rye.	2015-08-18 18:16:14.151676	2015-08-23 05:06:48.203258
 38	6	14	Why Kenny Banyon gets so many laughs, that hack.	2015-08-18 18:16:22.109873	2015-08-23 05:07:04.151171
 39	1	14	I'm extremely picky with women.  You have one thing wrong with you, it's over.	2015-08-18 18:16:31.221476	2015-08-23 05:07:31.015604
-26	5	1	1,2,3,4,5,6	2015-08-17 16:49:48.15748	2015-08-17 16:49:48.15748
 27	6	1	how far behind I am.	2015-08-17 16:49:56.34562	2015-08-17 16:49:56.34562
-28	3	1	I thought computer programming, but I'm reevaluating.	2015-08-17 16:50:10.479905	2015-08-17 16:50:10.479905
 9	1	6	Awesome father, uncle, husband, lawyer.	2015-08-13 19:06:48.227166	2015-08-17 16:51:11.877206
 11	3	6	telling stories.	2015-08-13 19:06:48.258268	2015-08-17 16:51:18.064304
 30	4	1	power of habit, memento, west wing, deadmau5 I remember, pizza.	2015-08-17 17:00:59.337161	2015-08-17 17:00:59.337161
-31	7	1	Catching up on my project.	2015-08-17 18:52:23.285127	2015-08-17 18:52:23.285127
 65	2	14	getting my parents kicked out of the retirement home after buying them a Caddy.	2015-08-21 22:52:42.746693	2015-08-25 02:37:17.711686
 71	4	14	Mendy's	2015-08-21 22:52:42.746693	2015-09-07 04:34:15.601076
-25	2	1	Attending a coding bootcamp.	2015-08-17 16:49:39.046196	2015-08-18 03:03:08.532236
-29	1	1	(edit) I don't know what to say.	2015-08-17 17:00:24.367881	2015-08-18 04:02:45.024907
 33	3	4	charming people	2015-08-18 04:28:49.901855	2015-08-18 04:28:49.901855
 34	6	4	happy gilmore	2015-08-18 04:28:56.509794	2015-08-18 04:28:56.509794
 35	1	4	not sure where I'm going in life, but making lots of friends on the way.	2015-08-18 04:29:07.66948	2015-08-18 04:29:07.66948
@@ -1193,7 +1244,6 @@ COPY responses (id, response_category_id, user_id, body, created_at, updated_at)
 41	5	14	Elaine, Newman, Tom's Restaurant	2015-08-18 21:31:45.386885	2015-08-21 05:30:53.556268
 50	1	17	I'm a conductor.  Like Leonard Bernstein, or do you not think I'm good enough to put myself in such esteemed ranks.	2015-08-21 22:29:58.86927	2015-08-21 22:29:58.86927
 51	3	17	Conducting.	2015-08-21 22:30:05.865165	2015-08-21 22:30:05.865165
-54	2	19	\N	2015-08-21 22:51:11.618895	2015-08-21 22:51:11.618895
 55	4	19	\N	2015-08-21 22:51:11.618895	2015-08-21 22:51:11.618895
 56	5	19	\N	2015-08-21 22:51:11.618895	2015-08-21 22:51:11.618895
 57	6	19	\N	2015-08-21 22:51:11.618895	2015-08-21 22:51:11.618895
@@ -1201,7 +1251,6 @@ COPY responses (id, response_category_id, user_id, body, created_at, updated_at)
 60	3	19	\N	2015-08-21 22:51:11.618895	2015-08-21 22:51:11.618895
 61	1	12	\N	2015-08-18 06:53:26.478577	2015-08-18 06:53:26.478577
 62	2	12	\N	2015-08-18 06:53:26.478577	2015-08-18 06:53:26.478577
-63	2	15	\N	2015-08-21 22:29:15.202328	2015-08-21 22:29:15.202328
 64	2	17	\N	2015-08-21 22:29:33.242938	2015-08-21 22:29:33.242938
 66	2	16	\N	2015-08-21 08:13:22.979445	2015-08-21 08:13:22.979445
 67	4	4	\N	2015-08-21 19:10:25.986663	2015-08-21 19:10:25.986663
@@ -1257,6 +1306,12 @@ COPY responses (id, response_category_id, user_id, body, created_at, updated_at)
 120	8	23	\N	2015-09-09 09:29:07.476717	2015-09-09 09:29:07.476717
 121	3	23	\N	2015-09-09 09:29:07.476717	2015-09-09 09:29:07.476717
 59	8	19	You're better with names than Jerry Seinfeld.	2015-08-21 22:51:11.618895	2015-09-10 18:17:28.694727
+25	2	1	Attending a coding bootcamp4.	2015-08-17 16:49:39.046196	2015-10-26 03:35:43.38644
+54	2	19		2015-08-21 22:51:11.618895	2015-10-26 10:06:21.247167
+63	2	15	Trying to stay friends with my best friend, Jerry.  We have a few rules.  Rule number one? No calls, afterward. Rule two? Spending the night is optional!	2015-08-21 22:29:15.202328	2015-10-26 10:20:00.382497
+26	5	1	1,2,3,4,5,6	2015-08-17 16:49:48.15748	2015-10-26 03:40:51.859741
+29	1	1	(edit) I love NPR.  I really love Python.  Rails is awesome too..	2015-08-17 17:00:24.367881	2015-10-26 04:36:15.349723
+31	7	1	Catching up on my project.	2015-08-17 18:52:23.285127	2015-10-26 04:19:05.172851
 114	1	23	I used to own the Yankees.	2015-09-09 09:29:07.476717	2015-09-09 09:29:51.589759
 122	1	24	\N	2015-09-09 09:52:32.140723	2015-09-09 09:52:32.140723
 123	2	24	\N	2015-09-09 09:52:32.140723	2015-09-09 09:52:32.140723
@@ -1284,6 +1339,47 @@ COPY responses (id, response_category_id, user_id, body, created_at, updated_at)
 144	8	26	\N	2015-09-10 21:00:14.622993	2015-09-10 21:00:14.622993
 145	3	26	\N	2015-09-10 21:00:14.622993	2015-09-10 21:00:14.622993
 138	1	26	I'M A HOTSHOT LAWYER.  I FORGOT TO TURN OFF THE CAPS.	2015-09-10 21:00:14.622993	2015-09-10 21:01:35.780142
+28	3	1	I thought computer programming, but I'm reevaluating.	2015-08-17 16:50:10.479905	2015-10-26 04:22:43.700275
+147	2	27	\N	2015-10-26 10:10:49.734297	2015-10-26 10:10:49.734297
+148	4	27	\N	2015-10-26 10:10:49.734297	2015-10-26 10:10:49.734297
+149	5	27	\N	2015-10-26 10:10:49.734297	2015-10-26 10:10:49.734297
+150	6	27	\N	2015-10-26 10:10:49.734297	2015-10-26 10:10:49.734297
+151	7	27	\N	2015-10-26 10:10:49.734297	2015-10-26 10:10:49.734297
+152	8	27	\N	2015-10-26 10:10:49.734297	2015-10-26 10:10:49.734297
+153	3	27	\N	2015-10-26 10:10:49.734297	2015-10-26 10:10:49.734297
+146	1	27	When Marlene and George break up, Jerry gets involved romantically with her while retrieving George’s books from her apartment. Jerry learns that although Marlene is really sexy she has a tendency to act very annoying, especially over the phone. Later, Marlene says that she can’t date Jerry anymore because she saw his act and loses respect for his profession. To which Jerry replies “but you’re a cashier!”	2015-10-26 10:10:49.734297	2015-10-26 10:13:18.877976
+155	2	28	\N	2015-10-26 10:22:11.021718	2015-10-26 10:22:11.021718
+156	4	28	\N	2015-10-26 10:22:11.021718	2015-10-26 10:22:11.021718
+157	5	28	\N	2015-10-26 10:22:11.021718	2015-10-26 10:22:11.021718
+158	6	28	\N	2015-10-26 10:22:11.021718	2015-10-26 10:22:11.021718
+159	7	28	\N	2015-10-26 10:22:11.021718	2015-10-26 10:22:11.021718
+160	8	28	\N	2015-10-26 10:22:11.021718	2015-10-26 10:22:11.021718
+161	3	28	\N	2015-10-26 10:22:11.021718	2015-10-26 10:22:11.021718
+154	1	28	Jerry begins talking about his tan cotton dockers and how much he hates the commercial. When Donna says that she kinda likes the commercial because the dialog rings true for her, Jerry is perplexed and tells all of his friends. Donna gets upset with Jerry when Kramer and George both meet her and mention that she likes the commercial.	2015-10-26 10:22:11.021718	2015-10-26 10:22:18.819689
+163	2	29	\N	2015-10-26 10:34:30.81212	2015-10-26 10:34:30.81212
+164	4	29	\N	2015-10-26 10:34:30.81212	2015-10-26 10:34:30.81212
+165	5	29	\N	2015-10-26 10:34:30.81212	2015-10-26 10:34:30.81212
+166	6	29	\N	2015-10-26 10:34:30.81212	2015-10-26 10:34:30.81212
+167	7	29	\N	2015-10-26 10:34:30.81212	2015-10-26 10:34:30.81212
+168	8	29	\N	2015-10-26 10:34:30.81212	2015-10-26 10:34:30.81212
+169	3	29	\N	2015-10-26 10:34:30.81212	2015-10-26 10:34:30.81212
+162	1	29	Jerry’s doesn’t believe that he owes some money to the New York Public Library, so he looks up his old high school girlfriend, Sherry Becker. Jerry meets with her at the coffee shop and he finds out that his recollection of Sherry was a bit different than reality. For one, Sherry says she wore a purple dress, and not an orange dress as Jerry originally thought. Second, the book they read to each other was actually Tropic of Capricorn, not Tropic of Cancer.	2015-10-26 10:34:30.81212	2015-10-26 10:36:03.601389
+171	2	30	\N	2015-10-26 10:50:13.274341	2015-10-26 10:50:13.274341
+172	4	30	\N	2015-10-26 10:50:13.274341	2015-10-26 10:50:13.274341
+173	5	30	\N	2015-10-26 10:50:13.274341	2015-10-26 10:50:13.274341
+174	6	30	\N	2015-10-26 10:50:13.274341	2015-10-26 10:50:13.274341
+175	7	30	\N	2015-10-26 10:50:13.274341	2015-10-26 10:50:13.274341
+176	8	30	\N	2015-10-26 10:50:13.274341	2015-10-26 10:50:13.274341
+177	3	30	\N	2015-10-26 10:50:13.274341	2015-10-26 10:50:13.274341
+170	1	30	Being amazing at baseball.  Taking Jerry's best friend Elaine out on dates.	2015-10-26 10:50:13.274341	2015-10-26 10:50:46.180194
+179	2	31	\N	2015-10-26 10:55:20.045129	2015-10-26 10:55:20.045129
+180	4	31	\N	2015-10-26 10:55:20.045129	2015-10-26 10:55:20.045129
+181	5	31	\N	2015-10-26 10:55:20.045129	2015-10-26 10:55:20.045129
+182	6	31	\N	2015-10-26 10:55:20.045129	2015-10-26 10:55:20.045129
+183	7	31	\N	2015-10-26 10:55:20.045129	2015-10-26 10:55:20.045129
+184	8	31	\N	2015-10-26 10:55:20.045129	2015-10-26 10:55:20.045129
+185	3	31	\N	2015-10-26 10:55:20.045129	2015-10-26 10:55:20.045129
+178	1	31	Elaine’s boyfriend Ned is a Communist, but Elaine doesn’t notice until George finds copy of The Daily Worker lying around her apartment.  He reads everything, hes very well read. Really? Well maybe he’s very well… red.  Elaine finds Ned’s political beliefs interesting, but is unimpressed with his drab clothing. Ned’s and Elaine break up when she gets him blacklisted from Hop Sing’s, using his name in a failed attempt to get delivery.	2015-10-26 10:55:20.045129	2015-10-26 10:55:42.158244
 \.
 
 
@@ -1291,7 +1387,7 @@ COPY responses (id, response_category_id, user_id, body, created_at, updated_at)
 -- Name: responses_id_seq; Type: SEQUENCE SET; Schema: public; Owner: zMac
 --
 
-SELECT pg_catalog.setval('responses_id_seq', 145, true);
+SELECT pg_catalog.setval('responses_id_seq', 185, true);
 
 
 --
@@ -1353,20 +1449,25 @@ SELECT pg_catalog.setval('user_interest_links_id_seq', 1, false);
 --
 
 COPY users (id, username, password_digest, session_token, birthdate, gender_id, min_age, max_age, max_radius, last_login, last_logout, created_at, updated_at) FROM stdin;
+19	mulva	$2a$10$s6ci8s7FD8qocIrmLutsbuW81nx0x0AqzHNAKIwwR1LWwjXtkvHym	fxuxKyAI69i1KTAZMkmivw	1985-07-14 00:00:00	2	\N	\N	\N	\N	\N	2015-08-21 22:51:11.618895	2015-10-26 10:02:28.111866
 26	temporary	$2a$10$Ns8n84YfTZYIFIPaB5Hyeeeye1E7PHuI9gLVgH5JGRqU8k/f2Z2sO	8OHO_nku_SBrYGdIcHgQAQ	1776-07-04 00:00:00	1	\N	\N	\N	\N	\N	2015-09-10 21:00:14.622993	2015-09-10 21:01:14.859175
-14	seinfeld	$2a$10$WO0BighJXm2znlGFT0XxWuC/RYPtvVFfOHN.7o5.aeFb9StkJUwxe	yt9IWKrTF39uHCANNnuqsw	1952-12-01 00:00:00	2	\N	\N	\N	\N	\N	2015-08-18 05:54:50.957263	2015-09-10 22:49:09.049223
-15	elaine	$2a$10$C1iMvXxqnYvXZJ2NVwEVmeDsFizZa0CaGjQrimCZ4uNdfDNEQ./Pm	Ma102l-PsZAKdV2MF5FgfA	1961-01-13 00:00:00	2	\N	\N	\N	\N	\N	2015-08-19 02:01:25.216819	2015-09-10 22:49:12.292432
-1	zelaznik	$2a$10$GxKq.J.9qWJ2tlLU7P6UEerTRa01rIef7GLb9WaXb3FOePHzF/acC	4ZLFQuQl0-AyzmAAYVaI8w	1984-02-06 00:00:00	1	18	92	50	\N	\N	2015-08-12 04:19:06.209106	2015-09-10 18:13:46.503987
+28	donna	$2a$10$V8cdI3MKbgIJgyDGSl/MU.Dl6sDBco.h/F4OfM6y/bJ4WDfIXD.YG	f_mFeQfundkFpMUxNwn__A	1981-04-28 00:00:00	2	\N	\N	\N	\N	\N	2015-10-26 10:22:11.021718	2015-10-26 10:24:37.446473
 4	michael	$2a$10$L5KCtJ632ssljfS/qTaFBOtcIVowGo6aSb1XwCobV3yvjYepJNWwy	lnMrC2Q_euCBgpBXHn7Gxg	1985-07-14 00:00:00	1	18	92	50	\N	\N	2015-08-13 18:26:24.546648	2015-09-10 18:13:58.741144
 6	robert	$2a$10$HbJeVTqbIhlQZ5sYRSmBB.T81AENlKFWsXru0ZLHZA8Brh.HMLsRO	mJyaN0Oy5XiSOjvRSOkeiA	1959-01-01 00:00:00	1	18	92	50	\N	\N	2015-08-13 19:06:48.15266	2015-09-10 18:14:33.861709
+27	marlene	$2a$10$dT9Q7dUV.tEJY1GcyUHmFuT693IH6JWZGOcglUiEFndCKVN/Z4d3C	WZaQOg-pz7qPoPydFws4gQ	1962-04-06 00:00:00	2	\N	\N	\N	\N	\N	2015-10-26 10:10:49.734297	2015-10-26 10:17:16.837698
+30	keith_hernandez	$2a$10$LaZuasVYz9vPntVMHB6LmuacwMnzWR7.gZ2Qerd71AeQU6313KpsC	wequHHecKO8AM8RQaOIMIw	1953-10-20 00:00:00	1	\N	\N	\N	\N	\N	2015-10-26 10:50:13.274341	2015-10-26 10:51:28.274383
 12	sparticus	$2a$10$LRnclwqRXbDPkp.e1vaHBeyX8wOENzhro5IETV/FC53KMICZkH3Zq	cqRPcrbmKTIhGnJ1HHa70w	1990-01-01 00:00:00	1	\N	\N	\N	\N	\N	2015-08-16 06:11:48.548833	2015-09-10 18:15:35.728284
+15	elaine	$2a$10$C1iMvXxqnYvXZJ2NVwEVmeDsFizZa0CaGjQrimCZ4uNdfDNEQ./Pm	0tU76MdL4nLHSayhX7hWWw	1961-01-13 00:00:00	2	\N	\N	\N	\N	\N	2015-08-19 02:01:25.216819	2015-10-26 10:52:01.008373
 25	marissa_tomei	$2a$10$LnoUupujW/4Qrko6wSIDku75K6/020hiLoKfctfDHKfr/wRXiv89K	brP6WjvlaBVZnuKfjYhbQA	1964-12-04 00:00:00	2	\N	\N	\N	\N	\N	2015-09-09 15:14:36.157421	2015-09-10 18:45:45.439081
+29	sherry_becker	$2a$10$8M/g837sco7uJd1x24p1c.HuLbIs6u4uU7EcOcUH1cV71r6/zvmui	CPH_nu_YM_i9gng_SMkGwg	1974-08-20 00:00:00	2	\N	\N	\N	\N	\N	2015-10-26 10:34:30.81212	2015-10-26 10:46:01.027869
+14	seinfeld	$2a$10$WO0BighJXm2znlGFT0XxWuC/RYPtvVFfOHN.7o5.aeFb9StkJUwxe	OfoElCOukrJLXvLpGo1Kpg	1952-12-01 00:00:00	1	\N	\N	\N	\N	\N	2015-08-18 05:54:50.957263	2015-10-26 10:46:49.29415
+1	zelaznik	$2a$10$GxKq.J.9qWJ2tlLU7P6UEerTRa01rIef7GLb9WaXb3FOePHzF/acC	-Ux71i7DEAYM8_bkxQqCTQ	1984-02-06 00:00:00	1	18	92	50	\N	\N	2015-08-12 04:19:06.209106	2015-10-26 10:48:32.420356
 16	soup_nazi	$2a$10$MRxNj4rwkW0aW8mE5BCn.uAlkdI/dd0sQEqVaDGlYGGP/W/yvFIv6	95sQxtFjmtlaSspNX_-6lg	1956-09-01 00:00:00	1	\N	\N	\N	\N	\N	2015-08-20 00:13:18.952628	2015-09-10 18:16:17.144287
 17	maestro	$2a$10$w3mtYswiHawuqX67CheSvO7XZk7b1zAd0z2j0S5URTBXr0Xa/poBO	deb5Po6yUF_fuk_2UkVuhQ	1946-03-11 00:00:00	1	\N	\N	\N	\N	\N	2015-08-21 22:29:30.26859	2015-09-10 18:16:43.691981
 21	george	$2a$10$O70wgZF4MGoK/S867hsw9.7xAytIo/mN/XjReQu8jG1.sRMX91v1W	jDwlnuEEZT0CocjXFDdsaw	1955-09-23 00:00:00	1	\N	\N	\N	\N	\N	2015-08-24 17:19:03.627613	2015-09-10 18:46:15.59881
-19	mulva	$2a$10$s6ci8s7FD8qocIrmLutsbuW81nx0x0AqzHNAKIwwR1LWwjXtkvHym	TO_zcvvCpfHY-I5DZfmVrA	1985-07-14 00:00:00	2	\N	\N	\N	\N	\N	2015-08-21 22:51:11.618895	2015-09-10 18:17:03.558998
 20	sindra	$2a$10$A9e69J3nD2gyrpOQOeUpC.aMurVoOVyXwvpBxEuDzKUQOIpvun2qa	n815a4Vv2wlh4_6aPWK65Q	1964-12-08 00:00:00	2	\N	\N	\N	\N	\N	2015-08-23 05:44:27.176509	2015-09-10 18:17:41.099867
 22	poppy	$2a$10$VYxmKfsD8nufKVJddWjIE.BHH/KbWx64iquNqEdUdFhACl5PADu0G	9AnT67cay8uhN-gtWR2XWg	1950-01-01 00:00:00	1	\N	\N	\N	\N	\N	2015-09-07 05:32:36.568962	2015-09-10 18:24:08.354236
+31	ned_isakoff	$2a$10$ixEZEikRFFT6lkc2UaCAIetjIyyXV4ZMuiHLov3/QtROcNn0bFvKu	eSp3yPbNL1updDNjbvfHNQ	1969-05-15 00:00:00	1	\N	\N	\N	\N	\N	2015-10-26 10:55:20.045129	2015-10-26 10:56:18.913925
 23	steinbrenner	$2a$10$jRxoclUSpcVCHkHn58QSUu.306xxrGhUrB1wdznvp7qa673xMzx0u	WKLj0BGLFQZwjTNANw8I2Q	1930-07-04 00:00:00	1	\N	\N	\N	\N	\N	2015-09-09 09:29:07.476717	2015-09-10 18:31:59.220097
 24	susan	$2a$10$ZBEv1C1jduNz5M7/RKA/HOcc.opkJB1cAiFz3Joa8iBSkTCuFM2iK	0BKaMob8Uo8hvIWB3LqsPg	1966-03-03 00:00:00	2	\N	\N	\N	\N	\N	2015-09-09 09:52:32.140723	2015-09-10 18:36:30.659651
 \.
@@ -1376,7 +1477,7 @@ COPY users (id, username, password_digest, session_token, birthdate, gender_id, 
 -- Name: users_id_seq; Type: SEQUENCE SET; Schema: public; Owner: zMac
 --
 
-SELECT pg_catalog.setval('users_id_seq', 26, true);
+SELECT pg_catalog.setval('users_id_seq', 31, true);
 
 
 --
@@ -1424,6 +1525,14 @@ COPY visits (id, visitor_id, profile_id, created_at, updated_at) FROM stdin;
 65	1	20	2015-09-10 09:09:12.356821	2015-09-10 09:09:12.356821
 66	25	23	2015-09-10 18:40:54.160922	2015-09-10 18:40:54.160922
 67	14	26	2015-09-10 22:48:48.172855	2015-09-10 22:48:48.172855
+68	14	25	2015-10-26 08:41:05.021386	2015-10-26 08:41:05.021386
+69	27	14	2015-10-26 10:14:23.304201	2015-10-26 10:14:23.304201
+70	14	27	2015-10-26 10:14:53.269703	2015-10-26 10:14:53.269703
+71	14	28	2015-10-26 10:24:24.639377	2015-10-26 10:24:24.639377
+72	28	14	2015-10-26 10:24:47.844438	2015-10-26 10:24:47.844438
+73	14	29	2015-10-26 10:38:35.642461	2015-10-26 10:38:35.642461
+74	29	14	2015-10-26 10:39:15.296307	2015-10-26 10:39:15.296307
+75	15	30	2015-10-26 10:52:53.696922	2015-10-26 10:52:53.696922
 \.
 
 
@@ -1431,7 +1540,7 @@ COPY visits (id, visitor_id, profile_id, created_at, updated_at) FROM stdin;
 -- Name: visits_id_seq; Type: SEQUENCE SET; Schema: public; Owner: zMac
 --
 
-SELECT pg_catalog.setval('visits_id_seq', 67, true);
+SELECT pg_catalog.setval('visits_id_seq', 75, true);
 
 
 --

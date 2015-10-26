@@ -14,12 +14,12 @@ class Api::MessagesController < Api::BaseController
     # based on different search criteria
     case params[:id].to_s.downcase
       when 'sent'
-        @messages = current_user.sent_messages.order(:created_at)
+        @messages = current_user.sent_messages.order(created_at: :desc)
       when 'received'
-        @messages = current_user.received_messages.order(:created_at)
+        @messages = current_user.received_messages.order(created_at: :desc)
       else
-        other_user = User.find(params[:id])
-        @messages = current_user.emails_with(other_user)
+        other_user = User.find_by(username: params[:id])
+        @messages = current_user.emails_with(other_user).order(created_at: :desc)
     end
 
     render :show

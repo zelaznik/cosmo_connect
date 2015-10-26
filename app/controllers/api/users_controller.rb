@@ -2,7 +2,11 @@ class Api::UsersController < Api::BaseController
   before_action :ensure_current_user, only: [:update]
 
   def show
-    @user = User.find(params[:id])
+    if (params[:id].to_i > 0)
+      @user = User.find(params[:id])
+    else
+      @user = User.find_by(username: params[:id])
+    end
     log_visit(@user) unless @user == current_user
   end
 
@@ -17,7 +21,7 @@ class Api::UsersController < Api::BaseController
   end
 
   def index
-    @users = current_user.matches_by_orientation
+    @users = current_user.matches_by_orientation.order(created_at: :desc)
   end
 
   private
