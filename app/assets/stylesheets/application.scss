@@ -116,6 +116,16 @@ $defaultBackground: #dddddd;
   }
 }
 
+.user-thumbnail {
+  width: 75px;
+  float: left;
+}
+
+.message-arrow {
+  vertical-align: middle;
+  float: left;
+}
+
 .user-preview-name {
   font-size: 20px;
 }
@@ -149,7 +159,29 @@ $defaultBackground: #dddddd;
 
 .message-preview {
   @include user-shadow();
+  background-color: $userSubColor;
   border-radius: 10px;
+  margin-bottom: 20px;
+  padding: 20px;
+
+  .user-thumbnail {
+    float: left;
+    width: 150px;
+  }
+
+  .message-summary {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+}
+
+.message-to {
+  background-color: #dedede;
+}
+
+.message-from {
+  background-color: #ffffff;
 }
 
 #new-message {

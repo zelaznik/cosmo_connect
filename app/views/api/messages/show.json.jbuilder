@@ -1,3 +1,3 @@
-json.array! @messages.includes(:sender, :receiver) do |m|
+json.array! @messages.includes(sender: [:photos], receiver: :photos) do |m|
   json.partial! 'message', m: m
 end

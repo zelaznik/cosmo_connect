@@ -2,6 +2,7 @@ var Cosmo = window.Cosmo;
 
 Cosmo.Views.UserShow = Backbone.CompositeView.extend({
   template_preview: JST['users/preview'],
+  message_index: JST['messages/index'],
   template: JST['users/show'],
   model: Cosmo.Models.User,
 
@@ -17,6 +18,7 @@ Cosmo.Views.UserShow = Backbone.CompositeView.extend({
 
   initialize: function() {
     this.listenTo(this.model, 'sync', this.render);
+    this.listenTo(this.model.messages(), 'sync', this.render);
     this.listenTo(this.model.responses(), 'sync', this.render);
     this.listenTo(this.model.desiredGenders(), 'sync', this.render);
 
@@ -37,18 +39,12 @@ Cosmo.Views.UserShow = Backbone.CompositeView.extend({
     event.preventDefault();
     var obj = $(event.currentTarget).serializeJSON();
     var model = new Cosmo.Models.Message(obj);
-    this.model.save(obj.message, {
+    model.save(obj.message, {
       success: function (responseIndexItem) {
-        this.collection.add(responseIndexItem);
-        this.remove();
-        this.render(false);
+        this.model.messages.add(responseIndexItem);
+        this.render();
       }.bind(this)
     });
-
-    var attrs = {birthdate: {year: d.year, month: d.month, day: d.day}};
-    this.model.save(attrs, {});
-
-    $('#content').append(modal.render().$el);
   },
 
   updateGender: function(event) {
@@ -117,21 +113,26 @@ Cosmo.Views.UserShow = Backbone.CompositeView.extend({
   },
 
   render: function () {
-    //Attach the essay questions and other attributes
+    // Attach the essay questions and other attributes
     var content = this.template({
       user: this.model
     });
     this.$el.html(content);
 
-    //Attach the user preview template
+    // Attach the user preview template
     var preview = this.template_preview({
       useLink: false,
       user: this.model
     });
     this.$('.user-preview').html(preview);
 
-    this.attachSubviews();
+    // Attach the message history
+    var view = new Cosmo.Views.MessageIndex({
+      collection: this.model.messages()
+    });
+    this.$('#message-index-results').html(view);
 
+    this.attachSubviews();
     return this;
   }
 
