@@ -19,6 +19,13 @@
            MIXIN MODULES
 ************************************/
 
+@mixin inline-form() {
+  textarea {
+    width: 100%;
+    height: 150px;
+  }
+}
+
 @mixin user-shadow() {
   border: 1px solid #cccccc;
   box-shadow: 5px 5px 5px #888888;
@@ -134,9 +141,12 @@ $defaultBackground: #dddddd;
   width: 75px;
 }
 
-#essay-form textarea {
-  width: 100%;
-  height: 150px;
+#essay-form {
+  @include inline-form();
+}
+
+#new-message {
+  @include inline-form();
 }
 
 .user-attributes {

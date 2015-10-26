@@ -11,7 +11,8 @@ Cosmo.Views.UserShow = Backbone.CompositeView.extend({
     "change #gender": "updateGender",
     "change #desired-genders": "updateGenderPreferences",
     "submit #birthdate": "updateBirthdate",
-    "click #send-message": 'sendMessage'
+    "submit #new-message": 'sendMessage',
+    "cancel #new-message": 'cancelMessage'
   },
 
   initialize: function() {
@@ -34,9 +35,19 @@ Cosmo.Views.UserShow = Backbone.CompositeView.extend({
 
   sendMessage: function (event) {
     event.preventDefault();
-    var modal = new Cosmo.Views.NewMessageForm({
-      other_user: this.model
+    var obj = $(event.currentTarget).serializeJSON();
+    var model = new Cosmo.Models.Message(obj);
+    this.model.save(obj.message, {
+      success: function (responseIndexItem) {
+        this.collection.add(responseIndexItem);
+        this.remove();
+        this.render(false);
+      }.bind(this)
     });
+
+    var attrs = {birthdate: {year: d.year, month: d.month, day: d.day}};
+    this.model.save(attrs, {});
+
     $('#content').append(modal.render().$el);
   },
 

@@ -14,7 +14,35 @@
       <div class="col-md-6">
         <div class="col-md-12 user-attributes">
           <% if (!user.isCurrentUser) { %>
-          <center><h2>Message History</h2></center>
+            <center><h2>Message History</h2></center>
+
+            <form id="new-message" class="form-horizontal">
+              <div class="form-group">
+                <div class="col-xs-12">
+                  <center><label>
+                    Send Message to <%= user.escape('username') %>
+                  </center><label>
+                </div>
+
+                <div class="col-xs-12">
+                  <input  type="hidden"
+                          name="message[receiver_id]"
+                          value="<%= user.id %>">
+                  <textarea
+                      type="textarea"
+                      name= "message[body]"
+                  ></textarea>
+                </div>
+              </div> <!-- End .form-group -->
+
+              <div class="form-group">
+                <div class="col-xs-12">
+                  <input type='submit', class='btn btn-primary' value='Send'>
+                  <button type='cancel' class="btn btn-default">Cancel</button>
+                </div>
+              </div>
+
+            </form>
 
           <% } else { %>
 
