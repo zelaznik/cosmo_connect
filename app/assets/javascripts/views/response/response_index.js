@@ -3,6 +3,10 @@ var Cosmo = window.Cosmo;
 Cosmo.Views.ResponseIndex = Backbone.CompositeView.extend({
   template: JST['essays/index'],
 
+  events: {
+    'change .response-index-wrapper': 'updateHeight'
+  },
+
   initialize: function () {
     this.listenTo(this.collection, 'add', this.addResponseSubview);
     this.listenTo(this.collection, 'remove', this.removeResponse.bind(this));
@@ -21,9 +25,21 @@ Cosmo.Views.ResponseIndex = Backbone.CompositeView.extend({
     this.addSubview('.response-index-wrapper', responseIndexItem);
   },
 
+  updateHeight: function(event) {
+    // Makes sure the two forms are of the same height
+    $wrapper = $('.response-index-wrapper');
+    $index = $('.response-index');
+    $index.height($wrapper.height());
+    $attrib = $('.user-attributes');
+    if ($attrib) {
+      $attrib.height($index.height());
+    }
+  },
+
   render: function() {
     this.$el.html(this.template());
     this.attachSubviews();
+    var wrappedHeight = $('.response-index-wrapper');
     return this;
   },
 
