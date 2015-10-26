@@ -15,9 +15,34 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+/***********************************
+           MIXIN MODULES
+************************************/
+
 @mixin user-shadow() {
   border: 1px solid #cccccc;
   box-shadow: 5px 5px 5px #888888;
+}
+
+@mixin default-padding() {
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+}
+
+@mixin background-image($src) {
+  padding-top: 75px;
+  background-image: url($src);
+  background-image-attachment: fixed;
+  background-size: cover;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+}
+
+.alert {
+  z-index: 1000000000;
 }
 
 body {
@@ -30,31 +55,12 @@ body {
 }
 
 .login {
-  padding-top: 75px;
-  padding-left: 40px;
-  padding-right: 40px;
-  padding-bottom: 20px;
-  background-image: url('/images/nyc.jpg');
-  background-size: cover;
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  top: 0;
+  @include background-image('/images/nyc.jpg');
 }
 
 .static-page-root {
-  padding-top: 75px;
-  background-image: url('/images/nyc_faded.jpg');
-  background-size: cover;
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  z-index: 1;
-  top: 0;
-}
-
-#content {
-  padding: 0px 20px;
+  @include background-image('/images/nyc_faded.jpg');
+  @include default-padding();
 }
 
 /***********************************
@@ -62,11 +68,9 @@ body {
 ************************************/
 
 .about-us {
+  @include default-padding();
   background-color: white;
   border-radius: 20px;
-  padding-left: 40px;
-  padding-right: 40px;
-  padding-bottom: 20px;
 
   p {
     text-align: justify;
