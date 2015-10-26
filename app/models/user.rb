@@ -69,6 +69,14 @@ class User < ActiveRecord::Base
 
   # has_many :soulmates, through: :crush_matches, source: :mutual_users
 
+  def messages_with(other_user)
+    Message.where(
+      "(sender_id = ? AND receiver_id = ?)
+      OR (receiver_id = ? AND sender_id = ?)",
+      other_user.id, self.id, other_user.id, self.id)
+     .order(:created_at)
+  end
+
   def soulmates
     # Use a subquery to get the unique ids of the soulmates
     # Then put it into a plain old ActiveRecord associaton

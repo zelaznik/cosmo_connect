@@ -18,7 +18,8 @@ class Api::MessagesController < Api::BaseController
       when 'received'
         @messages = current_user.received_messages
       else
-        render json: Message.find(params[:id])
+        @messages = Message.where('sender_id = ? OR receiver_id = ?', params[:id], params[:id])
+        render json: @messages.order(:created_at)
     end
   end
 

@@ -70,3 +70,12 @@ json.responses do
     json.body r.body
   end
 end
+
+if not is_current_user
+  json.messages do
+    messages = @user.messages_with(current_user)
+    json.array! messages.includes(:sender, :receiver).order(:created_at) do |m|
+      json.partial! 'api/messages/message', m: m
+    end
+  end
+end

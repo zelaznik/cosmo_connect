@@ -13,8 +13,12 @@
       </div>
       <div class="col-md-6">
         <div class="col-md-12 user-attributes">
+          <% if (!user.isCurrentUser) { %>
+          <center><h2>Message History</h2></center>
+
+          <% } else { %>
+
           <center><h2>Attributes</h2></center>
-          <% if (user.isCurrentUser) { %>
             <div class="row">
               <form id="birthdate">
                 <button class="btn btn-primary" type="submit">Update Birthdate</button>
