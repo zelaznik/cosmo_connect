@@ -13,7 +13,7 @@ Cosmo.Views.UserShow = Backbone.CompositeView.extend({
     "change #desired-genders": "updateGenderPreferences",
     "submit #birthdate": "updateBirthdate",
     "submit #new-message": 'sendMessage',
-    "cancel #new-message": 'cancelMessage'
+    "click #cancel-message": 'cancelMessage'
   },
 
   initialize: function() {
@@ -33,6 +33,11 @@ Cosmo.Views.UserShow = Backbone.CompositeView.extend({
       model: this.model
     });
     this.addSubview('.desired-genders-index', desiredGenderIndexView);
+  },
+
+  cancelMessage: function(event) {
+    event.preventDefault();
+    $('#new-message textarea').val('');
   },
 
   sendMessage: function (event) {
