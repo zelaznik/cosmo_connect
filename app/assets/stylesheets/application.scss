@@ -15,8 +15,10 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-.panel-body {
-  //background-color: yellow;
+
+@mixin user-shadow() {
+  border: 1px solid #cccccc;
+  box-shadow: 5px 5px 5px #888888;
 }
 
 body {
@@ -29,16 +31,20 @@ body {
 }
 
 .login {
+  padding-top: 75px;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-bottom: 20px;
   background-image: url('/images/nyc.jpg');
   background-size: cover;
   position: absolute;
   height: 100%;
   width: 100%;
-  z-index: 1;
   top: 0;
 }
 
 .static-page-root {
+  padding-top: 75px;
   background-image: url('/images/nyc_faded.jpg');
   background-size: cover;
   position: absolute;
@@ -48,6 +54,10 @@ body {
   top: 0;
 }
 
+#content {
+  padding: 0px 20px;
+}
+
 /***********************************
     ABOUT US INFORMATION
 ************************************/
@@ -55,7 +65,17 @@ body {
 .about-us {
   background-color: white;
   border-radius: 20px;
-  padding: 0px 40px;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-bottom: 20px;
+
+  p {
+    text-align: justify;
+  }
+}
+
+.container {
+  width: 100%;
 }
 
 /***********************************
@@ -69,6 +89,9 @@ $userSubBorder: 5px;
 .user-preview {
   align-content: center;
   border-radius: 10px;
+  .well.panel {
+    @include user-shadow();
+  }
 }
 
 .user-preview-name {
@@ -84,7 +107,6 @@ $userSubBorder: 5px;
 }
 
 .user-profile {
-  width: 90%;
   border-radius: 5px;
   margin: 0 auto;
 }
@@ -104,6 +126,7 @@ $userSubBorder: 5px;
   height: $userSubHeight;
   padding: 0px 40px;
   border-radius: 10px;
+  @include user-shadow();
 }
 
 .user-attributes button {
@@ -169,6 +192,15 @@ $navHover: #ffffff;
 /***********************************
     SIGNIN PAGE STYLING
 ************************************/
+
+.cosmo-about-us {
+  width: auto;
+  float: left;
+}
+
+.cosmo-about-us-title {
+  margin-right: 20px;
+}
 
 .form-signin-heading {
   color: white;
@@ -240,6 +272,7 @@ $navHover: #ffffff;
   background-color: $userSubColor;
   height: $userSubHeight;
   border-radius: 10px;
+  @include user-shadow();
 }
 
 .response-index-item {
@@ -247,6 +280,7 @@ $navHover: #ffffff;
 }
 
 .response-index-item-title {
+  font-family: 'Open Sans',sans-serif;
   font-weight: normal;
   color: #5e6573;
   font-size: 18px;
