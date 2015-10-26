@@ -64,22 +64,22 @@ Cosmo.Routers.Router = Backbone.Router.extend({
     this._messagesIndex(new Cosmo.Collections.ReceivedMessages());
   },
 
-  chatsIndex: function () {
-    alert("Chat History Not Implemented");
-  },
-
-
   you: function() {
     this.userShow(Cosmo.CURRENT_USER_ID);
   },
 
-  messageHistory: function(id) {
-    var user = new Cosmo.Models.User({id: id});
-    user.fetch();
-    var view = new Cosmo.Views.MessageIndex({
-      collection: user.messages()
+  messageHistory: function(id, user) {
+    user = user || new Cosmo.Models.User({id: id});
+    user.fetch({
+      success: function() {
+        var view = new Cosmo.Views.MessageIndex({
+          title: user.escape('username'),
+          description: 'message history',
+          collection: user.messages()
+        });
+        this._swapView(view);
+      }.bind(this)
     });
-    this._swapView(view);
   },
 
   userShow: function(id) {

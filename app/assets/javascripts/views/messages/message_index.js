@@ -4,6 +4,9 @@ Cosmo.Views.MessageIndex = Backbone.CompositeView.extend({
   template: JST['messages/index'],
 
   initialize: function(options) {
+    this.title = options.title;
+    this.description = options.description;
+
     this.listenTo(this.collection, 'add', this.addMessageSubview);
     this.listenTo(this.collection, 'remove', this.removeMessage);
     this.listenTo(this.collection, 'sync', this.render);
@@ -13,8 +16,8 @@ Cosmo.Views.MessageIndex = Backbone.CompositeView.extend({
 
   render: function () {
     this.$el.html(this.template({
-      title: this.collection.title,
-      description: this.collection.description
+      title: (this.collection.title || this.title),
+      description: (this.collection.description || this.description)
     }));
     this.attachSubviews();
     return this;

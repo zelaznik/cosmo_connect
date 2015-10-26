@@ -18,7 +18,7 @@ class Api::MessagesController < Api::BaseController
       when 'received'
         @messages = current_user.received_messages.order(created_at: :desc)
       else
-        other_user = User.find_by(username: params[:id])
+        other_user = User.find(params[:id])
         @messages = current_user.emails_with(other_user).order(created_at: :desc)
     end
 

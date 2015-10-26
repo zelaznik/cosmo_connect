@@ -43,11 +43,13 @@ Cosmo.Views.UserShow = Backbone.CompositeView.extend({
   sendMessage: function (event) {
     event.preventDefault();
     var obj = $(event.currentTarget).serializeJSON();
-    var model = new Cosmo.Models.Message(obj);
-    model.save(obj.message, {
+    var message = new Cosmo.Models.Message(obj);
+    message.save(obj.message, {
       success: function (responseIndexItem) {
-        this.model.messages.add(responseIndexItem);
-        this.render();
+        var complete = new Cosmo.Models.Message(responseIndexItem.attributes);
+        this.model.messages().add(complete);
+        var receiver_id = complete.get('receiver_id');
+        Cosmo.router.messageHistory(receiver_id);
       }.bind(this)
     });
   },
