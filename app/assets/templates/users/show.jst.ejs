@@ -11,15 +11,17 @@
         <div class="response-index col-md-12"></div>
         <div class="col-xs-12"></div>
       </div>
+
       <div class="col-md-6">
         <div class="col-md-12 user-attributes">
           <% if (!user.isCurrentUser) { %>
-            <center><h2>Message History</h2></center>
-
+            <center>
+              <h2><a href="<%= '#/messages/' + user.escape('id') %>">Message History</a></h2></center>
             <form id="new-message" class="form-horizontal">
               <div class="form-group">
                 <div class="col-xs-12">
                   <center><label>
+                    <span class="glyphicon glyphicon-envelope"></span>
                     Send Message to <%= user.escape('username') %>
                   </center><label>
                 </div>

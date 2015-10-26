@@ -72,6 +72,10 @@ body {
   @include default-padding();
 }
 
+a, a:hover {
+  color: inherit;
+}
+
 /***********************************
     ABOUT US INFORMATION
 ************************************/
