@@ -69,7 +69,7 @@ class User < ActiveRecord::Base
 
   # has_many :soulmates, through: :crush_matches, source: :mutual_users
 
-  def messages_with(other_user)
+  def emails_with(other_user)
     Message.where(
       "(sender_id = ? AND receiver_id = ?)
       OR (receiver_id = ? AND sender_id = ?)",
@@ -137,20 +137,6 @@ class User < ActiveRecord::Base
   has_many :received_messages, class_name: "Message", foreign_key: :receiver_id
 
   has_many :responses, dependent: :destroy
-
-  def emails_with(other_user)
-    Message.find_by_sql([<<-SQL, self_id: self.id, other_id: other_user.id])
-    SELECT
-      m.*
-    FROM
-      messages m
-    WHERE
-      (m.sender_id = :self_id AND m.receiver_id = :other_id)
-      OR (m.sender_id = :other_id AND m.receiver_id = :self_id)
-    ORDER BY
-      m.created_at
-    SQL
-  end
 
   ####################################
   #    On The Fly Calculations       #

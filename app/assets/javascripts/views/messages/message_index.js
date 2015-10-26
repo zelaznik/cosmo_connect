@@ -8,9 +8,7 @@ Cosmo.Views.MessageIndex = Backbone.CompositeView.extend({
     this.listenTo(this.collection, 'remove', this.removeMessage);
     this.listenTo(this.collection, 'sync', this.render);
 
-    this.collection.each(function(message) {
-      this.addMessageSubview(message);
-    }.bind(this));
+    this.collection.each(this.addMessageSubview.bind(this));
   },
 
   render: function () {

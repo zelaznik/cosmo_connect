@@ -75,6 +75,7 @@ Cosmo.Models.User = Backbone.Model.extend({
     if (!this._messages) {
       this._messages = new Cosmo.Collections.Messages([], {user: this});
     }
+    return this._messages;
   },
 
   details: function () {

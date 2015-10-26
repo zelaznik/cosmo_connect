@@ -14,18 +14,14 @@ class Api::MessagesController < Api::BaseController
     # based on different search criteria
     case params[:id].to_s.downcase
       when 'sent'
-        @messages = current_user.sent_messages
+        @messages = current_user.sent_messages.order(:created_at)
       when 'received'
-        @messages = current_user.received_messages
+        @messages = current_user.received_messages.order(:created_at)
       else
-        @messages = Message.where('sender_id = ? OR receiver_id = ?', params[:id], params[:id])
-        render json: @messages.order(:created_at)
+        other_user = User.find(params[:id])
+        @messages = current_user.emails_with(other_user)
     end
-  end
 
-  def index
-    other_user = User.find(params[:user_id])
-    @messages = current_user.emails_with(other_user)
     render :show
   end
 

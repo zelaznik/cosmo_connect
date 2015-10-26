@@ -4,8 +4,9 @@ Cosmo.Views.MessageIndexItem = Backbone.View.extend({
   template: JST['messages/preview'],
   className: 'row message-index-item',
 
-  render: function () {
+  render: function (showSender) {
     var content = this.template({
+      showSender: !!showSender,
       message: this.model
     });
     this.$el.html(content);

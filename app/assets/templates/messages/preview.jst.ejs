@@ -1,25 +1,22 @@
-<div class="container user-preview">
+<div class="container">
   <div class="row">
-    <div class="col-md-8 col-xs-10">
-      <div class="well panel panel-default">
-        <div class="panel-body">
-          <div class="row">
-            <div class="col-md-4 text-center">
-              <a href="<%= '#users/' + message.escape('other_user_id') %>">
-              <img
-                src="<%= '/images/tmp/' + message.escape('other_user_id') + '.jpg' %>"
-                class="center-block img-circle img-thumbnail img-responsive"
-                style="height:75px;width:75px;">
-              </a>
-            </div>
-            <div class="col-md-8">
-              <p><%= message.escape('other_username') %></p>
-              <p><%= message.escape('body') %></p>
-            </div>
+    <div class="col-xs-2 col-xs-offset-1">
+      <a href="<%= '#users/' + message.escape('other_user_id') %>">
+        <img
+          src="<%= '/images/tmp/' + message.escape('other_user_id') + '.jpg' %>"
+          class="center-block img-circle img-thumbnail img-responsive"
+          style="height:75px;width:75px;">
+      </a>
+    </div>
 
-          </div> <!--/row-->
-        </div> <!--/panel-body-->
-      </div> <!--/panel-->
-    </div> <!--/col-->
-  </div> <!--/row-->
+    <div class="col-xs-6 well panel message-preview">
+        <p><b>
+            <%= message.escape('direction') %>:&nbsp;
+            <%= message.escape('other_username') %>
+            &times;
+            <%= message.escape('timestamp') %>
+        </b></p>
+        <p><%= message.escape('body') %></p>
+    </div>
+  </div>
 </div> <!--/container-->

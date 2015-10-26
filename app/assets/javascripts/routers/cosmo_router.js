@@ -23,7 +23,8 @@ Cosmo.Routers.Router = Backbone.Router.extend({
 
     'messages/sent': 'sentMessagesIndex',
     'messages/received': 'receivedMessagesIndex',
-    'messages/chats': 'chatsIndex'
+    'messages/chats': 'chatsIndex',
+    'messages/:id': 'messageHistory'
   },
 
   aboutUs: function () {
@@ -70,6 +71,15 @@ Cosmo.Routers.Router = Backbone.Router.extend({
 
   you: function() {
     this.userShow(Cosmo.CURRENT_USER_ID);
+  },
+
+  messageHistory: function(id) {
+    var user = new Cosmo.Models.User({id: id});
+    user.fetch();
+    var view = new Cosmo.Views.MessageIndex({
+      collection: user.messages()
+    });
+    this._swapView(view);
   },
 
   userShow: function(id) {

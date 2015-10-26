@@ -19,6 +19,8 @@
            MIXIN MODULES
 ************************************/
 
+$defaultRadius: 20px;
+
 @mixin inline-form() {
   textarea {
     width: 100%;
@@ -77,7 +79,7 @@ body {
 .about-us {
   @include default-padding();
   background-color: white;
-  border-radius: 20px;
+  border-radius: $defaultRadius;
 
   p {
     text-align: justify;
@@ -108,7 +110,7 @@ $defaultBackground: #dddddd;
 
 .user-preview {
   align-content: center;
-  border-radius: 10px;
+  border-radius: 20px;
   .well.panel {
     @include user-shadow();
   }
@@ -143,6 +145,11 @@ $defaultBackground: #dddddd;
 
 #essay-form {
   @include inline-form();
+}
+
+.message-preview {
+  @include user-shadow();
+  border-radius: 10px;
 }
 
 #new-message {
