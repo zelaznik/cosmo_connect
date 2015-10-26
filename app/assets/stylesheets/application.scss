@@ -15,10 +15,6 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-.panel-body {
-  //background-color: yellow;
-}
-
 body {
   font-family: 'Open Sans',sans-serif;
   height: 100%;
@@ -28,16 +24,24 @@ body {
 }
 
 .login {
+  padding-top: 75px;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-bottom: 20px;
   background-image: url('/images/nyc.jpg');
   background-size: cover;
   position: absolute;
   height: 100%;
   width: 100%;
-  z-index: 1;
+  z-index: 5000;
   top: 0;
 }
 
 .static-page-root {
+  padding-top: 75px;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-bottom: 20px;
   background-image: url('/images/nyc_faded.jpg');
   background-size: cover;
   position: absolute;
@@ -54,7 +58,39 @@ body {
 .about-us {
   background-color: white;
   border-radius: 20px;
-  padding: 0px 40px;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-bottom: 20px;
+
+  p {
+    text-align: justify;
+  }
+}
+
+.container {
+  width: 100%;
+}
+
+.team-member {
+  padding-top: 20px;
+  background: #ddddff;
+  margin: 20px;
+  align-content: left;
+
+  .team-member-img {
+    background: yellow;
+    height: 100px;
+    width: 100px;
+    vertical-align: middle;
+  }
+
+  .team-member-info {
+    background: pink;
+  }
+
+  p {
+    text-align: justify;
+  }
 }
 
 /***********************************
@@ -162,6 +198,15 @@ $navHover: #ffffff;
     SIGNIN PAGE STYLING
 ************************************/
 
+.cosmo-about-us {
+  width: auto;
+  float: left;
+}
+
+.cosmo-about-us-title {
+  margin-right: 20px;
+}
+
 .form-signin-heading {
   color: white;
   padding-top: 75px;
@@ -220,6 +265,7 @@ $navHover: #ffffff;
 }
 
 .response-index-item-title {
+  font-family: 'Open Sans',sans-serif;
   font-weight: normal;
   color: #5e6573;
   font-size: 18px;
