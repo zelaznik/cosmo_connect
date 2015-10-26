@@ -11,24 +11,30 @@ Cosmo.Views.ResponseIndexItem = Backbone.View.extend({
   },
 
   events: {
+    'click .essay-edit': 'editEssay',
     'submit #essay-form': 'submit'
+  },
+
+  editEssay: function() {
+    // Rerender with the edit form visible.
+    this.render(true);
   },
 
   submit: function (event) {
     event.preventDefault();
     var obj = $(event.currentTarget).serializeJSON();
-    alert('obj: ' + obj);
     this.model.save(obj.response, {
       success: function (responseIndexItem) {
-        alert("Success!");
         this.collection.add(responseIndexItem);
         this.remove();
+        this.render(false);
       }.bind(this)
     });
   },
 
-  render: function () {
+  render: function (editMode) {
     var content = this.template({
+      editMode: !!editMode,
       essay: this.model,
       user: this.user
     });

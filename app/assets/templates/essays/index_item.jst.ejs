@@ -1,53 +1,36 @@
 <div>
   <div class="row response-index-item-title">
     <%= essay.escape('title') %>
-  </div>
-  <div class="row">
-    <div class="col-xs-10 response-index-item-body">
-      <%= essay.escape('body') || '(none)' %>
-    </div>
-
     <% if (user.isCurrentUser) { %>
-        <!-- Trigger the modal with a button -->
-        <button class="essay-edit btn btn-xs btn-danger pull-right" data-toggle="modal" data-target="#myModal">edit</button>
-
-        <div class="container">
-        <!-- Modal -->
-        <div class="modal fade" id="myModal" role="dialog">
-          <div class="modal-dialog">
-	          <form id="essay-form">
-              <input
-          				type='hidden'
-          				name='response[response_category_id]'
-          				value="<%= essay.escape('response_category_id') %>"
-          		>
-
-            <!-- Modal content-->
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title"><%= essay.escape('title') %></h4>
-              </div>
-              <div class="modal-body">
-                <input
-          					type="textarea"
-          					name= "response[body]"
-          					value="<%= essay.escape('body') %>"
-          			>
-              </div>
-              <div class="modal-footer">
-          			<input type='submit', class='btn btn-primary' data-dismiss="modal" value='Save'>
-                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-              </div>
-            </div>
-
-           </form>
-
-          </div>
-        </div>
-
-      </div> <!-- End Container -->
+      <a class="essay-edit" data-toggle="modal" data-target="#myModal">
+        <span class="edit-glyphicon glyphicon glyphicon-pencil" aria-hidden="true"></span>
+      </a>&nbsp;
     <% } %>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12 response-index-item-body">
+      <% if (!editMode) { %>
+        <%= essay.escape('body') || '(none)' %>
+      <% } else { %>
+        <form id="essay-form">
+          <input
+              type='hidden'
+              name='response[response_category_id]'
+              value="<%= essay.escape('response_category_id') %>">
+          </input>
+
+          <textarea
+              type="textarea"
+              name= "response[body]"><%= essay.escape('body') %></textarea>
+
+          <br>
+          <input type='submit', class='btn btn-primary' value='Save'>
+          <button type='cancel' class="btn btn-default">Cancel</button>
+
+       </form>
+      <% }%>
+    </div>
   </div>
 
 </div>

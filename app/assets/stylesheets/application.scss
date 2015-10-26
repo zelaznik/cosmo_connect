@@ -15,7 +15,6 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-
 @mixin user-shadow() {
   border: 1px solid #cccccc;
   box-shadow: 5px 5px 5px #888888;
@@ -86,6 +85,16 @@ $userSubColor: #f1f1f1;
 $userSubHeight: 600px;
 $userSubBorder: 5px;
 
+$defaultBackground: #dddddd;
+
+.edit-glyphicon {
+  color: #008000;
+}
+
+.edit-glyphicon:hover {
+  background: $userSubColor;
+}
+
 .user-preview {
   align-content: center;
   border-radius: 10px;
@@ -119,6 +128,11 @@ $userSubBorder: 5px;
 #birthdate input {
   text-align: center;
   width: 75px;
+}
+
+#essay-form textarea {
+  width: 100%;
+  height: 150px;
 }
 
 .user-attributes {
