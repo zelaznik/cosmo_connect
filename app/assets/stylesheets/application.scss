@@ -39,6 +39,12 @@ $defaultRadius: 20px;
   padding-bottom: 20px;
 }
 
+@mixin large-padding() {
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-bottom: 20px;
+}
+
 @mixin background-image($src) {
   padding-top: 75px;
   background-image: url($src);
@@ -70,7 +76,7 @@ body {
 
 .static-page-root {
   @include background-image('/images/nyc_faded.jpg');
-  @include default-padding();
+  @include large-padding();
 }
 
 a, a:hover {
