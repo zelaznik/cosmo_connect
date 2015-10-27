@@ -87,12 +87,13 @@ a, a:hover {
     ABOUT US INFORMATION
 ************************************/
 
+.static-page-root .about-us {
+  @include user-shadow();
+}
+
 .about-us {
   @include default-padding();
 
-  .static-page-root {
-    @include user-shadow();
-  }
 
   background-color: white;
   border-radius: $defaultRadius;
