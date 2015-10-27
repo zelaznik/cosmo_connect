@@ -65,6 +65,7 @@ body {
 
 .login {
   @include background-image('/images/nyc.jpg');
+  @include default-padding();
 }
 
 .static-page-root {
@@ -82,6 +83,11 @@ a, a:hover {
 
 .about-us {
   @include default-padding();
+
+  .static-page-root {
+    @include user-shadow();
+  }
+
   background-color: white;
   border-radius: $defaultRadius;
 
