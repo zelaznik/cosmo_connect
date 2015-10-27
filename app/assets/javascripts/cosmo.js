@@ -20,4 +20,11 @@ var Cosmo = window.Cosmo = {
 
 $(document).ready(function() {
   Cosmo.initialize();
+
+  $('.login').on('click', function(event) {
+    if (event.target.className === 'login') {
+      window.location.replace('/session/new');
+    }
+  });
+
 });
