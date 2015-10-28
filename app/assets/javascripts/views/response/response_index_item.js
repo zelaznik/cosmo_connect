@@ -34,7 +34,7 @@ Cosmo.Views.ResponseIndexItem = Backbone.View.extend({
         this.collection.add(responseIndexItem);
         this.remove();
         this.render(false);
-      }
+      }.bind(this)
     });
     this.render(false);
   },
