@@ -88,7 +88,7 @@ Cosmo.Routers.Router = Backbone.Router.extend({
     var view = new Cosmo.Views.UserShow({
       model: user
     });
-    this._swapView(view);
+    return this._swapView(view);
   },
 
   _usersIndex: function(users) {

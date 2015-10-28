@@ -1,9 +1,1 @@
-<div class="static-page-root">
-  <div id='navbar'></div>
-  <div id='content'></div>
-</div>
-
-<script>
-  // Pull rails level data into Javascript.
-  Cosmo.CURRENT_USER_ID = <%= current_user.id %>;
-</script>
+<%= render 'shared/backbone_base', first_time_user: false %>

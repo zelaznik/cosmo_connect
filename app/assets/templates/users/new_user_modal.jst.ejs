@@ -1,10 +1,8 @@
 <div class="container">
-  <h2>Modal Example</h2>
-  <!-- Trigger the modal with a button -->
-  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
+  <button id="open-new-user-modal" type="hidden" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal"/>
 
   <!-- Modal -->
-  <div class="modal fade in" id="myModal" role="dialog">
+  <div class="modal fade show" id="myModal" role="dialog">
     <div class="new-user-modal modal-dialog">
 
       <!-- Modal content-->
@@ -25,24 +23,33 @@
               </h3>
 
               <h3><label>Gender</label>
-                <% genders.forEach(function(gender) { %>
                   <span class="new-user-input-item">
-                    <input required="true" type="radio" name="gender_identity" value="<%= gender.id %>">&nbsp;<%= gender.name %>
+                    <input required="true" type="radio" name="gender_identity" value="1">&nbsp;man
                   </span>
-                <% }) %>
+                  <span class="new-user-input-item">
+                    <input required="true" type="radio" name="gender_identity" value="2">&nbsp;woman
+                  </span>
+                  <span class="new-user-input-item">
+                    <input required="true" type="radio" name="gender_identity" value="3">&nbsp;other
+                  </span>
               </h3>
 
               <h3><label>Interested In</label>
-                <% window.Cosmo.genders.forEach(function(gender) { %>
                   <span class="new-user-input-item">
-                    <input required="true" type="checkbox" name="gender_interest" value="<%= gender.id %>">&nbsp;<%= gender.plural %>
+                    <input required="true" type="checkbox" name="gender_interest" value="1">&nbsp;men
                   </span>
-                <% }) %>
+                  <span class="new-user-input-item">
+                    <input required="true" type="checkbox" name="gender_identity" value="2">&nbsp;women
+                  </span>
+                  <span class="new-user-input-item">
+                    <input required="true" type="checkbox" name="gender_identity" value="3">&nbsp;other
+                  </span>
               </h3>
 
               <h3><label>Ages</label>
-                <input class="new-user-input-item" type="text" placeholder="YY" name="birthdate[day]"></label>
-                <label> to <input class="new-user-input-item" type="text" placeholder="YY" name="birthdate[day]"></label>
+                <input class="new-user-input-item" type="text" placeholder="YY" name="birthdate[day]">
+                <label> to </label>
+                <input class="new-user-input-item" type="text" placeholder="YY" name="birthdate[day]">
               </h3>
 
           </form>

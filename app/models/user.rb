@@ -15,6 +15,18 @@ class User < ActiveRecord::Base
     (user && user.valid_password?(password)) ? user : nil
   end
 
+
+  ## For indicating to Backbone
+  ## Whether to disply the modal forms
+  ## for a user's first time logging in
+  def first_time_user=(value)
+    @first_time_user = !!value
+  end
+
+  def first_time_user
+    !!@first_time_user
+  end
+
   def password=(password)
     @password = password
     self.password_digest = BCrypt::Password.create(password)

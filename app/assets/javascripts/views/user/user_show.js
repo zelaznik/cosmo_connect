@@ -33,6 +33,17 @@ Cosmo.Views.UserShow = Backbone.CompositeView.extend({
       model: this.model
     });
     this.addSubview('.desired-genders-index', desiredGenderIndexView);
+
+    var userModalView = new Cosmo.Views.NewUserModal({
+    });
+    this.addSubview('.user-info-modal', userModalView);
+
+    $('#open-new-user-modal').ready(function() {
+      setTimeout(function () {
+        $('#open-new-user-modal').click();
+      }, 200);
+    });
+
   },
 
   cancelMessage: function(event) {
