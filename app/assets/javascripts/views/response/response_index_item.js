@@ -16,7 +16,7 @@ Cosmo.Views.ResponseIndexItem = Backbone.View.extend({
     this.listenTo(this.model, 'sync', this.render);
   },
 
-  events: {
+  events: {  
     'click .essay-edit': 'editEssay',
     'submit #essay-form': 'submit',
     'click .essay-cancel': 'cancel'
