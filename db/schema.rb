@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150910073815) do
+ActiveRecord::Schema.define(version: 20151028122730) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -79,9 +79,11 @@ ActiveRecord::Schema.define(version: 20150910073815) do
     t.string   "name",       null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "plural",     null: false
   end
 
   add_index "genders", ["name"], name: "index_genders_on_name", unique: true, using: :btree
+  add_index "genders", ["plural"], name: "index_genders_on_plural", unique: true, using: :btree
 
   create_table "interests", force: :cascade do |t|
     t.string   "description", null: false

@@ -19,6 +19,10 @@
            MIXIN MODULES
 ************************************/
 
+html {
+  overflow-y: scroll;
+}
+
 $defaultRadius: 20px;
 
 @mixin inline-form() {
