@@ -1,5 +1,11 @@
 var Cosmo = window.Cosmo;
 
+function handleKeys(event) {
+  if (event.keyCode === 27) {
+    this.cancel(event); // Handle {ESCAPE}
+  }
+}
+
 Cosmo.Views.ResponseIndexItem = Backbone.View.extend({
   template: JST['essays/index_item'],
 
@@ -12,11 +18,11 @@ Cosmo.Views.ResponseIndexItem = Backbone.View.extend({
 
   events: {
     'click .essay-edit': 'editEssay',
-    'submit #essay-form': 'submit'
+    'submit #essay-form': 'submit',
+    'click .essay-cancel': 'cancel'
   },
 
   editEssay: function() {
-    // Rerender with the edit form visible.
     this.render(true);
   },
 
@@ -24,15 +30,29 @@ Cosmo.Views.ResponseIndexItem = Backbone.View.extend({
     event.preventDefault();
     var obj = $(event.currentTarget).serializeJSON();
     this.model.save(obj.response, {
-      success: function (responseIndexItem) {
+      success: function(responseIndexItem) {
         this.collection.add(responseIndexItem);
         this.remove();
         this.render(false);
-      }.bind(this)
+      }
     });
+    this.render(false);
+  },
+
+  cancel: function(event) {
+    event.preventDefault();
+    this.render(false);
   },
 
   render: function (editMode) {
+    // Add event listeners if editMode === True
+    var itemView = this;
+    if (editMode) {
+      $(document).on('keyup', handleKeys.bind(this));
+    } else {
+      $(document).unbind('keyup', handleKeys);
+    }
+
     var content = this.template({
       editMode: !!editMode,
       essay: this.model,
