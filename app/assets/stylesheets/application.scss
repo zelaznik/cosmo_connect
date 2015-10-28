@@ -339,6 +339,7 @@ $navHover: #ffffff;
 
 .new-user-modal {
   margin-top: 80px;
+  width: 600px;
 
   .modal-header {
     @include gradient($blueUp, $blueDn);
@@ -403,29 +404,30 @@ $navHover: #ffffff;
 
 }
 
-// .m-background {
-//   background: rgba(92, 88, 88, 0.6);
-//   position: fixed;
-//   top: 0;
-//   bottom: 0;
-//   left: 0;
-//   right: 0;
-//   z-index: 1;
-// }
-//
-// .m-content {
-//   z-index: 2;
-//   position: absolute;
-//   top: 25%;
-//   left: 25%;
-//   background-color: white;
-//   padding: 1pc;
-//   border: 1px solid;
-//   border-radius: 5px;
-//   width: 400px;
-//   height: 200px;
-//   max-height: 800px;
-// }
+.modal-background {
+  background: rgba(92, 88, 88, 0.6);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+
+.modal-content {
+  z-index: 2;
+  display: inline-block;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 100px;
+  margin-bottom: 0;
+  top: 0;
+  left: 50%;
+  margin-right: 0%;
+  transform: translate(-50%, 0%);
+
+}
 
 .response-index {
   background-color: $userSubColor;

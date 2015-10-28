@@ -1,66 +1,57 @@
-<div class="container">
-  <button id="open-new-user-modal" type="hidden" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal"/>
+<div class='modal-background'></div>
 
-  <!-- Modal -->
-  <div class="modal fade show" id="myModal" role="dialog">
-    <div class="new-user-modal modal-dialog">
+<!-- Modal content-->
+<div class="new-user-modal modal-content">
+  <form id="new-user-info">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal">&times;</button>
+      <h2 class="modal-title">Welcome, Zelaznik!</h2>
+    </div>
 
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h2 class="modal-title">Welcome, Zelaznik!</h2>
-        </div>
-        <div class="modal-body">
-          <h4>Before we continue, please fill out these quick questions.</h4>
-          <h4>This is crucial in order for us to find you a match.</h4>
+    <div class="modal-body">
+      <h4>Before we continue, please fill out these quick questions.</h4>
+      <h4>This is crucial in order for us to find you a match.</h4>
 
-          <form>
-              <h3><label>Date Of Birth</label>
-                <input class="new-user-input-item" type="year" placeholder="YYYY" name="birthdate[year]">
-                <input class="new-user-input-item" type="text" placeholder="MM" name="birthdate[month]">
-                <input class="new-user-input-item" type="text" placeholder="DD" name="birthdate[day]">
-              </h3>
+        <h3><label>Date Of Birth</label>
+          <input class="new-user-input-item" type="year" placeholder="YYYY" name="birthdate[year]">
+          <input class="new-user-input-item" type="text" placeholder="MM" name="birthdate[month]">
+          <input class="new-user-input-item" type="text" placeholder="DD" name="birthdate[day]">
+        </h3>
 
-              <h3><label>Gender</label>
-                  <span class="new-user-input-item">
-                    <input required="true" type="radio" name="gender_identity" value="1">&nbsp;man
-                  </span>
-                  <span class="new-user-input-item">
-                    <input required="true" type="radio" name="gender_identity" value="2">&nbsp;woman
-                  </span>
-                  <span class="new-user-input-item">
-                    <input required="true" type="radio" name="gender_identity" value="3">&nbsp;other
-                  </span>
-              </h3>
+        <h3><label>Gender</label>
+            <span class="new-user-input-item gender_identity">
+              <input type="radio" name="gender_identity[1]" value="1">&nbsp;man
+            </span>
+            <span class="new-user-input-item">
+              <input type="radio" name="gender_identity[2]" value="2">&nbsp;woman
+            </span>
+            <span class="new-user-input-item">
+              <input type="radio" name="gender_identity[3]" value="3">&nbsp;other
+            </span>
+        </h3>
 
-              <h3><label>Interested In</label>
-                  <span class="new-user-input-item">
-                    <input required="true" type="checkbox" name="gender_interest" value="1">&nbsp;men
-                  </span>
-                  <span class="new-user-input-item">
-                    <input required="true" type="checkbox" name="gender_identity" value="2">&nbsp;women
-                  </span>
-                  <span class="new-user-input-item">
-                    <input required="true" type="checkbox" name="gender_identity" value="3">&nbsp;other
-                  </span>
-              </h3>
+        <h3><label>Interested In</label>
+            <span class="new-user-input-item gender_interest">
+              <input type="checkbox" name="gender_interest[1]" value="1">&nbsp;men
+            </span>
+            <span class="new-user-input-item">
+              <input type="checkbox" name="gender_identity[2]" value="2">&nbsp;women
+            </span>
+            <span class="new-user-input-item">
+              <input type="checkbox" name="gender_identity[3]" value="3">&nbsp;other
+            </span>
+        </h3>
 
-              <h3><label>Ages</label>
-                <input class="new-user-input-item" type="text" placeholder="YY" name="birthdate[day]">
-                <label> to </label>
-                <input class="new-user-input-item" type="text" placeholder="YY" name="birthdate[day]">
-              </h3>
+        <h3><label>Ages</label>
+          <input class="new-user-input-item" type="text" placeholder="YY" name="birthdate[day]">
+          <span> to </span>
+          <input class="new-user-input-item" type="text" placeholder="YY" name="birthdate[day]">
+        </h3>
 
-          </form>
+      </div> <!-- End .modal-body -->
 
-        </div> <!-- End .modal-body -->
-
-        <div class="modal-footer">
-            <button type="submit" class="btn btn-default btn-primary" data-dismiss="modal">Continue</button>
-            <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Back</button> -->
-        </div>
-
-      </div> <!-- End .modal-content -->
-    </div> <!-- End .modal-dialog -->
-</div>
+      <div class="modal-footer">
+          <button type="submit" class="btn btn-default btn-primary" data-dismiss="modal">Continue</button>
+      </div>
+  </form>
+</div> <!-- End .modal-content -->

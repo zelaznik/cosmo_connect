@@ -1,6 +1,6 @@
 var Cosmo = window.Cosmo;
 
-var NewUserModal = Cosmo.Views.NewUserModal = Backbone.View.extend({
+var NewUserModal = Cosmo.Views.NewUserModal = Backbone.ModalView.extend({
   template: JST['users/new_user_modal'],
 
   render: function() {
@@ -8,6 +8,12 @@ var NewUserModal = Cosmo.Views.NewUserModal = Backbone.View.extend({
     });
     this.$el.html(content);
     return this;
+  },
+
+  submit: function(event) {
+    event.preventDefault();
+    
+    this.remove();
   }
 
 });
