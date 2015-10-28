@@ -223,6 +223,17 @@ $defaultBackground: #dddddd;
 $blueUp : #3746BF;
 $blueDn : #252F7F;
 
+@mixin gradient($colorUp, $colorDn) {
+  /* Gradients for modern browsers, replace as you see fit */
+  background-image: -moz-linear-gradient(top, $colorUp, $colorDn);
+  background-image: -ms-linear-gradient(top, $colorUp, $colorDn);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from($colorUp), to($colorDn));
+  background-image: -webkit-linear-gradient(top, $colorUp, $colorDn);
+  background-image: -o-linear-gradient(top, $colorUp, $colorDn);
+  background-image: linear-gradient(top, $colorUp, $colorDn);
+  background-repeat: repeat-x;
+}
+
 .navbar,
 .navbar .navbar-nav > .active > a,
 .navbar .navbar-nav > .active > a:hover,
@@ -231,16 +242,9 @@ $blueDn : #252F7F;
 .navbar .navbar-nav > .open > a:hover,
 .navbar .navbar-nav > .open > a:focus
  {
-  background-color: #00F; /* fallback color, place your own */
+  background-color: #008; /* fallback color, place your own */
+  @include gradient($blueUp, $blueDn);
 
-  /* Gradients for modern browsers, replace as you see fit */
-  background-image: -moz-linear-gradient(top, $blueUp, $blueDn);
-  background-image: -ms-linear-gradient(top, $blueUp, $blueDn);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from($blueUp), to($blueDn));
-  background-image: -webkit-linear-gradient(top, $blueUp, $blueDn);
-  background-image: -o-linear-gradient(top, $blueUp, $blueDn);
-  background-image: linear-gradient(top, $blueUp, $blueDn);
-  background-repeat: repeat-x;
   border-radius: 0;
   border: None;
   color: white;
@@ -325,7 +329,38 @@ $navHover: #ffffff;
   height: 1005;
 }
 
+/***********************************
+    flash[:errors] Modal Styling
+************************************/
 
+.error-modal.modal-content {
+
+  margin-top: 100px;
+
+  .modal-header {
+    color: #ffffff;
+    @include gradient(#FF5656, #7F1E1E);
+  }
+
+  .modal-content{
+    background-color: #eeeeee;
+  }
+
+  .modal-title {
+    font-weight: bold;
+  }
+
+  .close {
+    color: #dddddd;
+    opacity: 1;
+  }
+
+  .close:hover {
+    color: #ffffff;
+    opacity: 1;
+  }
+
+}
 
 // .m-background {
 //   background: rgba(92, 88, 88, 0.6);

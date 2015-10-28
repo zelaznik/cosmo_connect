@@ -17,17 +17,18 @@
   </head>
 
   <body>
-    <% if flash[:errors] %>
-    <div class="alert alert-danger" role="alert">
-      <ul>
-      <% flash[:errors].each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-    <% end %>
 
     <%= yield %>
+
+    <% if flash[:errors] %>
+      <%= render 'shared/errors_modal', errors: flash[:errors] %>
+    <% end %>
+
+    <script type="text/javascript">
+        $(window).load(function(){
+            $('#errorsModal').modal('show');
+        });
+    </script>
 
   </body>
 </html>
