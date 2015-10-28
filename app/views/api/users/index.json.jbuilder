@@ -7,7 +7,7 @@ Match.where(sender: current_user).each do |like|
   likes[like.receiver_id] = like
 end
 
-json.array! @users.includes(:gender).includes(desired_genders: :gender) do |user|
+json.array! @users.includes(:gender).includes(:photos, desired_genders: :gender) do |user|
   next if user == current_user
   json.extract! user, :id, :username, :age
   json.gender getter(user.gender, 'name')

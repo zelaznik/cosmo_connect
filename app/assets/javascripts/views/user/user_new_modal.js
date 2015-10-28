@@ -36,14 +36,18 @@ var NewUserModal = Cosmo.Views.NewUserModal = Backbone.ModalView.extend({
       interested_in.push(gender_interests[i].value);
     }
 
+    var view = this;
+
     $.ajax({
       url: '/api/users/' + Cosmo.CURRENT_USER_ID,
       dataType: 'json',
       type: 'PATCH',
       data: data,
       success: function(data) {
+        view.remove();
       },
       error: function() {
+        view.remove();
       }
     });
   }
