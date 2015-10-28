@@ -1,0 +1,61 @@
+<div class="container">
+  <!-- <h2>Modal Example</h2>
+  <!-- Trigger the modal with a button -->
+  <form>
+    <button type="hidden" class="btn btn-info btn-lg" data-toggle="modal" data-target="#newUserModal">Open Modal</button>
+  </form>
+
+  <!-- Modal -->
+  <div class="modal fade in" id="newUserModal" role="dialog">
+    <div class="new-user-modal modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h2 class="modal-title">Welcome <%= (@user) ? ", #{@user.username}" : '' %>.</h2>
+        </div>
+        <div class="modal-body">
+          <h4>Before we continue, please fill out these quick questions.</h4>
+          <h4>This is crucial in order for us to find you a match.</h4>
+
+          <form>
+              <h3><label>Date Of Birth</label>
+                <input class="new-user-input-item" type="year" placeholder="YYYY" name="birthdate[year]">
+                <input class="new-user-input-item" type="text" placeholder="MM" name="birthdate[month]">
+                <input class="new-user-input-item" type="text" placeholder="DD" name="birthdate[day]">
+              </h3>
+
+              <h3><label>Gender</label>
+                <% Gender.all.each do |gender| %>
+                  <span class="new-user-input-item">
+                    <input required="true" type="radio" name="gender_identity" value="<%= gender.id %>">&nbsp;<%= gender.name %>
+                  </span>
+                <% end %>
+              </h3>
+
+              <h3><label>Interested In</label>
+                <% Gender.all.each do |gender| %>
+                  <span class="new-user-input-item">
+                    <input required="true" type="checkbox" name="gender_interest" value="<%= gender.id %>">&nbsp;<%= gender.name.pluralize %>
+                  </span>
+                <% end %>
+              </h3>
+
+              <h3><label>Ages</label>
+                <input class="new-user-input-item" type="text" placeholder="YY" name="min_age"></label>
+                <label> to <input class="new-user-input-item" type="text" placeholder="YY" name="max_age"></label>
+              </h3>
+
+          </form>
+
+        </div> <!-- End .modal-body -->
+
+        <div class="modal-footer">
+            <button type="submit" class="btn btn-default btn-primary" data-dismiss="modal">Continue</button>
+            <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Back</button> -->
+        </div>
+
+      </div> <!-- End .modal-content -->
+    </div> <!-- End .modal-dialog -->
+</div>

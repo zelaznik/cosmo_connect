@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
   root to: "static_pages#root"
 
+  get 'scratchpad' => 'scratch_pad#index'
+
   resource :session, only: [:new, :create, :destroy]
   resources :users, only: [:new, :create]
+
+  get 'get_info' => 'users#get_info'
   get 'about' => 'about#index'
 
   namespace :api, defaults: {format: :json} do

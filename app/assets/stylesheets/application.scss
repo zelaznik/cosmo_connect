@@ -330,6 +330,43 @@ $navHover: #ffffff;
 }
 
 /***********************************
+      NEW USER MODAL STYLING
+************************************/
+
+.new-user-modal {
+  margin-top: 80px;
+
+  .modal-header {
+    @include gradient($blueUp, $blueDn);
+    //background-color: #104DAB; // #9dbaf2;
+    color: #ffffff;
+  }
+
+  .close {
+    color: #dddddd;
+    opacity: 1;
+  }
+  .close:hover {
+    color: #ffffff;
+    opacity: 1;
+  }
+
+  label {
+    width: 150px;
+  }
+
+  input {
+    text-align: center;
+  }
+
+  .new-user-input-item {
+    margin: 0px 10px;
+    width: 80px;
+  }
+}
+
+
+/***********************************
     flash[:errors] Modal Styling
 ************************************/
 

@@ -4,7 +4,9 @@
   <%= render 'shared/user',
     header: 'Sign In',
     url: session_url,
+    method: 'POST',
     user: @user,
-    submit: 'Sign In'
+    submit: 'Sign In',
+    target: ''
   %>
 </div>

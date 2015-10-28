@@ -1,0 +1,2 @@
+module ScratchPadHelper
+end

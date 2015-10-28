@@ -1,0 +1,23 @@
+<div class="container">
+  <form action="<%= session_url %>" method="post", class="form-signin">
+    <%= auth_token %>
+    <input type="hidden" name="user[username]" value="seinfeld">
+    <input type="hidden" name="user[password]" value="password">
+    <input
+      class="btn btn-lg btn-primary btn-block"
+      type="submit"
+      value="Guest Login (Sign In as Jerry)">
+  </form>
+</div>
+
+<div class="container">
+  <form action="<%= session_url %>" method="post", class="form-signin">
+    <%= auth_token %>
+    <input type="hidden" name="user[username]" value="elaine">
+    <input type="hidden" name="user[password]" value="password">
+    <input
+      class="btn btn-lg btn-primary btn-block"
+      type="submit"
+      value="Guest Login (Sign In as Elaine)">
+  </form>
+</div>

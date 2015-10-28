@@ -3,9 +3,13 @@
 
   <%= render 'shared/user',
     header: 'Sign Up',
-    url: users_url,
+    method: 'GET',
+    url: '#',
     user: @user,
-    submit: 'Sign Up'
+    submit: 'Sign Up',
+    target: '#newUserModal'
   %>
+
+  <%= render 'shared/new_user_modal', user: @user %>
 
 </div>
