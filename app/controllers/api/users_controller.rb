@@ -11,10 +11,16 @@ class Api::UsersController < Api::BaseController
   end
 
   def update
-    debugger
     @user = User.find(params[:id])
-    if @user.update(user_params)
+    interested_in = user_interested_in.map(&:to_i)
+    if @user.update(user_params_main)
       @exclude_blank_responses = true
+      ActiveRecord::Base.transaction do
+        DesiredGender.where(user: @user).each do |d|
+          d.interested = interested_in.include?(d.gender_id)
+          d.save!
+        end
+      end
       render :show
     else
       render json: @user.errors.full_messages, status: 422
@@ -26,15 +32,20 @@ class Api::UsersController < Api::BaseController
   end
 
   private
-  def user_params
-    dct = params.require(:user).permit(:gender_id, :birthdate)
-    bday = params[:birthdate]
+  def user_params_main
+    dct = params.require(:user).permit(:id, :gender_id, :min_age, :max_age, birthdate: [:year, :month, :day])
+    bday = dct[:birthdate]
     begin
       dct[:birthdate] = Date.new(bday[:year].to_i, bday[:month].to_i, bday[:day].to_i)
     rescue ArgumentError
       #pass
     end
     return dct
+  end
+
+  def user_interested_in
+    dct = params.require(:user).permit(interested_in: [])
+    dct[:interested_in].map(&:to_i)
   end
 
   def ensure_current_user

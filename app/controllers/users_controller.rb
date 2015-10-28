@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     @details = DetailsOfUser.new({user: @user})
     if @user.save && @details.save
       sign_in @user
-      redirect_to root_url
+      redirect_to root_url(new_user: true)
     else
       flash.now[:errors] = @user.errors.full_messages
       flash.now[:errors] += @details.errors.full_messages
