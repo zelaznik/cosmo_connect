@@ -107,8 +107,6 @@ Cosmo.Views.UserShow = Backbone.CompositeView.extend({
   upload: function(e) {
     var userShowView = this;
     e.preventDefault();
-    console.log(CLOUDINARY_OPTIONS);
-    debugger;
     cloudinary.openUploadWidget(CLOUDINARY_OPTIONS, function(error, result) {
       var data = result[0];
       var photo = new Cosmo.Models.Photo({
