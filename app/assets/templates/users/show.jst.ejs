@@ -7,54 +7,8 @@
     </div> <!-- End Profile First Row -->
 
     <div class="row">
-      <div class="col-md-6">
-        <div class="response-index col-md-12"></div>
-        <div class="col-xs-12"></div>
-      </div>
-
-      <div class="col-md-6">
-        <div class="col-md-12 user-attributes">
-          <% if (!user.isCurrentUser) { %>
-            <center>
-              <h2><a href="<%= '#/messages/' + user.escape('id') %>">Message History</a></h2></center>
-            <form id="new-message" class="form-horizontal">
-              <div class="form-group">
-                <div class="col-xs-12">
-                  <center><label>
-                    <span class="glyphicon glyphicon-envelope"></span>
-                    Send Message to <%= user.escape('username') %>
-                  </center><label>
-                </div>
-
-                <div class="col-xs-12">
-                  <input  type="hidden"
-                          name="message[receiver_id]"
-                          value="<%= user.id %>">
-                  <textarea
-                      type="textarea"
-                      name= "message[body]"
-                  ></textarea>
-                </div>
-              </div> <!-- End .form-group -->
-
-              <div class="form-group">
-                <div class="col-xs-12">
-                  <input type='submit', class='btn btn-primary' value='Send'>
-                  <button id="cancel-message" type='cancel' class="btn btn-default">Cancel</button>
-                </div>
-              </div>
-
-            </form>
-
-            <div id="message-history">
-            </div>
-
-          <% } else { %>
-
-
-
-          <% } %>
-        </div>
+        <div class="response-index col-xs-12 col-md-6"></div>
+        <div class="user-attributes col-xs-12 col-md-6"></div>
       </div>
     </div> <!-- End Profile Second Row (Essays and Attributes) -->
 

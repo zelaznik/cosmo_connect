@@ -5,8 +5,8 @@ Cosmo.Views.UserDetails = Backbone.CompositeView.extend({
 
   render: function () {
     this.$el.html(this.template({
+      user: this.model
     }));
-    debugger;
     this.attachSubviews();
     return this;
   }
