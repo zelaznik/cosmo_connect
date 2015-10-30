@@ -6,7 +6,7 @@
     <%= value || '(unspecified)' %>
   <% } else { %>
     <% if (editMode) { %>
-      <select>
+      <select name="religion_id">
         <% value.forEach(function(v) { %>
           <% if (v.selected) { %>
             <option class="new-user-input-item" value="<%= v.id %>" selected><%= v.name %></option>
@@ -18,7 +18,10 @@
     <% } else { %>
       <% value.forEach(function(v) { %>
         <% if (v.selected) { %>
-          &nbsp;<%= v.name %>
+          &nbsp;<%= v.name %>&nbsp;
+          <a class="user-details-edit-icon" data-toggle="modal" data-target="#myModal">
+            <span class="edit-glyphicon glyphicon glyphicon-pencil" aria-hidden="true"></span>
+          </a>
         <% } %>
       <% }) %>
     <% } %>

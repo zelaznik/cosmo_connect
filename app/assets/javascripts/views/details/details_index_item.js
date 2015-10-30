@@ -36,7 +36,8 @@ Cosmo.Views.DetailsIndexItem = Backbone.View.extend({
     'change input[type=checkbox]': 'checkboxChange',
     'click .user-details-edit-icon': 'updateDetails',
     'submit #details-form': 'submit',
-    'click .details-cancel': 'cancel'
+    'click .details-cancel': 'cancel',
+    'change select': 'submit'
   },
 
   model: Cosmo.Models.Detail,
@@ -99,6 +100,7 @@ Cosmo.Views.DetailsIndexItem = Backbone.View.extend({
     var $t = $(event.currentTarget);
     var data = {'user': $t.serializeJSON()};
     data['X-CSRF-Token'] = $('meta[name="csrf-token"]').attr('content');
+    debugger;
 
     $.ajax({
       url: this.user.url(),
