@@ -21,18 +21,19 @@ Cosmo.Views.DetailsIndexItem = Backbone.View.extend({
   model: Cosmo.Models.Detail,
 
   initialize: function (options) {
+    this.user = options.user;
     this.listenTo(this.model, 'sync', this.render);
   },
 
   updateDetails: function(event) {
-    alert("Updating Details");
-    debugger;
+    this.render(true);
   },
 
   render: function(editMode) {
     var template = this.template[this.model.get('category')];
     this.$el.html(template({
       value: this.model.get('value'),
+      user: this.user,
       editMode: !!editMode
     }));
     return this;

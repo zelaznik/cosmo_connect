@@ -16,6 +16,7 @@ Cosmo.Views.DetailsIndex = Backbone.CompositeView.extend({
   addDetailsSubview: function(detail) {
     var messageIndexItem = new Cosmo.Views.DetailsIndexItem({
       collection: this.collection,
+      user: this.model,
       model: detail
     });
     this.addSubview('#details-index-results', messageIndexItem);
