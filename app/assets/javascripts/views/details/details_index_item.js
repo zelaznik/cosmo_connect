@@ -34,7 +34,9 @@ Cosmo.Views.DetailsIndexItem = Backbone.View.extend({
     'change input[type=radio]': 'radioChange',
     'dblclick .details-item-value': 'updateDetails',
     'change input[type=checkbox]': 'checkboxChange',
-    'click .user-details-edit-icon': 'updateDetails'
+    'click .user-details-edit-icon': 'updateDetails',
+    'submit #details-form': 'submit',
+    'click .details-cancel': 'cancel'
   },
 
   model: Cosmo.Models.Detail,
@@ -94,7 +96,7 @@ Cosmo.Views.DetailsIndexItem = Backbone.View.extend({
   },
 
   submit: function(event) {
-    throw "The function 'submit' needs to be overridden in a ModalView subclass.";
+    alert("Submit");
   },
 
   updateDetails: function(event) {
