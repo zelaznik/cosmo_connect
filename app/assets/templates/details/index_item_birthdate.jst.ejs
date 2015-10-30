@@ -2,9 +2,13 @@
   <td>
     <label>Date Of Birth</label>
   </td>
-  <td>
-    <input class="new-user-input-item" type="year" placeholder="YYYY" name="birthdate[year]" value="<%= value.year %>">
-    <input class="new-user-input-item" type="text" placeholder="MM" name="birthdate[month]" value="<%= value.month %>">
-    <input class="new-user-input-item" type="text" placeholder="DD" name="birthdate[day]" value="<%= value.day %>">
+  <td class="details-item-value">
+    <% if (editMode) { %>
+        <input class="new-user-input-item" type="year" placeholder="YYYY" name="birthdate[year]" value="<%= value.year %>">
+        <input class="new-user-input-item" type="text" placeholder="MM" name="birthdate[month]" value="<%= value.month %>">
+        <input class="new-user-input-item" type="text" placeholder="DD" name="birthdate[day]" value="<%= value.day %>">
+    <% } else { %>
+        &nbsp;<span><%= value.day + '/' + value.month + '/' + value.year %></span>
+    <% } %>
   </td>
 </tr>

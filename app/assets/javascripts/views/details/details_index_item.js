@@ -13,6 +13,10 @@ Cosmo.Views.DetailsIndexItem = Backbone.View.extend({
     'ethnicity': JST['details/index_item_ethnicity']
   },
 
+  events: {
+    'dblclick .details-item-value': 'updateDetails'
+  },
+
   className: 'user-details-index-item',
   model: Cosmo.Models.Detail,
 
@@ -20,12 +24,16 @@ Cosmo.Views.DetailsIndexItem = Backbone.View.extend({
     this.listenTo(this.model, 'sync', this.render);
   },
 
-  render: function() {
-    alert("HEllo");
+  updateDetails: function(event) {
+    alert("Updating Details");
     debugger;
+  },
+
+  render: function(editMode) {
     var template = this.template[this.model.get('category')];
     this.$el.html(template({
-      value: this.model.get('value')
+      value: this.model.get('value'),
+      editMode: !!editMode
     }));
     return this;
   }
