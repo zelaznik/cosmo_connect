@@ -1,6 +1,6 @@
 var Cosmo = window.Cosmo;
 
-Cosmo.Views.UserDetails = Backbone.CompositeView.extend({
+Cosmo.Views.DetailsIndex = Backbone.CompositeView.extend({
   template: JST['users/details'],
 
   render: function () {

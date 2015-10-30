@@ -40,9 +40,7 @@ Cosmo.Models.User = Backbone.Model.extend({
 
   details: function() {
     if (!this._details) {
-      this._details = new Cosmo.Collections.Details([], {
-
-        user: this});
+      this._details = new Cosmo.Collections.Details([], {user: this});
     }
     return this._details;
   },

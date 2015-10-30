@@ -28,7 +28,7 @@ Cosmo.Views.UserShow = Backbone.CompositeView.extend({
     });
     this.addSubview('.response-index', responseIndexView);
 
-    var userDetailsView = new Cosmo.Views.UserDetails({
+    var userDetailsView = new Cosmo.Views.DetailsIndex({
       collection: this.model.details(),
       model: this.model
     });
