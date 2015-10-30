@@ -104,7 +104,7 @@ json.details do
   json.height @details.height
 
   if not is_current_user
-    json.ethnicity @details.ethnicity.description
+    json.ethnicity getter(@details.ethnicity, 'description')
   else
     json.ethnicity do
       json.array! Ethnicity.all do |ethnicity|
