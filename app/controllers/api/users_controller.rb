@@ -13,9 +13,11 @@ class Api::UsersController < Api::BaseController
   def update
     @user = User.find(params[:id])
     begin
+      ## Save the details in the main user table
       model = @user
       model.update! user_params_main
 
+      ## Save the user's gender preferences
       interested_in = user_interested_in
       unless interested_in.empty?
         ActiveRecord::Base.transaction do
@@ -27,6 +29,12 @@ class Api::UsersController < Api::BaseController
         end
       end
 
+      ## Save the user's other details, stored in a second table.
+      details = user_params_details
+      unless details.empty?
+        model = DetailsOfUser.where(user: current_user)
+        model.update! details
+      end
 
       @exclude_blank_responses = true
       render :show
@@ -51,6 +59,10 @@ class Api::UsersController < Api::BaseController
       #pass
     end
     return dct
+  end
+
+  def user_params_details
+    params.require(:user).permit(:ethnicity_id, :height, :body_type_id, :relationship_status_id, :religion_id, :zip_code)
   end
 
   def user_interested_in
