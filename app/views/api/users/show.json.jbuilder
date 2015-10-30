@@ -21,15 +21,15 @@ if current_user && (current_user != @user)
 end
 
 json.details do
-  # if not is_current_user
-  #   json.age @user.age
-  # else
-  #   json.birthdate do
-  #     json.year getter(@user.birthdate, 'year')
-  #     json.month getter(@user.birthdate, 'month')
-  #     json.day getter(@user.birthdate, 'day')
-  #   end
-  # end
+  if not is_current_user
+    json.age @user.age
+  else
+    json.birthdate do
+      json.year getter(@user.birthdate, 'year')
+      json.month getter(@user.birthdate, 'month')
+      json.day getter(@user.birthdate, 'day')
+    end
+  end
 
   if not is_current_user
     json.gender getter(@user.gender, 'name')
@@ -60,10 +60,10 @@ json.details do
     end
   end
 
-  # json.ages do
-  #   json.min_age @user.min_age
-  #   json.max_age @user.max_age
-  # end
+  json.ages do
+    json.min_age @user.min_age
+    json.max_age @user.max_age
+  end
 
   if not is_current_user
     json.religion getter(@user.religion, 'title')
@@ -101,7 +101,7 @@ json.details do
     end
   end
 
-  ##json.height @details.height
+  json.height @details.height
 
   if not is_current_user
     json.ethnicity getter(@details.ethnicity, 'description')
