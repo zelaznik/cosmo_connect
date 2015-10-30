@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151028124908) do
+ActiveRecord::Schema.define(version: 20151030003921) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -203,25 +203,25 @@ ActiveRecord::Schema.define(version: 20151028124908) do
   add_index "visits", ["visitor_id", "profile_id"], name: "index_visits_on_visitor_id_and_profile_id", unique: true, using: :btree
   add_index "visits", ["visitor_id"], name: "index_visits_on_visitor_id", using: :btree
 
-  add_foreign_key "default_preferences", "genders"
-  add_foreign_key "default_preferences", "genders", column: "desire_id"
-  add_foreign_key "desired_genders", "genders"
-  add_foreign_key "desired_genders", "users"
-  add_foreign_key "details_of_users", "body_types"
-  add_foreign_key "details_of_users", "ethnicities"
-  add_foreign_key "details_of_users", "relationship_statuses"
-  add_foreign_key "details_of_users", "religions"
-  add_foreign_key "details_of_users", "users"
-  add_foreign_key "matches", "users", column: "receiver_id"
-  add_foreign_key "matches", "users", column: "sender_id"
-  add_foreign_key "messages", "users", column: "receiver_id"
-  add_foreign_key "messages", "users", column: "sender_id"
-  add_foreign_key "photos", "users"
-  add_foreign_key "responses", "response_categories"
-  add_foreign_key "responses", "users"
-  add_foreign_key "user_interest_links", "interests"
-  add_foreign_key "user_interest_links", "users"
-  add_foreign_key "users", "genders"
-  add_foreign_key "visits", "users", column: "profile_id"
-  add_foreign_key "visits", "users", column: "visitor_id"
+  add_foreign_key "default_preferences", "genders", column: "desire_id", on_update: :cascade, on_delete: :cascade
+  add_foreign_key "default_preferences", "genders", on_update: :cascade, on_delete: :cascade
+  add_foreign_key "desired_genders", "genders", on_update: :cascade, on_delete: :cascade
+  add_foreign_key "desired_genders", "users", on_update: :cascade, on_delete: :cascade
+  add_foreign_key "details_of_users", "body_types", on_update: :cascade, on_delete: :cascade
+  add_foreign_key "details_of_users", "ethnicities", on_update: :cascade, on_delete: :cascade
+  add_foreign_key "details_of_users", "relationship_statuses", on_update: :cascade, on_delete: :cascade
+  add_foreign_key "details_of_users", "religions", on_update: :cascade, on_delete: :cascade
+  add_foreign_key "details_of_users", "users", on_update: :cascade, on_delete: :cascade
+  add_foreign_key "matches", "users", column: "receiver_id", on_update: :cascade, on_delete: :cascade
+  add_foreign_key "matches", "users", column: "sender_id", on_update: :cascade, on_delete: :cascade
+  add_foreign_key "messages", "users", column: "receiver_id", on_update: :cascade, on_delete: :cascade
+  add_foreign_key "messages", "users", column: "sender_id", on_update: :cascade, on_delete: :cascade
+  add_foreign_key "photos", "users", on_update: :cascade, on_delete: :cascade
+  add_foreign_key "responses", "response_categories", on_update: :cascade, on_delete: :cascade
+  add_foreign_key "responses", "users", on_update: :cascade, on_delete: :cascade
+  add_foreign_key "user_interest_links", "interests", on_update: :cascade, on_delete: :cascade
+  add_foreign_key "user_interest_links", "users", on_update: :cascade, on_delete: :cascade
+  add_foreign_key "users", "genders", on_update: :cascade, on_delete: :cascade
+  add_foreign_key "visits", "users", column: "profile_id", on_update: :cascade, on_delete: :cascade
+  add_foreign_key "visits", "users", column: "visitor_id", on_update: :cascade, on_delete: :cascade
 end
