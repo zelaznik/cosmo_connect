@@ -33,7 +33,8 @@ Cosmo.Views.DetailsIndexItem = Backbone.View.extend({
   events: {
     'change input[type=radio]': 'radioChange',
     'dblclick .details-item-value': 'updateDetails',
-    'change input[type=checkbox]': 'checkboxChange'
+    'change input[type=checkbox]': 'checkboxChange',
+    'click .user-details-edit-icon': 'updateDetails'
   },
 
   model: Cosmo.Models.Detail,
