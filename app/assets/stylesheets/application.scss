@@ -121,6 +121,8 @@ $userSubBorder: 5px;
 
 $defaultBackground: #dddddd;
 
+$userMarginTop: 15px;
+
 .edit-glyphicon {
   color: #008000;
 }
@@ -129,11 +131,22 @@ $defaultBackground: #dddddd;
   background: $userSubColor;
 }
 
+.user-index-item {
+  margin-top: $userMarginTop;
+}
+
+.response-index {
+  margin-top: $userMarginTop;
+  padding: 0px 40px;
+  float: left;
+}
+
 .user-preview {
   align-content: center;
   border-radius: 20px;
   .well.panel {
     @include user-shadow();
+    margin: 0;
   }
 }
 
@@ -207,17 +220,6 @@ $defaultBackground: #dddddd;
 
 #new-message {
   @include inline-form();
-}
-
-.user-attributes {
-  background-color: $userSubColor;
-  padding: 0px 40px;
-  border-radius: 10px;
-  @include user-shadow();
-}
-
-.user-attributes button {
-  width: 200px;
 }
 
 /***********************************
@@ -337,8 +339,35 @@ $navHover: #ffffff;
       NEW USER MODAL STYLING
 ************************************/
 
-#open-new-user-modal {
-  //display: none;
+$userAttributesWidth: 410px;
+
+.user-attributes {
+
+  .table {
+    border: 1px;
+  }
+
+  background-color: $userSubColor;
+  margin-top: $userMarginTop;
+  padding: 0px 20px;
+  border-radius: 10px;
+  @include user-shadow();
+
+  .you {
+    label {
+      width: 90px;
+    }
+  }
+
+
+  input {
+    text-align: center;
+  }
+
+  .new-user-input-item {
+    margin: 0px 10px;
+    width: 45px;
+  }
 }
 
 .new-user-modal {
