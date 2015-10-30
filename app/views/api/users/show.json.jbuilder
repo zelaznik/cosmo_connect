@@ -8,12 +8,6 @@ json.extract! @user, :id, :username, :age
 json.gender getter(@user.gender, 'name')
 
 if is_current_user
-  json.birthdate do
-    json.year getter(@user.birthdate, 'year')
-    json.month getter(@user.birthdate, 'month')
-    json.day getter(@user.birthdate, 'day')
-  end
-
   json.gender_id @user.gender_id
 
   json.genders do
@@ -54,6 +48,12 @@ if current_user && (current_user != @user)
 end
 
 json.details do
+  json.birthdate do
+    json.year getter(@user.birthdate, 'year')
+    json.month getter(@user.birthdate, 'month')
+    json.day getter(@user.birthdate, 'day')
+  end
+
   json.religion getter(@user.religion, 'title')
   json.height getter(@user.details, 'height')
   json.body_type getter(@user.body_type, 'description')
