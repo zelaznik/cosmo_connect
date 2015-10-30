@@ -78,10 +78,10 @@ json.details do
   end
 
   if not is_current_user
-    json.relationship_status getter(@details.relationship_status)
+    json.relationship_status @details.relationship_status
   else
     json.relationship_status do
-      RelationshipStatus.all do |status|
+      json.array! RelationshipStatus.all do |status|
         json.id status.id
         json.name status.description
         json.selected (@details.relationship_status_id == status.id)
@@ -89,21 +89,32 @@ json.details do
     end
   end
 
-  json.height getter(@user.details, 'height')
+  if not is_current_user
+    json.body_type getter(@details.body_type, 'description')
+  else
+    json.body_type do
+      json.array! BodyType.all do |body_type|
+        json.id body_type.id
+        json.name body_type.description
+        json.selected (@details.body_type_id == body_type.id)
+      end
+    end
+  end
 
+  json.height @details.height
 
-
-
-
-  json.body_type getter(@user.body_type, 'description')
-
-
-
-  json.relationship_status getter(@user.relationship_status, 'description')
-
+  if not is_current_user
+    json.ethnicity @details.ethnicity.description
+  else
+    json.ethnicity do
+      json.array! Ethnicity.all do |ethnicity|
+        json.id ethnicity.id
+        json.name ethnicity.description
+        json.selected (@details.ethnicity_id == ethnicity.id)
+      end
+    end
+  end
 end
-
-
 
 responses = @user.responses.includes(:response_category).order(:response_category_id)
 
