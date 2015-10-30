@@ -28,6 +28,33 @@ Cosmo.Views.DetailsIndexItem = Backbone.View.extend({
     this.listenTo(this.model, 'sync', this.render);
   },
 
+  checkboxChange: function(event) {
+    var $t = $(event.target);
+    var wasChecked = $t.attr('checked');
+    var checkedNow = !wasChecked;
+    $t.attr('checked', checkedNow);
+
+    var data = {
+      'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content'),
+      'key': $t.prop('value'),
+      'value': checkedNow
+    };
+
+    $.ajax({
+      url: this.model.urlRoot + '/' + $t.prop('name'),
+      dataType: 'json',
+      type: 'PATCH',
+      data: data,
+      success: function(data) {
+        this.user.set(data);
+        //this.render();
+      }.bind(this),
+
+      error: function() {
+      }
+    });
+  },
+
   radioChange: function(event) {
     var $t = event.target;
     var data = {
@@ -42,7 +69,7 @@ Cosmo.Views.DetailsIndexItem = Backbone.View.extend({
       data: data,
       success: function(data) {
         this.user.set(data);
-        this.user.render();
+        this.render();
       }.bind(this),
 
       error: function() {
