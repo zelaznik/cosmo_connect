@@ -10,10 +10,11 @@ Rails.application.routes.draw do
   get 'about' => 'about#index'
 
   namespace :api, defaults: {format: :json} do
+    resources :details, only: [:update]
+
     resources :users, except: [:new, :destroy] do
       resources :photos, only: [:index, :show, :create]
       resources :messages, only: [:index]
-      resources :details, only: [:update]
     end
 
     resources :desired_genders, only: [:show, :update]

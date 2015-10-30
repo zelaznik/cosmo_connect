@@ -18,6 +18,11 @@ Cosmo.Models.User = Backbone.Model.extend({
       delete r.details;
     }
 
+    if (r.preference) {
+      this._prefrerence = r.preference;
+      delete r.preference;
+    }
+
     if (r.like) {
       this.like().set({id: r.like});
       delete r.like;
@@ -60,7 +65,7 @@ Cosmo.Models.User = Backbone.Model.extend({
   },
 
   preferences: function() {
-    return "Not Implemented";
+    return this._preferences;
   }
 
 });

@@ -16,6 +16,7 @@ Cosmo.Views.DetailsIndexItem = Backbone.View.extend({
   },
 
   events: {
+    'change input[type=radio]': 'radioChange',
     'dblclick .details-item-value': 'updateDetails'
   },
 
@@ -24,6 +25,28 @@ Cosmo.Views.DetailsIndexItem = Backbone.View.extend({
   initialize: function (options) {
     this.user = options.user;
     this.listenTo(this.model, 'sync', this.render);
+  },
+
+  radioChange: function(event) {
+    var $t = event.target;
+    var data = {
+      'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content'),
+      'value': $t.value
+    };
+
+    $.ajax({
+      url: this.model.urlRoot + '/' + $t.name,
+      dataType: 'json',
+      type: 'PATCH',
+      data: data,
+      success: function(data) {
+        this.user.set(data);
+        this.user.render();
+      }.bind(this),
+
+      error: function() {
+      }
+    });
   },
 
   submit: function(event) {
