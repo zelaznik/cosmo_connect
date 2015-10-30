@@ -1,5 +1,0 @@
-SELECT
-FROM
-  users u
-INNER JOIN
-  
