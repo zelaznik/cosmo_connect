@@ -8,15 +8,9 @@
         <input class="new-user-input-item" type="year" placeholder="YYYY" name="birthdate[year]" value="<%= value.year %>">
         <input class="new-user-input-item" type="text" placeholder="MM" name="birthdate[month]" value="<%= value.month %>">
         <input class="new-user-input-item" type="text" placeholder="DD" name="birthdate[day]" value="<%= value.day %>">
-        <i class="icon-large icon-ok"></i>
       </form>
     <% } else { %>
-        &nbsp;<span><%= value.day + '/' + value.month + '/' + value.year %></span>
-        <% if (user.isCurrentUser) { %>
-          <a class="essay-edit" data-toggle="modal" data-target="#myModal">
-            <span class="edit-glyphicon glyphicon glyphicon-pencil" aria-hidden="true"></span>
-          </a>&nbsp;
-        <% } %>
+        &nbsp;<span><%= value.month + '/' + value.day + '/' + value.year %></span>
     <% } %>
   </td>
 </tr>

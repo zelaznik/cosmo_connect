@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     resources :users, except: [:new, :destroy] do
       resources :photos, only: [:index, :show, :create]
       resources :messages, only: [:index]
+      resources :details, only: [:update]
     end
 
     resources :desired_genders, only: [:show, :update]

@@ -408,6 +408,13 @@ $userAttributesWidth: 410px;
   }
 }
 
+.details-item-value {
+
+}
+
+.details-item-value:hover {
+  text-decoration: underline blue;
+}
 
 /***********************************
     flash[:errors] Modal Styling

@@ -25,8 +25,31 @@ Cosmo.Views.DetailsIndexItem = Backbone.View.extend({
     this.listenTo(this.model, 'sync', this.render);
   },
 
+  submit: function(event) {
+    throw "The function 'submit' needs to be overridden in a ModalView subclass.";
+  },
+
+  handleKey: function(event) {
+    if (event.keyCode === 27) {
+      this.remove();
+    }
+  },
+
+  handleClick: function(event) {
+    
+  },
+
   updateDetails: function(event) {
     this.render(true);
+    $(document).on('keyup', this.handleKey.bind(this));
+    $(document).on('click', this.handleClick.bind(this));
+  },
+
+  remove: function() {
+    $(document).off('keyup', this.handleKey.bind(this));
+    $(document).off('click', this.handleClick.bind(this));
+    //Backbone.View.prototype.remove.call(this);
+    this.render(false);
   },
 
   render: function(editMode) {
