@@ -20,100 +20,78 @@ if current_user && (current_user != @user)
   end
 end
 
+details_array = []
+
+if not is_current_user
+  item = @user.age
+else
+  item = {
+      year: getter(@user.birthdate, 'year'),
+      month: getter(@user.birthdate, 'month'),
+      day: getter(@user.birthdate, 'day')
+   }
+end
+details_array << {category: :birthdate, value: item}
+
+
+if not is_current_user
+  item = getter(@user.gender, 'name')
+else
+  item = Gender.all.map {|g| {id: g.id, name: g.name, selected: (@user.gender_id == g.id)}}
+end
+details_array << {category: :gender, value: item}
+
+if not is_current_user
+  item = desires.where(interested: true).map {|d| d.gender.plural}
+else
+  item = desires.map {|d| {id: d.id, name: d.gender.plural, selected: d.interested}}
+end
+details_array << {category: :interested_in, value: item}
+
+item = {min_age: @user.min_age, max_age: @user.max_age}
+details_array << {category: :ages, value: item}
+
+if not is_current_user
+  item = getter(@user.religion, 'title')
+else
+  item = Religion.all.map do |r|
+    {id: r.id, name: r.title, selected: (@details.religion_id == r.id)}
+  end
+end
+details_array << {category: :religion, value: item}
+
+if not is_current_user
+  item = @details.relationship_status
+else
+  item = RelationshipStatus.all.map do |s|
+      {id: s.id, name: s.description, selected: (@details.relationship_status_id == s.id)}
+  end
+end
+details_array << {category: :relationship_status, value: item}
+
+if not is_current_user
+  item = getter(@details.body_type, 'description')
+else
+  item = BodyType.all.map do |t|
+    {id: t.id, name: t.description, selected: (@details.body_type_id == t.id)}
+  end
+end
+details_array << {category: :body_type, value: item}
+
+item = @details.height
+details_array << {category: :height, value: item}
+
+if not is_current_user
+  item = getter(@details.ethnicity, 'description')
+else
+  item = Ethnicity.all.map do |e|
+    {id: e.id, name: e.description, selected: (@details.ethnicity_id == e.id)}
+  end
+end
+details_array << {category: :ethnicity, value: item}
+
 json.details do
-  if not is_current_user
-    json.age @user.age
-  else
-    json.birthdate do
-      json.year getter(@user.birthdate, 'year')
-      json.month getter(@user.birthdate, 'month')
-      json.day getter(@user.birthdate, 'day')
-    end
-  end
-
-  if not is_current_user
-    json.gender getter(@user.gender, 'name')
-  else
-    json.gender do
-      json.array! Gender.all do |gender|
-        json.id gender.id
-        json.singular gender.name
-        json.selected (@user.gender_id == gender.id)
-      end
-    end
-  end
-
-  if not is_current_user
-    json.interested_in do
-      names = desires.where(interested: true).map do |desire|
-        desire.gender.name.pluralize
-      end
-      json.array! names
-    end
-  else
-    json.interested_in do
-      json.array! desires do |desire|
-        json.extract! desire, :id, :gender_id
-        json.name desire.gender.name.pluralize
-        json.selected desire.interested
-      end
-    end
-  end
-
-  json.ages do
-    json.min_age @user.min_age
-    json.max_age @user.max_age
-  end
-
-  if not is_current_user
-    json.religion getter(@user.religion, 'title')
-  else
-    json.religion do
-      json.array! Religion.all do |religion|
-        json.id religion.id
-        json.name religion.title
-        json.selected (@details.religion_id == religion.id)
-      end
-    end
-  end
-
-  if not is_current_user
-    json.relationship_status @details.relationship_status
-  else
-    json.relationship_status do
-      json.array! RelationshipStatus.all do |status|
-        json.id status.id
-        json.name status.description
-        json.selected (@details.relationship_status_id == status.id)
-      end
-    end
-  end
-
-  if not is_current_user
-    json.body_type getter(@details.body_type, 'description')
-  else
-    json.body_type do
-      json.array! BodyType.all do |body_type|
-        json.id body_type.id
-        json.name body_type.description
-        json.selected (@details.body_type_id == body_type.id)
-      end
-    end
-  end
-
-  json.height @details.height
-
-  if not is_current_user
-    json.ethnicity getter(@details.ethnicity, 'description')
-  else
-    json.ethnicity do
-      json.array! Ethnicity.all do |ethnicity|
-        json.id ethnicity.id
-        json.name ethnicity.description
-        json.selected (@details.ethnicity_id == ethnicity.id)
-      end
-    end
-  end
+  json.array! details_array
 end
 
 responses = @user.responses.includes(:response_category).order(:response_category_id)
