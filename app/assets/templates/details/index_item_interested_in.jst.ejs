@@ -1,0 +1,15 @@
+<td>
+  <label>Interested In</label>
+</td>
+<td>
+  <% value.forEach(function(v) { %>
+    <span class="new-user-input-item gender_interest">
+      <% if (v.selected) { %>
+        <input type="checkbox" name="gender_interest" value="<%= v.id +'['+ v.selected + ']' %>" checked="checked">&nbsp;<%= v.name %></input>
+      <% } else { %>
+        <input type="checkbox" name="gender_interest" value="<%= v.id +'['+ v.selected + ']' %>">&nbsp;<%= v.name %></input>
+      <% }%>
+      </input>
+    </span>
+  <% }); %>
+</td>

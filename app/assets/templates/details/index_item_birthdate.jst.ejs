@@ -1,3 +1,5 @@
+<% month = ['NA','January','February','March','April','May','June','July','September','October','November','December'] %>
+
 <td>
   <label>Date Of Birth</label>
 </td>
@@ -9,6 +11,6 @@
       <input class="new-user-input-item" type="text" placeholder="DD" name="birthdate[day]" value="<%= value.day %>">
     </form>
   <% } else { %>
-      <span>&nbsp;<%= value.month + '/' + value.day + '/' + value.year %></span>
+      <span>&nbsp;<%= month[value.month] + ', ' + value.day + ', ' + value.year %></span>
   <% } %>
 </td>

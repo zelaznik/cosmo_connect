@@ -6,7 +6,7 @@ Cosmo.Views.DetailsIndexItem = Backbone.View.extend({
   template: {
     'birthdate': JST['details/index_item_birthdate'],
     'gender': JST['details/index_item_gender'],
-    'intereste_in': JST['details/index_item_intereste_in'],
+    'interested_in': JST['details/index_item_interested_in'],
     'ages': JST['details/index_item_ages'],
     'religion': JST['details/index_item_religion'],
     'relationship_status': JST['details/index_item_gender'],
@@ -17,7 +17,8 @@ Cosmo.Views.DetailsIndexItem = Backbone.View.extend({
 
   events: {
     'change input[type=radio]': 'radioChange',
-    'dblclick .details-item-value': 'updateDetails'
+    'dblclick .details-item-value': 'updateDetails',
+    'change input[type=checkbox]': 'checkboxChange'
   },
 
   model: Cosmo.Models.Detail,

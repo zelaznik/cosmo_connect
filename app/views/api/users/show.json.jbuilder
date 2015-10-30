@@ -41,13 +41,14 @@ else
 end
 details_array << {category: :gender, value: item}
 
+if not is_current_user
+  item = desires.where(interested: true).map {|d| d.gender.plural}
+else
+  item = desires.map {|d| {id: d.id, name: d.gender.plural, selected: d.interested}}
+end
+details_array << {category: :interested_in, value: item}
 
-# if not is_current_user
-#   item = desires.where(interested: true).map {|d| d.gender.plural}
-# else
-#   item = desires.map {|d| {id: d.id, name: d.gender.plural, selected: d.interested}}
-# end
-# details_array << {category: :interested_in, value: item}
+
 #
 # item = {min_age: @user.min_age, max_age: @user.max_age}
 # details_array << {category: :ages, value: item}
