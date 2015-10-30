@@ -5,7 +5,7 @@
 </td>
 <td class="details-item-value">
   <% if (editMode) { %>
-    <form id="details-form">
+    <form id="details-form" name="birthdate">
       <input class="new-user-edit-item" type="text" placeholder="MM" name="birthdate[month]" value="<%= value.month %>">
       <input class="new-user-edit-item" type="text" placeholder="DD" name="birthdate[day]" value="<%= value.day %>">
       <input class="new-user-edit-item" type="year" placeholder="YYYY" name="birthdate[year]" value="<%= value.year %>">

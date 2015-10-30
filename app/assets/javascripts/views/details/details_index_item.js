@@ -96,7 +96,22 @@ Cosmo.Views.DetailsIndexItem = Backbone.View.extend({
   },
 
   submit: function(event) {
-    alert("Submit");
+    var $t = $(event.currentTarget);
+    var data = $t.serializeJSON();
+    data['X-CSRF-Token'] = $('meta[name="csrf-token"]').attr('content');
+    debugger;
+    $.ajax({
+      url: this.model.urlRoot + '/' + $t.prop('name'),
+      dataType: 'json',
+      type: 'PATCH',
+      data: data,
+      success: function(data) {
+        window.location = '/#?new_user_form=false';
+      }.bind(this),
+
+      error: function() {
+      }
+    });
   },
 
   updateDetails: function(event) {
