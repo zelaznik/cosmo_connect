@@ -18,9 +18,9 @@ Cosmo.Models.User = Backbone.Model.extend({
       delete r.details;
     }
 
-    if (r.preference) {
-      this._prefrerence = r.preference;
-      delete r.preference;
+    if (r.preferences) {
+      this._preferences = r.preferences;
+      delete r.preferences;
     }
 
     if (r.like) {

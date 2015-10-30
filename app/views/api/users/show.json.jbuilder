@@ -47,6 +47,7 @@ else
   item = desires.map {|d| {id: d.gender_id, name: d.gender.plural, selected: d.interested}}
 end
 details_array << {category: :interested_in, value: item}
+json.preferences (desires.where(interested: true).map {|d| d.gender.plural}).join(', ')
 
 # item = {min_age: @user.min_age, max_age: @user.max_age}
 # details_array << {category: :ages, value: item}

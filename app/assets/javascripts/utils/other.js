@@ -18,3 +18,11 @@ String.prototype.capitalized = function() {
   }
   return words.join(' ');
 };
+
+function find_by(array, key, value) {
+  for (var i in array) {
+    if (array[i][key] === value) {
+      return array[i];
+    }
+  }
+}

@@ -15,12 +15,10 @@ json.array! @users.includes(:gender).includes(:photos, desired_genders: :gender)
   (json.like likes[user.id].id) if likes[user.id]
   json.photo getter(user.photos.first, 'url')
 
-  json.interested_in do
-    names = []
-    user.desired_genders.each do |desire|
-      next unless desire.interested
-      names << desire.gender.name.pluralize
-    end
-    json.array! names
+  names = []
+  user.desired_genders.each do |d|
+    names << d.gender.plural if d.interested
   end
+  json.preferences names.join(", ")
+
 end
