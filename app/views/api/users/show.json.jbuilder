@@ -23,15 +23,15 @@ end
 details_array = []
 
 if not is_current_user
-  item = @user.age
+  details_array << {category: :age, value: @user.age}
 else
   item = {
       year: getter(@user.birthdate, 'year'),
       month: getter(@user.birthdate, 'month'),
       day: getter(@user.birthdate, 'day')
    }
+   details_array << {category: :birthdate, value: item}
 end
-details_array << {category: :birthdate, value: item}
 
 
 if not is_current_user

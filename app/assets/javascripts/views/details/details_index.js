@@ -7,10 +7,8 @@ Cosmo.Views.DetailsIndex = Backbone.CompositeView.extend({
     this.listenTo(this.collection, 'add', this.addDetailsSubview);
     this.listenTo(this.collection, 'remove', this.removeDetailsSubview);
     this.listenTo(this.collection, 'sync', this.render);
-  },
 
-  lookup: {
-    'birthdate': {'title': 'Date Of Birth'}
+    this.collection.each(this.addDetailsSubview.bind(this));
   },
 
   addDetailsSubview: function(detail) {
@@ -27,10 +25,7 @@ Cosmo.Views.DetailsIndex = Backbone.CompositeView.extend({
   },
 
   render: function () {
-    this.$el.html(this.template({
-      details: this.model.details,
-      user: this.model
-    }));
+    this.$el.html(this.template());
     this.attachSubviews();
     return this;
   }

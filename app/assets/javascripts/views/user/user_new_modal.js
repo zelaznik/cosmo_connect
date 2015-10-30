@@ -44,7 +44,7 @@ var NewUserModal = Cosmo.Views.NewUserModal = Backbone.ModalView.extend({
       type: 'PATCH',
       data: data,
       success: function(data) {
-        view.remove();
+        window.location.replace('/');
       },
       error: function() {
         view.remove();

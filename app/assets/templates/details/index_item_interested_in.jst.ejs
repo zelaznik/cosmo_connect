@@ -2,14 +2,19 @@
   <label>Interested In</label>
 </td>
 <td>
-  <% value.forEach(function(v) { %>
-    <span class="new-user-input-item gender_interest">
-      <% if (v.selected) { %>
-        <input type="checkbox" name="interested_in" value="<%= v.id %>" checked="checked">&nbsp;<%= v.name %></input>
-      <% } else { %>
-        <input type="checkbox" name="interested_in" value="<%= v.id %>">&nbsp;<%= v.name %></input>
-      <% }%>
-      </input>
-    </span>
-  <% }); %>
+  <% if (user.id != Cosmo.CURRENT_USER_ID) { %>
+    <%= value.join(', ') %>
+  <% } else { %>
+    <% value.forEach(function(v) { %>
+      <span class="new-user-input-item gender_interest">
+        <% if (v.selected) { %>
+          <input type="checkbox" name="interested_in" value="<%= v.id %>" checked="checked">&nbsp;<%= v.name %></input>
+        <% } else { %>
+          <input type="checkbox" name="interested_in" value="<%= v.id %>">&nbsp;<%= v.name %></input>
+        <% }%>
+        </input>
+      </span>
+    <% }); %>
+  <% }%>
+
 </td>

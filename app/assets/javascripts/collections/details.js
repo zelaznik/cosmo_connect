@@ -3,6 +3,7 @@ var Cosmo = window.Cosmo;
 Cosmo.Collections.Details = Backbone.Collection.extend({
   detail_order: {
     'birthdate': 0,
+    'age': 0.5,
     'gender': 1,
     'interested_in': 2,
     'ages': 3,

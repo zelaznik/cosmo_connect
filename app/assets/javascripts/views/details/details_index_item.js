@@ -3,8 +3,11 @@ var Cosmo = window.Cosmo;
 Cosmo.Views.DetailsIndexItem = Backbone.View.extend({
   tagName: 'tr',
 
-  template: {
+  _errorTemplate: JST['details/index_item_error'],
+
+  _templates: {
     'birthdate': JST['details/index_item_birthdate'],
+    'age': JST['details/index_item_age'],
     'gender': JST['details/index_item_gender'],
     'interested_in': JST['details/index_item_interested_in'],
     'ages': JST['details/index_item_ages'],
@@ -13,6 +16,18 @@ Cosmo.Views.DetailsIndexItem = Backbone.View.extend({
     'height': JST['details/index_item_height'],
     'body_type': JST['details/index_item_body_type'],
     'ethnicity': JST['details/index_item_ethnicity']
+  },
+
+  template: function(category, options) {
+    var template = this._templates[category];
+    try {
+      return template(options);
+    }
+    catch (error) {
+      debugger;
+      options.error = error;
+      return this._errorTemplate(options);
+    }
   },
 
   events: {
@@ -47,7 +62,6 @@ Cosmo.Views.DetailsIndexItem = Backbone.View.extend({
       data: data,
       success: function(data) {
         this.user.set(data);
-        //this.render();
       }.bind(this),
 
       error: function() {
@@ -56,11 +70,13 @@ Cosmo.Views.DetailsIndexItem = Backbone.View.extend({
   },
 
   radioChange: function(event) {
+    event.preventDefault();
     var $t = event.target;
     var data = {
       'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content'),
       'value': $t.value
     };
+    $.attr('selected', true);
 
     $.ajax({
       url: this.model.urlRoot + '/' + $t.name,
@@ -69,7 +85,6 @@ Cosmo.Views.DetailsIndexItem = Backbone.View.extend({
       data: data,
       success: function(data) {
         this.user.set(data);
-        this.render();
       }.bind(this),
 
       error: function() {
@@ -81,36 +96,36 @@ Cosmo.Views.DetailsIndexItem = Backbone.View.extend({
     throw "The function 'submit' needs to be overridden in a ModalView subclass.";
   },
 
-  handleKey: function(event) {
-    if (event.keyCode === 27) {
-      this.remove();
+  updateDetails: function(event) {
+    event.preventDefault();
+    if (!this.editMode) {
+      this.editMode = true;
+      this.render();
     }
   },
 
-  handleClick: function(event) {
-
+  cancel: function(event) {
+    event.preventDefault();
+    this.editMode = false;
+    this.render();
   },
 
-  updateDetails: function(event) {
-    this.render(true);
-    $(document).on('keyup', this.handleKey.bind(this));
-    $(document).on('click', this.handleClick.bind(this));
-  },
+  render: function() {
+    if (this.editMode) {
+      $(document).on('keyup', handleKeys.bind(this));
+    } else {
+      $(document).unbind('keyup', handleKeys);
+    }
 
-  remove: function() {
-    $(document).off('keyup', this.handleKey.bind(this));
-    $(document).off('click', this.handleClick.bind(this));
-    //Backbone.View.prototype.remove.call(this);
-    this.render(false);
-  },
-
-  render: function(editMode) {
-    var template = this.template[this.model.get('category')];
-    this.$el.html(template({
-      value: this.model.get('value'),
-      user: this.user,
-      editMode: !!editMode
-    }));
+    var content = this.template(
+      this.model.get('category'), {
+        category: this.model.get('category'),
+        value: this.model.get('value'),
+        user: this.user,
+        editMode: !!this.editMode
+      }
+    );
+    this.$el.html(content);
     return this;
   }
 

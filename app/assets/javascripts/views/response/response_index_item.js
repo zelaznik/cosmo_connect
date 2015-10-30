@@ -1,11 +1,5 @@
 var Cosmo = window.Cosmo;
 
-function handleKeys(event) {
-  if (event.keyCode === 27) {
-    this.cancel(event); // Handle {ESCAPE}
-  }
-}
-
 Cosmo.Views.ResponseIndexItem = Backbone.View.extend({
   template: JST['essays/index_item'],
 
@@ -16,7 +10,8 @@ Cosmo.Views.ResponseIndexItem = Backbone.View.extend({
     this.listenTo(this.model, 'sync', this.render);
   },
 
-  events: {  
+  events: {
+    'dblclick .response-index-item-body': 'editEssay',
     'click .essay-edit': 'editEssay',
     'submit #essay-form': 'submit',
     'click .essay-cancel': 'cancel'

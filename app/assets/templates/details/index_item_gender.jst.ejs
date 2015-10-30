@@ -2,14 +2,19 @@
   <label>Gender</label>
 </td>
 <td>
-  <% value.forEach(function(v) { %>
-    <span class="new-user-input-item gender_identity">
-      <% if (v.selected) { %>
-        <input type="radio" name="gender_identity" value="<%= v.id %>" checked="checked">&nbsp;<%= v.name %></input>
-      <% } else { %>
-        <input type="radio" name="gender_identity" value="<%= v.id %>">&nbsp;<%= v.name %></input>
-      <% }%>
-      </input>
-    </span>
-  <% }); %>
+  <% if (user.id != Cosmo.CURRENT_USER_ID) { %>
+    <%= value %>
+  <% } else { %>
+    <% value.forEach(function(v) { %>
+      <span class="new-user-input-item gender_identity">
+        <% if (v.selected) { %>
+          <input type="radio" name="gender_identity" value="<%= v.id %>" checked="checked">&nbsp;<%= v.name %></input>
+        <% } else { %>
+          <input type="radio" name="gender_identity" value="<%= v.id %>">&nbsp;<%= v.name %></input>
+        <% }%>
+        </input>
+      </span>
+    <% }); %>
+  <% } %>
+
 </td>

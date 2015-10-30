@@ -373,6 +373,12 @@ $userAttributesWidth: 410px;
     margin: 0px 10px;
     width: 45px;
   }
+
+  .new-user-edit-item {
+    margin: 0px 0px;
+    width: 45px;
+  }
+
 }
 
 .new-user-modal {
@@ -419,6 +425,11 @@ $userAttributesWidth: 410px;
 /***********************************
     flash[:errors] Modal Styling
 ************************************/
+
+.error-message {
+  background-color: #FF0000;
+  text-color: #FFFFFF;
+}
 
 .error-modal.modal-content {
 

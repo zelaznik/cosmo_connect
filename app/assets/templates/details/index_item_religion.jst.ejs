@@ -13,6 +13,10 @@
       <% }) %>
     </select>
   <% } else { %>
-    &nbsp;<%= v.name %>
+    <% value.forEach(function(v) { %>
+      <% if (v.selected) { %>
+        &nbsp;<%= v.name %>
+      <% } %>
+    <% }) %>
   <% } %>
 </td>
