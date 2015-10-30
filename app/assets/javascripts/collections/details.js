@@ -19,7 +19,7 @@ Cosmo.Collections.Details = Backbone.Collection.extend({
   },
 
   comparator: function (detail) {
-    return this.detail_order(detail);
+    return this.detail_order[detail];
   }
 
 });
