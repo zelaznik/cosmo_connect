@@ -20,7 +20,7 @@ Cosmo.Views.UserShow = Backbone.CompositeView.extend({
     this.listenTo(this.model, 'sync', this.render);
     this.listenTo(this.model.messages(), 'sync', this.render);
     this.listenTo(this.model.responses(), 'sync', this.render);
-    this.listenTo(this.model.desiredGenders(), 'sync', this.render);
+    this.listenTo(this.model.details(), 'sync', this.render);
 
     var responseIndexView = new Cosmo.Views.ResponseIndex({
       collection: this.model.responses(),

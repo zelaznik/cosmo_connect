@@ -23,21 +23,6 @@ Cosmo.Models.User = Backbone.Model.extend({
       delete r.like;
     }
 
-    if (r.interested_in) {
-      this._preferences = r.interested_in;
-      delete r.interested_in;
-    }
-
-    if (r.desired_genders) {
-      this.desiredGenders().set(r.desired_genders);
-      delete r.desired_genders;
-    }
-
-    if (r.details) {
-      this.details().set(r.details);
-      delete r.details;
-    }
-
     if (r.messages) {
       this.messages().set(r.messages);
       delete r.messages;
@@ -55,25 +40,11 @@ Cosmo.Models.User = Backbone.Model.extend({
 
   details: function() {
     if (!this._details) {
-      this._details = new Cosmo.Collections.Details([], {user: this});
+      this._details = new Cosmo.Collections.Details([], {
+
+        user: this});
     }
     return this._details;
-  },
-
-  preferences: function () {
-    if (this._preferences) {
-      return this._preferences.join(', ');
-    } else {
-      return 'N/A';
-    }
-  },
-
-  desiredGenders: function () {
-    // Returns a user's gender preferences
-    if (!this._desires) {
-      this._desires = new Cosmo.Collections.DesiredGenders([], {user: this});
-    }
-    return this._desires;
   },
 
   responses: function () {
@@ -90,16 +61,8 @@ Cosmo.Models.User = Backbone.Model.extend({
     return this._messages;
   },
 
-  details: function () {
-    if (!this._details) {
-      this._details = new Cosmo.Collections.Details([], {user: this});
-    }
-
-    return this._details;
-  },
-
-  birthdate: function() {
-    return this.get('birthdate') || {'year': null, 'month': null, 'day': null};
+  preferences: function() {
+    return "Not Implemented";
   }
 
 });
