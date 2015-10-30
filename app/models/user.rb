@@ -178,4 +178,19 @@ class User < ActiveRecord::Base
     @crush_match_hash ||= Hash[crush_matches.collect { |m| [m.receiver_id, m] } ]
   end
 
+  def preferences
+    prefs = DesiredGender.where(user: self, interested: true).includes(:gender)
+    (prefs.map {|p| p.plural}).join(', ')
+  end
+
+  ####################################
+  #    For JSON Rendering            #
+  ####################################
+
+  def json_preview(current_user)
+    data = {id: id, username: username, age: age, photo: photo.url, preferences: preferences}
+    data[:is_liked] = !!Match.where(sender: current_user, receiver: self).first unless current_user == self
+    data
+  end
+
 end

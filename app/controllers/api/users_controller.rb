@@ -12,21 +12,29 @@ class Api::UsersController < Api::BaseController
 
   def update
     @user = User.find(params[:id])
-    interested_in = user_interested_in
-    if @user.update(user_params_main)
-      @exclude_blank_responses = true
+    begin
+      model = @user
+      model.update! user_params_main
+
+      interested_in = user_interested_in
       unless interested_in.empty?
         ActiveRecord::Base.transaction do
           DesiredGender.where(user: @user).each do |d|
             d.interested = interested_in.include?(d.gender_id)
+            model = d
             d.save!
           end
         end
       end
+
+
+      @exclude_blank_responses = true
       render :show
-    else
-      render json: @user.errors.full_messages, status: 422
+
+    rescue Exception => e
+      render json: {e.class.name => e.message}, status: 500
     end
+
   end
 
   def index
