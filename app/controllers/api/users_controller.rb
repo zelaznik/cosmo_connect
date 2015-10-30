@@ -12,13 +12,15 @@ class Api::UsersController < Api::BaseController
 
   def update
     @user = User.find(params[:id])
-    interested_in = user_interested_in.map(&:to_i)
+    interested_in = user_interested_in
     if @user.update(user_params_main)
       @exclude_blank_responses = true
-      ActiveRecord::Base.transaction do
-        DesiredGender.where(user: @user).each do |d|
-          d.interested = interested_in.include?(d.gender_id)
-          d.save!
+      unless interested_in.empty?
+        ActiveRecord::Base.transaction do
+          DesiredGender.where(user: @user).each do |d|
+            d.interested = interested_in.include?(d.gender_id)
+            d.save!
+          end
         end
       end
       render :show
@@ -45,7 +47,7 @@ class Api::UsersController < Api::BaseController
 
   def user_interested_in
     dct = params.require(:user).permit(interested_in: [])
-    dct[:interested_in].map(&:to_i)
+    (dct[:interested_in]) ? dct[:interested_in].map(&:to_i) : []
   end
 
   def ensure_current_user
