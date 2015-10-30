@@ -7,38 +7,11 @@ is_current_user = (@user == current_user)
 json.extract! @user, :id, :username, :age
 json.gender getter(@user.gender, 'name')
 
-if is_current_user
-  json.gender_id @user.gender_id
-
-  json.genders do
-    json.array! Gender.all do |gender|
-      json.id gender.id
-      json.singular gender.name
-      json.selected (@user.gender_id == gender.id)
-    end
-  end
-
-end
-
 desires = @user.desired_genders.includes(:gender).order(:gender_id)
 
-json.desired_genders do
-  json.array! desires do |desire|
-    json.extract! desire, :id, :gender_id, :interested
-    json.name desire.gender.name
-    json.singular desire.gender.name
-    json.plural desire.gender.name.pluralize
-  end
-end
-
-json.interested_in do
-  names = desires.where(interested: true).map do |desire|
-    desire.gender.name.pluralize
-  end
-  json.array! names
-end
-
 json.photo getter(@user.photos.first, 'thumb_url')
+
+@details = @user.details
 
 if current_user && (current_user != @user)
   Match.where(sender: current_user, receiver: @user).each do |like|
@@ -48,17 +21,89 @@ if current_user && (current_user != @user)
 end
 
 json.details do
-  json.birthdate do
-    json.year getter(@user.birthdate, 'year')
-    json.month getter(@user.birthdate, 'month')
-    json.day getter(@user.birthdate, 'day')
+  if not is_current_user
+    json.age @user.age
+  else
+    json.birthdate do
+      json.year getter(@user.birthdate, 'year')
+      json.month getter(@user.birthdate, 'month')
+      json.day getter(@user.birthdate, 'day')
+    end
   end
 
-  json.religion getter(@user.religion, 'title')
+  if not is_current_user
+    json.gender getter(@user.gender, 'name')
+  else
+    json.gender do
+      json.array! Gender.all do |gender|
+        json.id gender.id
+        json.singular gender.name
+        json.selected (@user.gender_id == gender.id)
+      end
+    end
+  end
+
+  if not is_current_user
+    json.interested_in do
+      names = desires.where(interested: true).map do |desire|
+        desire.gender.name.pluralize
+      end
+      json.array! names
+    end
+  else
+    json.interested_in do
+      json.array! desires do |desire|
+        json.extract! desire, :id, :gender_id
+        json.name desire.gender.name.pluralize
+        json.selected desire.interested
+      end
+    end
+  end
+
+  json.ages do
+    json.min_age @user.min_age
+    json.max_age @user.max_age
+  end
+
+  if not is_current_user
+    json.religion getter(@user.religion, 'title')
+  else
+    json.religion do
+      json.array! Religion.all do |religion|
+        json.id religion.id
+        json.name religion.title
+        json.selected (@details.religion_id == religion.id)
+      end
+    end
+  end
+
+  if not is_current_user
+    json.relationship_status getter(@details.relationship_status)
+  else
+    json.relationship_status do
+      RelationshipStatus.all do |status|
+        json.id status.id
+        json.name status.description
+        json.selected (@details.relationship_status_id == status.id)
+      end
+    end
+  end
+
   json.height getter(@user.details, 'height')
+
+
+
+
+
   json.body_type getter(@user.body_type, 'description')
+
+
+
   json.relationship_status getter(@user.relationship_status, 'description')
+
 end
+
+
 
 responses = @user.responses.includes(:response_category).order(:response_category_id)
 

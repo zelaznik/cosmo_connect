@@ -8,8 +8,9 @@ Cosmo.Collections.Details = Backbone.Collection.extend({
     'ages': 3,
     'religion': 4,
     'relationship_status': 5,
-    'body_type': 6,
-    'ethnicity': 7
+    'height': 6,
+    'body_type': 7,
+    'ethnicity': 8
   },
 
   model: Cosmo.Models.Detail,
