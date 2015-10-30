@@ -1,6 +1,8 @@
 var Cosmo = window.Cosmo;
 
 Cosmo.Views.DetailsIndexItem = Backbone.View.extend({
+  tagName: 'tr',
+
   template: {
     'birthdate': JST['details/index_item_birthdate'],
     'gender': JST['details/index_item_gender'],
@@ -17,7 +19,6 @@ Cosmo.Views.DetailsIndexItem = Backbone.View.extend({
     'dblclick .details-item-value': 'updateDetails'
   },
 
-  className: 'user-details-index-item',
   model: Cosmo.Models.Detail,
 
   initialize: function (options) {
@@ -36,7 +37,7 @@ Cosmo.Views.DetailsIndexItem = Backbone.View.extend({
   },
 
   handleClick: function(event) {
-    
+
   },
 
   updateDetails: function(event) {

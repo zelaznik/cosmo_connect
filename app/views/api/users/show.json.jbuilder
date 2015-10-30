@@ -34,13 +34,14 @@ end
 details_array << {category: :birthdate, value: item}
 
 
-# if not is_current_user
-#   item = getter(@user.gender, 'name')
-# else
-#   item = Gender.all.map {|g| {id: g.id, name: g.name, selected: (@user.gender_id == g.id)}}
-# end
-# details_array << {category: :gender, value: item}
-#
+if not is_current_user
+  item = getter(@user.gender, 'name')
+else
+  item = Gender.all.map {|g| {id: g.id, name: g.name, selected: (@user.gender_id == g.id)}}
+end
+details_array << {category: :gender, value: item}
+
+
 # if not is_current_user
 #   item = desires.where(interested: true).map {|d| d.gender.plural}
 # else
