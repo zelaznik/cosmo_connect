@@ -1,0 +1,18 @@
+<td>
+  <label>Religion</label>
+</td>
+<td class="details-item-value">
+  <% if (editMode) { %>
+    <select>
+      <% value.forEach(function(v) { %>
+        <% if (v.selected) { %>
+          <option class="new-user-input-item" value="<%= v.id %>" selected><%= v.name %></option>
+        <% } else { %>
+          <option class="new-user-input-item" value="<%= v.id %>"><%= v.name %></option>
+        <% } %>
+      <% }) %>
+    </select>
+  <% } else { %>
+    &nbsp;<%= v.name %>
+  <% } %>
+</td>

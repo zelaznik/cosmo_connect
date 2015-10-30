@@ -48,20 +48,19 @@ else
 end
 details_array << {category: :interested_in, value: item}
 
-
-#
 # item = {min_age: @user.min_age, max_age: @user.max_age}
 # details_array << {category: :ages, value: item}
-#
-# if not is_current_user
-#   item = getter(@user.religion, 'title')
-# else
-#   item = Religion.all.map do |r|
-#     {id: r.id, name: r.title, selected: (@details.religion_id == r.id)}
-#   end
-# end
-# details_array << {category: :religion, value: item}
-#
+
+if not is_current_user
+  item = getter(@user.religion, 'title')
+else
+  item = Religion.all.map do |r|
+    {id: r.id, name: r.title, selected: (@details.religion_id == r.id)}
+  end
+end
+details_array << {category: :religion, value: item}
+
+
 # if not is_current_user
 #   item = @details.relationship_status
 # else

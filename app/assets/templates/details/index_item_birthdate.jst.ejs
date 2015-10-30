@@ -9,6 +9,7 @@
       <input class="new-user-input-item" type="year" placeholder="YYYY" name="birthdate[year]" value="<%= value.year %>">
       <input class="new-user-input-item" type="text" placeholder="MM" name="birthdate[month]" value="<%= value.month %>">
       <input class="new-user-input-item" type="text" placeholder="DD" name="birthdate[day]" value="<%= value.day %>">
+      <i class="glyphicon glyphicon-ok-sign" style="color:green"></i>
     </form>
   <% } else { %>
       <span>&nbsp;<%= month[value.month] + ', ' + value.day + ', ' + value.year %></span>
