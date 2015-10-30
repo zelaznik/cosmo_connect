@@ -1785,6 +1785,7 @@ COPY schema_migrations (version) FROM stdin;
 20150910073815
 20151028122730
 20151028124908
+20151030003921
 \.
 
 
@@ -2350,7 +2351,7 @@ CREATE TRIGGER trg_aft_ins_users AFTER INSERT ON users FOR EACH ROW EXECUTE PROC
 --
 
 ALTER TABLE ONLY details_of_users
-    ADD CONSTRAINT fk_rails_06f41649f1 FOREIGN KEY (user_id) REFERENCES users(id);
+    ADD CONSTRAINT fk_rails_06f41649f1 FOREIGN KEY (user_id) REFERENCES users(id) ON UPDATE CASCADE ON DELETE CASCADE;
 
 
 --
@@ -2358,7 +2359,7 @@ ALTER TABLE ONLY details_of_users
 --
 
 ALTER TABLE ONLY details_of_users
-    ADD CONSTRAINT fk_rails_0e82c8a925 FOREIGN KEY (relationship_status_id) REFERENCES relationship_statuses(id);
+    ADD CONSTRAINT fk_rails_0e82c8a925 FOREIGN KEY (relationship_status_id) REFERENCES relationship_statuses(id) ON UPDATE CASCADE ON DELETE CASCADE;
 
 
 --
@@ -2366,7 +2367,7 @@ ALTER TABLE ONLY details_of_users
 --
 
 ALTER TABLE ONLY user_interest_links
-    ADD CONSTRAINT fk_rails_1d76cf6954 FOREIGN KEY (user_id) REFERENCES users(id);
+    ADD CONSTRAINT fk_rails_1d76cf6954 FOREIGN KEY (user_id) REFERENCES users(id) ON UPDATE CASCADE ON DELETE CASCADE;
 
 
 --
@@ -2374,7 +2375,7 @@ ALTER TABLE ONLY user_interest_links
 --
 
 ALTER TABLE ONLY details_of_users
-    ADD CONSTRAINT fk_rails_226f7867bd FOREIGN KEY (ethnicity_id) REFERENCES ethnicities(id);
+    ADD CONSTRAINT fk_rails_226f7867bd FOREIGN KEY (ethnicity_id) REFERENCES ethnicities(id) ON UPDATE CASCADE ON DELETE CASCADE;
 
 
 --
@@ -2382,7 +2383,7 @@ ALTER TABLE ONLY details_of_users
 --
 
 ALTER TABLE ONLY responses
-    ADD CONSTRAINT fk_rails_2bd9a0753e FOREIGN KEY (user_id) REFERENCES users(id);
+    ADD CONSTRAINT fk_rails_2bd9a0753e FOREIGN KEY (user_id) REFERENCES users(id) ON UPDATE CASCADE ON DELETE CASCADE;
 
 
 --
@@ -2390,7 +2391,7 @@ ALTER TABLE ONLY responses
 --
 
 ALTER TABLE ONLY matches
-    ADD CONSTRAINT fk_rails_3d5495eb35 FOREIGN KEY (sender_id) REFERENCES users(id);
+    ADD CONSTRAINT fk_rails_3d5495eb35 FOREIGN KEY (sender_id) REFERENCES users(id) ON UPDATE CASCADE ON DELETE CASCADE;
 
 
 --
@@ -2398,7 +2399,7 @@ ALTER TABLE ONLY matches
 --
 
 ALTER TABLE ONLY matches
-    ADD CONSTRAINT fk_rails_4154aab8fd FOREIGN KEY (receiver_id) REFERENCES users(id);
+    ADD CONSTRAINT fk_rails_4154aab8fd FOREIGN KEY (receiver_id) REFERENCES users(id) ON UPDATE CASCADE ON DELETE CASCADE;
 
 
 --
@@ -2406,7 +2407,7 @@ ALTER TABLE ONLY matches
 --
 
 ALTER TABLE ONLY users
-    ADD CONSTRAINT fk_rails_47055e3204 FOREIGN KEY (gender_id) REFERENCES genders(id);
+    ADD CONSTRAINT fk_rails_47055e3204 FOREIGN KEY (gender_id) REFERENCES genders(id) ON UPDATE CASCADE ON DELETE CASCADE;
 
 
 --
@@ -2414,7 +2415,7 @@ ALTER TABLE ONLY users
 --
 
 ALTER TABLE ONLY responses
-    ADD CONSTRAINT fk_rails_4bcdc22c1b FOREIGN KEY (response_category_id) REFERENCES response_categories(id);
+    ADD CONSTRAINT fk_rails_4bcdc22c1b FOREIGN KEY (response_category_id) REFERENCES response_categories(id) ON UPDATE CASCADE ON DELETE CASCADE;
 
 
 --
@@ -2422,7 +2423,7 @@ ALTER TABLE ONLY responses
 --
 
 ALTER TABLE ONLY visits
-    ADD CONSTRAINT fk_rails_5118b56961 FOREIGN KEY (profile_id) REFERENCES users(id);
+    ADD CONSTRAINT fk_rails_5118b56961 FOREIGN KEY (profile_id) REFERENCES users(id) ON UPDATE CASCADE ON DELETE CASCADE;
 
 
 --
@@ -2430,7 +2431,7 @@ ALTER TABLE ONLY visits
 --
 
 ALTER TABLE ONLY default_preferences
-    ADD CONSTRAINT fk_rails_581ad36714 FOREIGN KEY (gender_id) REFERENCES genders(id);
+    ADD CONSTRAINT fk_rails_581ad36714 FOREIGN KEY (gender_id) REFERENCES genders(id) ON UPDATE CASCADE ON DELETE CASCADE;
 
 
 --
@@ -2438,7 +2439,7 @@ ALTER TABLE ONLY default_preferences
 --
 
 ALTER TABLE ONLY messages
-    ADD CONSTRAINT fk_rails_67c67d2963 FOREIGN KEY (receiver_id) REFERENCES users(id);
+    ADD CONSTRAINT fk_rails_67c67d2963 FOREIGN KEY (receiver_id) REFERENCES users(id) ON UPDATE CASCADE ON DELETE CASCADE;
 
 
 --
@@ -2446,7 +2447,7 @@ ALTER TABLE ONLY messages
 --
 
 ALTER TABLE ONLY default_preferences
-    ADD CONSTRAINT fk_rails_9ff6a2bac0 FOREIGN KEY (desire_id) REFERENCES genders(id);
+    ADD CONSTRAINT fk_rails_9ff6a2bac0 FOREIGN KEY (desire_id) REFERENCES genders(id) ON UPDATE CASCADE ON DELETE CASCADE;
 
 
 --
@@ -2454,7 +2455,7 @@ ALTER TABLE ONLY default_preferences
 --
 
 ALTER TABLE ONLY user_interest_links
-    ADD CONSTRAINT fk_rails_a407c53dcd FOREIGN KEY (interest_id) REFERENCES interests(id);
+    ADD CONSTRAINT fk_rails_a407c53dcd FOREIGN KEY (interest_id) REFERENCES interests(id) ON UPDATE CASCADE ON DELETE CASCADE;
 
 
 --
@@ -2462,7 +2463,7 @@ ALTER TABLE ONLY user_interest_links
 --
 
 ALTER TABLE ONLY desired_genders
-    ADD CONSTRAINT fk_rails_ac8d78ef71 FOREIGN KEY (user_id) REFERENCES users(id);
+    ADD CONSTRAINT fk_rails_ac8d78ef71 FOREIGN KEY (user_id) REFERENCES users(id) ON UPDATE CASCADE ON DELETE CASCADE;
 
 
 --
@@ -2470,7 +2471,7 @@ ALTER TABLE ONLY desired_genders
 --
 
 ALTER TABLE ONLY visits
-    ADD CONSTRAINT fk_rails_b156c396f4 FOREIGN KEY (visitor_id) REFERENCES users(id);
+    ADD CONSTRAINT fk_rails_b156c396f4 FOREIGN KEY (visitor_id) REFERENCES users(id) ON UPDATE CASCADE ON DELETE CASCADE;
 
 
 --
@@ -2478,7 +2479,7 @@ ALTER TABLE ONLY visits
 --
 
 ALTER TABLE ONLY messages
-    ADD CONSTRAINT fk_rails_b8f26a382d FOREIGN KEY (sender_id) REFERENCES users(id);
+    ADD CONSTRAINT fk_rails_b8f26a382d FOREIGN KEY (sender_id) REFERENCES users(id) ON UPDATE CASCADE ON DELETE CASCADE;
 
 
 --
@@ -2486,7 +2487,7 @@ ALTER TABLE ONLY messages
 --
 
 ALTER TABLE ONLY desired_genders
-    ADD CONSTRAINT fk_rails_c15204215a FOREIGN KEY (gender_id) REFERENCES genders(id);
+    ADD CONSTRAINT fk_rails_c15204215a FOREIGN KEY (gender_id) REFERENCES genders(id) ON UPDATE CASCADE ON DELETE CASCADE;
 
 
 --
@@ -2494,7 +2495,7 @@ ALTER TABLE ONLY desired_genders
 --
 
 ALTER TABLE ONLY photos
-    ADD CONSTRAINT fk_rails_c79d76afc0 FOREIGN KEY (user_id) REFERENCES users(id);
+    ADD CONSTRAINT fk_rails_c79d76afc0 FOREIGN KEY (user_id) REFERENCES users(id) ON UPDATE CASCADE ON DELETE CASCADE;
 
 
 --
@@ -2502,7 +2503,7 @@ ALTER TABLE ONLY photos
 --
 
 ALTER TABLE ONLY details_of_users
-    ADD CONSTRAINT fk_rails_cd4d9a2710 FOREIGN KEY (body_type_id) REFERENCES body_types(id);
+    ADD CONSTRAINT fk_rails_cd4d9a2710 FOREIGN KEY (body_type_id) REFERENCES body_types(id) ON UPDATE CASCADE ON DELETE CASCADE;
 
 
 --
@@ -2510,7 +2511,7 @@ ALTER TABLE ONLY details_of_users
 --
 
 ALTER TABLE ONLY details_of_users
-    ADD CONSTRAINT fk_rails_dc762f37c6 FOREIGN KEY (religion_id) REFERENCES religions(id);
+    ADD CONSTRAINT fk_rails_dc762f37c6 FOREIGN KEY (religion_id) REFERENCES religions(id) ON UPDATE CASCADE ON DELETE CASCADE;
 
 
 --
