@@ -24,6 +24,7 @@ Cosmo.Views.DetailsIndexItem = Backbone.View.extend({
       return template(options);
     }
     catch (error) {
+      options.category = options.category || '(No Category Specified)';
       options.error = error;
       return this._errorTemplate(options);
     }

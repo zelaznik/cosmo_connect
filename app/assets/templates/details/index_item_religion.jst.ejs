@@ -2,21 +2,26 @@
   <label>Religion</label>
 </td>
 <td class="details-item-value">
-  <% if (editMode) { %>
-    <select>
+  <% if (user.id != Cosmo.CURRENT_USER_ID) { %>
+    <%= value || '(unspecified)' %>
+  <% } else { %>
+    <% if (editMode) { %>
+      <select>
+        <% value.forEach(function(v) { %>
+          <% if (v.selected) { %>
+            <option class="new-user-input-item" value="<%= v.id %>" selected><%= v.name %></option>
+          <% } else { %>
+            <option class="new-user-input-item" value="<%= v.id %>"><%= v.name %></option>
+          <% } %>
+        <% }) %>
+      </select>
+    <% } else { %>
       <% value.forEach(function(v) { %>
         <% if (v.selected) { %>
-          <option class="new-user-input-item" value="<%= v.id %>" selected><%= v.name %></option>
-        <% } else { %>
-          <option class="new-user-input-item" value="<%= v.id %>"><%= v.name %></option>
+          &nbsp;<%= v.name %>
         <% } %>
       <% }) %>
-    </select>
-  <% } else { %>
-    <% value.forEach(function(v) { %>
-      <% if (v.selected) { %>
-        &nbsp;<%= v.name %>
-      <% } %>
-    <% }) %>
+    <% } %>
   <% } %>
+
 </td>

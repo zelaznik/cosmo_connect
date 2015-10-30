@@ -3,7 +3,7 @@
 </td>
 <td>
   <% if (user.id != Cosmo.CURRENT_USER_ID) { %>
-    <%= value %>
+      <%= value || '(unspecified)' %>
   <% } else { %>
     <% value.forEach(function(v) { %>
       <span class="new-user-input-item gender_identity">
