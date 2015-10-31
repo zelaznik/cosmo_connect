@@ -11,7 +11,7 @@ Cosmo.Views.DetailsIndexItem = Backbone.View.extend({
     'gender': JST['details/index_item_gender'],
     'interested_in': JST['details/index_item_interested_in'],
     'ages': JST['details/index_item_ages'],
-    'religion': JST['details/index_item_religion'],
+    'religion': JST['details/index_item_select_tag'],
     'relationship_status': JST['details/index_item_gender'],
     'height': JST['details/index_item_height'],
     'body_type': JST['details/index_item_body_type'],
