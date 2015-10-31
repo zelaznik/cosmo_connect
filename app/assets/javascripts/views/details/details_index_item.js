@@ -92,6 +92,7 @@ Cosmo.Views.DetailsIndexItem = Backbone.View.extend({
       }.bind(this),
 
       error: function() {
+        debugger;
       }
     });
   },

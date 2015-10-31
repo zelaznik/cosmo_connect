@@ -11,42 +11,37 @@ class Api::UsersController < Api::BaseController
   end
 
   def update
-    debugger
-    begin
-      @user = User.find(params[:id])
-      if @user != current_user
-        raise Exception("Cannot change the attributes of another user.")
-      end
 
-      ## Save the details in the main user table
-      model = @user
-      model.update! user_params_main
+    @user = User.find(params[:id])
+    if @user != current_user
+      raise Exception("Cannot change the attributes of another user.")
+    end
 
-      ## Save the user's gender preferences
-      interested_in = user_interested_in
-      unless interested_in.empty?
-        ActiveRecord::Base.transaction do
-          DesiredGender.where(user: @user).each do |d|
-            d.interested = interested_in.include?(d.gender_id)
-            model = d
-            d.save!
-          end
+    ## Save the details in the main user table
+    model = @user
+    model.update! user_params_main
+
+    ## Save the user's gender preferences
+    interested_in = user_interested_in
+    unless interested_in.empty?
+      ActiveRecord::Base.transaction do
+        DesiredGender.where(user: @user).each do |d|
+          d.interested = interested_in.include?(d.gender_id)
+          model = d
+          d.save!
         end
       end
-
-      ## Save the user's other details, stored in a second table.
-      details = user_params_details
-      unless details.empty?
-        model = current_user.details
-        model.update! details
-      end
-
-      @exclude_blank_responses = true
-      render :show
-
-    rescue Exception => e
-      render json: {e.class.name => e.message}, status: 500
     end
+
+    ## Save the user's other details, stored in a second table.
+    details = user_params_details
+    unless details.empty?
+      model = current_user.details
+      model.update! details
+    end
+
+    @exclude_blank_responses = true
+    render :show
 
   end
 
@@ -56,7 +51,7 @@ class Api::UsersController < Api::BaseController
 
   private
   def user_params_all
-    @params_all ||= params.require(:user).permit(
+    d = params.require(:user).permit(
       ## User Details Table
       :religion_id, :ethnicity_id, :height, :body_type_id,
       :relationship_status_id, :religion_id, :zip_code,
@@ -74,7 +69,12 @@ class Api::UsersController < Api::BaseController
   end
 
   def user_params_main
-    user_params_subset(:id, :gender_id, :min_age, :birthdate)
+    d = user_params_subset(:id, :gender_id, :min_age, :birthdate)
+    if d[:birthdate]
+      b = d[:birthdate]
+      d[:birthdate] = Date.new(b[:year].to_i, b[:month].to_i, b[:day].to_i)
+    end
+    d
   end
 
   def user_params_details
