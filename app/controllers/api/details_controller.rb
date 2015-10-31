@@ -83,7 +83,7 @@ class Api::DetailsController < ApplicationController
       model = nil
       prefs = Hash[ *v.collect {|r| [ r[:id], r[:selected]]}.flatten ]
       desires = DesiredGender.where(user: current_user)
-      desires..includes(:gender).all.each do |d|
+      desires.includes(:gender).all.each do |d|
         next if d.interested == prefs[d.gender_id]
         d.interested = prefs[d.gender_id]
         next if d.save

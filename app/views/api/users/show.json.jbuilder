@@ -81,7 +81,7 @@ else
 end
 details_array << {id: :body_type, value: item}
 
-height = @details.height
+height = @details.height || 0
 item = {feet: (height/12).floor, inches: (height % 12).floor}
 details_array << {id: :height, value: item}
 

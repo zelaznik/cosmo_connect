@@ -16,14 +16,16 @@
         <% }) %>
       </select>
     <% } else { %>
+      <% var name = '(unspecified)' %>
       <% value.forEach(function(v) { %>
         <% if (v.selected) { %>
-          &nbsp;<%= v.name %>&nbsp;
-          <a class="user-details-edit-icon" data-toggle="modal" data-target="#myModal">
-            <span class="edit-glyphicon glyphicon glyphicon-pencil" aria-hidden="true"></span>
-          </a>
+          <% name = v.name; %>
         <% } %>
       <% }) %>
+      &nbsp;<%= name %>&nbsp;
+      <a class="user-details-edit-icon" data-toggle="modal" data-target="#myModal">
+        <span class="edit-glyphicon glyphicon glyphicon-pencil" aria-hidden="true"></span>
+      </a>
     <% } %>
   <% } %>
 
