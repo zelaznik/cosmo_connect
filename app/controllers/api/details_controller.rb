@@ -42,6 +42,17 @@ class Api::DetailsController < ApplicationController
         end
       }
 
+    elsif k == 'body_type'
+      model = current_user.details
+      body_type_id = (v.select {|r| r[:selected]}).first[:id]
+      update_params = {body_type_id: body_type_id}
+      output_params = {
+        id: :body_type,
+        value: BodyType.all.map do |t|
+          {id: t.id, name: t.description, selected: (t.id == body_type_id)}
+        end
+      }
+
     end
 
     if model.update(update_params)
