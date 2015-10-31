@@ -1,8 +1,6 @@
 var Cosmo = window.Cosmo;
 
 Cosmo.Views.UserShow = Backbone.CompositeView.extend({
-  template_preview: JST['users/preview'],
-  message_index: JST['messages/index'],
   template: JST['users/show'],
   model: Cosmo.Models.User,
 
@@ -33,6 +31,13 @@ Cosmo.Views.UserShow = Backbone.CompositeView.extend({
       model: this.model
     });
     this.addSubview('.user-attributes', userDetailsView);
+
+    // Attach the user preview template
+    var userPreview = new Cosmo.Views.UserPreview({
+      model: this.model,
+      useLink: false
+    });
+    this.addSubview('.user-preview', userPreview);
 
     if (Cosmo.NEW_USER) {
       var userModalView = new Cosmo.Views.NewUserModal({
@@ -133,13 +138,6 @@ Cosmo.Views.UserShow = Backbone.CompositeView.extend({
       user: this.model
     });
     this.$el.html(content);
-
-    // Attach the user preview template
-    var preview = this.template_preview({
-      useLink: false,
-      user: this.model
-    });
-    this.$('.user-preview').html(preview);
 
     // Attach the message history
     var view = new Cosmo.Views.MessageIndex({

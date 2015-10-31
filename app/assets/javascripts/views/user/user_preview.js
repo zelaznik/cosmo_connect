@@ -1,6 +1,22 @@
 var Cosmo = window.Cosmo;
 
-Cosmo.Views.UserPreview = Backbone.CompositeView.extend({
-  template_preview: JST['users/preview'],
+Cosmo.Views.UserPreview = Backbone.View.extend({
+  template: JST['users/preview'],
+
+  initialize: function(options) {
+    this.useLink = options.useLink;
+
+    this.listenTo(this.model, 'sync set save', this.render);
+  },
+
+  render: function() {
+    var content = this.template({
+      useLink: this.useLink,
+      user: this.model
+    });
+    this.$el.html(content);
+
+    return this;
+  }
 
 });
