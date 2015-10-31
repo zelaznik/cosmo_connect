@@ -37,6 +37,7 @@ Cosmo.Views.UserShow = Backbone.CompositeView.extend({
       model: this.model,
       useLink: false
     });
+    this._preview = userPreview;
     this.addSubview('.user-preview', userPreview);
 
     if (Cosmo.NEW_USER) {
@@ -103,20 +104,19 @@ Cosmo.Views.UserShow = Backbone.CompositeView.extend({
       receiver_id: this.model.id,
       sender_id: Cosmo.CURRENT_USER_ID
     };
-    this.model.like().save(attrs, {
-      success: this.render.bind(this)
-    });
-
-    this.render();
+    this.model.like().save(attrs, {});
+    this._preview.render();
   },
 
   unlikeUser: function() {
     this.model.like().destroy({
       success: function() {
-        this.model.like().clear();
-        this.render();
+          this.model.like().clear();
+          this._preview.render();
       }.bind(this)
     });
+
+    this._preview.render();
   },
 
   upload: function(e) {
