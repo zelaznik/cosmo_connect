@@ -64,7 +64,12 @@ class Api::DetailsController < ApplicationController
         end
       }
 
-    end
+    elsif k == 'ages'
+      model = current_user
+      update_params = {min_age: v[:min_age], max_age: v[:max_age]}
+      output_params = {id: :ages, value: update_params}
+
+  end
 
     if model.update(update_params)
       render json: output_params
