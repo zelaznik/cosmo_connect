@@ -106,6 +106,8 @@ Cosmo.Views.UserShow = Backbone.CompositeView.extend({
     this.model.like().save(attrs, {
       success: this.render.bind(this)
     });
+
+    this.render();
   },
 
   unlikeUser: function() {
