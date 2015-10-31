@@ -17,7 +17,7 @@ Cosmo.Views.UserShow = Backbone.CompositeView.extend({
   },
 
   initialize: function() {
-    this.listenTo(this.model, 'sync', this.render);
+    this.listenTo(this.model, 'sync set save', this.render);
     this.listenTo(this.model.messages(), 'sync', this.render);
     this.listenTo(this.model.responses(), 'sync', this.render);
     this.listenTo(this.model.details(), 'sync', this.render);

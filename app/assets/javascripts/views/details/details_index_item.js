@@ -92,12 +92,31 @@ Cosmo.Views.DetailsIndexItem = Backbone.View.extend({
       }.bind(this),
 
       error: function() {
-        debugger;
+        console.log(arguments[0]);
       }
     });
   },
 
   submit: function(event) {
+    event.preventDefault();
+    $t = $(event.currentTarget);
+    var data = {
+      'category': $t.attr('name'),
+      'value': $t.serializeJSON(),
+      'id': Cosmo.CURRENT_USER_ID
+    };
+
+    this.model.save(data, {
+      success: function(detailsIndexItem) {
+        this.collection.add(detailsIndexItem);
+        this.remove();
+        this.render(false);
+      }.bind(this)
+    });
+    this.render(false);
+  },
+
+  submit_OLD: function(event) {
     var $t = $(event.currentTarget);
     var data = {'user': $t.serializeJSON()};
     data['X-CSRF-Token'] = $('meta[name="csrf-token"]').attr('content');
