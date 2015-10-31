@@ -87,7 +87,6 @@ class Api::DetailsController < ApplicationController
         next if d.interested == prefs[d.gender_id]
         d.interested = prefs[d.gender_id]
         tmp = {id: d.id, gender: d.gender.plural, interested: d.interested}
-        puts tmp
         next if d.save
         model = d
       end
