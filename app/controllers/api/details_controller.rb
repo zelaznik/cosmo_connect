@@ -69,6 +69,15 @@ class Api::DetailsController < ApplicationController
       update_params = {min_age: v[:min_age], max_age: v[:max_age]}
       output_params = {id: :ages, value: update_params}
 
+    elsif k == 'height'
+      model = current_user.details
+      height = 12 * v[:feet] + v[:inches]
+      update_params = {height: height}
+      output_params = {
+        id: :height,
+        value: {feet: v[:feet], inches: v[:inches]}
+      }
+
   end
 
     if model.update(update_params)

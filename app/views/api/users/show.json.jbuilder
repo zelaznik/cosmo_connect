@@ -81,7 +81,8 @@ else
 end
 details_array << {id: :body_type, value: item}
 
-item = @details.height
+height = @details.height
+item = {feet: (height/12).floor, inches: (height % 12).floor}
 details_array << {id: :height, value: item}
 
 if not is_current_user
