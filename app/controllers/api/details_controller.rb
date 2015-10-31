@@ -80,13 +80,12 @@ class Api::DetailsController < ApplicationController
     end
 
     if k == 'interested_in'
-      prefs = Hash[ *v.collect {|r| [ r[:id], r[:selected]]}.flatten ]
-      desires = DesiredGender.where(user: current_user).includes(:gender).all
       model = nil
-      desires.each do |d|
+      prefs = Hash[ *v.collect {|r| [ r[:id], r[:selected]]}.flatten ]
+      desires = DesiredGender.where(user: current_user)
+      desires..includes(:gender).all.each do |d|
         next if d.interested == prefs[d.gender_id]
         d.interested = prefs[d.gender_id]
-        tmp = {id: d.id, gender: d.gender.plural, interested: d.interested}
         next if d.save
         model = d
       end
