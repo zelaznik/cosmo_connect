@@ -1,0 +1,29 @@
+<td>
+  <label>Seeking Ages</label>
+</td>
+<td class="details-item-value">
+  <% if (user.id !== Cosmo.CURRENT_USER_ID) { %>
+    &nbsp;
+    <span id="min_age"><%= value.min_age || '(unspecified)' %></span>
+    <span> to </span>
+    <span id="max_age"><%= value.max_age || '(unspecified)' %></span>
+  <% } else { %>
+    <% if (editMode) { %>
+      <form id="details-form" name="ages">
+        <input class="new-user-input-item" name = "min_age" type="text" placeholder="YY" value="<%= value.min_age || '(unspecified)' %>">
+        <span> to </span>
+        <input class="new-user-input-item" name = "max_age" type="text" placeholder="YY" value="<%= value.max_age || '(unspecified)' %>">
+        <button type="submit" class="details-submit btn btn-primary btn-sm editable-submit"><i class="glyphicon glyphicon-ok"></i></button>
+        <button type="button" class="details-cancel btn btn-default btn-sm editable-cancel"><i class="glyphicon glyphicon-remove"></i></button>
+      </form>
+    <% } else { %>
+        &nbsp;
+        <span id="min_age"><%= value.min_age || '(unspecified)' %></span>
+        <span> to </span>
+        <span id="max_age"><%= value.max_age || '(unspecified)' %></span>
+        <a class="user-details-edit-icon" data-toggle="modal" data-target="#myModal">
+          &nbsp;<span class="edit-glyphicon glyphicon glyphicon-pencil" aria-hidden="true"></span>
+        </a>
+    <% } %>
+  <% } %>
+</td>
