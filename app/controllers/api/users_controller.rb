@@ -11,8 +11,13 @@ class Api::UsersController < Api::BaseController
   end
 
   def update
-    @user = User.find(params[:id])
+    debugger
     begin
+      @user = User.find(params[:id])
+      if @user != current_user
+        raise Exception("Cannot change the attributes of another user.")
+      end
+
       ## Save the details in the main user table
       model = @user
       model.update! user_params_main
@@ -50,19 +55,31 @@ class Api::UsersController < Api::BaseController
   end
 
   private
-  def user_params_main
-    dct = params.require(:user).permit(:id, :gender_id, :min_age, :max_age, birthdate: [:year, :month, :day])
-    bday = dct[:birthdate]
-    begin
-      dct[:birthdate] = Date.new(bday[:year].to_i, bday[:month].to_i, bday[:day].to_i)
-    rescue ArgumentError
-      #pass
+  def user_params_all
+    @params_all ||= params.require(:user).permit(
+      ## User Details Table
+      :religion_id, :ethnicity_id, :height, :body_type_id,
+      :relationship_status_id, :religion_id, :zip_code,
+      ## Main Users Table
+      :id, :gender_id, :min_age, :max_age, birthdate: [:year, :month, :day])
+  end
+
+  def user_params_subset(*keys)
+    dct = {}
+    m = user_params_all
+    keys.each do |k|
+      dct[k] = m[k] if m.include?(k)
     end
-    return dct
+    dct
+  end
+
+  def user_params_main
+    user_params_subset(:id, :gender_id, :min_age, :birthdate)
   end
 
   def user_params_details
-    params.require(:user).permit(:ethnicity_id, :height, :body_type_id, :relationship_status_id, :religion_id, :zip_code)
+    user_params_subset(:religion_id, :ethnicity_id, :height, :body_type_id,
+    :relationship_status_id, :religion_id, :zip_code)
   end
 
   def user_interested_in

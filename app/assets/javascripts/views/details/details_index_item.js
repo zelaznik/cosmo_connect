@@ -100,7 +100,6 @@ Cosmo.Views.DetailsIndexItem = Backbone.View.extend({
     var $t = $(event.currentTarget);
     var data = {'user': $t.serializeJSON()};
     data['X-CSRF-Token'] = $('meta[name="csrf-token"]').attr('content');
-    debugger;
 
     $.ajax({
       url: this.user.url(),
