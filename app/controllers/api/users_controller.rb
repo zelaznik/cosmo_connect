@@ -37,7 +37,7 @@ class Api::UsersController < Api::BaseController
       ## Save the user's other details, stored in a second table.
       details = user_params_details
       unless details.empty?
-        model = DetailsOfUser.where(user: current_user)
+        model = current_user.details
         model.update! details
       end
 
