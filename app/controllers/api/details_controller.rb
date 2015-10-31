@@ -53,6 +53,17 @@ class Api::DetailsController < ApplicationController
         end
       }
 
+    elsif k == 'ethnicity'
+      model = current_user.details
+      ethnicity_id = (v.select {|r| r[:selected]}).first[:id]
+      update_params = {ethnicity_id: ethnicity_id}
+      output_params = {
+        id: :ethnicity,
+        value: Ethnicity.all.map do |e|
+          {id: e.id, name: e.description, selected: (e.id == ethnicity_id)}
+        end
+      }
+
     end
 
     if model.update(update_params)
