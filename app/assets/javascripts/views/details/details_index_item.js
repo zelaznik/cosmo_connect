@@ -12,10 +12,10 @@ Cosmo.Views.DetailsIndexItem = Backbone.View.extend({
     'interested_in': JST['details/index_item_interested_in'],
     'ages': JST['details/index_item_ages'],
     'religion': JST['details/index_item_select_tag'],
-    'relationship_status': JST['details/index_item_gender'],
+    'relationship_status': JST['details/index_item_select_tag'],
     'height': JST['details/index_item_height'],
-    'body_type': JST['details/index_item_body_type'],
-    'ethnicity': JST['details/index_item_ethnicity']
+    'body_type': JST['details/index_item_select_tag'],
+    'ethnicity': JST['details/index_item_select_tag']
   },
 
   template: function(category, options) {

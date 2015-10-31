@@ -62,35 +62,36 @@ end
 details_array << {id: :religion, value: item}
 
 
-# if not is_current_user
-#   item = @details.relationship_status
-# else
-#   item = RelationshipStatus.all.map do |s|
-#       {id: s.id, name: s.description, selected: (@details.relationship_status_id == s.id)}
-#   end
-# end
-# details_array << {id: :relationship_status, value: item}
-#
-# if not is_current_user
-#   item = getter(@details.body_type, 'description')
-# else
-#   item = BodyType.all.map do |t|
-#     {id: t.id, name: t.description, selected: (@details.body_type_id == t.id)}
-#   end
-# end
-# details_array << {id: :body_type, value: item}
-#
+if not is_current_user
+  item = @details.relationship_status
+else
+  item = RelationshipStatus.all.map do |s|
+      {id: s.id, name: s.description, selected: (@details.relationship_status_id == s.id)}
+  end
+end
+details_array << {id: :relationship_status, value: item}
+
+
+if not is_current_user
+  item = getter(@details.body_type, 'description')
+else
+  item = BodyType.all.map do |t|
+    {id: t.id, name: t.description, selected: (@details.body_type_id == t.id)}
+  end
+end
+details_array << {id: :body_type, value: item}
+
 # item = @details.height
 # details_array << {id: :height, value: item}
-#
-# if not is_current_user
-#   item = getter(@details.ethnicity, 'description')
-# else
-#   item = Ethnicity.all.map do |e|
-#     {id: e.id, name: e.description, selected: (@details.ethnicity_id == e.id)}
-#   end
-# end
-# details_array << {id: :ethnicity, value: item}
+
+if not is_current_user
+  item = getter(@details.ethnicity, 'description')
+else
+  item = Ethnicity.all.map do |e|
+    {id: e.id, name: e.description, selected: (@details.ethnicity_id == e.id)}
+  end
+end
+details_array << {id: :ethnicity, value: item}
 
 json.details do
   json.array! details_array
