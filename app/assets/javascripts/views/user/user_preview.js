@@ -5,8 +5,8 @@ Cosmo.Views.UserPreview = Backbone.View.extend({
 
   initialize: function(options) {
     this.useLink = options.useLink;
-
     this.listenTo(this.model, 'sync set save', this.render);
+    this.listenTo(this.model.details(), 'sync', this.render);
     this.listenTo(this.model.like(), 'sync set clear destroy', this.render);
   },
 

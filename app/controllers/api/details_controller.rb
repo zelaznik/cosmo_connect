@@ -10,12 +10,13 @@ class Api::DetailsController < ApplicationController
       output_params = {id: k, value: {year: b.year, month: b.month, day: b.day}}
 
     elsif k == 'gender'
-      update_params = v
-      model = current_user.details
+      model = current_user
+      gender_id = (v.select {|g| g[:selected]}).first[:id]
+      update_params = {gender_id: gender_id}
       output_params = {
-        category: :gender_id,
+        id: :gender,
         value: Gender.all.map do |g|
-          {id: g.id, name: g.name, selected: (g.id == v[:gender_id])}
+          {id: g.id, name: g.name, selected: (g.id == gender_id)}
         end
       }
 

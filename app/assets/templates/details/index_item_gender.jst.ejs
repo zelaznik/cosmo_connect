@@ -8,10 +8,10 @@
     <% value.forEach(function(v) { %>
       <span class="new-user-input-item gender_identity" name="gender">
         <% if (v.selected) { %>
-          <input type="radio" name="gender_id" value="<%= v.id %>" checked="checked">&nbsp;<%= v.name %></input>
+          <input type="radio" name="gender" value="<%= v.id %>" checked="checked">&nbsp;<%= v.name %></input>
         <% } else { %>
-          <input type="radio" name="gender_id" value="<%= v.id %>">&nbsp;<%= v.name %></input>
-        <% }%>
+          <input type="radio" name="gender" value="<%= v.id %>">&nbsp;<%= v.name %></input>
+        <% } %>
         </input>
       </span>
     <% }); %>

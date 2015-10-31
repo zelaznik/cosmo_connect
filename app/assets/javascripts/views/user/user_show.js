@@ -26,12 +26,6 @@ Cosmo.Views.UserShow = Backbone.CompositeView.extend({
     });
     this.addSubview('.response-index', responseIndexView);
 
-    var userDetailsView = new Cosmo.Views.DetailsIndex({
-      collection: this.model.details(),
-      model: this.model
-    });
-    this.addSubview('.user-attributes', userDetailsView);
-
     // Attach the user preview template
     var userPreview = new Cosmo.Views.UserPreview({
       model: this.model,
@@ -39,6 +33,14 @@ Cosmo.Views.UserShow = Backbone.CompositeView.extend({
     });
     this._preview = userPreview;
     this.addSubview('.user-preview', userPreview);
+
+    var userDetailsView = new Cosmo.Views.DetailsIndex({
+      collection: this.model.details(),
+      userPreview: userPreview,
+      model: this.model
+    });
+    this.addSubview('.user-attributes', userDetailsView);
+
 
     if (Cosmo.NEW_USER) {
       var userModalView = new Cosmo.Views.NewUserModal({

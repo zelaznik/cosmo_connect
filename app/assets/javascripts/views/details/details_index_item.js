@@ -47,6 +47,43 @@ Cosmo.Views.DetailsIndexItem = Backbone.View.extend({
     this.listenTo(this.model, 'sync', this.render);
   },
 
+  submit: function(event) {
+    event.preventDefault();
+    $t = $(event.currentTarget);
+    var data = {
+      'id': $t.attr('name'),
+      'value': $t.serializeJSON()
+    };
+
+    this.model.save(data, {
+      success: function(detailsIndexItem) {
+        this.collection.add(detailsIndexItem);
+        this.remove();
+        this.render(false);
+      }.bind(this)
+    });
+    this.render(false);
+  },
+
+  radioChange: function(event) {
+    // Use jquery to select the button
+    event.preventDefault();
+    var $t = $(event.target);
+    $.attr('selected', true);
+
+    // Update the backbone models so nothing else is selected.
+    var selected_id = +$t.attr('value');
+    var items = this.model.attributes.value;
+    for (var i in items) {
+      items[i].selected = (items[i].id === selected_id);
+    }
+
+    this.model.save({}, {
+      success: function() {},
+      error: function() {}
+    });
+  },
+
   checkboxChange: function(event) {
     var $t = $(event.target);
     var wasChecked = $t.attr('checked');
@@ -71,48 +108,6 @@ Cosmo.Views.DetailsIndexItem = Backbone.View.extend({
       error: function() {
       }
     });
-  },
-
-  radioChange: function(event) {
-    event.preventDefault();
-    var $t = event.target;
-    var data = {
-      'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content'),
-      'value': $t.value
-    };
-    $.attr('selected', true);
-
-    $.ajax({
-      url: this.model.urlRoot + '/' + $t.name,
-      dataType: 'json',
-      type: 'PATCH',
-      data: data,
-      success: function(data) {
-        this.user.set(data);
-      }.bind(this),
-
-      error: function() {
-        console.log(arguments[0]);
-      }
-    });
-  },
-
-  submit: function(event) {
-    event.preventDefault();
-    $t = $(event.currentTarget);
-    var data = {
-      'id': $t.attr('name'),
-      'value': $t.serializeJSON()
-    };
-
-    this.model.save(data, {
-      success: function(detailsIndexItem) {
-        this.collection.add(detailsIndexItem);
-        this.remove();
-        this.render(false);
-      }.bind(this)
-    });
-    this.render(false);
   },
 
   updateDetails: function(event) {
