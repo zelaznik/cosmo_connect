@@ -77,14 +77,33 @@ class Api::DetailsController < ApplicationController
         id: :height,
         value: {feet: v[:feet], inches: v[:inches]}
       }
+    end
 
-  end
+    if k == 'interested_in'
+      prefs = Hash[ *v.collect {|r| [ r[:id], r[:selected]]}.flatten ]
+      desires = DesiredGender.where(user: current_user).includes(:gender).all
+      model = nil
+      desires.each do |d|
+        next if d.interested == prefs[d.gender_id]
+        d.interested = prefs[d.gender_id]
+        tmp = {id: d.id, gender: d.gender.plural, interested: d.interested}
+        puts tmp
+        next if d.save
+        model = d
+      end
 
-    if model.update(update_params)
-      render json: output_params
+      if not model
+        render json: output_params
+      else
+        render json: model.errors.full_messages, status: 422
+      end
+
     else
-      render json: model.errors.full_messages, status: 422
+      if model.update(update_params)
+        render json: output_params
+      else
+        render json: model.errors.full_messages, status: 422
+      end
     end
   end
-
 end

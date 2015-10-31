@@ -76,7 +76,6 @@ Cosmo.Views.DetailsIndexItem = Backbone.View.extend({
       items[i].selected = (items[i].id === selected_id);
     }
 
-    debugger;
     this.model.save({}, {
       success: function(selectionItem) {
         this.collection.add(selectionItem);
@@ -108,27 +107,25 @@ Cosmo.Views.DetailsIndexItem = Backbone.View.extend({
   },
 
   checkboxChange: function(event) {
+    event.preventDefault();
     var $t = $(event.target);
-    var wasChecked = $t.attr('checked');
+    var wasChecked = !!$t.attr('checked');
     var checkedNow = !wasChecked;
     $t.attr('checked', checkedNow);
 
-    var data = {
-      'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content'),
-      'key': $t.prop('value'),
-      'value': checkedNow
-    };
+    // Update the backbone models so nothing else is selected.
+    var clicked_id = +$t.attr('value');
+    var items = this.model.attributes.value;
+    for (var i in items) {
+      var item = items[i];
+      if (item.id == clicked_id) {
+        item.selected = checkedNow;
+        break;
+      }
+    }
 
-    $.ajax({
-      url: this.model.urlRoot + '/' + $t.prop('name'),
-      dataType: 'json',
-      type: 'PATCH',
-      data: data,
-      success: function(data) {
-        this.user.set(data);
-      }.bind(this),
-
-      error: function() {
+    this.model.save({}, {
+      success: function(indexItem) {
       }
     });
   },
