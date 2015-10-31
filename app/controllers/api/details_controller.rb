@@ -4,13 +4,10 @@ class Api::DetailsController < ApplicationController
     v = params[:value]
 
     if k == 'birthdate'
-      b = v[:birthdate]
-      b = Date.new(b[:year].to_i, b[:month].to_i, b[:day].to_i)
       model = current_user
-      output_params = {
-        category: k,
-        value: {year: b.year, month: b.month, day: b.day}
-      }
+      b = Date.new(v[:year].to_i, v[:month].to_i, v[:day].to_i)
+      update_params = {birthdate: b}
+      output_params = {id: k, value: {year: b.year, month: b.month, day: b.day}}
 
     elsif k == 'gender'
       update_params = v
