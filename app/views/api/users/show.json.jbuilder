@@ -49,8 +49,8 @@ end
 details_array << {id: :interested_in, value: item}
 json.preferences (desires.where(interested: true).map {|d| d.gender.plural}).join(', ')
 
-# item = {min_age: @user.min_age, max_age: @user.max_age}
-# details_array << {id: :ages, value: item}
+item = {min_age: @user.min_age, max_age: @user.max_age}
+details_array << {id: :ages, value: item}
 
 if not is_current_user
   item = getter(@user.religion, 'title')
@@ -81,8 +81,8 @@ else
 end
 details_array << {id: :body_type, value: item}
 
-# item = @details.height
-# details_array << {id: :height, value: item}
+item = @details.height
+details_array << {id: :height, value: item}
 
 if not is_current_user
   item = getter(@details.ethnicity, 'description')
