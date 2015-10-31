@@ -37,7 +37,7 @@ Cosmo.Views.DetailsIndexItem = Backbone.View.extend({
     'click .user-details-edit-icon': 'updateDetails',
     'submit #details-form': 'submit',
     'click .details-cancel': 'cancel',
-    'change select': 'submit'
+    'change select': 'submitSelect'
   },
 
   model: Cosmo.Models.Detail,
@@ -62,6 +62,29 @@ Cosmo.Views.DetailsIndexItem = Backbone.View.extend({
         this.render(false);
       }.bind(this)
     });
+    this.render(false);
+  },
+
+  submitSelect: function(event) {
+    event.preventDefault();
+    $sel = $(':selected');
+
+    // Update the backbone models so nothing else is selected.
+    var selected_id = +$sel.attr('value');
+    var items = this.model.attributes.value;
+    for (var i in items) {
+      items[i].selected = (items[i].id === selected_id);
+    }
+
+    debugger;
+    this.model.save({}, {
+      success: function(selectionItem) {
+        this.collection.add(selectionItem);
+        this.remove();
+        this.render(false);
+      }.bind(this)
+    });
+
     this.render(false);
   },
 

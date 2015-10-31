@@ -6,7 +6,7 @@
     <%= value || '(unspecified)' %>
   <% } else { %>
     <% if (editMode) { %>
-      <select name="religion_id">
+      <select name="religion">
         <% value.forEach(function(v) { %>
           <% if (v.selected) { %>
             <option class="new-user-input-item" value="<%= v.id %>" selected><%= v.name %></option>
