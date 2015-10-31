@@ -23,14 +23,14 @@ end
 details_array = []
 
 if not is_current_user
-  details_array << {category: :age, value: @user.age}
+  details_array << {id: :age, value: @user.age}
 else
   item = {
       year: getter(@user.birthdate, 'year'),
       month: getter(@user.birthdate, 'month'),
       day: getter(@user.birthdate, 'day')
    }
-   details_array << {category: :birthdate, value: item}
+   details_array << {id: :birthdate, value: item}
 end
 
 
@@ -39,18 +39,18 @@ if not is_current_user
 else
   item = Gender.all.map {|g| {id: g.id, name: g.name, selected: (@user.gender_id == g.id)}}
 end
-details_array << {category: :gender, value: item}
+details_array << {id: :gender, value: item}
 
 if not is_current_user
   item = desires.where(interested: true).map {|d| d.gender.plural}
 else
   item = desires.map {|d| {id: d.gender_id, name: d.gender.plural, selected: d.interested}}
 end
-details_array << {category: :interested_in, value: item}
+details_array << {id: :interested_in, value: item}
 json.preferences (desires.where(interested: true).map {|d| d.gender.plural}).join(', ')
 
 # item = {min_age: @user.min_age, max_age: @user.max_age}
-# details_array << {category: :ages, value: item}
+# details_array << {id: :ages, value: item}
 
 if not is_current_user
   item = getter(@user.religion, 'title')
@@ -59,7 +59,7 @@ else
     {id: r.id, name: r.title, selected: (@details.religion_id == r.id)}
   end
 end
-details_array << {category: :religion, value: item}
+details_array << {id: :religion, value: item}
 
 
 # if not is_current_user
@@ -69,7 +69,7 @@ details_array << {category: :religion, value: item}
 #       {id: s.id, name: s.description, selected: (@details.relationship_status_id == s.id)}
 #   end
 # end
-# details_array << {category: :relationship_status, value: item}
+# details_array << {id: :relationship_status, value: item}
 #
 # if not is_current_user
 #   item = getter(@details.body_type, 'description')
@@ -78,10 +78,10 @@ details_array << {category: :religion, value: item}
 #     {id: t.id, name: t.description, selected: (@details.body_type_id == t.id)}
 #   end
 # end
-# details_array << {category: :body_type, value: item}
+# details_array << {id: :body_type, value: item}
 #
 # item = @details.height
-# details_array << {category: :height, value: item}
+# details_array << {id: :height, value: item}
 #
 # if not is_current_user
 #   item = getter(@details.ethnicity, 'description')
@@ -90,7 +90,7 @@ details_array << {category: :religion, value: item}
 #     {id: e.id, name: e.description, selected: (@details.ethnicity_id == e.id)}
 #   end
 # end
-# details_array << {category: :ethnicity, value: item}
+# details_array << {id: :ethnicity, value: item}
 
 json.details do
   json.array! details_array

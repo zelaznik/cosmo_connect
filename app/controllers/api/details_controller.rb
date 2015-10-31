@@ -1,15 +1,16 @@
 class Api::DetailsController < ApplicationController
   def update
-    debugger
-    k = params[:category]
+    k = params[:id]
     v = params[:value]
 
     if k == 'birthdate'
       b = v[:birthdate]
       b = Date.new(b[:year].to_i, b[:month].to_i, b[:day].to_i)
-      update_params = {birthdate: b}
       model = current_user
-      output_params = {category: k, value: v}
+      output_params = {
+        category: k,
+        value: {year: b.year, month: b.month, day: b.day}
+      }
 
     elsif k == 'gender'
       update_params = v
@@ -23,9 +24,7 @@ class Api::DetailsController < ApplicationController
 
     end
 
-    if params[:id].to_i != current_user.id
-      render json: ["Cannot modify attributes of another user"], status: 422
-    elsif model.update(update_params)
+    if model.update(update_params)
       render json: output_params
     else
       render json: model.errors.full_messages, status: 422

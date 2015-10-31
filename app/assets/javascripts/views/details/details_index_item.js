@@ -24,7 +24,7 @@ Cosmo.Views.DetailsIndexItem = Backbone.View.extend({
       return template(options);
     }
     catch (error) {
-      options.category = options.category || '(No Category Specified)';
+      options.category = options.category || '(No Category/ID Specified)';
       options.error = error;
       return this._errorTemplate(options);
     }
@@ -101,9 +101,8 @@ Cosmo.Views.DetailsIndexItem = Backbone.View.extend({
     event.preventDefault();
     $t = $(event.currentTarget);
     var data = {
-      'category': $t.attr('name'),
-      'value': $t.serializeJSON(),
-      'id': Cosmo.CURRENT_USER_ID
+      'id': $t.attr('name'),
+      'value': $t.serializeJSON()
     };
 
     this.model.save(data, {
@@ -116,49 +115,30 @@ Cosmo.Views.DetailsIndexItem = Backbone.View.extend({
     this.render(false);
   },
 
-  submit_OLD: function(event) {
-    var $t = $(event.currentTarget);
-    var data = {'user': $t.serializeJSON()};
-    data['X-CSRF-Token'] = $('meta[name="csrf-token"]').attr('content');
-
-    $.ajax({
-      url: this.user.url(),
-      dataType: 'json',
-      type: 'PATCH',
-      data: data,
-      success: function(data) {
-        this.user.set(data);
-      }.bind(this),
-
-      error: function() {
-      }
-    });
-  },
-
   updateDetails: function(event) {
     event.preventDefault();
     if (!this.editMode) {
-      this.editMode = true;
-      this.render();
+      this.render(true);
     }
   },
 
   cancel: function(event) {
     event.preventDefault();
-    this.editMode = false;
-    this.render();
+    this.render(false);
   },
 
-  render: function() {
-    if (this.editMode) {
+  render: function(editMode) {
+    this.editMode = editMode;
+    if (editMode) {
       $(document).on('keyup', handleKeys.bind(this));
     } else {
       $(document).unbind('keyup', handleKeys);
     }
 
     var content = this.template(
-      this.model.get('category'), {
-        category: this.model.get('category'),
+      this.model.get('id'), {
+        category: this.model.get('id'),
+        id: this.model.get('id'),
         value: this.model.get('value'),
         user: this.user,
         editMode: !!this.editMode
