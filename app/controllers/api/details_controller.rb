@@ -27,7 +27,7 @@ class Api::DetailsController < ApplicationController
       output_params = {
         id: :religion,
         value: Religion.all.map do |r|
-          {id: r.id, name: r.name, selected: (r.id == religion_id)}
+          {id: r.id, name: r.title, selected: (r.id == religion_id)}
         end
       }
 
