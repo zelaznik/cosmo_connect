@@ -31,6 +31,17 @@ class Api::DetailsController < ApplicationController
         end
       }
 
+    elsif k == 'relationship_status'
+      model = current_user.details
+      status_id = (v.select {|r| r[:selected]}).first[:id]
+      update_params = {relationship_status_id: status_id}
+      output_params = {
+        id: :relationship_status,
+        value: RelationshipStatus.all.map do |s|
+          {id: s.id, name: s.description, selected: (s.id == status_id)}
+        end
+      }
+
     end
 
     if model.update(update_params)
