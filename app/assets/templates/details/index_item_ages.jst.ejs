@@ -17,13 +17,13 @@
         <button type="button" class="details-cancel btn btn-default btn-sm editable-cancel"><i class="glyphicon glyphicon-remove"></i></button>
       </form>
     <% } else { %>
-        &nbsp;
-        <span id="min_age"><%= value.min_age || '(unspecified)' %></span>
-        <span> to </span>
-        <span id="max_age"><%= value.max_age || '(unspecified)' %></span>
-        <a class="user-details-edit-icon" data-toggle="modal" data-target="#myModal">
-          &nbsp;<span class="edit-glyphicon glyphicon glyphicon-pencil" aria-hidden="true"></span>
-        </a>
+      &nbsp;
+      <span id="min_age"><%= value.min_age || '(unspecified)' %></span>
+      <span> to </span>
+      <span id="max_age"><%= value.max_age || '(unspecified)' %></span>
+      <a class="user-details-edit-icon" data-toggle="modal" data-target="#myModal">
+        &nbsp;<span class="edit-glyphicon glyphicon glyphicon-pencil" aria-hidden="true"></span>
+      </a>
     <% } %>
   <% } %>
 </td>

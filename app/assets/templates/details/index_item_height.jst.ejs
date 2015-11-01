@@ -12,10 +12,10 @@
   <% } else { %>
     <% if (editMode) { %>
       <form id="details-form" name="height">
-        <input class="new-user-input-item" name = "feet" type="text" placeholder="YY" value="<%= value.min_age || 0 %>">
+        <input class="new-user-edit-item" name = "feet" type="text" placeholder="YY" value="<%= value.min_age || 0 %>">
         <span>ft</span>&nbsp;
 
-        <input class="new-user-input-item" name = "inches" type="text" placeholder="YY" value="<%= value.max_age || 0 %>">
+        <input class="new-user-edit-item" name = "inches" type="text" placeholder="YY" value="<%= value.max_age || 0 %>">
         <span>in</span>&nbsp;
 
         <button type="submit" class="details-submit btn btn-primary btn-sm editable-submit"><i class="glyphicon glyphicon-ok"></i></button>
