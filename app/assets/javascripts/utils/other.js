@@ -1,7 +1,11 @@
-function handleKeys(event) {
+function cancelOnEscape(event) {
   if (event.keyCode === 27) {
     this.cancel(event); // Handle {ESCAPE}
   }
+}
+
+function cancelOnClick(event) {
+  this.cancel(event);
 }
 
 String.prototype.capitalized = function() {

@@ -43,9 +43,9 @@ Cosmo.Views.ResponseIndexItem = Backbone.View.extend({
     // Add event listeners if editMode === True
     var itemView = this;
     if (editMode) {
-      $(document).on('keyup', handleKeys.bind(this));
+      $(document).on('keyup', cancelOnEscape.bind(this));
     } else {
-      $(document).unbind('keyup', handleKeys);
+      $(document).unbind('keyup', cancelOnEscape);
     }
 
     var content = this.template({
