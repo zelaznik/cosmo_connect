@@ -147,10 +147,8 @@ Cosmo.Views.DetailsIndexItem = Backbone.View.extend({
     var cssName = 'body:not(.details-item-value .' + this.model.get('id') + ')';
     if (editMode) {
       $(document).on('keyup', cancelOnEscape.bind(this));
-      $(cssName).on('click', handleClick.bind(this));
     } else {
       $(document).unbind('keyup', cancelOnEscape);
-      $(cssName).unbind('click', handleClick);
     }
 
     var content = this.template(
