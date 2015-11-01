@@ -129,7 +129,8 @@ Cosmo.Views.UserShow = Backbone.CompositeView.extend({
       var photo = new Cosmo.Models.Photo({
         user: userShowView.model
       });
-      photo.set({url: data.url, thumb_url: data.thumbnail_url});
+
+      photo.set({url: data.secure_url, thumb_url: data.thumbnail_url});
       photo.save({}, {
         success: userShowView.render.bind(userShowView)
       });

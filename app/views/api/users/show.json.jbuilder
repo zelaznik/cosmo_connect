@@ -9,7 +9,7 @@ json.gender getter(@user.gender, 'name')
 
 desires = @user.desired_genders.includes(:gender).order(:gender_id)
 
-json.photo getter(@user.photos.first, 'thumb_url')
+json.photo getter(@user.photos.first, 'url')
 
 @details = @user.details
 
