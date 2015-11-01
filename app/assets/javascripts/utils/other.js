@@ -23,6 +23,19 @@ function snakeToCapitalized(orig) {
   return orig.replace('_',' ').capitalized();
 }
 
+function JstError (path) {
+  var jstPath = JST[path];
+  var jstErr = JST['error_msg'];
+  return function(options) {
+    try {
+      return jstPath(options);
+    }
+    catch (error) {
+      return jstErr({error: error});
+    }
+  };
+}
+
 function find_by(array, key, value) {
   for (var i in array) {
     if (array[i][key] === value) {
@@ -35,7 +48,7 @@ function CloudinaryPath(options) {
   // Parses a Cloudinary base URL path
   this.origUrl = options.url;
 
-  var parts = url.toLowerCase().split('/');
+  var parts = options.url.toLowerCase().split('/');
   var i = parts.indexOf('upload') + 1;
 
   this.photoId = parts[i];

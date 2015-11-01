@@ -12,7 +12,7 @@
               <% } %>
 
               <% if (user.get('photo')) { %>
-                <% imc_src = new CloudinaryPath({url: user.get('photo')}).thumbnail({width: 200, height: 200}); %>
+                <% img_src = new CloudinaryPath({url: user.get('photo')}).thumbnail({width: 200, height: 200}); %>
               <% } else { %>
                 <% img_src = '/images/blank_photo.jpg' %>
               <% } %>
