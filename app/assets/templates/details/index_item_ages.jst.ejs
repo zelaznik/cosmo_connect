@@ -10,9 +10,9 @@
   <% } else { %>
     <% if (editMode) { %>
       <form id="details-form" name="ages">
-        <input class="new-user-input-item" name = "min_age" type="text" placeholder="YY" value="<%= value.min_age %>">
+        <input class="new-user-edit-item" name = "min_age" type="text" placeholder="YY" value="<%= value.min_age %>">
         <span> to </span>
-        <input class="new-user-input-item" name = "max_age" type="text" placeholder="YY" value="<%= value.max_age %>">
+        <input class="new-user-edit-item" name = "max_age" type="text" placeholder="YY" value="<%= value.max_age %>">
         <button type="submit" class="details-submit btn btn-primary btn-sm editable-submit"><i class="glyphicon glyphicon-ok"></i></button>
         <button type="button" class="details-cancel btn btn-default btn-sm editable-cancel"><i class="glyphicon glyphicon-remove"></i></button>
       </form>
