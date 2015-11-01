@@ -4,12 +4,6 @@ function handleKeys(event) {
   }
 }
 
-function handleClick(event) {
-  if ($(this).has(event.target).length === 0) {
-    this.cancel(event);
-  }
-}
-
 String.prototype.capitalized = function() {
   var words = this.split(' ');
   for (var i in words) {
@@ -18,6 +12,10 @@ String.prototype.capitalized = function() {
   }
   return words.join(' ');
 };
+
+function snakeToCapitalized(orig) {
+  return orig.replace('_',' ').capitalized();
+}
 
 function find_by(array, key, value) {
   for (var i in array) {

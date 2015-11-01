@@ -48,7 +48,6 @@ Cosmo.Views.DetailsIndexItem = Backbone.View.extend({
   },
 
   submit: function(event) {
-    debugger;
     event.preventDefault();
     $t = $(event.currentTarget);
     var data = {
@@ -145,8 +144,12 @@ Cosmo.Views.DetailsIndexItem = Backbone.View.extend({
 
   render: function(editMode) {
     this.editMode = editMode;
+    var cssName = ':not(.details-item-value .' + this.model.get('id') + ')';
     if (editMode) {
       $(document).on('keyup', handleKeys.bind(this));
+      $(cssName).click(function(event) {
+
+      }.bind(this));
     } else {
       $(document).unbind('keyup', handleKeys);
     }
