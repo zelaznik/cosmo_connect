@@ -1,7 +1,7 @@
 var Cosmo = window.Cosmo;
 
 Cosmo.Views.DetailsIndexItem = Backbone.View.extend({
-  tagName: 'tr', 
+  tagName: 'tr',
 
   _errorTemplate: JST['details/index_item_error'],
 
