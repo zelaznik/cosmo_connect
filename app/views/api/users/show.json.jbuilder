@@ -63,7 +63,7 @@ details_array << {id: :religion, value: item}
 
 
 if not is_current_user
-  item = @details.relationship_status.description
+  item = getter(@details.relationship_status, 'description')
 else
   item = RelationshipStatus.all.map do |s|
       {id: s.id, name: s.description, selected: (@details.relationship_status_id == s.id)}
