@@ -1,4 +1,4 @@
-class Api::DetailsController < ApplicationController
+class Api::DetailsController < Api::BaseController
   def update
     k = params[:id]
     v = params[:value]
