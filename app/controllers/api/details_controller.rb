@@ -71,7 +71,8 @@ class Api::DetailsController < Api::BaseController
 
     elsif k == 'height'
       model = current_user.details
-      height = 12 * v[:feet] + v[:inches]
+      height = 12 * v[:feet].to_i + v[:inches].to_i
+      debugger
       update_params = {height: height}
       output_params = {
         id: :height,

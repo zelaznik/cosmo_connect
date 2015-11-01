@@ -48,6 +48,7 @@ Cosmo.Views.DetailsIndexItem = Backbone.View.extend({
   },
 
   submit: function(event) {
+    debugger;
     event.preventDefault();
     $t = $(event.currentTarget);
     var data = {
