@@ -286,19 +286,14 @@ $navHover: #ffffff;
 .navbar-brand {
   width: 150px;
   margin-top: -15px;
-  background-image: url('images/cosmo_logo_bright.png');
 }
 
-.navbar-brand a:hover {
-    background-image: url('images/cosmo_logo_bright.png');
+a.navbar-brand img {
+  opacity: 0.85;
 }
 
-.navbar-default a.navbar-brand {
-
-}
-
-.navbar-default a.navbar-brand:hover {
-  color: $navHover;
+a:hover.navbar-brand img {
+  opacity: 1.00;
 }
 
 .navbar .hover {
