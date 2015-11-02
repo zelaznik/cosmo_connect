@@ -99,6 +99,10 @@ a, a:hover {
   @include user-shadow();
 }
 
+.login {
+  @include default-padding();
+}
+
 .about-us {
   @include default-padding();
 
