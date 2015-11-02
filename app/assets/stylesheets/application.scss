@@ -261,7 +261,7 @@ $blueDn : #252F7F;
 .navbar .navbar-nav > .open > a:hover,
 .navbar .navbar-nav > .open > a:focus
  {
-  background-color: #008; /* fallback color, place your own */
+  //background-color: #008; /* fallback color, place your own */
   @include gradient($blueUp, $blueDn);
 
   border-radius: 0;
@@ -283,8 +283,18 @@ $navHover: #ffffff;
   color: $navHover;
 }
 
+.navbar-brand {
+  width: 150px;
+  margin-top: -15px;
+  background-image: url('images/cosmo_logo_bright.png');
+}
+
+.navbar-brand a:hover {
+    background-image: url('images/cosmo_logo_bright.png');
+}
+
 .navbar-default a.navbar-brand {
-  color: $navDefault;
+
 }
 
 .navbar-default a.navbar-brand:hover {
