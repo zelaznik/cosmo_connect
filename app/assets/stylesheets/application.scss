@@ -91,6 +91,10 @@ a, a:hover {
     ABOUT US INFORMATION
 ************************************/
 
+.cosmo-connect-logo {
+  margin-top: 15px;
+}
+
 .static-page-root .about-us {
   @include user-shadow();
 }
