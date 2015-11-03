@@ -74,7 +74,7 @@ This past year, the real OkCupid rolled [new choices for gender identities and s
     AND their_preferences.interested
 ```
 
-
+#### Subqueries: The Compromise Between ActiveRecord and pure SQL
 
 
 ## Front End Layouts
