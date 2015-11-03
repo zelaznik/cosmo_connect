@@ -16,7 +16,7 @@
 
   </head>
 
-  <body>
+  <body class="<%= !!@logged_in ? 'logged-in' : '' %>">
 
     <%= yield %>
 
