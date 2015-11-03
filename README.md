@@ -19,11 +19,10 @@ Cosmo-connect is a dating website parody built in the spirit of OkCupid.  The we
 * [DB Schema] [schema1]
 [schema1]: ./_readme/cosmo_schema.gif
 
- #### Fully Normalized Data
-     - The database is normalized and desigend to be scalable.  All the multiple choice questions such as religion, ethnicity, and body type, are stored in separate tables.  The users' choices are stored as integers.  Adding another option for the users is as simple as adding a record in the database.  The dropdown menus in the brower automatically update.  Such as here:
+#### Fully Normalized Data
 
 [start_game]: https://raw.githubusercontent.com/zelaznik/cosmo_connect/master/_readme/drop_down_tables.gif
-![Tables For Dropdown Menus][start_game]
+The database is normalized and desigend to be scalable.  All the multiple choice questions such as religion, ethnicity, and body type, are stored in separate tables.  The users' choices are stored as integers.  Adding another option for the users is as simple as adding a record in the database.  The dropdown menus in the brower automatically update.  Such as here: ![Tables For Dropdown Menus][start_game]
 
 ## Front End Layouts
 * [Misc Views] [misc_views]
