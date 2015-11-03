@@ -47,7 +47,7 @@ Each user has a set of short essay questions they can answer.  These responses f
   FOR EACH ROW EXECUTE PROCEDURE _trg_aft_ins_users();
 ```
 
-Every time a new user is created, a set of blank essay responses are automatically populated.  A corresponding trigger exists.  Whenever the admins of the site create a new essay category, a trigger is called to create a blank record for each existing user.
+Every time a new user is created, a set of blank essay responses are automatically populated.  A corresponding trigger exists.  Whenever the admins of the site create a new essay category, a trigger is called to create a blank record for each existing user.  Other triggers exists, such as those that create a set of sexual preferences with each new user, all set to False.  More about that in the next section.
 
 #### Scalable Gender Identities and Preferences
 This past year, the real OkCupid rolled [new choices for gender identities and sexual preferences](http://www.huffingtonpost.com/2014/11/17/okcupid-new-gender-options_n_6172434.html) that extended far beyond the traditional binary male/female.  From a data architect's perspective, this is a nightmare if you add a new field for each gender to click Yes/No for interested or not.  In Cosmo-Connect, the structure is normalized so this isn't a problem.  A user chooses one gender choice from a list, and then clicks yes on one or multiple genders they're interested in.
