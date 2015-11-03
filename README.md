@@ -13,6 +13,10 @@ Users can browse other profiles within their selected ages and geography.  The p
 * [DB Schema] [schema1]
 [schema1]: ./_readme/cosmo_schema.gif
 
+The database is normalized and desigend to be scalable.  All the multiple choice questions such as religion, ethnicity, and body type, are stored in separate tables.  The users' choices are stored as integers.  Adding another option for the users is as simple as adding a record in the database.  The dropdown menus in the brower automatically update.  Such as here:
+
+
+
 ## Front End Layouts
 * [Misc Views] [misc_views]
 * [Chats Template] [chats_template]
