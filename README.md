@@ -27,6 +27,27 @@ The database is normalized and desigend to be scalable.  All the multiple choice
 [start_game]: https://raw.githubusercontent.com/zelaznik/cosmo_connect/master/_readme/drop_down_tables.gif
 ![Tables For Dropdown Menus][start_game]
 
+#### Consistent Data Through Triggers
+
+Each user has a set of short essay questions they can answer.  These responses follow a many to many relationship: many users, many response categories.  When a user sets up an account, he/she must see those categories even if no answers have been filled in yet.  The problem is that Backbone JS doesn't work well with LEFT JOINS.  When the record doesn't have a unique id yet, refreshing the page can create duplicate views.  The problem is solved with a simple lines of plpgsql.
+
+    ```sql
+    CREATE FUNCTION _trg_aft_ins_users()
+    RETURNS TRIGGER AS $$
+      BEGIN
+        INSERT INTO responses (
+        response_category_id, user_id, created_at, updated_at)
+        SELECT id, NEW.id, NEW.updated_at, NEW.updated_at
+        FROM response_categories;
+        RETURN NULL;
+      END
+    $$ LANGUAGE 'plpgsql';
+
+    CREATE TRIGGER trg_aft_ins_users AFTER INSERT ON users
+    FOR EACH ROW EXECUTE PROCEDURE _trg_aft_ins_users();
+    ```
+
+
 ## Front End Layouts
 * [Misc Views] [misc_views]
 * [Chats Template] [chats_template]
