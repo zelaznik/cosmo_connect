@@ -27,6 +27,28 @@ The database is normalized and desigend to be scalable.  All the multiple choice
 [start_game]: https://raw.githubusercontent.com/zelaznik/cosmo_connect/master/_readme/drop_down_tables.gif
 ![Tables For Dropdown Menus][start_game]
 
+#### Consistent Data Through Triggers
+
+Each user has a set of short essay questions they can answer.  These responses follow a many to many relationship: many users, many response categories.  When a user sets up an account, he/she must see those categories even if no answers have been filled in yet.  The problem is that Backbone JS doesn't work well with LEFT JOINS.  When the record doesn't have a unique id yet, refreshing the page can create duplicate views.  The problem is solved with a few simple lines of plpgsql.
+
+```sql
+  CREATE FUNCTION _trg_aft_ins_users()
+  RETURNS TRIGGER AS $$
+    BEGIN
+      INSERT INTO responses (
+      response_category_id, user_id, created_at, updated_at)
+      SELECT id, NEW.id, NEW.updated_at, NEW.updated_at
+      FROM response_categories;
+      RETURN NULL;
+    END
+  $$ LANGUAGE 'plpgsql';
+
+  CREATE TRIGGER trg_aft_ins_users AFTER INSERT ON users
+  FOR EACH ROW EXECUTE PROCEDURE _trg_aft_ins_users();
+```
+
+Every time a new user is created, a set of blank essay responses are automatically populated.  A corresponding trigger exists.  Whenever the admins of the site create a new essay category, a trigger is called to create a blank record for each existing user.
+
 #### Scalable Gender Identities and Preferences
 This past year, the real OkCupid rolled [new choices for gender identities and sexual preferences](http://www.huffingtonpost.com/2014/11/17/okcupid-new-gender-options_n_6172434.html) that extended far beyond the traditional binary male/female.  From a data architect's perspective, this is a nightmare if you add a new field for each gender to click Yes/No for interested or not.  In Cosmo-Connect, the structure is normalized so this isn't a problem.  A user chooses one gender choice from a list, and then clicks yes on one or multiple genders they're interested in.
 
@@ -52,27 +74,7 @@ This past year, the real OkCupid rolled [new choices for gender identities and s
     AND their_preferences.interested
 ```
 
-#### Consistent Data Through Triggers
 
-Each user has a set of short essay questions they can answer.  These responses follow a many to many relationship: many users, many response categories.  When a user sets up an account, he/she must see those categories even if no answers have been filled in yet.  The problem is that Backbone JS doesn't work well with LEFT JOINS.  When the record doesn't have a unique id yet, refreshing the page can create duplicate views.  The problem is solved with a few simple lines of plpgsql.
-
-```sql
-  CREATE FUNCTION _trg_aft_ins_users()
-  RETURNS TRIGGER AS $$
-    BEGIN
-      INSERT INTO responses (
-      response_category_id, user_id, created_at, updated_at)
-      SELECT id, NEW.id, NEW.updated_at, NEW.updated_at
-      FROM response_categories;
-      RETURN NULL;
-    END
-  $$ LANGUAGE 'plpgsql';
-
-  CREATE TRIGGER trg_aft_ins_users AFTER INSERT ON users
-  FOR EACH ROW EXECUTE PROCEDURE _trg_aft_ins_users();
-```
-
-Every time a new user is created, a set of blank essay responses are automatically populated.  A corresponding trigger exists.  Whenever the admins of the site create a new essay category, a trigger is called to create a blank record for each existing user.
 
 
 ## Front End Layouts
