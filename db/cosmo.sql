@@ -26,6 +26,25 @@ COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
 SET search_path = public, pg_catalog;
 
 --
+-- Name: _trg_aft_ins_response_categories(); Type: FUNCTION; Schema: public; Owner: zMac
+--
+
+CREATE FUNCTION _trg_aft_ins_response_categories() RETURNS trigger
+    LANGUAGE plpgsql
+    AS $$
+      BEGIN
+        INSERT INTO responses (
+        response_category_id, user_id, created_at, updated_at)
+        SELECT NEW.id, id, NEW.updated_at, NEW.updated_at
+        FROM users;
+        RETURN NULL;
+      END
+    $$;
+
+
+ALTER FUNCTION public._trg_aft_ins_response_categories() OWNER TO "zMac";
+
+--
 -- Name: _trg_aft_ins_users(); Type: FUNCTION; Schema: public; Owner: zMac
 --
 
@@ -1463,6 +1482,7 @@ COPY schema_migrations (version) FROM stdin;
 20151028122730
 20151028124908
 20151030003921
+20151103085104
 \.
 
 
@@ -1490,7 +1510,6 @@ COPY users (id, username, password_digest, session_token, birthdate, gender_id, 
 26	temporary	$2a$10$Ns8n84YfTZYIFIPaB5Hyeeeye1E7PHuI9gLVgH5JGRqU8k/f2Z2sO	8OHO_nku_SBrYGdIcHgQAQ	1776-07-04 00:00:00	1	\N	\N	\N	\N	\N	2015-09-10 21:00:14.622993	2015-09-10 21:01:14.859175
 28	donna	$2a$10$V8cdI3MKbgIJgyDGSl/MU.Dl6sDBco.h/F4OfM6y/bJ4WDfIXD.YG	f_mFeQfundkFpMUxNwn__A	1981-04-28 00:00:00	2	\N	\N	\N	\N	\N	2015-10-26 10:22:11.021718	2015-10-26 10:24:37.446473
 27	marlene	$2a$10$dT9Q7dUV.tEJY1GcyUHmFuT693IH6JWZGOcglUiEFndCKVN/Z4d3C	WZaQOg-pz7qPoPydFws4gQ	1962-04-06 00:00:00	2	\N	\N	\N	\N	\N	2015-10-26 10:10:49.734297	2015-10-26 10:17:16.837698
-1	zelaznik	$2a$10$GxKq.J.9qWJ2tlLU7P6UEerTRa01rIef7GLb9WaXb3FOePHzF/acC	qCOH392OijY2qWxKM8iY4w	1985-02-06 00:00:00	1	26	34	50	\N	\N	2015-08-12 04:19:06.209106	2015-11-02 10:31:22.257969
 30	keith_hernandez	$2a$10$LaZuasVYz9vPntVMHB6LmuacwMnzWR7.gZ2Qerd71AeQU6313KpsC	wequHHecKO8AM8RQaOIMIw	1953-10-20 00:00:00	1	\N	\N	\N	\N	\N	2015-10-26 10:50:13.274341	2015-10-26 10:51:28.274383
 12	sparticus	$2a$10$LRnclwqRXbDPkp.e1vaHBeyX8wOENzhro5IETV/FC53KMICZkH3Zq	cqRPcrbmKTIhGnJ1HHa70w	1990-01-01 00:00:00	1	\N	\N	\N	\N	\N	2015-08-16 06:11:48.548833	2015-09-10 18:15:35.728284
 32	peas_1_at_a_time	$2a$10$acA3P/OO4XMZKB9PVXNgxe8PSQLswZSExZ5txausKOj5zqyuAU/Uu	zt9BBFtCdIjLbVCwKUnYWg	1972-01-01 00:00:00	2	\N	\N	\N	\N	\N	2015-10-28 04:33:37.318651	2015-10-28 04:35:22.951281
@@ -1508,6 +1527,7 @@ COPY users (id, username, password_digest, session_token, birthdate, gender_id, 
 19	mulva	$2a$10$s6ci8s7FD8qocIrmLutsbuW81nx0x0AqzHNAKIwwR1LWwjXtkvHym	rr1RLgG8nY0cFF550nEYXA	1985-07-14 00:00:00	2	\N	\N	\N	\N	\N	2015-08-21 22:51:11.618895	2015-10-30 05:54:28.965035
 14	seinfeld	$2a$10$WO0BighJXm2znlGFT0XxWuC/RYPtvVFfOHN.7o5.aeFb9StkJUwxe	-Z4PHW9v8wuZZJxxgSh8ew	1952-12-01 00:00:00	1	\N	\N	\N	\N	\N	2015-08-18 05:54:50.957263	2015-11-02 10:10:17.480301
 69	test_user_025	$2a$10$pvyPev5POACFB5mes77GJu4t856lC28sbUng/OagdBpQvz7rZSqIq	MgmOUGk5r5hgq0kvoYgvsA	1984-02-06 00:00:00	1	\N	\N	\N	\N	\N	2015-11-01 22:53:06.995994	2015-11-01 22:53:18.424146
+1	zelaznik	$2a$10$GxKq.J.9qWJ2tlLU7P6UEerTRa01rIef7GLb9WaXb3FOePHzF/acC	RD1j7K4DXOUZTe7YoZQovA	1985-02-06 00:00:00	1	26	34	50	\N	\N	2015-08-12 04:19:06.209106	2015-11-03 06:38:03.921224
 \.
 
 
@@ -1984,6 +2004,13 @@ CREATE UNIQUE INDEX index_visits_on_visitor_id_and_profile_id ON visits USING bt
 --
 
 CREATE UNIQUE INDEX unique_schema_migrations ON schema_migrations USING btree (version);
+
+
+--
+-- Name: trg_aft_ins_response_categories; Type: TRIGGER; Schema: public; Owner: zMac
+--
+
+CREATE TRIGGER trg_aft_ins_response_categories AFTER INSERT ON response_categories FOR EACH ROW EXECUTE PROCEDURE _trg_aft_ins_response_categories();
 
 
 --
