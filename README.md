@@ -47,7 +47,7 @@ Each user has a set of short essay questions they can answer.  These responses f
   FOR EACH ROW EXECUTE PROCEDURE _trg_aft_ins_users();
 ```
 
-Every time a new user is created, a set of blank essay responses are automatically populated.  A corresponding trigger exists.  Whenever the admins of the site create a new category, a blank record for each user is automatically created.
+Every time a new user is created, a set of blank essay responses are automatically populated.  A corresponding trigger exists.  Whenever the admins of the site create a new essay category a blank record for each user is automatically created.
 
 
 ## Front End Layouts
