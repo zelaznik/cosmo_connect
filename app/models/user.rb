@@ -15,7 +15,6 @@ class User < ActiveRecord::Base
     (user && user.valid_password?(password)) ? user : nil
   end
 
-
   ## For indicating to Backbone
   ## Whether to disply the modal forms
   ## for a user's first time logging in
@@ -119,11 +118,11 @@ class User < ActiveRecord::Base
       INNER JOIN
         desired_genders my_preferences ON my_preferences.user_id = me.id
       INNER JOIN
-        users them ON my_preferences.gender_id = them.gender_id
+        desired_genders their_preferences ON their_preferences.gender_id = me.id
       INNER JOIN
-        desired_genders their_preferences
-        ON their_preferences.user_id = them.id
-        AND their_preferences.gender_id = me.gender_id
+        users them
+        ON my_preferences.gender_id = them.gender_id
+        AND their_preferences.user_id = them.id
 
       WHERE
         me.id = #{self.id}
