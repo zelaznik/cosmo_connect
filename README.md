@@ -9,10 +9,7 @@
 
 
 ## Overview
-Cosmo-connect is a dating website parody built in the spirit of OkCupid.  The website is seeded with profiles from the sitcom "Seinfeld."  The website is built on Rails, PostgreSQL, Backbone JS, and Twitter-Bootstrap.
-
-## Minimnum Viable Product
-Users can browse other profiles within their selected ages and geography.  The profile is a mixture of essay categories, selecting interests, and uploading photos.  Users can message each other.  Users can also match with other users.  In the style of Tinder, the other person will only see if you like them after they like you back.
+Cosmo-connect is a dating website parody built in the spirit of OkCupid.  The website is seeded with profiles from the sitcom "Seinfeld."  Users can browse other profiles within their selected ages and geography.  The profile is a mixture of essay categories, selecting interests, and uploading photos.  Users can message each other.  Users can also match with other users.  In the style of Tinder, the other person will only see if you like them after they like you back.
 
 ##  Database Design
 * [DB Schema] [schema1]
