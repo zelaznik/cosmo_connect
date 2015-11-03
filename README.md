@@ -1,10 +1,12 @@
 # Cosmo-connect
 
+[Live Link][heroku]
+[heroku]: http://www.cosmo-connect.com
+
 [profile_jerry]: https://github.com/zelaznik/cosmo_connect/blob/master/_readme/jerry_profile.jpg
 ![Thumbnail Preview Of Jerry Seinfeld's Profile][profile_jerry]
 
-[Live Link][heroku]
-[heroku]: http://www.cosmo-connect.com
+
 
 ## Overview
 Cosmo-connect is a dating website parody built in the spirit of OkCupid.  The website is seeded with profiles from the sitcom "Seinfeld."  The website is built on Rails, PostgreSQL, Backbone JS, and Twitter-Bootstrap.
