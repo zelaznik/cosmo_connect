@@ -75,7 +75,35 @@ This past year, the real OkCupid rolled [new choices for gender identities and s
 ```
 
 #### Subqueries: The Compromise Between ActiveRecord and pure SQL
+ActiveRecord offers great convenience, but it comes at a cost.  To do the following query in pure activerecord relations would become unwieldy as we daisy chain a bunch of intermediate through associations that are never used for anything else, polluting the namespace of the user model.   At the same time, writing straight SQL queries or doing find_by_sql means we lose all the nice properties of ActiveRecord such as the option to include other tables later on, avoiding N+1 queries.
 
+This solution is a compromise, but effective.  Write whatever query you want, returning only the user_id's.  Insert that query as a subquery into a where method of your ActiveRecord Model.
+
+```ruby
+  class User < ActiveRecord::Base
+    def soulmates
+      # Use a subquery to get the unique ids of the soulmates
+      # Then put it into a plain old ActiveRecord associaton
+      User.where("id IN (
+        SELECT
+          them.id
+        FROM
+          users you
+        INNER JOIN
+          matches m0 ON m0.sender_id = you.id
+        INNER JOIN
+          matches m1 ON m1.sender_id = m0.receiver_id
+          AND m1.receiver_id = #{self.id}
+        INNER JOIN
+          users them ON m1.sender_id = them.id
+        WHERE
+          you.id = #{self.id}
+      )")
+    end
+  end
+```
+
+Yes, it is an additional query, but it's still only one round trip to the Postgres database.  Now we maintain all the nice properties of ActiveRecord such as the ability to choose to include other tables at a later time.
 
 ## Front End Layouts
 * [Misc Views] [misc_views]
