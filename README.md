@@ -32,19 +32,19 @@ The database is normalized and desigend to be scalable.  All the multiple choice
 Each user has a set of short essay questions they can answer.  These responses follow a many to many relationship: many users, many response categories.  When a user sets up an account, he/she must see those categories even if no answers have been filled in yet.  The problem is that Backbone JS doesn't work well with LEFT JOINS.  When the record doesn't have a unique id yet, refreshing the page can create duplicate views.  The problem is solved with a few simple lines of plpgsql.
 
 ```sql
-  CREATE FUNCTION _trg_aft_ins_users()
-  RETURNS TRIGGER AS $$
-    BEGIN
-      INSERT INTO responses (
-      response_category_id, user_id, created_at, updated_at)
-      SELECT id, NEW.id, NEW.updated_at, NEW.updated_at
-      FROM response_categories;
-      RETURN NULL;
-    END
-  $$ LANGUAGE 'plpgsql';
+CREATE FUNCTION _trg_aft_ins_users()
+RETURNS TRIGGER AS $$
+  BEGIN
+    INSERT INTO responses (
+    response_category_id, user_id, created_at, updated_at)
+    SELECT id, NEW.id, NEW.updated_at, NEW.updated_at
+    FROM response_categories;
+    RETURN NULL;
+  END
+$$ LANGUAGE 'plpgsql';
 
-  CREATE TRIGGER trg_aft_ins_users AFTER INSERT ON users
-  FOR EACH ROW EXECUTE PROCEDURE _trg_aft_ins_users();
+CREATE TRIGGER trg_aft_ins_users AFTER INSERT ON users
+FOR EACH ROW EXECUTE PROCEDURE _trg_aft_ins_users();
 ```
 
 Every time a new user is created, a set of blank essay responses are automatically populated.  A corresponding trigger exists.  Whenever the admins of the site create a new essay category, a trigger is called to create a blank record for each existing user.  Other triggers exists, such as those that create a set of sexual preferences with each new user, all set to False.  More about that in the next section.
@@ -56,22 +56,22 @@ This past year, the real OkCupid rolled [new choices for gender identities and s
 ![Matches By Orientation Visual Query][matches_by_orientation_query]
 
 ```sql
-  SELECT
-    them.id
-  FROM
-    users me
-  INNER JOIN
-    desired_genders my_preferences ON my_preferences.user_id = me.id
-  INNER JOIN
-    desired_genders their_preferences ON their_preferences.gender_id = me.gender_id
-  INNER JOIN
-    users them
-    ON my_preferences.gender_id = them.gender_id
-    AND their_preferences.user_id = them.id
-  WHERE
-    me.id = $1
-    AND my_preferences.interested
-    AND their_preferences.interested
+SELECT
+  them.id
+FROM
+  users me
+INNER JOIN
+  desired_genders my_preferences ON my_preferences.user_id = me.id
+INNER JOIN
+  desired_genders their_preferences ON their_preferences.gender_id = me.gender_id
+INNER JOIN
+  users them
+  ON my_preferences.gender_id = them.gender_id
+  AND their_preferences.user_id = them.id
+WHERE
+  me.id = $1
+  AND my_preferences.interested
+  AND their_preferences.interested
 ```
 
 #### Subqueries: The Compromise Between ActiveRecord and pure SQL
@@ -80,27 +80,27 @@ ActiveRecord offers great convenience, but it comes at a cost.  To do the follow
 This solution is a compromise, but effective.  Write whatever query you want, returning only the user_id's.  Insert that query as a subquery into a where method of your ActiveRecord Model.
 
 ```ruby
-  class User < ActiveRecord::Base
-    def soulmates
-      # Use a subquery to get the unique ids of the soulmates
-      # Then put it into a plain old ActiveRecord associaton
-      User.where("id IN (
-        SELECT
-          them.id
-        FROM
-          users you
-        INNER JOIN
-          matches m0 ON m0.sender_id = you.id
-        INNER JOIN
-          matches m1 ON m1.sender_id = m0.receiver_id
-          AND m1.receiver_id = #{self.id}
-        INNER JOIN
-          users them ON m1.sender_id = them.id
-        WHERE
-          you.id = #{self.id}
-      )")
-    end
+class User < ActiveRecord::Base
+  def soulmates
+    # Use a subquery to get the unique ids of the soulmates
+    # Then put it into a plain old ActiveRecord associaton
+    User.where("id IN (
+      SELECT
+        them.id
+      FROM
+        users you
+      INNER JOIN
+        matches m0 ON m0.sender_id = you.id
+      INNER JOIN
+        matches m1 ON m1.sender_id = m0.receiver_id
+        AND m1.receiver_id = #{self.id}
+      INNER JOIN
+        users them ON m1.sender_id = them.id
+      WHERE
+        you.id = #{self.id}
+    )")
   end
+end
 ```
 
 Yes, it is an additional query, but it's still only one round trip to the Postgres database.  Now we maintain all the nice properties of ActiveRecord such as the ability to choose to include other tables at a later time.
