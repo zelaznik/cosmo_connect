@@ -118,7 +118,7 @@ class User < ActiveRecord::Base
       INNER JOIN
         desired_genders my_preferences ON my_preferences.user_id = me.id
       INNER JOIN
-        desired_genders their_preferences ON their_preferences.gender_id = me.id
+        desired_genders their_preferences ON their_preferences.gender_id = me.gender_id
       INNER JOIN
         users them
         ON my_preferences.gender_id = them.gender_id
