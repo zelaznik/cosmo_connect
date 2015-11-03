@@ -16,7 +16,8 @@ Cosmo-connect is a dating website parody built in the spirit of OkCupid.  The we
 ![Ruby Rails Bootstrap CSS3 Javascript Backbone jQuery PostgreSQL][technologies]
 
 ##  Database Design
-* A screenshot of the table structure can be found [here] [schema1].
+A screenshot of the table structure can be found [here] [schema1]  The database design follows best practices where every unique piece of data is atomic and only in one place.
+
 [schema1]: ./_readme/cosmo_schema.gif
 
 #### Fully Normalized Data
