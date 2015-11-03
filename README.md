@@ -38,11 +38,11 @@ This past year, the real OkCupid rolled [new choices for gender identities and s
     them.id
   FROM
     users me
-  JOIN
+  INNER JOIN
     desired_genders my_preferences ON my_preferences.user_id = me.id
-  JOIN
+  INNER JOIN
     users them ON my_preferences.gender_id = them.gender_id
-  JOIN
+  INNER JOIN
     desired_genders their_preferences
     ON their_preferences.user_id = them.id
     AND their_preferences.gender_id = me.gender_id
