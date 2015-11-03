@@ -11,6 +11,12 @@
 ## Overview
 Cosmo-connect is a dating website parody built in the spirit of OkCupid.  The website is seeded with profiles from the sitcom "Seinfeld."  Users can browse other profiles within their selected ages and geography.  The profile is a mixture of essay categories, selecting interests, and uploading photos.  Users can message each other.  Users can also match with other users.  In the style of Tinder, the other person will only see if you like them after they like you back.
 
+## Technologies Used
+[technologies]: https://github.com/zelaznik/cosmo_connect/blob/master/_readme/technologies.jpg
+![Ruby Rails Bootstrap CSS3 Javascript Backbone jQuery PostgreSQL][technologies]
+
+
+
 ##  Database Design
 * [DB Schema] [schema1]
 [schema1]: ./_readme/cosmo_schema.gif
