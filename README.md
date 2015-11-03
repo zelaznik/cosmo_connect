@@ -34,24 +34,14 @@ This past year, the real OkCupid rolled [new choices for gender identities and s
 ![Matches By Orientation Visual Query][matches_by_orientation_query]
 
 ```sql
-    SELECT
-      them.id
+  SELECT them.id
 
-    FROM
-      users me
-    INNER JOIN
-      desired_genders my_preferences ON my_preferences.user_id = me.id
-    INNER JOIN
-      users them ON my_preferences.gender_id = them.gender_id
-    INNER JOIN
-      desired_genders their_preferences
-      ON their_preferences.user_id = them.id
-      AND their_preferences.gender_id = me.gender_id
+  FROM users me
+  JOIN desired_genders my_preferences ON my_preferences.user_id = me.id
+  JOIN users them ON my_preferences.gender_id = them.gender_id
+  JOIN desired_genders their_preferences ON their_preferences.user_id = them.id AND their_preferences.gender_id = me.gender_id
 
-    WHERE
-      me.id = $1
-      AND my_preferences.interested
-      AND their_preferences.interested
+  WHERE me.id = $1 AND my_preferences.interested AND their_preferences.interested
 ```
 
 #### Consistent Data Through Triggers
