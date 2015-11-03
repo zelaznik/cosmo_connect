@@ -1,5 +1,8 @@
 # Cosmo-connect
 
+[profile_jerry]: https://github.com/zelaznik/cosmo_connect/blob/master/_readme/jerry_profile.jpg
+![Thumbnail Preview Of Jerry Seinfeld's Profile][profile_jerry]
+
 [Live Link][heroku]
 [heroku]: http://www.cosmo-connect.com
 
