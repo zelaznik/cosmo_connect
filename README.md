@@ -29,7 +29,7 @@ The database is normalized and desigend to be scalable.  All the multiple choice
 
 #### Consistent Data Through Triggers
 
-Each user has a set of short essay questions they can answer.  These responses follow a many to many relationship: many users, many response categories.  When a user sets up an account, he/she must see those categories even if no answers have been filled in yet.  The problem is that Backbone JS doesn't work well with LEFT JOINS.  When the record doesn't have a unique id yet, refreshing the page can create duplicate views.  The problem is solved with a simple lines of plpgsql.
+Each user has a set of short essay questions they can answer.  These responses follow a many to many relationship: many users, many response categories.  When a user sets up an account, he/she must see those categories even if no answers have been filled in yet.  The problem is that Backbone JS doesn't work well with LEFT JOINS.  When the record doesn't have a unique id yet, refreshing the page can create duplicate views.  The problem is solved with a few simple lines of plpgsql.
 
 ```sql
   CREATE FUNCTION _trg_aft_ins_users()
@@ -46,6 +46,8 @@ Each user has a set of short essay questions they can answer.  These responses f
   CREATE TRIGGER trg_aft_ins_users AFTER INSERT ON users
   FOR EACH ROW EXECUTE PROCEDURE _trg_aft_ins_users();
 ```
+
+Every time a new user is created, a set of blank essay responses are automatically populated.  A corresponding trigger exists.  Whenever the admins of the site create a new category, a blank record for each user is automatically created.
 
 
 ## Front End Layouts
