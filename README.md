@@ -27,6 +27,9 @@ The database is normalized and desigend to be scalable.  All the multiple choice
 [start_game]: https://raw.githubusercontent.com/zelaznik/cosmo_connect/master/_readme/drop_down_tables.gif
 ![Tables For Dropdown Menus][start_game]
 
+#### Scalable Gender Identities and Preferences
+This past year, the real OkCupid rolled [new gender options](http://www.huffingtonpost.com/2014/11/17/okcupid-new-gender-options_n_6172434.html) that extended far beyond the traditional binary male/female.  From a data architect's perspective, this is a nightmare if you add a new field for each gender to click Yes/No for interested or not.
+
 #### Consistent Data Through Triggers
 
 Each user has a set of short essay questions they can answer.  These responses follow a many to many relationship: many users, many response categories.  When a user sets up an account, he/she must see those categories even if no answers have been filled in yet.  The problem is that Backbone JS doesn't work well with LEFT JOINS.  When the record doesn't have a unique id yet, refreshing the page can create duplicate views.  The problem is solved with a few simple lines of plpgsql.
