@@ -12,9 +12,9 @@
           <% if (v.selected) {unspecified=false;} %>
         <% }); %>
         <% if (unspecified) { %>
-          <option class="new-user-input-item" value="nil" selected>(unspecified)</option>
+          <option class="new-user-input-item" value="null" selected>(unspecified)</option>
         <% } else { %>
-          <option class="new-user-input-item" value="0">(unspecified)</option>
+          <option class="new-user-input-item" value="null">(unspecified)</option>
         <% }%>
         <% value.forEach(function(v) { %>
           <% if (v.selected) { %>

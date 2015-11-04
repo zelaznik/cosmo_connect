@@ -1,3 +1,8 @@
+def selected_id(v)
+  matches = v.select {|i| i[:selected]}.first
+  (matches) ? matches[:id] : nil
+end
+
 class Api::DetailsController < Api::BaseController
   def update
     k = params[:id]
@@ -11,7 +16,7 @@ class Api::DetailsController < Api::BaseController
 
     elsif k == 'gender'
       model = current_user
-      gender_id = (v.select {|g| g[:selected]}).first[:id]
+      gender_id = selected_id(v)
       update_params = {gender_id: gender_id}
       output_params = {
         id: :gender,
@@ -22,7 +27,7 @@ class Api::DetailsController < Api::BaseController
 
     elsif k == 'religion'
       model = current_user.details
-      religion_id = (v.select {|r| r[:selected]}).first[:id]
+      religion_id = selected_id(v)
       update_params = {religion_id: religion_id}
       output_params = {
         id: :religion,
@@ -33,7 +38,7 @@ class Api::DetailsController < Api::BaseController
 
     elsif k == 'relationship_status'
       model = current_user.details
-      status_id = (v.select {|r| r[:selected]}).first[:id]
+      status_id = selected_id(v)
       update_params = {relationship_status_id: status_id}
       output_params = {
         id: :relationship_status,
@@ -44,7 +49,7 @@ class Api::DetailsController < Api::BaseController
 
     elsif k == 'body_type'
       model = current_user.details
-      body_type_id = (v.select {|r| r[:selected]}).first[:id]
+      body_type_id = selected_id(v)
       update_params = {body_type_id: body_type_id}
       output_params = {
         id: :body_type,
@@ -55,7 +60,7 @@ class Api::DetailsController < Api::BaseController
 
     elsif k == 'ethnicity'
       model = current_user.details
-      ethnicity_id = (v.select {|r| r[:selected]}).first[:id]
+      ethnicity_id = selected_id(v)
       update_params = {ethnicity_id: ethnicity_id}
       output_params = {
         id: :ethnicity,
