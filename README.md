@@ -107,3 +107,9 @@ end
 ```
 
 Yes, it is an additional query, but it's still only a single round trip to the Postgres database.  Now we maintain all the nice properties of ActiveRecord such as the ability to choose to include other tables at a later time.
+
+#### Redundant Validations At Both Rails and Postgres Levels
+
+Finally, my experience has taught me that the data structure generally outlives the code for which it was created.  Rails provides the ability to validate data at the model level, but should we switch platforms, we want the database to be more than an assorted collection of tables.
+
+For this reason, foreign key constraints, unique constraints, and such are all validated twice.  In a perfect world, the rails model catches the error first and returns a useful message to the user, but in the case of a coding bug, a 500 level error is preferable to corrupted data.
