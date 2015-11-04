@@ -51,7 +51,7 @@ Every time a new user is created, a set of blank essay responses are automatical
 #### Scalable Gender Identities and Preferences
 Over the last year, the real OkCupid has introduced [new choices for gender identities and sexual preferences](http://www.huffingtonpost.com/2014/11/17/okcupid-new-gender-options_n_6172434.html) that extend beyond the binary male/female.  From a data architect's perspective this could be a nightmare.  Adding a new field for each possible gender is unwieldy.  In Cosmo-Connect the structure is normalized so this isn't a problem.  The gender options are in a table.  A user chooses one gender and only one from a list.  Then to indicate orientation, users check the boxes "interested_in" for one or multiple genders.
 
-This makes the database scalable as dating websites increasingly cater to clients' more nuanced gender identities and sexual orientations.  Due to time constraints and the range of Seinfeld characters, the database only includes choices "male/female/other" at the moment, but expanding those choices is only an INSERT query away.
+This makes the database scalable as dating websites increasingly cater to clients' more nuanced gender identities and sexual orientations.  The following query is run to return all users who are at least theoretically compatible by gender and orientation.
 
 [matches_by_orientation_query]: https://raw.githubusercontent.com/zelaznik/cosmo_connect/master/_readme/matches_by_orientation_query.gif
 ![Matches By Orientation Visual Query][matches_by_orientation_query]
@@ -74,6 +74,8 @@ WHERE
   AND my_preferences.interested
   AND their_preferences.interested
 ```
+
+Due to time constraints and the range of Seinfeld characters, the database only includes choices "male/female/other" at the moment, but expanding those choices is only an INSERT query away.
 
 #### Subqueries: The Compromise Between ActiveRecord and pure SQL
 ActiveRecord offers great convenience, but it comes at a cost.  To do the following query with pure ActiveRecord relations, it would become unwieldy.  We would need to daisy chain a bunch of intermediate "through" associations which would not be used for anything else.  It would be difficult to debug and would pollute the namespace of the user model.  At the same time, writing straight SQL queries or doing "find_by_sql" means we lose all the nice properties of ActiveRecord such as the option to include other tables later on, avoiding N+1 queries.
