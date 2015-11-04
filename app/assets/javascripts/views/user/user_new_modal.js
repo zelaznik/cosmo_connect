@@ -26,8 +26,8 @@ var NewUserModal = Cosmo.Views.NewUserModal = Backbone.ModalView.extend({
       'user[birthdate][year]': form['birthdate[year]'],
       'user[birthdate][month]': form['birthdate[month]'],
       'user[birthdate][day]': form['birthdate[day]'],
-      'user[min_age]': $('#min_age').val(),
-      'user[max_age]': $('#max_age').val(),
+      'user[min_age]': form.min_age,
+      'user[max_age]': form.max_age,
       'user[interested_in]': interested_in
     };
 
