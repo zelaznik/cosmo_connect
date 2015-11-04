@@ -7,7 +7,6 @@
 ![Thumbnail Preview Of Jerry Seinfeld's Profile][profile_jerry]
 
 
-
 ## Overview
 Cosmo-connect is a dating website parody built in the spirit of OkCupid.  The website is seeded with profiles from the sitcom "Seinfeld."  Users can browse other profiles within their selected ages and geography.  The profile is a mixture of essay categories, selecting interests, and uploading photos.  Users can message each other.  Users can also match with other users.  In the style of Tinder, the other person will only see if you like them after they like you back.
 
@@ -22,14 +21,14 @@ A screenshot of the table structure can be found [here] [schema1]  The database 
 
 #### Fully Normalized Data
 
-The database is normalized and desigend to be scalable.  All the multiple choice questions such as religion, ethnicity, and body type, are stored in separate tables.  The users' choices are stored as integers.  Adding another option for the users is as simple as adding a record in the database.  The dropdown menus in the brower automatically update.  Such as here:
+The database is normalized and designed to be scalable.  All the multiple choice questions such as religion, ethnicity, and body type, are stored in separate tables.  The users' choices are stored as integers.  Adding another option for the users is as simple as adding a record in the database.  The dropdown menus in the browser automatically update.  Such as here:
 
 [start_game]: https://raw.githubusercontent.com/zelaznik/cosmo_connect/master/_readme/drop_down_tables.gif
 ![Tables For Dropdown Menus][start_game]
 
 #### Consistent Data Through Triggers
 
-Each user has a set of short essay questions they can answer.  These responses follow a many to many relationship: many users, many response categories.  When a user sets up an account, he/she must see those categories even if no answers have been filled in yet.  The problem is that Backbone JS doesn't work well with LEFT JOINS.  When the record doesn't have a unique id yet, refreshing the page can create duplicate views.  The problem is solved with a few simple lines of plpgsql.
+Each user has a set of short essay questions they can answer.  These responses follow a many-to-many relationship: many users, many essay categories.  When a user sets up an account, he/she must see those categories even if no answers have been filled in yet.  If such a record doesn't exist yet, the problem is that Backbone JS doesn't work well with LEFT JOINS.  When the record doesn't have a unique id yet, refreshing the page can create duplicate views.  The problem is solved with a few simple lines of the Postgres procedural language, plpgsql.
 
 ```sql
 CREATE FUNCTION _trg_aft_ins_users()
@@ -47,10 +46,10 @@ CREATE TRIGGER trg_aft_ins_users AFTER INSERT ON users
 FOR EACH ROW EXECUTE PROCEDURE _trg_aft_ins_users();
 ```
 
-Every time a new user is created, a set of blank essay responses are automatically populated.  A corresponding trigger exists.  Whenever the admins of the site create a new essay category, a trigger is called to create a blank record for each existing user.  Other triggers exists, such as those that create a set of sexual preferences with each new user, all set to False.  More about that in the next section.
+Every time a new user is created, a set of blank essay responses are automatically populated.  A corresponding trigger exists: whenever an administrator of the site creates a new essay category, a trigger is called to create a blank record for each existing user.  Other triggers exist, such as those that create a set of sexual preferences with each new user, all set to False.  More about that in the next section.
 
 #### Scalable Gender Identities and Preferences
-This past year, the real OkCupid rolled [new choices for gender identities and sexual preferences](http://www.huffingtonpost.com/2014/11/17/okcupid-new-gender-options_n_6172434.html) that extended far beyond the traditional binary male/female.  From a data architect's perspective, this is a nightmare if you add a new field for each gender to click Yes/No for interested or not.  In Cosmo-Connect, the structure is normalized so this isn't a problem.  A user chooses one gender choice from a list, and then clicks yes on one or multiple genders they're interested in.
+This past year, the real OkCupid rolled out [new choices for gender identities and sexual preferences](http://www.huffingtonpost.com/2014/11/17/okcupid-new-gender-options_n_6172434.html) that extended far beyond the traditional binary male/female.  From a data architect's perspective, this could be a nightmare.  If you add a new field for each gender to click Yes/No for interested or not.  In Cosmo-Connect, the structure is normalized so this isn't a problem.  A user chooses one gender choice from a list, and then clicks yes/no for "intereste_in" for every gender.  This makes the website scalable as dating websites begin to cater to clients' more nuanced gender identities and sexual orientations.
 
 [matches_by_orientation_query]: https://raw.githubusercontent.com/zelaznik/cosmo_connect/master/_readme/matches_by_orientation_query.gif
 ![Matches By Orientation Visual Query][matches_by_orientation_query]
@@ -75,7 +74,7 @@ WHERE
 ```
 
 #### Subqueries: The Compromise Between ActiveRecord and pure SQL
-ActiveRecord offers great convenience, but it comes at a cost.  To do the following query in pure activerecord relations would become unwieldy as we daisy chain a bunch of intermediate "through" associations while will never be used for anything else, polluting the namespace of the user model.  At the same time, writing straight SQL queries or doing find_by_sql means we lose all the nice properties of ActiveRecord such as the option to include other tables later on, avoiding N+1 queries.
+ActiveRecord offers great convenience, but it comes at a cost.  To do the following query with pure ActiveRecord relations, it would become unwieldy.  We would need to daisy chain a bunch of intermediate "through" associations which would not be used for anything else.  It would be difficult to debug and would pollute the namespace of the user model.  At the same time, writing straight SQL queries or doing "find_by_sql" means we lose all the nice properties of ActiveRecord such as the option to include other tables later on, avoiding N+1 queries.
 
 This solution is a compromise, but effective.  Write whatever query you want, returning only the user_id's.  Insert that query as a subquery into a where method of your ActiveRecord Model.
 
@@ -103,4 +102,4 @@ class User < ActiveRecord::Base
 end
 ```
 
-Yes, it is an additional query, but it's still only one round trip to the Postgres database.  Now we maintain all the nice properties of ActiveRecord such as the ability to choose to include other tables at a later time.
+Yes, it is an additional query, but it's still only a single round trip to the Postgres database.  Now we maintain all the nice properties of ActiveRecord such as the ability to choose to include other tables at a later time.
