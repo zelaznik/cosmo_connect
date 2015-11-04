@@ -69,7 +69,7 @@ class Api::UsersController < Api::BaseController
   end
 
   def user_params_main
-    d = user_params_subset(:id, :gender_id, :min_age, :birthdate)
+    d = user_params_subset(:id, :gender_id, :min_age, :max_age, :birthdate)
     if d[:birthdate]
       b = d[:birthdate]
       d[:birthdate] = Date.new(b[:year].to_i, b[:month].to_i, b[:day].to_i)
