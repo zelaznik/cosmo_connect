@@ -7,6 +7,15 @@
   <% } else { %>
     <% if (editMode) { %>
       <select name="<%= id.toLowerCase() %>">
+        <% var unspecified = true; %>
+        <% value.forEach(function(v) { %>
+          <% if (v.selected) {unspecified=false;} %>
+        <% }); %>
+        <% if (unspecified) { %>
+          <option class="new-user-input-item" value="nil" selected>(unspecified)</option>
+        <% } else { %>
+          <option class="new-user-input-item" value="0">(unspecified)</option>
+        <% }%>
         <% value.forEach(function(v) { %>
           <% if (v.selected) { %>
             <option class="new-user-input-item" value="<%= v.id %>" selected><%= v.name %></option>
