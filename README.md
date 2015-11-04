@@ -78,9 +78,9 @@ WHERE
 Due to time constraints and the range of Seinfeld characters, the database only includes choices "male/female/other" at the moment, but expanding those choices is only an INSERT query away.
 
 #### Subqueries: The Compromise Between ActiveRecord and pure SQL
-ActiveRecord offers great convenience, but it comes at a cost.  To do the following query with pure ActiveRecord relations, it would become unwieldy.  We would need to daisy chain a bunch of intermediate "through" associations which would not be used for anything else.  It would be difficult to debug and would pollute the namespace of the user model.  At the same time, writing straight SQL queries or doing "find_by_sql" means we lose all the nice properties of ActiveRecord such as the option to include other tables later on, avoiding N+1 queries.
+ActiveRecord offers great convenience, but it comes at a cost.  To do the following query with pure ActiveRecord relations, it would be a mess.  We would need to daisy chain a bunch of intermediate "through" associations which would never be used for anything else.  It would be difficult to debug and it would pollute the namespace of the user model.  At the same time, writing straight SQL queries with a "find_by_sql" means we lose all the nice properties of ActiveRecord such as the option to include other tables later on, avoiding N+1 queries.
 
-This solution is a compromise, but effective.  Write whatever query you want, returning only the user_id's.  Insert that query as a subquery into a where method of your ActiveRecord Model.
+This solution is a compromise, but effective.  Write whatever query you want, returning only the id's of the ActiveRecord model in question.  Insert that query as a subquery into a where method of your ActiveRecord Model.
 
 ```ruby
 class User < ActiveRecord::Base
