@@ -48,12 +48,6 @@ FOR EACH ROW EXECUTE PROCEDURE _trg_aft_ins_users();
 
 Every time a new user is created, a set of blank essay responses are automatically populated.  A corresponding trigger exists: whenever an administrator of the site creates a new essay category, a trigger is called to create a blank record for each existing user.  Other triggers exist, such as those that create a set of sexual preferences with each new user, all set to False.  More about that in section further down the page.
 
-#### Migrating to Postgres as the website scales up
-
-In addition to the simplicity of triggers, Postgres has two other advantages that come with a robust RDBMS: speed and concurrency.  Postgres, compiled in C++, is lightning fast compared with Rails.  Multiple users can also operate on the database at the same time.  As a website scales up,
-
-While Rails may be slow, Postgres, which is strongly typed and written in C++, is lightning fast.  A stored procedure in Postgres to render JSON will run circles around Rail's jBuilder.  As the website scales up, migrating the logic
-
 #### Scalable Gender Identities and Preferences
 Over the last year, the real OkCupid has introduced [new choices for gender identities and sexual preferences](http://www.huffingtonpost.com/2014/11/17/okcupid-new-gender-options_n_6172434.html) that extend beyond the binary male/female.  From a data architect's perspective this could be a nightmare.  Adding a new field for each possible gender is unwieldy.  In Cosmo-Connect the structure is normalized so this isn't a problem.  Gender options are in a table.  A user chooses one gender and only one from a list.  Then to indicate orientation, users check the boxes "interested_in" for one or multiple genders.
 
