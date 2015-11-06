@@ -8,26 +8,26 @@
 </div>
 
 <div class="row">
-  <div class="col-xs-12 response-index-item-body">
     <% if (!editMode) { %>
-      <%= essay.escape('body') || '(none)' %>
+      <div class="col-xs-12 response-index-item-body no-edit"><%= essay.escape('body') || '(none)' %></div>
     <% } else { %>
-      <form id="essay-form">
-        <input
-            type='hidden'
-            name='response[response_category_id]'
-            value="<%= essay.escape('response_category_id') %>">
-        </input>
+        <div class="col-xs-12 response-index-item-body">
+          <form id="essay-form">
+            <input
+                type='hidden'
+                name='response[response_category_id]'
+                value="<%= essay.escape('response_category_id') %>">
+            </input>
 
-        <textarea
-            type="textarea"
-            name= "response[body]"><%= essay.escape('body') %></textarea>
+            <textarea
+                type="textarea"
+                name= "response[body]"><%= essay.escape('body') %></textarea>
 
-        <br>
-        <input type='submit', class='essay-submit btn btn-primary' value='Save'>
-        <button type='cancel' class="essay-cancel btn btn-default">Cancel</button>
+            <br>
+            <input type='submit', class='essay-submit btn btn-primary' value='Save'>
+            <button type='cancel' class="essay-cancel btn btn-default">Cancel</button>
 
-     </form>
-    <% }%>
-  </div>
+         </form>
+       </div>
+    <% } %>
 </div>

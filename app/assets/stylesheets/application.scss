@@ -508,6 +508,10 @@ $userAttributesWidth: 410px;
   padding-bottom: 20px;
 }
 
+.response-index-item-body.no-edit {
+  white-space: pre-wrap;
+}
+
 .response-index-item-title {
   font-family: 'Open Sans',sans-serif;
   font-weight: normal;
