@@ -65,7 +65,7 @@ CloudinaryPath.prototype.fullPath = function(options) {
 };
 
 CloudinaryPath.prototype.thumbnail = function(options) {
-  var processing = ['c_limit'];
+  var processing = ['c_fill'];
   processing.push('w_' + options.width);
   processing.push('h_' + options.height);
   return this.fullPath({processing: processing});
