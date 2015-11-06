@@ -1003,7 +1003,31 @@ COPY desired_genders (id, user_id, gender_id, created_at, updated_at, interested
 242	84	2	2015-11-04 15:15:21.795056	2015-11-04 15:15:21.795056	f
 243	84	3	2015-11-04 15:15:21.795056	2015-11-04 15:15:21.795056	f
 241	84	1	2015-11-04 15:15:21.795056	2015-11-04 15:15:44.062037	t
+246	85	3	2015-11-06 03:26:49.153116	2015-11-06 03:26:49.153116	f
+244	85	1	2015-11-06 03:26:49.153116	2015-11-06 03:27:12.790627	t
+245	85	2	2015-11-06 03:26:49.153116	2015-11-06 03:32:07.383539	f
 7	1	1	2015-08-12 04:19:06.209106	2015-11-05 08:24:47.013852	f
+249	86	3	2015-11-06 03:36:28.713942	2015-11-06 03:36:28.713942	f
+253	88	1	2015-11-06 03:43:19.79337	2015-11-06 03:48:00.469216	t
+248	86	2	2015-11-06 03:36:28.713942	2015-11-06 03:43:04.097676	f
+251	87	2	2015-11-06 03:38:54.29643	2015-11-06 03:38:54.29643	f
+252	87	3	2015-11-06 03:38:54.29643	2015-11-06 03:38:54.29643	f
+250	87	1	2015-11-06 03:38:54.29643	2015-11-06 03:39:25.811317	t
+247	86	1	2015-11-06 03:36:28.713942	2015-11-06 03:43:03.060111	t
+254	88	2	2015-11-06 03:43:19.79337	2015-11-06 03:43:19.79337	f
+255	88	3	2015-11-06 03:43:19.79337	2015-11-06 03:43:19.79337	f
+257	89	2	2015-11-06 03:51:58.82241	2015-11-06 03:51:58.82241	f
+258	89	3	2015-11-06 03:51:58.82241	2015-11-06 03:51:58.82241	f
+256	89	1	2015-11-06 03:51:58.82241	2015-11-06 03:52:45.467199	t
+260	90	2	2015-11-06 03:57:35.819656	2015-11-06 03:57:35.819656	f
+261	90	3	2015-11-06 03:57:35.819656	2015-11-06 03:57:35.819656	f
+259	90	1	2015-11-06 03:57:35.819656	2015-11-06 03:58:04.877392	t
+263	91	2	2015-11-06 04:12:37.058372	2015-11-06 04:12:37.058372	f
+264	91	3	2015-11-06 04:12:37.058372	2015-11-06 04:12:37.058372	f
+262	91	1	2015-11-06 04:12:37.058372	2015-11-06 04:13:12.032185	t
+266	92	2	2015-11-06 04:14:41.567646	2015-11-06 04:14:41.567646	f
+267	92	3	2015-11-06 04:14:41.567646	2015-11-06 04:14:41.567646	f
+265	92	1	2015-11-06 04:14:41.567646	2015-11-06 04:15:10.87628	t
 \.
 
 
@@ -1011,7 +1035,7 @@ COPY desired_genders (id, user_id, gender_id, created_at, updated_at, interested
 -- Name: desired_genders_id_seq; Type: SEQUENCE SET; Schema: public; Owner: zMac
 --
 
-SELECT pg_catalog.setval('desired_genders_id_seq', 243, true);
+SELECT pg_catalog.setval('desired_genders_id_seq', 267, true);
 
 
 --
@@ -1049,8 +1073,16 @@ COPY details_of_users (id, user_id, last_online, ethnicity_id, height, body_type
 76	84	\N	\N	\N	\N	\N	\N	\N	\N	\N	2015-11-04 15:15:21.833147	2015-11-04 15:15:21.833147
 66	74	\N	8	70.0	7	4	4	\N	\N	\N	2015-11-04 13:39:20.661176	2015-11-04 13:40:28.177352
 1	1	\N	8	73.0	4	1	5	\N	\N	\N	2015-08-12 04:19:06.212864	2015-11-05 21:23:39.471015
+78	86	\N	\N	\N	\N	\N	\N	\N	\N	\N	2015-11-06 03:36:28.72272	2015-11-06 03:36:28.72272
+77	85	\N	8	66.0	\N	\N	\N	\N	\N	\N	2015-11-06 03:26:49.245637	2015-11-06 03:38:26.867973
 67	75	\N	8	68.0	1	1	3	\N	\N	\N	2015-11-04 13:42:07.416625	2015-11-04 13:43:36.366485
+79	87	\N	\N	\N	\N	\N	\N	\N	\N	\N	2015-11-06 03:38:54.302384	2015-11-06 03:38:54.302384
+80	88	\N	\N	67.0	\N	\N	4	\N	\N	\N	2015-11-06 03:43:19.797301	2015-11-06 03:48:18.49543
+81	89	\N	\N	\N	\N	\N	\N	\N	\N	\N	2015-11-06 03:51:58.827619	2015-11-06 03:51:58.827619
+82	90	\N	\N	\N	\N	\N	\N	\N	\N	\N	2015-11-06 03:57:35.825947	2015-11-06 03:57:35.825947
+83	91	\N	\N	\N	\N	\N	\N	\N	\N	\N	2015-11-06 04:12:37.06279	2015-11-06 04:12:37.06279
 68	76	\N	8	64.0	8	1	7	\N	\N	\N	2015-11-04 13:48:28.707204	2015-11-04 14:03:12.858923
+84	92	\N	\N	\N	\N	\N	\N	\N	\N	\N	2015-11-06 04:14:41.574025	2015-11-06 04:14:41.574025
 69	77	\N	8	66.0	5	2	9	\N	\N	\N	2015-11-04 14:16:43.416395	2015-11-04 14:26:30.374895
 71	79	\N	8	64.0	2	2	1	\N	\N	\N	2015-11-04 14:34:58.467919	2015-11-04 14:39:01.417567
 \.
@@ -1060,7 +1092,7 @@ COPY details_of_users (id, user_id, last_online, ethnicity_id, height, body_type
 -- Name: details_of_users_id_seq; Type: SEQUENCE SET; Schema: public; Owner: zMac
 --
 
-SELECT pg_catalog.setval('details_of_users_id_seq', 76, true);
+SELECT pg_catalog.setval('details_of_users_id_seq', 84, true);
 
 
 --
@@ -1129,7 +1161,7 @@ COPY matches (id, sender_id, receiver_id, created_at, updated_at) FROM stdin;
 278	25	17	2015-09-10 18:46:05.018135	2015-09-10 18:46:05.018135
 279	21	25	2015-09-10 18:46:35.183739	2015-09-10 18:46:35.183739
 12	1	15	2015-08-19 06:58:20.589132	2015-08-19 06:58:20.589132
-293	14	15	2015-10-26 08:59:12.31539	2015-10-26 08:59:12.31539
+548	14	15	2015-11-06 00:24:45.908955	2015-11-06 00:24:45.908955
 294	27	14	2015-10-26 10:13:35.353988	2015-10-26 10:13:35.353988
 295	27	1	2015-10-26 10:13:36.376068	2015-10-26 10:13:36.376068
 296	30	15	2015-10-26 10:51:49.185902	2015-10-26 10:51:49.185902
@@ -1142,8 +1174,9 @@ COPY matches (id, sender_id, receiver_id, created_at, updated_at) FROM stdin;
 358	1	32	2015-11-01 06:32:04.93729	2015-11-01 06:32:04.93729
 360	1	27	2015-11-05 06:01:47.062914	2015-11-05 06:01:47.062914
 362	1	25	2015-11-05 06:14:27.520868	2015-11-05 06:14:27.520868
-363	1	19	2015-11-05 06:14:37.205212	2015-11-05 06:14:37.205212
-365	1	84	2015-11-05 08:39:30.802156	2015-11-05 08:39:30.802156
+390	1	19	2015-11-05 22:16:04.901006	2015-11-05 22:16:04.901006
+649	1	84	2015-11-06 02:40:40.127431	2015-11-06 02:40:40.127431
+655	86	31	2015-11-06 03:37:27.923549	2015-11-06 03:37:27.923549
 \.
 
 
@@ -1151,7 +1184,7 @@ COPY matches (id, sender_id, receiver_id, created_at, updated_at) FROM stdin;
 -- Name: matches_id_seq; Type: SEQUENCE SET; Schema: public; Owner: zMac
 --
 
-SELECT pg_catalog.setval('matches_id_seq', 365, true);
+SELECT pg_catalog.setval('matches_id_seq', 657, true);
 
 
 --
@@ -1227,7 +1260,6 @@ COPY photos (id, user_id, description, created_at, updated_at, url, thumb_url) F
 33	71	\N	2015-11-04 13:29:48.00548	2015-11-04 13:29:48.00548	https://res.cloudinary.com/cosmo-connect/image/upload/v1446643787/oa9cebeg7jlxaggqouqf.jpg	http://res.cloudinary.com/cosmo-connect/image/upload/c_limit,h_60,w_90/v1446643787/oa9cebeg7jlxaggqouqf.jpg
 34	72	\N	2015-11-04 13:32:41.173147	2015-11-04 13:32:41.173147	https://res.cloudinary.com/cosmo-connect/image/upload/v1446643960/pjcsogxiifoyfcnxxqpk.jpg	http://res.cloudinary.com/cosmo-connect/image/upload/c_limit,h_60,w_90/v1446643960/pjcsogxiifoyfcnxxqpk.jpg
 35	73	\N	2015-11-04 13:37:01.121529	2015-11-04 13:37:01.121529	https://res.cloudinary.com/cosmo-connect/image/upload/v1446644220/pb2djetm6wolac6e9ymd.jpg	http://res.cloudinary.com/cosmo-connect/image/upload/c_limit,h_60,w_90/v1446644220/pb2djetm6wolac6e9ymd.jpg
-36	74	\N	2015-11-04 13:40:47.342926	2015-11-04 13:40:47.342926	https://res.cloudinary.com/cosmo-connect/image/upload/v1446644446/dxb1uyrov4wpm6h27rvf.jpg	http://res.cloudinary.com/cosmo-connect/image/upload/c_limit,h_60,w_90/v1446644446/dxb1uyrov4wpm6h27rvf.jpg
 37	75	\N	2015-11-04 13:47:05.383886	2015-11-04 13:47:05.383886	https://res.cloudinary.com/cosmo-connect/image/upload/v1446644824/hb5vjgwh82xyqcta6g7z.jpg	http://res.cloudinary.com/cosmo-connect/image/upload/c_limit,h_60,w_90/v1446644824/hb5vjgwh82xyqcta6g7z.jpg
 38	76	\N	2015-11-04 13:48:44.494442	2015-11-04 13:48:44.494442	https://res.cloudinary.com/cosmo-connect/image/upload/v1446644924/csin6c2dvetjm9rmiusb.jpg	http://res.cloudinary.com/cosmo-connect/image/upload/c_limit,h_60,w_90/v1446644924/csin6c2dvetjm9rmiusb.jpg
 39	77	\N	2015-11-04 14:18:28.208404	2015-11-04 14:18:28.208404	https://res.cloudinary.com/cosmo-connect/image/upload/v1446646702/zbuvnxdv6ofzdtwm41en.jpg	http://res.cloudinary.com/cosmo-connect/image/upload/c_limit,h_60,w_90/v1446646702/zbuvnxdv6ofzdtwm41en.jpg
@@ -1237,6 +1269,15 @@ COPY photos (id, user_id, description, created_at, updated_at, url, thumb_url) F
 44	82	\N	2015-11-04 15:02:32.469262	2015-11-04 15:02:32.469262	https://res.cloudinary.com/cosmo-connect/image/upload/v1446649352/cegykg0bdbk6qbh1ocbq.png	http://res.cloudinary.com/cosmo-connect/image/upload/c_limit,h_60,w_90/v1446649352/cegykg0bdbk6qbh1ocbq.png
 45	83	\N	2015-11-04 15:12:11.617615	2015-11-04 15:12:11.617615	https://res.cloudinary.com/cosmo-connect/image/upload/v1446649931/x8eno0qvfiv4xw6vixh6.jpg	http://res.cloudinary.com/cosmo-connect/image/upload/c_limit,h_60,w_90/v1446649931/x8eno0qvfiv4xw6vixh6.jpg
 46	84	\N	2015-11-04 15:15:56.07307	2015-11-04 15:15:56.07307	https://res.cloudinary.com/cosmo-connect/image/upload/v1446650155/jonfngzehircuhb9hi3m.jpg	http://res.cloudinary.com/cosmo-connect/image/upload/c_limit,h_60,w_90/v1446650155/jonfngzehircuhb9hi3m.jpg
+47	85	\N	2015-11-06 03:27:29.377909	2015-11-06 03:27:29.377909	https://res.cloudinary.com/cosmo-connect/image/upload/v1446780449/rvwynh6s8b2hxu9sla0s.jpg	http://res.cloudinary.com/cosmo-connect/image/upload/c_limit,h_60,w_90/v1446780449/rvwynh6s8b2hxu9sla0s.jpg
+48	86	\N	2015-11-06 03:36:51.955941	2015-11-06 03:36:51.955941	https://res.cloudinary.com/cosmo-connect/image/upload/v1446781011/gxmzn8wgw4leb7xpalfd.jpg	http://res.cloudinary.com/cosmo-connect/image/upload/c_limit,h_60,w_90/v1446781011/gxmzn8wgw4leb7xpalfd.jpg
+50	87	\N	2015-11-06 03:41:06.268928	2015-11-06 03:41:06.268928	https://res.cloudinary.com/cosmo-connect/image/upload/v1446781266/numvvakfkgleaynrcjml.jpg	http://res.cloudinary.com/cosmo-connect/image/upload/c_limit,h_60,w_90/v1446781266/numvvakfkgleaynrcjml.jpg
+51	88	\N	2015-11-06 03:49:10.181975	2015-11-06 03:49:10.181975	https://res.cloudinary.com/cosmo-connect/image/upload/v1446781749/myldf9phazr10abgwwgk.jpg	http://res.cloudinary.com/cosmo-connect/image/upload/c_limit,h_60,w_90/v1446781749/myldf9phazr10abgwwgk.jpg
+52	89	\N	2015-11-06 03:53:05.857895	2015-11-06 03:53:05.857895	https://res.cloudinary.com/cosmo-connect/image/upload/v1446781985/bnwdd5qhvqkqi3a4rd6y.jpg	http://res.cloudinary.com/cosmo-connect/image/upload/c_limit,h_60,w_90/v1446781985/bnwdd5qhvqkqi3a4rd6y.jpg
+53	74	\N	2015-11-06 03:55:58.630411	2015-11-06 03:55:58.630411	https://res.cloudinary.com/cosmo-connect/image/upload/v1446782158/bs0htshmblsve5bhswxt.jpg	http://res.cloudinary.com/cosmo-connect/image/upload/c_limit,h_60,w_90/v1446782158/bs0htshmblsve5bhswxt.jpg
+55	90	\N	2015-11-06 04:07:22.458208	2015-11-06 04:07:22.458208	https://res.cloudinary.com/cosmo-connect/image/upload/v1446782842/z6tlvt3gly6uunfapqng.jpg	http://res.cloudinary.com/cosmo-connect/image/upload/c_limit,h_60,w_90/v1446782842/z6tlvt3gly6uunfapqng.jpg
+56	91	\N	2015-11-06 04:13:23.555021	2015-11-06 04:13:23.555021	https://res.cloudinary.com/cosmo-connect/image/upload/v1446783203/nqzvvvitvxa7ufrc3c5r.jpg	http://res.cloudinary.com/cosmo-connect/image/upload/c_limit,h_60,w_90/v1446783203/nqzvvvitvxa7ufrc3c5r.jpg
+57	92	\N	2015-11-06 04:15:26.60736	2015-11-06 04:15:26.60736	https://res.cloudinary.com/cosmo-connect/image/upload/v1446783326/s14rq1m5nsfjuoxy5z4b.jpg	http://res.cloudinary.com/cosmo-connect/image/upload/c_limit,h_60,w_90/v1446783326/s14rq1m5nsfjuoxy5z4b.jpg
 \.
 
 
@@ -1244,7 +1285,7 @@ COPY photos (id, user_id, description, created_at, updated_at, url, thumb_url) F
 -- Name: photos_id_seq; Type: SEQUENCE SET; Schema: public; Owner: zMac
 --
 
-SELECT pg_catalog.setval('photos_id_seq', 46, true);
+SELECT pg_catalog.setval('photos_id_seq', 57, true);
 
 
 --
@@ -1298,13 +1339,13 @@ SELECT pg_catalog.setval('religions_id_seq', 10, true);
 
 COPY response_categories (id, title, created_at, updated_at) FROM stdin;
 1	My self-summary	2015-08-12 04:13:25.633607	2015-08-12 04:13:25.633607
-2	What I'm doing with my life	2015-08-12 04:13:25.635682	2015-08-12 04:13:25.635682
 4	Favorite books, movies, shows, music, and food	2015-08-12 04:13:25.638527	2015-08-12 04:13:25.638527
 5	The six things I could never do without	2015-08-12 04:13:25.639843	2015-08-12 04:13:25.639843
 6	I spend a lot of time thinkin about	2015-08-12 04:13:25.641198	2015-08-12 04:13:25.641198
 7	On a typical Friday night I am	2015-08-12 04:13:25.642507	2015-08-12 04:13:25.642507
 8	You should message me if	2015-08-12 04:13:25.643774	2015-08-12 04:13:25.643774
-3	I'm really good at.	2015-08-12 04:13:25.637142	2015-08-14 23:56:32.967242
+2	Played By Actor	2015-08-12 04:13:25.635682	2015-08-12 04:13:25.635682
+3	Appeared In Episodes	2015-08-12 04:13:25.637142	2015-08-14 23:56:32.967242
 \.
 
 
@@ -1343,7 +1384,6 @@ COPY responses (id, response_category_id, user_id, body, created_at, updated_at)
 56	5	19	\N	2015-08-21 22:51:11.618895	2015-08-21 22:51:11.618895
 57	6	19	\N	2015-08-21 22:51:11.618895	2015-08-21 22:51:11.618895
 58	7	19	\N	2015-08-21 22:51:11.618895	2015-08-21 22:51:11.618895
-60	3	19	\N	2015-08-21 22:51:11.618895	2015-08-21 22:51:11.618895
 61	1	12	\N	2015-08-18 06:53:26.478577	2015-08-18 06:53:26.478577
 62	2	12	\N	2015-08-18 06:53:26.478577	2015-08-18 06:53:26.478577
 64	2	17	\N	2015-08-21 22:29:33.242938	2015-08-21 22:29:33.242938
@@ -1367,14 +1407,11 @@ COPY responses (id, response_category_id, user_id, body, created_at, updated_at)
 87	8	17	\N	2015-08-21 22:29:33.242938	2015-08-21 22:29:33.242938
 88	8	16	\N	2015-08-21 08:13:22.979445	2015-08-21 08:13:22.979445
 89	3	12	\N	2015-08-18 06:53:26.478577	2015-08-18 06:53:26.478577
-91	2	20	\N	2015-08-23 05:44:27.176509	2015-08-23 05:44:27.176509
 92	4	20	\N	2015-08-23 05:44:27.176509	2015-08-23 05:44:27.176509
 93	5	20	\N	2015-08-23 05:44:27.176509	2015-08-23 05:44:27.176509
 94	6	20	\N	2015-08-23 05:44:27.176509	2015-08-23 05:44:27.176509
 95	7	20	\N	2015-08-23 05:44:27.176509	2015-08-23 05:44:27.176509
 96	8	20	\N	2015-08-23 05:44:27.176509	2015-08-23 05:44:27.176509
-97	3	20	\N	2015-08-23 05:44:27.176509	2015-08-23 05:44:27.176509
-90	1	20	they're real, and they're spectacular	2015-08-23 05:44:27.176509	2015-08-23 19:09:18.093132
 99	2	21	\N	2015-08-24 17:19:03.627613	2015-08-24 17:19:03.627613
 100	4	21	\N	2015-08-24 17:19:03.627613	2015-08-24 17:19:03.627613
 101	5	21	\N	2015-08-24 17:19:03.627613	2015-08-24 17:19:03.627613
@@ -1398,7 +1435,6 @@ COPY responses (id, response_category_id, user_id, body, created_at, updated_at)
 120	8	23	\N	2015-09-09 09:29:07.476717	2015-09-09 09:29:07.476717
 121	3	23	\N	2015-09-09 09:29:07.476717	2015-09-09 09:29:07.476717
 59	8	19	You're better with names than Jerry Seinfeld.	2015-08-21 22:51:11.618895	2015-09-10 18:17:28.694727
-54	2	19		2015-08-21 22:51:11.618895	2015-10-26 10:06:21.247167
 63	2	15	Trying to stay friends with my best friend, Jerry.  We have a few rules.  Rule number one? No calls, afterward. Rule two? Spending the night is optional!	2015-08-21 22:29:15.202328	2015-10-26 10:20:00.382497
 26	5	1	1,2,3,4,5,6	2015-08-17 16:49:48.15748	2015-10-26 03:40:51.859741
 31	7	1	Catching up on my project.	2015-08-17 18:52:23.285127	2015-10-26 04:19:05.172851
@@ -1417,9 +1453,13 @@ COPY responses (id, response_category_id, user_id, body, created_at, updated_at)
 25	2	1	Attending a coding bootcamp6.	2015-08-17 16:49:39.046196	2015-10-31 03:32:05.815345
 135	7	25	\N	2015-09-09 15:14:36.157421	2015-09-09 15:14:36.157421
 137	3	25	\N	2015-09-09 15:14:36.157421	2015-09-09 15:14:36.157421
-53	1	19	My name rhymes with a female body part.	2015-08-21 22:51:11.618895	2015-09-10 18:17:17.233523
 98	1	21	My name is George.  I'm unemployed, and I live with my parents.	2015-08-24 17:19:03.627613	2015-09-10 18:21:50.619812
 29	1	1	I'm a big fan of Python.  Rails is pretty awesome too.  Javascript and CSS are acquired tastes.\r\n\r\nTakes some getting used to.	2015-08-17 17:00:24.367881	2015-11-05 01:18:01.456246
+91	2	20	Terry Hatcher	2015-08-23 05:44:27.176509	2015-11-06 04:10:17.506648
+90	1	20	Elaine suspects that Jerry’s new girlfriend Sidra has fake breasts. When she meets her in a sauna at the gym, she accidentally trips into her and gets a feel. Turns out “they’re real, and they’re spectacular.” Sidra thinks that Jerry sent his friend in the sauna to do that and storms out of his apartment.	2015-08-23 05:44:27.176509	2015-11-06 04:10:24.713071
+97	3	20	The Implant	2015-08-23 05:44:27.176509	2015-11-06 04:10:32.029854
+54	2	19	Susan Walters	2015-08-21 22:51:11.618895	2015-11-06 04:11:14.136652
+60	3	19	The Junior Mint	2015-08-21 22:51:11.618895	2015-11-06 04:11:20.696402
 28	3	1	I thought computer programming, but I'm reevaluating.	2015-08-17 16:50:10.479905	2015-10-26 04:22:43.700275
 147	2	27	\N	2015-10-26 10:10:49.734297	2015-10-26 10:10:49.734297
 148	4	27	\N	2015-10-26 10:10:49.734297	2015-10-26 10:10:49.734297
@@ -1503,6 +1543,7 @@ COPY responses (id, response_category_id, user_id, body, created_at, updated_at)
 533	7	72	\N	2015-11-04 13:31:45.29859	2015-11-04 13:31:45.29859
 534	8	72	\N	2015-11-04 13:31:45.29859	2015-11-04 13:31:45.29859
 535	3	72	\N	2015-11-04 13:31:45.29859	2015-11-04 13:31:45.29859
+650	4	87	\N	2015-11-06 03:38:54.29643	2015-11-06 03:38:54.29643
 528	1	72	Jerry and Donna met on the phone when her phone line got crossed with George’s. He managed to score a date with her (only Jerry could pull that off). He was so excited to meet Donna Chang because he had never dated a Chinese girl. Much to his dismay, her name was actually “Donna Changstein” and she shortened it. Jerry ponders if this is simply a coincidence, or does she actually think she’s Chinese? Throughout the episode she portrays Chinese stereotypes, such as having an interest for acupuncture and mispronouncing words, notably referring to the word “ridiculous” as “ridicurous.” Jerry finally blurts out: “You know, you’re not Chinese!”	2015-11-04 13:31:45.29859	2015-11-04 13:33:01.999666
 537	2	73	\N	2015-11-04 13:36:20.42061	2015-11-04 13:36:20.42061
 538	4	73	\N	2015-11-04 13:36:20.42061	2015-11-04 13:36:20.42061
@@ -1544,13 +1585,18 @@ COPY responses (id, response_category_id, user_id, body, created_at, updated_at)
 573	7	77	\N	2015-11-04 14:16:43.404933	2015-11-04 14:16:43.404933
 574	8	77	\N	2015-11-04 14:16:43.404933	2015-11-04 14:16:43.404933
 575	3	77	\N	2015-11-04 14:16:43.404933	2015-11-04 14:16:43.404933
-585	2	79	\N	2015-11-04 14:34:58.458572	2015-11-04 14:34:58.458572
 586	4	79	\N	2015-11-04 14:34:58.458572	2015-11-04 14:34:58.458572
 587	5	79	\N	2015-11-04 14:34:58.458572	2015-11-04 14:34:58.458572
 588	6	79	\N	2015-11-04 14:34:58.458572	2015-11-04 14:34:58.458572
 589	7	79	\N	2015-11-04 14:34:58.458572	2015-11-04 14:34:58.458572
 590	8	79	\N	2015-11-04 14:34:58.458572	2015-11-04 14:34:58.458572
-591	3	79	\N	2015-11-04 14:34:58.458572	2015-11-04 14:34:58.458572
+651	5	87	\N	2015-11-06 03:38:54.29643	2015-11-06 03:38:54.29643
+652	6	87	\N	2015-11-06 03:38:54.29643	2015-11-06 03:38:54.29643
+653	7	87	\N	2015-11-06 03:38:54.29643	2015-11-06 03:38:54.29643
+654	8	87	\N	2015-11-06 03:38:54.29643	2015-11-06 03:38:54.29643
+648	1	87	Jerry dates Nina the artist who paints a portrait of Kramer. When she offers George her father’s tickets to the owners box at Yankee Stadium, he reluctantly purchases a painting for $500. After an argument, Nina sends Jerry a breakup letter but he realizes that she plagiarized the letter from a movie.	2015-11-06 03:38:54.29643	2015-11-06 03:41:21.283151
+649	2	87	Catherine Keener	2015-11-06 03:38:54.29643	2015-11-06 03:42:07.358445
+591	3	79	The Shoes	2015-11-04 14:34:58.458572	2015-11-06 04:08:37.055532
 584	1	79	This episode had a different dynamic to it. In this case, the relationship and break up had already occurred. Jerry points her out, and claims they previously dated but he broke up with her because she refused to kiss him goodnight after three dates. She ultimately ends up with Kramer who claims “she’s wearing him out.”\r\n\r\nJerry is obviously miffed but cannot cut ties because he and George need a favor from her. The president of NBC refuses to take their calls but they know that he often frequents the restaurant that Gail is a chef at. She agrees to let Jerry and George know the next time he comes in so they can corner him…on 1 condition. Elaine has to give Gail her shoes, the Botticelli’s!	2015-11-04 14:34:58.458572	2015-11-04 14:39:15.822895
 593	2	80	\N	2015-11-04 14:41:52.729485	2015-11-04 14:41:52.729485
 594	4	80	\N	2015-11-04 14:41:52.729485	2015-11-04 14:41:52.729485
@@ -1568,13 +1614,11 @@ COPY responses (id, response_category_id, user_id, body, created_at, updated_at)
 606	8	81	\N	2015-11-04 14:47:21.856584	2015-11-04 14:47:21.856584
 607	3	81	\N	2015-11-04 14:47:21.856584	2015-11-04 14:47:21.856584
 600	1	81	Where to begin. It was par for the course to see “The Sein” overachieve with the ladies, but this portion of the list is where business officially picks up.\r\n\r\nMeryl poses as Jerry’s wife in this episode to obtain a 25% discount on dry cleaning. The two of them end up having fun with the idea of being married and eerily start acting like a married couple. Jerry eventually cheats on her with a girl who’s in financial peril so that she could use the discount too… Cheating on Courteney Cox, way to go Jerry.	2015-11-04 14:47:21.856584	2015-11-04 14:50:25.401417
-609	2	82	\N	2015-11-04 14:56:06.629871	2015-11-04 14:56:06.629871
 610	4	82	\N	2015-11-04 14:56:06.629871	2015-11-04 14:56:06.629871
 611	5	82	\N	2015-11-04 14:56:06.629871	2015-11-04 14:56:06.629871
 612	6	82	\N	2015-11-04 14:56:06.629871	2015-11-04 14:56:06.629871
 613	7	82	\N	2015-11-04 14:56:06.629871	2015-11-04 14:56:06.629871
 614	8	82	\N	2015-11-04 14:56:06.629871	2015-11-04 14:56:06.629871
-615	3	82	\N	2015-11-04 14:56:06.629871	2015-11-04 14:56:06.629871
 608	1	82	Tia Van Camp will go down as the best looking woman Jerry Seinfeld dated in the 9 seasons of Seinfeld. Naturally, he blew it.\r\n\r\nJerry and Elaine were on a flight heading back to New York, and there was a situation where one of them was to be bumped up to first class. Jerry was the needless volunteer. He ended up sitting next to Tia Van Camp, who was portraying a super model. The two instantly hit it off for the entire flight and exchanged numbers in the airport as the paparazzi was snapping pictures of her. Elaine was also at her best in this episode as she got stuck in coach and had a hilarious flight.\r\n\r\nJerry and Tia meet up the next episode and seem to be getting along again…until she caught Jerry in “a pick” at a red light. Her cab pulled up next to Jerry while he was at a red light, and he was seemingly picking his nose. She was horrified and spent the rest of the episode avoiding him.	2015-11-04 14:56:06.629871	2015-11-04 15:02:10.747294
 617	2	83	\N	2015-11-04 15:11:45.667269	2015-11-04 15:11:45.667269
 618	4	83	\N	2015-11-04 15:11:45.667269	2015-11-04 15:11:45.667269
@@ -1592,6 +1636,67 @@ COPY responses (id, response_category_id, user_id, body, created_at, updated_at)
 630	8	84	\N	2015-11-04 15:15:21.795056	2015-11-04 15:15:21.795056
 631	3	84	\N	2015-11-04 15:15:21.795056	2015-11-04 15:15:21.795056
 624	1	84	"The Good Samaritan" is the 37th episode of the sitcom Seinfeld. It is the 20th episode of the third season, and first aired on March 4, 1992. This is the only episode of Seinfeld to be directed by one of the show's stars, Jason Alexander, who played George Costanza.\r\n\r\nWithin this episode are several memorable moments. One is Jerry's suggestion that there should be an alternative to saying, "God bless you" after someone sneezes. In real life, the cast and crew had hoped the saying, "You are so good looking", would catch on with fans just as "These pretzels are making me thirsty" did. In 2009, an Iowa man was fired from his job for sexual harassment, partially stemming from his use of the phrase.[1]\r\n\r\nAnother bit concerns Kramer having seizures every time he hears Mary Hart's voice. This bit is based on an actual case reported in the New England Journal of Medicine.[2]	2015-11-04 15:15:21.795056	2015-11-04 15:16:42.796239
+633	2	85	\N	2015-11-06 03:26:49.153116	2015-11-06 03:26:49.153116
+634	4	85	\N	2015-11-06 03:26:49.153116	2015-11-06 03:26:49.153116
+635	5	85	\N	2015-11-06 03:26:49.153116	2015-11-06 03:26:49.153116
+636	6	85	\N	2015-11-06 03:26:49.153116	2015-11-06 03:26:49.153116
+637	7	85	\N	2015-11-06 03:26:49.153116	2015-11-06 03:26:49.153116
+638	8	85	\N	2015-11-06 03:26:49.153116	2015-11-06 03:26:49.153116
+639	3	85	\N	2015-11-06 03:26:49.153116	2015-11-06 03:26:49.153116
+641	2	86	\N	2015-11-06 03:36:28.713942	2015-11-06 03:36:28.713942
+642	4	86	\N	2015-11-06 03:36:28.713942	2015-11-06 03:36:28.713942
+643	5	86	\N	2015-11-06 03:36:28.713942	2015-11-06 03:36:28.713942
+644	6	86	\N	2015-11-06 03:36:28.713942	2015-11-06 03:36:28.713942
+645	7	86	\N	2015-11-06 03:36:28.713942	2015-11-06 03:36:28.713942
+646	8	86	\N	2015-11-06 03:36:28.713942	2015-11-06 03:36:28.713942
+647	3	86	\N	2015-11-06 03:36:28.713942	2015-11-06 03:36:28.713942
+640	1	86	Jerry dates Isabel who is an aspiring actress and makes him read her stupid acting scenes. The problem is that he so attracted to her physically that Its like his penis is playing his brain in a game of chess.	2015-11-06 03:36:28.713942	2015-11-06 03:37:04.397748
+632	1	85	Jerry meets Vanessa while attending a dinner party with Elaine. Jerry learns that she works at a Law Firm called ‘Simon, Bennett, Robbins, Oppenheim and Taft’, and decides to stake out her office to ask her out. After dating for a short time Jerry takes her to a bed and breakfast in Vermont but rainy weather keeps them inside and ruins the whole trip. Jerry should have listened to George, who advised against the weekend get-away calling it a ‘dating decathlon’.	2015-11-06 03:26:49.153116	2015-11-06 03:38:03.543823
+609	2	82	Jennifer Campbell	2015-11-04 14:56:06.629871	2015-11-06 03:57:13.794024
+615	3	82	The Pick	2015-11-04 14:56:06.629871	2015-11-06 03:57:19.965196
+655	3	87	The Letter	2015-11-06 03:38:54.29643	2015-11-06 03:42:27.812469
+658	4	88	\N	2015-11-06 03:43:19.79337	2015-11-06 03:43:19.79337
+659	5	88	\N	2015-11-06 03:43:19.79337	2015-11-06 03:43:19.79337
+660	6	88	\N	2015-11-06 03:43:19.79337	2015-11-06 03:43:19.79337
+661	7	88	\N	2015-11-06 03:43:19.79337	2015-11-06 03:43:19.79337
+662	8	88	\N	2015-11-06 03:43:19.79337	2015-11-06 03:43:19.79337
+656	1	88	Jerry is dating Naoimi and accidentally plays his voice mails infront of her and she hears George make a comment about her laugh sounding like Elmer Fudd sitting on a juicer. Later, Kramer and Naomi attempt to meet Jerry, Elaine, George, and Susan at Susan’s family’s home up country. But Kramer leaves his lit cigar near some old newspapers, which causes a fire that destroys the cabin.	2015-11-06 03:43:19.79337	2015-11-06 03:47:10.920049
+657	2	88	Jessica Lundy	2015-11-06 03:43:19.79337	2015-11-06 03:47:25.699023
+663	3	88	The Bubble Boy	2015-11-06 03:43:19.79337	2015-11-06 03:47:33.038529
+665	4	89	\N	2015-11-06 03:51:58.82241	2015-11-06 03:51:58.82241
+666	5	89	\N	2015-11-06 03:51:58.82241	2015-11-06 03:51:58.82241
+667	6	89	\N	2015-11-06 03:51:58.82241	2015-11-06 03:51:58.82241
+668	7	89	\N	2015-11-06 03:51:58.82241	2015-11-06 03:51:58.82241
+669	8	89	\N	2015-11-06 03:51:58.82241	2015-11-06 03:51:58.82241
+670	2	89	Lisa Malkiewicz	2015-11-06 03:51:58.82241	2015-11-06 03:53:11.105222
+671	3	89	The Cheever Letters	2015-11-06 03:51:58.82241	2015-11-06 03:53:20.85276
+664	1	89	Jerry calls Elaine at work, but complains about her chatty secretary Sandra which causes her to quit. So Elaine asks Jerry to apologize to Sandra and prevent her from quitting, and Jerry asks her out on a date. They end up going back to his apartment but Sandra leaves after they start talking dirty and Jerry crosses the line.	2015-11-06 03:51:58.82241	2015-11-06 03:53:26.94113
+673	4	90	\N	2015-11-06 03:57:35.819656	2015-11-06 03:57:35.819656
+674	5	90	\N	2015-11-06 03:57:35.819656	2015-11-06 03:57:35.819656
+675	6	90	\N	2015-11-06 03:57:35.819656	2015-11-06 03:57:35.819656
+676	7	90	\N	2015-11-06 03:57:35.819656	2015-11-06 03:57:35.819656
+677	8	90	\N	2015-11-06 03:57:35.819656	2015-11-06 03:57:35.819656
+678	2	90	Paula Marshall	2015-11-06 03:57:35.819656	2015-11-06 03:58:13.702121
+672	1	90	While at the coffee shop, Elaine notices a woman in the next booth eavesdropping, and as a prank speaks to Jerry and George as if they were gay couple. The eavesdropping woman turns out to be Sharon, a NYU reporter who is waiting to interview Jerry. Later, she visits Jerry’s apartment to conduct the interview and confirms her belief that they are a gay couple. Eventually, they recognize her from the coffee shop, and deny that they are gay, “not that there’s anything wrong with that.” After some convincing Jerry and Sharon date, but George tries to act gay with Jerry in front of his girlfriend Allison to prove that they’re homosexuals so they can break up.	2015-11-06 03:57:35.819656	2015-11-06 04:03:47.695668
+679	3	90	The Outing	2015-11-06 03:57:35.819656	2015-11-06 04:04:07.055782
+585	2	79	Anita Barone	2015-11-04 14:34:58.458572	2015-11-06 04:08:27.50419
+53	1	19	Jerry forgets the name of the woman he is dating and tries to guess it after she mentions that it rhymes with a part of the female anatomy, Jerry and George come up with possible names including: Aretha, Celeste, and Bovary. Finally she presses him to say her name and Jerry guesses Mulva, causing her to storm out of his apartment. As she's leaving, Jerry guesses Gipple and Loleola before coming to the realization…Dolores!	2015-08-21 22:51:11.618895	2015-11-06 04:11:06.335688
+681	4	91	\N	2015-11-06 04:12:37.058372	2015-11-06 04:12:37.058372
+682	5	91	\N	2015-11-06 04:12:37.058372	2015-11-06 04:12:37.058372
+683	6	91	\N	2015-11-06 04:12:37.058372	2015-11-06 04:12:37.058372
+684	7	91	\N	2015-11-06 04:12:37.058372	2015-11-06 04:12:37.058372
+685	8	91	\N	2015-11-06 04:12:37.058372	2015-11-06 04:12:37.058372
+680	1	91	Sandi is an actress who was hired to play Elaine in the Jerry pilot. To better understand the character she wants Jerry to treat her exactly as he treated Elaine. She fools herself into thinking that she and Jerry are dating, and when he rejects her advances, she thinks he is breaking up with her to which Jerry is indifferent.	2015-11-06 04:12:37.058372	2015-11-06 04:13:37.462709
+686	2	91	Elena Wohl	2015-11-06 04:12:37.058372	2015-11-06 04:13:43.65719
+687	3	91	The Pilot	2015-11-06 04:12:37.058372	2015-11-06 04:13:50.375378
+689	4	92	\N	2015-11-06 04:14:41.567646	2015-11-06 04:14:41.567646
+690	5	92	\N	2015-11-06 04:14:41.567646	2015-11-06 04:14:41.567646
+691	6	92	\N	2015-11-06 04:14:41.567646	2015-11-06 04:14:41.567646
+692	7	92	\N	2015-11-06 04:14:41.567646	2015-11-06 04:14:41.567646
+693	8	92	\N	2015-11-06 04:14:41.567646	2015-11-06 04:14:41.567646
+688	1	92	Not wearing his glasses, George thinks he recognizes Jerry’s girlfriend kissing Jeffrey, Jerry’s cousin. When George tells Jerry, he tries to get Amy to confess, but she denies it. Jerry begins to wonder if George was mistaken about seeing Amy with Jeffrey when George mistakes an onion for an apple. “I don’t know what to believe! You’re eating unions, you’re spotting dimes, I don’t know what the hell is going on.” (We loved Anna Gunn on Seinfeld so much we thought she deserved her own character spotlight.)	2015-11-06 04:14:41.567646	2015-11-06 04:15:39.255329
+694	2	92	Anna Gunn	2015-11-06 04:14:41.567646	2015-11-06 04:15:48.149771
+695	3	92	The Glasses	2015-11-06 04:14:41.567646	2015-11-06 04:15:52.851708
 \.
 
 
@@ -1599,7 +1704,7 @@ COPY responses (id, response_category_id, user_id, body, created_at, updated_at)
 -- Name: responses_id_seq; Type: SEQUENCE SET; Schema: public; Owner: zMac
 --
 
-SELECT pg_catalog.setval('responses_id_seq', 631, true);
+SELECT pg_catalog.setval('responses_id_seq', 695, true);
 
 
 --
@@ -1665,6 +1770,7 @@ SELECT pg_catalog.setval('user_interest_links_id_seq', 1, false);
 --
 
 COPY users (id, username, password_digest, session_token, birthdate, gender_id, min_age, max_age, max_radius, last_login, last_logout, created_at, updated_at) FROM stdin;
+85	vanessa	$2a$10$JOF3gtUHCKU01vANnOJZfOk5G6KuInDYPj.uG/O.y7sH/05e.fAGe	5Mw4TGS8-sFzNKD0aekhvg	1964-08-01 00:00:00	2	45	60	\N	\N	\N	2015-11-06 03:26:49.153116	2015-11-06 03:37:48.234102
 25	marissa_tomei	$2a$10$LnoUupujW/4Qrko6wSIDku75K6/020hiLoKfctfDHKfr/wRXiv89K	MJO-1hfieoTrTuCRe2iu2A	1964-12-04 00:00:00	2	\N	\N	\N	\N	\N	2015-09-09 15:14:36.157421	2015-10-26 21:45:23.879086
 28	donna	$2a$10$V8cdI3MKbgIJgyDGSl/MU.Dl6sDBco.h/F4OfM6y/bJ4WDfIXD.YG	f_mFeQfundkFpMUxNwn__A	1981-04-28 00:00:00	2	\N	\N	\N	\N	\N	2015-10-26 10:22:11.021718	2015-10-26 10:24:37.446473
 27	marlene	$2a$10$dT9Q7dUV.tEJY1GcyUHmFuT693IH6JWZGOcglUiEFndCKVN/Z4d3C	WZaQOg-pz7qPoPydFws4gQ	1962-04-06 00:00:00	2	\N	\N	\N	\N	\N	2015-10-26 10:10:49.734297	2015-10-26 10:17:16.837698
@@ -1677,27 +1783,34 @@ COPY users (id, username, password_digest, session_token, birthdate, gender_id, 
 35	deaf_tennis_judge	$2a$10$f1X0dP2aAaAzlp/B8rJWiuHHhrmTRJD.BcrfYuQGlRgrwTRGPTHMq	cROQdV3f1a3JD5b9WSracA	\N	\N	\N	\N	\N	\N	\N	2015-10-28 07:51:38.641464	2015-10-28 07:51:38.68502
 17	maestro	$2a$10$w3mtYswiHawuqX67CheSvO7XZk7b1zAd0z2j0S5URTBXr0Xa/poBO	deb5Po6yUF_fuk_2UkVuhQ	1946-03-11 00:00:00	1	\N	\N	\N	\N	\N	2015-08-21 22:29:30.26859	2015-09-10 18:16:43.691981
 21	george	$2a$10$O70wgZF4MGoK/S867hsw9.7xAytIo/mN/XjReQu8jG1.sRMX91v1W	jDwlnuEEZT0CocjXFDdsaw	1955-09-23 00:00:00	1	\N	\N	\N	\N	\N	2015-08-24 17:19:03.627613	2015-09-10 18:46:15.59881
-20	sindra	$2a$10$A9e69J3nD2gyrpOQOeUpC.aMurVoOVyXwvpBxEuDzKUQOIpvun2qa	n815a4Vv2wlh4_6aPWK65Q	1964-12-08 00:00:00	2	\N	\N	\N	\N	\N	2015-08-23 05:44:27.176509	2015-09-10 18:17:41.099867
 22	poppy	$2a$10$VYxmKfsD8nufKVJddWjIE.BHH/KbWx64iquNqEdUdFhACl5PADu0G	9AnT67cay8uhN-gtWR2XWg	1950-01-01 00:00:00	1	\N	\N	\N	\N	\N	2015-09-07 05:32:36.568962	2015-09-10 18:24:08.354236
 31	ned_isakoff	$2a$10$ixEZEikRFFT6lkc2UaCAIetjIyyXV4ZMuiHLov3/QtROcNn0bFvKu	eSp3yPbNL1updDNjbvfHNQ	1969-05-15 00:00:00	1	\N	\N	\N	\N	\N	2015-10-26 10:55:20.045129	2015-10-26 10:56:18.913925
 23	steinbrenner	$2a$10$jRxoclUSpcVCHkHn58QSUu.306xxrGhUrB1wdznvp7qa673xMzx0u	WKLj0BGLFQZwjTNANw8I2Q	1930-07-04 00:00:00	1	\N	\N	\N	\N	\N	2015-09-09 09:29:07.476717	2015-09-10 18:31:59.220097
 24	susan	$2a$10$ZBEv1C1jduNz5M7/RKA/HOcc.opkJB1cAiFz3Joa8iBSkTCuFM2iK	0BKaMob8Uo8hvIWB3LqsPg	1966-03-03 00:00:00	2	\N	\N	\N	\N	\N	2015-09-09 09:52:32.140723	2015-09-10 18:36:30.659651
-19	mulva	$2a$10$s6ci8s7FD8qocIrmLutsbuW81nx0x0AqzHNAKIwwR1LWwjXtkvHym	rr1RLgG8nY0cFF550nEYXA	1985-07-14 00:00:00	2	\N	\N	\N	\N	\N	2015-08-21 22:51:11.618895	2015-10-30 05:54:28.965035
+87	nina	$2a$10$hNgVsywQx1Jtoxs9rEG.E.7ykvrdjclK.RxxQ67yJidWfqDj96qaa	L9NIOSnfpZxzSXZZQkmTQA	1959-03-23 00:00:00	2	50	65	\N	\N	\N	2015-11-06 03:38:54.29643	2015-11-06 03:39:25.806114
+86	isabel	$2a$10$jaGEFyMKTqRPDO/GHieNn.IkzqVMSahyULqt8zKg.9shkKZkq66Me	QoGHHowxZI-uD-4Q1l-mAw	1971-01-01 00:00:00	2	45	55	\N	\N	\N	2015-11-06 03:36:28.713942	2015-11-06 03:43:02.378654
+88	naomi	$2a$10$5tjRVd99OjpoDqkQqj7PxumS5w4z1LWEHbXpd2L4AMGzk5/IBKceG	ikKPRGBLL0IZ-6UQPNuMCQ	1966-03-20 00:00:00	2	45	60	\N	\N	\N	2015-11-06 03:43:19.79337	2015-11-06 03:48:07.054989
+20	sindra	$2a$10$A9e69J3nD2gyrpOQOeUpC.aMurVoOVyXwvpBxEuDzKUQOIpvun2qa	Lwm_Y1nC2ZCOkJ8iTjdXXQ	1964-12-08 00:00:00	2	\N	\N	\N	\N	\N	2015-08-23 05:44:27.176509	2015-11-06 04:08:55.129778
+19	mulva	$2a$10$s6ci8s7FD8qocIrmLutsbuW81nx0x0AqzHNAKIwwR1LWwjXtkvHym	a4nOZ-Vxk85FMQqWgrqFdg	1985-07-14 00:00:00	2	\N	\N	\N	\N	\N	2015-08-21 22:51:11.618895	2015-11-06 04:10:53.727656
+14	seinfeld	$2a$10$WO0BighJXm2znlGFT0XxWuC/RYPtvVFfOHN.7o5.aeFb9StkJUwxe	hjV5O9YjIRvR9E9OMgdpoQ	1952-12-01 00:00:00	1	\N	\N	\N	\N	\N	2015-08-18 05:54:50.957263	2015-11-06 00:25:41.120305
+89	sandra	$2a$10$6uEOjBHyVxq99WQahxAhXOpqvq8SXh3PkxhlivHsD7zrLuIs71nOe	KhQfAP_2BBR6PJv6qas_XQ	1965-07-23 00:00:00	2	45	60	\N	\N	\N	2015-11-06 03:51:58.82241	2015-11-06 03:52:45.462779
+1	zelaznik	$2a$10$GxKq.J.9qWJ2tlLU7P6UEerTRa01rIef7GLb9WaXb3FOePHzF/acC	aRJQnmpRrZ-R9b9nLcG67A	1984-02-06 00:00:00	1	26	34	50	\N	\N	2015-08-12 04:19:06.209106	2015-11-06 03:54:03.143057
+74	marla	$2a$10$U5zKVPtfafdo36QdTH0g..dqrN2cfXmgiFp2EGIoZSBhOznoh5Lne	WBtiAWkEmNZ_R88H9aLQbw	1961-04-18 00:00:00	2	50	60	\N	\N	\N	2015-11-04 13:39:20.637977	2015-11-06 03:55:48.772544
+82	tia	$2a$10$jOBmBFA6qCY3Ec.5kREfG.78Dmdo4.MaQhBoZ4QmcecvrTY340Age	yw6o_yFc7QFc6PrEE1-T0A	1967-10-03 00:00:00	2	30	45	\N	\N	\N	2015-11-04 14:56:06.629871	2015-11-06 03:57:00.988612
+90	sharon	$2a$10$KNp/dmLBaHGWK2e3RajIwepO3fB4kZzdbsoRa.FHJQ6aTFuNtKsZG	9Fs0ZZWTRsJY5nz8N2YJuQ	1964-06-12 00:00:00	2	50	60	\N	\N	\N	2015-11-06 03:57:35.819656	2015-11-06 04:07:11.093597
+79	gail_cunningham	$2a$10$FYD3zv9UFV15QeaW2Oga8OBG.ejjjg/0RyOOgVYGnR7PmZroAzu/6	pIQfcXLqHUtAXpeyrmLmfg	1964-09-25 00:00:00	2	45	60	\N	\N	\N	2015-11-04 14:34:58.458572	2015-11-06 04:08:12.836853
 71	ellen	$2a$10$.8826jWeQ7jDi.dqX0iNMOT3opIxMtQGJLTuekaBm4L10JdAtLldO	JAhljjyZ5dZUCi3v25VAjw	1971-01-30 00:00:00	2	\N	\N	\N	\N	\N	2015-11-04 13:29:09.971571	2015-11-04 13:29:36.474732
+91	sandi	$2a$10$ifU4bm13XeXtrMKf3L7GkekZMh7SEcOmen/A1Pmaro1UYvygpYO7K	hAQXPmpQ6WjjNczeD6N2Og	1970-05-24 00:00:00	2	40	55	\N	\N	\N	2015-11-06 04:12:37.058372	2015-11-06 04:13:12.027812
 72	donna_chang	$2a$10$nPQoGn74lk/voArP7gHmkexEGMzyNjlpWh0Ni1kq13XhKn6pOI5QO	9jf2J4xxhjj0buKaz0xFLw	1965-08-17 00:00:00	\N	\N	\N	\N	\N	\N	2015-11-04 13:31:45.29859	2015-11-04 13:32:24.291157
 70	laura_seinfeld_chronicles	$2a$10$1kR.UueWkF1QWGtti4ND5OlRyV7K4LryUHLQGM1FwqDSZ6fe55Zry	6PiY9V5-VEgBIUehewrzeQ	1953-08-25 00:00:00	2	30	70	\N	\N	\N	2015-11-04 13:20:17.493183	2015-11-04 13:33:33.723095
 77	patty	$2a$10$vOJfr8D4UXRID4VWcd7J7.sohiMRulkS1mTIKHuLShUrXTwX5jPEq	APui_PCC0FlxTlwdIP1c2Q	1964-07-28 00:00:00	2	40	60	\N	\N	\N	2015-11-04 14:16:43.404933	2015-11-04 14:17:09.238154
+92	ami	$2a$10$NWekxx0h8x8YMndW4Uy1pOwFkbQOUlyCYSgsODvGfXghPZdwgW1VC	aMZn9oHxrFzZztv22mKb9A	1968-08-11 00:00:00	2	45	60	\N	\N	\N	2015-11-06 04:14:41.567646	2015-11-06 04:15:10.872097
 73	laura_the_tennis_judge	$2a$10$KVE3cf.GU3.yFiMvDh/dOOX5DdXVkMtUvxUvZtz5cSFmr0s54sdCK	1YCfBojhqUWDogUF0ZrDkA	1965-08-24 00:00:00	2	45	55	\N	\N	\N	2015-11-04 13:36:20.42061	2015-11-04 13:37:47.176747
-74	marla	$2a$10$U5zKVPtfafdo36QdTH0g..dqrN2cfXmgiFp2EGIoZSBhOznoh5Lne	Ph79PS-K3zCUgzg9jRob8w	1961-04-18 00:00:00	2	50	60	\N	\N	\N	2015-11-04 13:39:20.637977	2015-11-04 13:40:03.684473
 75	claire	$2a$10$ayfviJ6EPKV5ECQHAnVZsOt2DhwXNnAvuUvrdV2ih8aVxPWET8rdm	GQWshmCKVKcKWMtafdilKg	1980-05-01 00:00:00	2	30	40	\N	\N	\N	2015-11-04 13:42:07.403933	2015-11-04 13:43:08.870609
 76	rachel_goldstein	$2a$10$xQBw3YCycH8ZSqZspRfdAu/inaVyNQwZSHHA8RI1dpy0ZRkb5dwT.	VjhrxBSHYtIWiplNH928BQ	1985-07-14 00:00:00	2	22	35	\N	\N	\N	2015-11-04 13:48:28.696195	2015-11-04 14:03:27.771282
-79	gail_cunningham	$2a$10$FYD3zv9UFV15QeaW2Oga8OBG.ejjjg/0RyOOgVYGnR7PmZroAzu/6	g_oNq4x-eomAAH9TGwA5OA	1964-09-25 00:00:00	2	45	60	\N	\N	\N	2015-11-04 14:34:58.458572	2015-11-04 14:38:39.148491
 80	nicki	$2a$10$jZT64Ik7I554LnAa1gNrWOWDc.35e59/S1UOiqTcjCH2tz0Iqmvz.	waYmWMLW7zMUWDn9Lq4LQg	1975-09-01 00:00:00	2	\N	\N	\N	\N	\N	2015-11-04 14:41:52.729485	2015-11-04 14:43:12.513729
 81	meryl	$2a$10$Zd5Jgy3hPsBn8uVwCveo/O.PsZpCbVJsw3.Merl4lVrrWABERmt1W	OQFxKNg3wqZ7coBgZnACvg	1964-06-15 00:00:00	2	22	30	\N	\N	\N	2015-11-04 14:47:21.856584	2015-11-04 14:48:34.315676
-82	tia_van_camp	$2a$10$jOBmBFA6qCY3Ec.5kREfG.78Dmdo4.MaQhBoZ4QmcecvrTY340Age	mJ1FBxGuNh_CeVSdThdDcw	1967-10-03 00:00:00	2	30	45	\N	\N	\N	2015-11-04 14:56:06.629871	2015-11-04 14:59:48.822274
 83	gina	$2a$10$11nlnzltUoQec/N/MKdYtePddKuIKiAJp/M2S9WqVK7GMxZfeBL6K	LAbIsnsDLF7Bo-9AsHeftw	1970-01-01 00:00:00	2	40	55	\N	\N	\N	2015-11-04 15:11:45.667269	2015-11-04 15:12:00.933624
-14	seinfeld	$2a$10$WO0BighJXm2znlGFT0XxWuC/RYPtvVFfOHN.7o5.aeFb9StkJUwxe	x2OcCVeb2x2v5kiYzOAC-g	1952-12-01 00:00:00	1	\N	\N	\N	\N	\N	2015-08-18 05:54:50.957263	2015-11-04 15:18:45.413103
-1	zelaznik	$2a$10$GxKq.J.9qWJ2tlLU7P6UEerTRa01rIef7GLb9WaXb3FOePHzF/acC	9mUP8pP3nHye_BT7W-5E1g	1984-02-06 00:00:00	1	26	34	50	\N	\N	2015-08-12 04:19:06.209106	2015-11-05 08:24:08.609281
 84	angela	$2a$10$tov3pZUSd92bw2MGxpJ8k.cyH1FaKSDOcoKp4TjEDrIO6BGIKAHO.	OUyYG5omm_--SvHpyRr2jQ	1967-11-22 00:00:00	2	21	40	\N	\N	\N	2015-11-04 15:15:21.795056	2015-11-04 15:15:44.030044
 \.
 
@@ -1706,7 +1819,7 @@ COPY users (id, username, password_digest, session_token, birthdate, gender_id, 
 -- Name: users_id_seq; Type: SEQUENCE SET; Schema: public; Owner: zMac
 --
 
-SELECT pg_catalog.setval('users_id_seq', 84, true);
+SELECT pg_catalog.setval('users_id_seq', 92, true);
 
 
 --
@@ -1771,6 +1884,10 @@ COPY visits (id, visitor_id, profile_id, created_at, updated_at) FROM stdin;
 118	1	83	2015-11-04 17:00:30.614146	2015-11-04 17:00:30.614146
 119	1	79	2015-11-04 22:07:22.158484	2015-11-04 22:07:22.158484
 120	1	71	2015-11-05 05:53:44.980936	2015-11-05 05:53:44.980936
+121	1	77	2015-11-05 21:37:05.701399	2015-11-05 21:37:05.701399
+122	14	82	2015-11-06 00:23:56.458712	2015-11-06 00:23:56.458712
+123	86	85	2015-11-06 03:37:41.768861	2015-11-06 03:37:41.768861
+124	88	31	2015-11-06 03:49:18.728967	2015-11-06 03:49:18.728967
 \.
 
 
@@ -1778,7 +1895,7 @@ COPY visits (id, visitor_id, profile_id, created_at, updated_at) FROM stdin;
 -- Name: visits_id_seq; Type: SEQUENCE SET; Schema: public; Owner: zMac
 --
 
-SELECT pg_catalog.setval('visits_id_seq', 120, true);
+SELECT pg_catalog.setval('visits_id_seq', 124, true);
 
 
 --
