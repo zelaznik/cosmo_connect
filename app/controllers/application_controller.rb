@@ -4,6 +4,12 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   helper_method :current_user, :signed_in?
 
+  force_ssl if: :not_dev?
+
+  def not_dev?
+    !Rails.env.development?
+  end
+
   private
 
   def sign_in(user)
